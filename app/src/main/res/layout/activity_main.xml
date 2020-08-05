@@ -18,8 +18,7 @@
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
         android:textColor="@color/naranja"
-        android:textSize="24dp"
-        android:textStyle="bold"
+        android:textSize="18dp"
         android:textAlignment="textEnd"
         tools:ignore="RtlCompat"/>
 
@@ -33,24 +32,14 @@
         android:background="@drawable/rounded_box_linear">
 
         <EditText
-            android:id="@+id/etContenido"
+            android:id="@+id/etDistancia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/naranja"
-            android:hint="La frase aquí..."/>
-
-        <EditText
-            android:id="@+id/etDistancia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/naranja"
-            android:hint="Introduce metros recorridos..."/>
+            android:hint="Introduce los metros recorridos..."/>
 
         <EditText
             android:id="@+id/etTiempo"
@@ -61,16 +50,6 @@
             android:layout_marginRight="10dp"
             android:textColor="@color/naranja"
             android:hint="Introduce tu tiempo..."/>
-
-        <EditText
-            android:id="@+id/etAutor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/naranja"
-            android:hint="El autor aquí..."/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,8 +66,7 @@
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="7dp"
                 android:background="@drawable/rounded_box_button"
-                android:text="VER"
-                android:onClick="ver"/>
+                android:text="empty"/>
 
             <Button
                 android:id="@+id/btnCalcular"
@@ -130,7 +108,7 @@
         android:onClick="settings"/>
 
     <TextView
-        android:id="@+id/tvFraseGuardada"
+        android:id="@+id/tvEjercicioGuardado"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_gravity="right"
@@ -138,8 +116,7 @@
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
         android:textColor="@color/naranja"
-        android:textSize="24dp"
-        android:textStyle="bold"
+        android:textSize="18dp"
         android:textAlignment="textEnd"
         tools:ignore="RtlCompat"/>
 
