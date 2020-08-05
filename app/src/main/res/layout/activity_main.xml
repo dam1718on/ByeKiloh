@@ -10,7 +10,7 @@
     android:background="@color/platino">
 
     <TextView
-        android:id="@+id/tvFrase"
+        android:id="@+id/tvEjercicio"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_gravity="right"

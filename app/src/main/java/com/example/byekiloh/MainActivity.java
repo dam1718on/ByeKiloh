@@ -15,13 +15,14 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvFrase, tvFraseGuardada;
-    private EditText etContenido, etAutor, etTiempo, etDistancia;
+    private TextView tvEjercicio, tvFraseGuardada;
+    //private EditText etContenido, etAutor, etTiempo, etDistancia;
+    private EditText etTiempo, etDistancia;
+
     private Button btnGuardar;
 
-    private SettingPreferences settingPreferences;
-
-    private Frase frase;
+    //private SettingPreferences settingPreferences;
+    //private Frase frase;
 
     //private int distancia, tiempo;
     //private double calculo, kmh;
@@ -31,30 +32,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvFrase=findViewById(R.id.tvFrase);
+        tvEjercicio=findViewById(R.id.tvEjercicio);
         tvFraseGuardada=findViewById(R.id.tvFraseGuardada);
-        etContenido=findViewById(R.id.etContenido);
-        etAutor=findViewById(R.id.etAutor);
+        //etContenido=findViewById(R.id.etContenido);
+        //etAutor=findViewById(R.id.etAutor);
         etTiempo=findViewById(R.id.etTiempo);
         etDistancia=findViewById(R.id.etDistancia);
         btnGuardar=findViewById(R.id.btnGuardar);
 
-        settingPreferences = new SettingPreferences(this.getApplicationContext());
+        //settingPreferences = new SettingPreferences(this.getApplicationContext());
 
-        frase = settingPreferences.getFrase();
+        //frase = settingPreferences.getFrase();
 
-        etContenido.setText(frase.getContenido());
-        etAutor.setText(frase.getAutor());
+        //etContenido.setText(frase.getContenido());
+        //etAutor.setText(frase.getAutor());
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guardarFrase();
+                //guardarFrase();
             }
         });
     }
 
-    private void guardarFrase() {
+    /*private void guardarFrase() {
         frase.setContenido(etContenido.getText().toString());
         frase.setAutor(etAutor.getText().toString());
         settingPreferences.save(frase);
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    /*@Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }*/
 
-    public void ver(View view){
+    /*public void ver(View view){
         frase.setContenido(etContenido.getText().toString());
         frase.setAutor(etAutor.getText().toString());
 
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 "Añadido correctamente", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
         toast.show();
-    }
+    }*/
 
     public void calcular(View view){
 
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         float ms = (float) distancia/(tiempo*60);
         float kmh = ms*36/10;
 
-        tvFraseGuardada.setText(distancia+"-"+tiempo+"-"+String.format("%.2f", ms)+"-"+String.format("%.2f", kmh));
+        tvEjercicio.setText(distancia+"-"+tiempo+"-"+String.format("%.2f", ms)+"-"+String.format("%.2f", kmh));
 
         mensaje(kmh);
 

@@ -22,14 +22,14 @@ public class SettingPreferences {
         edit.commit();
     }
 
-    public Frase getFrase() {
+    /*public Frase getFrase() {
         String json = getSharedPreferences().getString(FRASE_PREFERENCE_KEY,null);
         if(json == null){
             return new Frase();
         }
         Frase frase = new Gson().fromJson(json, Frase.class);
         return frase;
-    }
+    }*/
 
     private SharedPreferences getSharedPreferences(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
