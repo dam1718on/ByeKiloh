@@ -10,15 +10,17 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvEjercicio, tvEjercicioGuardado;
-
     private EditText etTiempo, etDistancia;
-
+    private RadioButton radMS, radKMH;
+    //no se usa boolean porque necesito 3 estados (no checked)
+    private int velocidad=0;
     private Button btnGuardar;
 
     @Override
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         tvEjercicioGuardado=findViewById(R.id.tvEjercicioGuardado);
         etTiempo=findViewById(R.id.etTiempo);
         etDistancia=findViewById(R.id.etDistancia);
+        radMS=findViewById(R.id.radMS);
+        radKMH=findViewById(R.id.radKMH);
         btnGuardar=findViewById(R.id.btnGuardar);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
@@ -39,14 +43,30 @@ public class MainActivity extends AppCompatActivity {
                 Ejercicio ejercicio = new Ejercicio(Integer.parseInt(etDistancia.getText().toString()),
                         Integer.parseInt(etTiempo.getText().toString()));
 
-                tvEjercicio.setText(ejercicio.toString());
-                tvEjercicioGuardado.setText(ejercicio.toString());
+                float ms = (float) ejercicio.getDistancia()/(ejercicio.getTiempo()*60);
+                float kmh = ms*36/10;
 
-                mensaje(ejercicio.getKmh());
+                if (velocidad==0){
+                    ms=0;
+                    kmh=0;
+                } else if (velocidad==1){
+                    tvEjercicio.setText("Has recorrido "+ejercicio.getDistancia()+" metros en "+ejercicio.getTiempo()+
+                            " minutos haciendo una velocidad"+" media de "+String.format("%.2f", ms)+" m/s");
+                    tvEjercicioGuardado.setText("Has recorrido "+ejercicio.getDistancia()+" metros en "+ejercicio.getTiempo()+
+                            " minutos haciendo una velocidad"+" media de "+String.format("%.2f", ms)+" m/s");
+                }else if (velocidad==2){
+                    tvEjercicio.setText("Has recorrido "+ejercicio.getDistancia()+" metros en "+ejercicio.getTiempo()+
+                            " minutos haciendo una velocidad"+" media de "+String.format("%.2f", kmh)+" km/h");
+                    tvEjercicioGuardado.setText("Has recorrido "+ejercicio.getDistancia()+" metros en "+ejercicio.getTiempo()+
+                            " minutos haciendo una velocidad"+" media de "+String.format("%.2f", kmh)+" km/h");
+                }
+                mensaje(kmh);
             }
         });
     }
 
+
+    //Metodo asociado a boton con su mismo nombre para calcular los datos y visualizarlos
     public void calcular(View view){
 
         int distancia = Integer.parseInt(etDistancia.getText().toString());
@@ -54,63 +74,37 @@ public class MainActivity extends AppCompatActivity {
         float ms = (float) distancia/(tiempo*60);
         float kmh = ms*36/10;
 
-        tvEjercicio.setText("Has recorrido "+distancia+" metros en "+tiempo+" minutos haciendo una velocidad" +
-                " media de "+String.format("%.2f", ms)+" m/s ó "+String.format("%.2f", kmh)+" km/h.");
-
+        if (velocidad==0){
+            ms=0;
+            kmh=0;
+        } else if (velocidad==1){
+            tvEjercicio.setText("Has recorrido "+distancia+" metros en "+tiempo+" minutos haciendo una velocidad" +
+                    " media de "+String.format("%.2f", ms)+" m/s");
+        }else if (velocidad==2){
+            tvEjercicio.setText("Has recorrido "+distancia+" metros en "+tiempo+" minutos haciendo una velocidad" +
+                    " media de "+String.format("%.2f", kmh)+" km/h");
+        }
         mensaje(kmh);
     }
 
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
-
+    //Sin implementar aun
     public void settings(View view){
+
         Toast toast= Toast.makeText(getApplicationContext(),
                 "Settings!!!", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
         toast.show();
     }
 
-    /*public void ver(View view){
-        frase.setContenido(etContenido.getText().toString());
-        frase.setAutor(etAutor.getText().toString());
-
-        if (frase.getContenido().equals("")){
-            frase.setContenido("Vas con lo justo socio");
-            frase.setAutor("El Developer");
-        }
-        if (frase.getAutor().equals("")){
-            frase.setAutor("Anónimo");
-        }
-        tvFrase.setText(frase.toString());
-
-        Toast toast= Toast.makeText(getApplicationContext(),
-                "Añadido correctamente", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
-        toast.show();
-    }*/
-
+    //Método para visualizar mensajes segun velocidad
     public void mensaje(Float kmh){
-        if (kmh <= 3) {
+
+        if (kmh == 0){
+            Toast toast= Toast.makeText(getApplicationContext(),
+                    "Selecciona velocidad!!!", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
+            toast.show();
+        } else if (kmh <= 3) {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Tienes que andar más rapido...", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 14);
@@ -125,6 +119,23 @@ public class MainActivity extends AppCompatActivity {
                     "Estas progresando, good job!!", Toast.LENGTH_SHORT);
             toast3.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 14);
             toast3.show();
+        }
+    }
+
+    //Método del RadioGrouponClick
+    public void onRadioButtonClicked(View view) {
+
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch(view.getId()) {
+            case R.id.radMS:
+                if (checked)
+                velocidad=1;
+                break;
+            case R.id.radKMH:
+                if (checked)
+                velocidad=2;
+                break;
         }
     }
 
