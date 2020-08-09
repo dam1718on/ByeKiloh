@@ -9,24 +9,42 @@
     tools:context=".MainActivity"
     android:background="@color/platino">
 
-    <TextView
-        android:id="@+id/tvEjercicio"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_gravity="right"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:textColor="@color/naranja"
-        android:textSize="17.5dp"
-        android:textAlignment="textEnd"
-        tools:ignore="RtlCompat"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_box_linear">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="14dp"
+            android:textStyle="bold"
+            android:text="ULTIMO EJERCICIO:"/>
+
+        <TextView
+            android:id="@+id/tvEjercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="14dp"
+            android:textColor="@color/naranja"
+            android:textSize="17.5dp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded_box_linear">
@@ -49,9 +67,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/naranja"
-            android:hint="Introduce tu tiempo..."/>
+            android:hint="Introduce tu tiempo en minutos..."/>
 
         <RadioGroup
+            android:id="@+id/radGroup"
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -86,7 +105,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnVer"
+                android:id="@+id/btnReset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -95,7 +114,7 @@
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="7dp"
                 android:background="@drawable/rounded_box_button"
-                android:text="empty"/>
+                android:text="RESET"/>
 
             <Button
                 android:id="@+id/btnCalcular"
@@ -126,27 +145,45 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_box_linear">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="14dp"
+            android:textStyle="bold"
+            android:text="ULTIMO EJERCICIO GUARDADO:"/>
+
+        <TextView
+            android:id="@+id/tvEjercicioGuardado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="14dp"
+            android:textColor="@color/naranja"
+            android:textSize="17.5dp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/imgEngranaje"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
         android:layout_gravity="end"
         android:background="@drawable/engranajes"
         android:onClick="settings"/>
-
-    <TextView
-        android:id="@+id/tvEjercicioGuardado"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_gravity="right"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:textColor="@color/naranja"
-        android:textSize="17.5dp"
-        android:textAlignment="textEnd"
-        tools:ignore="RtlCompat"/>
 
 </LinearLayout>

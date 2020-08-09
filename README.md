@@ -13,6 +13,8 @@ tercer commit. Limpiando un poco el proyecto.
 
 5commit. Sacado atributo ms, kmh de la clase.
 
-6commit. Crear método para calcular velocidad comprobando isChecked. por hacer!!
+6Kommit. Mejora gráfica e implementacion botón reset con listener.
 
-
+7commit. Crear método propio para calcular velocidad. por hacer!!
+         Implementar boton y metodo calcular, como onclicklistener.
+         Añadir una referencia de tiempo/id al objeto ejercicio.

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,10 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvEjercicio, tvEjercicioGuardado;
     private EditText etTiempo, etDistancia;
+    private RadioGroup radGroup;
     private RadioButton radMS, radKMH;
     //no se usa boolean porque necesito 3 estados (no checked)
     private int velocidad=0;
-    private Button btnGuardar;
+    private Button btnReset, btnGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +34,29 @@ public class MainActivity extends AppCompatActivity {
         tvEjercicioGuardado=findViewById(R.id.tvEjercicioGuardado);
         etTiempo=findViewById(R.id.etTiempo);
         etDistancia=findViewById(R.id.etDistancia);
+
+        radGroup=findViewById(R.id.radGroup);
         radMS=findViewById(R.id.radMS);
         radKMH=findViewById(R.id.radKMH);
+
+        btnReset=findViewById(R.id.btnReset);
         btnGuardar=findViewById(R.id.btnGuardar);
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                etDistancia.setText("");
+                etTiempo.setText("");
+
+                radGroup.clearCheck();
+                radGroup.setOnCheckedChangeListener(null);
+
+                tvEjercicio.setText("");
+                tvEjercicioGuardado.setText("");
+
+            }
+        });
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,17 +82,20 @@ public class MainActivity extends AppCompatActivity {
                     tvEjercicioGuardado.setText("Has recorrido "+ejercicio.getDistancia()+" metros en "+ejercicio.getTiempo()+
                             " minutos haciendo una velocidad"+" media de "+String.format("%.2f", kmh)+" km/h");
                 }
+
                 mensaje(kmh);
+
             }
         });
+
     }
 
-
-    //Metodo asociado a boton con su mismo nombre para calcular los datos y visualizarlos
+    //Método asociado a boton con su mismo nombre para calcular los datos y visualizarlos
     public void calcular(View view){
 
         int distancia = Integer.parseInt(etDistancia.getText().toString());
         int tiempo = Integer.parseInt(etTiempo.getText().toString());
+
         float ms = (float) distancia/(tiempo*60);
         float kmh = ms*36/10;
 
@@ -84,7 +109,9 @@ public class MainActivity extends AppCompatActivity {
             tvEjercicio.setText("Has recorrido "+distancia+" metros en "+tiempo+" minutos haciendo una velocidad" +
                     " media de "+String.format("%.2f", kmh)+" km/h");
         }
+
         mensaje(kmh);
+
     }
 
     //Sin implementar aun
@@ -94,9 +121,10 @@ public class MainActivity extends AppCompatActivity {
                 "Settings!!!", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
         toast.show();
+
     }
 
-    //Método para visualizar mensajes segun velocidad
+    //Método para visualizar mensajes según velocidad
     public void mensaje(Float kmh){
 
         if (kmh == 0){
@@ -120,9 +148,10 @@ public class MainActivity extends AppCompatActivity {
             toast3.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 14);
             toast3.show();
         }
+
     }
 
-    //Método del RadioGrouponClick
+    //Método del RadioGroupOnClick
     public void onRadioButtonClicked(View view) {
 
         boolean checked = ((RadioButton) view).isChecked();
@@ -137,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
                 velocidad=2;
                 break;
         }
+
     }
 
 }
