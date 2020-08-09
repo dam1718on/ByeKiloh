@@ -126,8 +126,7 @@
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="7dp"
                 android:background="@drawable/rounded_box_button"
-                android:text="CALCULAR"
-                android:onClick="calcular"/>
+                android:text="CALCULAR"/>
 
             <Button
                 android:id="@+id/btnGuardar"

@@ -15,6 +15,6 @@ tercer commit. Limpiando un poco el proyecto.
 
 6Kommit. Mejora gráfica e implementacion botón reset con listener.
 
-7commit. Crear método propio para calcular velocidad. por hacer!!
-         Implementar boton y metodo calcular, como onclicklistener.
-         Añadir una referencia de tiempo/id al objeto ejercicio.
+7Kommit. Implementado método velocidad(). Todos los botones ahora con onClickListener
+         
+8Kommit. Añadir una referencia de tiempo/id al objeto ejercicio. por hacer!!!
