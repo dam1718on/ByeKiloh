@@ -19,5 +19,11 @@ tercer commit. Limpiando un poco el proyecto
          
 8Kommit. Implementado id(YYYYMMDD) al objeto ejercicio
 
-9Kommit. Hacer usable la app por mi e ir viendo su ejecucion. por hacer!
-         Reducir de 4 digitos a 2 el year del atributo id de ejercicio. por hacer!
+9Kommit. Arreglado el id(YYMMDD). Teniendo en cuenta los ceros a la izquierda.
+
+10Kommit. Hacer usable la app por mi (SharedPreferences) e ir viendo la ejecucion. por hacer!!
+         
+         
+         
+        
+         

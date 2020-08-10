@@ -22,7 +22,7 @@ public class Ejercicio {
         int año = today.get(Calendar.YEAR);
         int mes = today.get(Calendar.MONTH)+1;
         int dia = today.get(Calendar.DATE);
-        String num = String.valueOf(año)+String.valueOf(mes)+String.valueOf(dia);
+        String num = String.valueOf(año).substring(2)+String.format("%02d" , mes)+String.format("%02d" , dia);
         this.id=Integer.parseInt(num);
     }
 
