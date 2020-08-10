@@ -34,9 +34,10 @@
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
             android:layout_marginBottom="14dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
             android:textColor="@color/naranja"
-            android:textSize="17.5dp"
-            android:textAlignment="center"/>
+            android:textSize="17.5dp"/>
 
     </LinearLayout>
 
@@ -169,9 +170,42 @@
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
             android:layout_marginBottom="14dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
             android:textColor="@color/naranja"
-            android:textSize="17.5dp"
-            android:textAlignment="center"/>
+            android:textSize="17.5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_box_linear">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="14dp"
+            android:textStyle="bold"
+            android:text="ID ULTIMO EJERCICIO GUARDADO:"/>
+
+        <TextView
+            android:id="@+id/tvHoraEjercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="14dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/naranja"
+            android:textSize="17.5dp"/>
 
     </LinearLayout>
 

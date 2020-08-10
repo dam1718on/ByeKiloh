@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvEjercicio, tvEjercicioGuardado;
+    private TextView tvEjercicio, tvEjercicioGuardado, tvHoraEjercicio;
     private EditText etDistancia, etTiempo;
 
     private RadioGroup radGroup;
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         tvEjercicio=findViewById(R.id.tvEjercicio);
         tvEjercicioGuardado=findViewById(R.id.tvEjercicioGuardado);
+        tvHoraEjercicio=findViewById(R.id.tvHoraEjercicio);
         etDistancia=findViewById(R.id.etDistancia);
         etTiempo=findViewById(R.id.etTiempo);
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                 tvEjercicio.setText("");
                 tvEjercicioGuardado.setText("");
+                tvHoraEjercicio.setText("");
             }
         });
 
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                         Integer.parseInt(etTiempo.getText().toString()));
 
                 velocidad(ejercicio.getDistancia(), ejercicio.getTiempo(), 1);
+                tvHoraEjercicio.setText(String.valueOf(ejercicio.getId()));
             }
         });
     }
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             tvEjercicio.setText(kmht);
             tvEjercicioGuardado.setText(kmht);
         }
+
         mensaje(kmh);
     }
 
