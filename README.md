@@ -19,9 +19,13 @@ tercer commit. Limpiando un poco el proyecto
          
 8Kommit. Implementado id(YYYYMMDD) al objeto ejercicio
 
-9Kommit. Arreglado el id(YYMMDD). Teniendo en cuenta los ceros a la izquierda.
+9Kommit. Arreglado el id(YYMMDD). Teniendo en cuenta los ceros a la izquierda
 
-10Kommit. Hacer usable la app por mi (SharedPreferences) e ir viendo la ejecucion. por hacer!!
+10Komit. Implementada BBDD SQLite embebida
+
+11Komit. Hacer usable la app por mi (SharedPreferences) e ir viendo la ejecucion. por hacer!!
+         Probar la BBDD e intentar administrarla en remoto. por hacer!!
+
          
          
          

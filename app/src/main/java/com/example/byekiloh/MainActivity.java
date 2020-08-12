@@ -1,19 +1,31 @@
 package com.example.byekiloh;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
+
+import android.content.ContentValues;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import android.os.Bundle;
 
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.Gravity;
 
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.byekiloh.EstructuraDatos.Estructura;
+import com.example.byekiloh.MiBaseDatos;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radMS, radKMH;
     //no se usa boolean porque necesito 3 estados (no checked)
     private int velocidad=0;
+
+    //Declaramos la clase encargada de crear y actualizar la Base de Datos
+    MiBaseDatos basedatos;
 
     private Button btnReset, btnCalcular, btnGuardar;
 
@@ -77,6 +92,39 @@ public class MainActivity extends AppCompatActivity {
 
                 velocidad(ejercicio.getDistancia(), ejercicio.getTiempo(), 1);
                 tvHoraEjercicio.setText(String.valueOf(ejercicio.getId()));
+
+                //Se inicializa la clase.
+                basedatos = new MiBaseDatos(getApplicationContext());
+                //Clase que permite llamar a los métodos para crear, eliminar, leer y actualizar registros. Se establecen permisos de escritura.
+                SQLiteDatabase sqlite = basedatos.getWritableDatabase();
+                String id = String.valueOf(ejercicio.getId());
+                String distancia = String.valueOf(ejercicio.getDistancia());
+                String tiempo = String.valueOf(ejercicio.getTiempo());
+
+                ContentValues content = new ContentValues();
+
+                if(distancia.equals("") || tiempo.equals("")) {
+                    Toast toast= Toast.makeText(getApplicationContext(),
+                            "Revise los datos introducidos. Todos los campos son obligatorios", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
+                    toast.show();
+                } else {
+                    //Se añaden los valores introducidos de cada campo mediante clave(columna)/valor(valor introducido en el campo de texto)
+                    content.put(Estructura.COLUMN_NAME_ID,id);
+                    content.put(Estructura.COLUMN_NAME_DISTANCIA, distancia);
+                    content.put(Estructura.COLUMN_NAME_TIEMPO, tiempo);
+                    sqlite.insert(Estructura.TABLE_NAME, null, content);
+                    Toast toast= Toast.makeText(getApplicationContext(),
+                            "El Ejercicio ha sido almacenado", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
+                    toast.show();
+                    //edProducto.setText("");
+                    //edCantidad.setText("");
+                    //edId.setText("");
+                }
+                //Se cierra la conexión abierta a la Base de Datos
+                sqlite.close();
+
             }
         });
     }
