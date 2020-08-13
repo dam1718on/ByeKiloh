@@ -5,141 +5,174 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity"
     android:background="@color/platino">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="88dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_box_linear">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="14dp"
-            android:textStyle="bold"
-            android:text="ULTIMO EJERCICIO:"/>
-
-        <TextView
-            android:id="@+id/tvEjercicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
-            android:layout_marginBottom="14dp"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textColor="@color/naranja"
-            android:textSize="17.5dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_box_linear">
-
-        <EditText
-            android:id="@+id/etDistancia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/naranja"
-            android:hint="Introduce los metros recorridos..."/>
-
-        <EditText
-            android:id="@+id/etTiempo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/naranja"
-            android:hint="Introduce tu tiempo en minutos..."/>
-
-        <RadioGroup
-            android:id="@+id/radGroup"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radMS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="metros / segundo"
-                android:textSize="18dp"
-                android:onClick="onRadioButtonClicked"/>
-
-            <RadioButton
-                android:id="@+id/radKMH"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="kilómetros / hora"
-                android:textSize="18dp"
-                android:onClick="onRadioButtonClicked"/>
-
-        </RadioGroup>
+        android:layout_weight=".26">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_box_linear">
 
-            <Button
-                android:id="@+id/btnReset"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="14dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="14dp"
-                android:layout_marginRight="7dp"
-                android:background="@drawable/rounded_box_button"
-                android:text="RESET"/>
+                android:textStyle="bold"
+                android:text="Fecha:"/>
 
-            <Button
-                android:id="@+id/btnCalcular"
+            <EditText
+                android:id="@+id/etFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:maxLength="6"
+                android:digits="1234567890"
+                android:textColor="@color/naranja"
+                android:hint="[YYMMDD] (p. ej.,  201130)"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginTop="7dp"
-                android:layout_marginBottom="14dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
-                android:background="@drawable/rounded_box_button"
-                android:text="CALCULAR"/>
+                android:layout_marginLeft="14dp"
+                android:textStyle="bold"
+                android:text="Distancia:"/>
 
-            <Button
-                android:id="@+id/btnGuardar"
+            <EditText
+                android:id="@+id/etDistancia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:maxLength="5"
+                android:digits="1234567890"
+                android:textColor="@color/naranja"
+                android:hint="en metros (p. ej.,  2000)"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginTop="7dp"
-                android:layout_marginBottom="14dp"
-                android:layout_marginLeft="7dp"
+                android:layout_marginLeft="14dp"
+                android:textStyle="bold"
+                android:text="Tiempo:"/>
+
+            <EditText
+                android:id="@+id/etTiempo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:maxLength="5"
+                android:digits="1234567890:"
+                android:textColor="@color/naranja"
+                android:hint="en minutos (p.ej.,  20:30)"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_box_linear">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="14dp"
+                android:textStyle="bold"
+                android:text="Visualización:"/>
+
+            <TextView
+                android:id="@+id/tvEjercicioGuardado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
-                android:background="@drawable/rounded_box_button"
-                android:text="GUARDAR"/>
+                android:layout_marginBottom="14dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/naranja"
+                android:textSize="17.5dp"/>
+
+            <RadioGroup
+                android:id="@+id/radGroup"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radMS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" m / s "
+                    android:textSize="18dp"
+                    android:onClick="onRadioButtonClicked"/>
+
+                <RadioButton
+                    android:id="@+id/radKMH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" km / h "
+                    android:textSize="18dp"
+                    android:onClick="onRadioButtonClicked"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_box_linear">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="14dp"
+                android:textStyle="bold"
+                android:text="Spinner - Lectura"/>
+
+            <Spinner
+                android:id="@+id/spinEjercicios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="14dp"/>
 
         </LinearLayout>
 
@@ -147,76 +180,82 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_box_linear">
+        android:layout_height="match_parent"
+        android:layout_weight=".74"
+        android:orientation="vertical">
 
-        <TextView
+        <Button
+            android:id="@+id/btnGuardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="14dp"
-            android:textStyle="bold"
-            android:text="ULTIMO EJERCICIO GUARDADO:"/>
-
-        <TextView
-            android:id="@+id/tvEjercicioGuardado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
-            android:layout_marginBottom="14dp"
+            android:layout_weight="1"
             android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textColor="@color/naranja"
-            android:textSize="17.5dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_box_button"
+            android:text="GUARDAR"/>
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_box_button"
+            android:text="BUSCAR"/>
+
+        <Button
+            android:id="@+id/btnModificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_box_button"
+            android:text="MODIFICAR"/>
+
+        <Button
+            android:id="@+id/btnBorrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_box_button"
+            android:text="BORRAR"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_box_button"
+            android:text="RESET"/>
+
+        <ImageView
+            android:id="@+id/imgEngranaje"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/engranajes"
+            android:onClick="settings"/>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_box_linear">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="14dp"
-            android:textStyle="bold"
-            android:text="ID ULTIMO EJERCICIO GUARDADO:"/>
-
-        <TextView
-            android:id="@+id/tvHoraEjercicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
-            android:layout_marginBottom="14dp"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textColor="@color/naranja"
-            android:textSize="17.5dp"/>
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imgEngranaje"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="30dp"
-        android:layout_gravity="end"
-        android:background="@drawable/engranajes"
-        android:onClick="settings"/>
 
 </LinearLayout>

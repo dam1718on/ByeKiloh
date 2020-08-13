@@ -14,5 +14,6 @@
     <color name="naranja">#F15811</color>
     <color name="amarillo">#F1CB11</color>
     <color name="negro">#000000</color>
-    <color name="platino"> #E5E4E2</color>
+    <color name="platino">#E5E4E2</color>
+    <color name="gris">#99C6C4BF</color>
 </resources>

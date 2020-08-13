@@ -23,10 +23,15 @@ tercer commit. Limpiando un poco el proyecto
 
 10Komit. Implementada BBDD SQLite embebida
 
-11Komit. Hacer usable la app por mi (SharedPreferences) e ir viendo la ejecucion. por hacer!!
+11 commit. Nueva rama cambios sustanciales en la app. nuevo formato
+
+12Komit. Hacer usable la app por mi (SharedPreferences) e ir viendo la ejecucion. por hacer!!
          Probar la BBDD e intentar administrarla en remoto. por hacer!!
 
-         
+         Implementar tiempo en minutos y segundos
+         Implementar Kcal
+         Implementar pulsaciones ppm
+         Velocidad media, Real(m/s,km/h)
          
          
         

@@ -1,16 +1,15 @@
 package com.example.byekiloh;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.app.Activity;
 
 import android.content.ContentValues;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import android.os.Bundle;
 
-import android.view.Menu;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Gravity;
 
@@ -19,37 +18,39 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.byekiloh.EstructuraDatos.Estructura;
-import com.example.byekiloh.MiBaseDatos;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvEjercicio, tvEjercicioGuardado, tvHoraEjercicio;
-    private EditText etDistancia, etTiempo;
+    private EditText etFecha, etDistancia, etTiempo;
 
+    private TextView tvEjercicioGuardado;
     private RadioGroup radGroup;
     private RadioButton radMS, radKMH;
     //no se usa boolean porque necesito 3 estados (no checked)
     private int velocidad=0;
 
+    private Spinner spinEjercicios;
+
+    private Button btnGuardar, btnBuscar, btnModificar, btnBorrar, btnReset;
+
     //Declaramos la clase encargada de crear y actualizar la Base de Datos
     MiBaseDatos basedatos;
-
-    private Button btnReset, btnCalcular, btnGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvEjercicio=findViewById(R.id.tvEjercicio);
+        spinEjercicios=findViewById(R.id.spinEjercicios);
+
         tvEjercicioGuardado=findViewById(R.id.tvEjercicioGuardado);
-        tvHoraEjercicio=findViewById(R.id.tvHoraEjercicio);
+
+        etFecha=findViewById(R.id.etFecha);
         etDistancia=findViewById(R.id.etDistancia);
         etTiempo=findViewById(R.id.etTiempo);
 
@@ -57,47 +58,49 @@ public class MainActivity extends AppCompatActivity {
         radMS=findViewById(R.id.radMS);
         radKMH=findViewById(R.id.radKMH);
 
-        btnReset=findViewById(R.id.btnReset);
-        btnCalcular=findViewById(R.id.btnCalcular);
         btnGuardar=findViewById(R.id.btnGuardar);
+        btnBuscar=findViewById(R.id.btnBuscar);
+        btnModificar=findViewById(R.id.btnModificar);
+        btnBorrar=findViewById(R.id.btnBorrar);
+        btnReset=findViewById(R.id.btnReset);
 
-        btnReset.setOnClickListener(new View.OnClickListener() {
+        etTiempo.addTextChangedListener(new TextWatcher() {
+            int len=0;
             @Override
-            public void onClick(View v) {
-                etDistancia.setText("");
-                etTiempo.setText("");
-
-                radGroup.clearCheck();
-                radGroup.setOnCheckedChangeListener(null);
-
-                tvEjercicio.setText("");
-                tvEjercicioGuardado.setText("");
-                tvHoraEjercicio.setText("");
+            public void afterTextChanged(Editable s) {
+                String str = etTiempo.getText().toString();
+                if(str.length()==2&& len <str.length()){//len check for backspace
+                    etTiempo.append(":");
+                }
             }
-        });
 
-        btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                velocidad(Integer.parseInt(etDistancia.getText().toString()),
-                        Integer.parseInt(etTiempo.getText().toString()), 0);
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+
+                String str = etTiempo.getText().toString();
+                len = str.length();
             }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {    }
+
         });
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Ejercicio ejercicio = new Ejercicio(Integer.parseInt(etDistancia.getText().toString()),
-                        Integer.parseInt(etTiempo.getText().toString()));
 
-                velocidad(ejercicio.getDistancia(), ejercicio.getTiempo(), 1);
-                tvHoraEjercicio.setText(String.valueOf(ejercicio.getId()));
+                int segundos = Integer.parseInt(etTiempo.getText().toString().substring(0,2))*60+Integer.parseInt(etTiempo.getText().toString().substring(3));
+
+                Ejercicio ejercicio = new Ejercicio(Integer.parseInt(etDistancia.getText().toString()), segundos);
+
+                //velocidad(ejercicio.getDistancia(), ejercicio.getTiempo(), 1);
 
                 //Se inicializa la clase.
                 basedatos = new MiBaseDatos(getApplicationContext());
                 //Clase que permite llamar a los métodos para crear, eliminar, leer y actualizar registros. Se establecen permisos de escritura.
                 SQLiteDatabase sqlite = basedatos.getWritableDatabase();
-                String id = String.valueOf(ejercicio.getId());
+                String fecha = String.valueOf(ejercicio.getFecha());
                 String distancia = String.valueOf(ejercicio.getDistancia());
                 String tiempo = String.valueOf(ejercicio.getTiempo());
 
@@ -110,14 +113,18 @@ public class MainActivity extends AppCompatActivity {
                     toast.show();
                 } else {
                     //Se añaden los valores introducidos de cada campo mediante clave(columna)/valor(valor introducido en el campo de texto)
-                    content.put(Estructura.COLUMN_NAME_ID,id);
-                    content.put(Estructura.COLUMN_NAME_DISTANCIA, distancia);
-                    content.put(Estructura.COLUMN_NAME_TIEMPO, tiempo);
-                    sqlite.insert(Estructura.TABLE_NAME, null, content);
+                    content.put(EstructuraDatos.Estructura.COLUMN_NAME_FECHA,fecha);
+                    content.put(EstructuraDatos.Estructura.COLUMN_NAME_DISTANCIA, distancia);
+                    content.put(EstructuraDatos.Estructura.COLUMN_NAME_TIEMPO, tiempo);
+                    sqlite.insert(EstructuraDatos.Estructura.TABLE_NAME, null, content);
                     Toast toast= Toast.makeText(getApplicationContext(),
                             "El Ejercicio ha sido almacenado", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
                     toast.show();
+
+                    spinEjercicios.setAdapter(new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,
+                            Collections.singletonList(ejercicio.toString())));
+
                     //edProducto.setText("");
                     //edCantidad.setText("");
                     //edId.setText("");
@@ -127,6 +134,28 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                etFecha.setText("");
+                etDistancia.setText("");
+                etTiempo.setText("");
+
+                radGroup.clearCheck();
+                radGroup.setOnCheckedChangeListener(null);
+
+                tvEjercicioGuardado.setText("");
+
+                spinEjercicios.setAdapter(new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,
+                        Collections.singletonList("")));
+
+            }
+        });
+
+
+
     }
 
     //Método para calcular velocidad, el atributo modo indica el boton usado 0=calcular 1=guardar
@@ -143,14 +172,14 @@ public class MainActivity extends AppCompatActivity {
             ms = 0;
             kmh = 0;
         } else if (velocidad==1 && modo==0){
-            tvEjercicio.setText(mst);
+            //tvEjercicio.setText(mst);
         } else if (velocidad==1 && modo==1){
-            tvEjercicio.setText(mst);
+            //tvEjercicio.setText(mst);
             tvEjercicioGuardado.setText(mst);
         } else if (velocidad==2 && modo==0){
-            tvEjercicio.setText(kmht);
+            //tvEjercicio.setText(kmht);
         } else if (velocidad==2 && modo==1){
-            tvEjercicio.setText(kmht);
+            //tvEjercicio.setText(kmht);
             tvEjercicioGuardado.setText(kmht);
         }
 
