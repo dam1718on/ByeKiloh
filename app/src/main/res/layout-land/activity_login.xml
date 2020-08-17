@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@color/platino"
     tools:context=".MainActivity">
 
@@ -19,12 +19,12 @@
             android:id="@+id/imgUser"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight=".55"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight=".45"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".60"
                 android:orientation="vertical"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="1dp">
@@ -40,7 +40,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="1dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="1dp"
@@ -51,7 +51,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="9dp"
                     android:layout_marginBottom="1dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="1dp"
@@ -66,7 +66,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".40"
                 android:orientation="vertical"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="18dp">
@@ -84,7 +84,7 @@
                     android:id="@+id/etPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="1dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="8dp"
                     android:textColor="@color/naranja"
@@ -94,7 +94,7 @@
                     android:id="@+id/etPassRe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="1dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="8dp"
                     android:textColor="@color/naranja"
@@ -109,22 +109,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".7">
+        android:layout_weight=".7"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="18dp"
-            android:layout_marginLeft="24dp"
-            android:orientation="vertical">
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnRegistro"
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="40dp"
                 android:background="@drawable/rounded_box_button"
                 android:text="REGISTRARSE" />
 
@@ -134,16 +136,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical">
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="1dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="40dp"
                 android:background="@drawable/rounded_box_button"
                 android:text="INICIAR\nSESION" />
 

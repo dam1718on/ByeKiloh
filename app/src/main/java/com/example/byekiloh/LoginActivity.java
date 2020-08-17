@@ -21,9 +21,8 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
     private ImageView imgUser;
-    private EditText etUser, etPass;
+    private EditText etUser, etPass, etPassRe;
     private Button btnRegistro, btnLogin;
-    //private String usuario, contraseña;
 
     LoginBaseDatos basedatos;
 
@@ -35,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         imgUser=findViewById(R.id.imgUser);
         etUser=findViewById(R.id.etUser);
         etPass=findViewById(R.id.etPass);
+        etPassRe=findViewById(R.id.etPassRe);
         btnRegistro=findViewById(R.id.btnRegistro);
         btnLogin=findViewById(R.id.btnLogin);
 
@@ -42,26 +42,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                /*String usuarioR,contraseñaR;
-                usuarioR=etUser.getText().toString();
-                contraseñaR=etPass.getText().toString();
-
-                SharedPreferences prefUser = getSharedPreferences("datos", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor=prefUser.edit();
-                editor.putString("usuario", usuarioR);
-                editor.putString("contraseña", contraseñaR);
-                editor.commit();*/
-
-                //Se inicializa la clase.
                 basedatos = new LoginBaseDatos(getApplicationContext());
                 //Clase que permite llamar a los métodos para crear, eliminar, leer y actualizar registros. Se establecen permisos de escritura.
                 SQLiteDatabase sqlite = basedatos.getWritableDatabase();
                 String usuarioR = etUser.getText().toString();
                 String contraseñaR = etPass.getText().toString();
+                String contraseñaR2 = etPassRe.getText().toString();
 
                 ContentValues content = new ContentValues();
 
-                if(usuarioR.equals("") || contraseñaR.equals("")) {
+                if(usuarioR.equals("") || contraseñaR.equals("") || contraseñaR2.equals("")) {
 
                     /*TextView textview = new TextView(getApplicationContext());
                     textview.setText("Revise los datos introducidos.\nTodos los campos son obligatorios");
@@ -79,43 +69,36 @@ public class LoginActivity extends AppCompatActivity {
                     toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
                     toast.show();
 
-                    etPass.setText("");
+                } else {  if(contraseñaR.equals(contraseñaR2)) {
 
-                } else {
-                    //Se añaden los valores introducidos de cada campo mediante clave(columna)/valor(valor introducido en el campo de texto)
-                    content.put(LoginEstructuraDatos.Estructura.COLUMN_NAME_USER, usuarioR);
-                    content.put(LoginEstructuraDatos.Estructura.COLUMN_NAME_PASS, contraseñaR);
-                    sqlite.insert(LoginEstructuraDatos.Estructura.TABLE_NAME, null, content);
+                        //Se añaden los valores introducidos de cada campo mediante clave(columna)/valor(valor introducido en el campo de texto)
+                        content.put(LoginEstructuraDatos.Estructura.COLUMN_NAME_USER, usuarioR);
+                        content.put(LoginEstructuraDatos.Estructura.COLUMN_NAME_PASS, contraseñaR);
+                        sqlite.insert(LoginEstructuraDatos.Estructura.TABLE_NAME, null, content);
 
-                    Toast toast= Toast.makeText(getApplicationContext(),
-                            "El Usuario ha sido registrado", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
-                    toast.show();
+                        Toast toast= Toast.makeText(getApplicationContext(),
+                                "El Usuario ha sido registrado", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
+                        toast.show();
 
-                    etUser.setText("");
-                    etPass.setText("");
+                        etUser.setText("");
+                        etPass.setText("");
+                        etPassRe.setText("");
 
-                    //spinEjercicios.setAdapter(new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,
-                      //      Collections.singletonList(ejercicio.toString())));
+                        //spinEjercicios.setAdapter(new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,
+                          //      Collections.singletonList(ejercicio.toString())));
 
-                    //edProducto.setText("");
-                    //edCantidad.setText("");
-                    //edId.setText("");
+                    } else {
+
+                        Toast toast= Toast.makeText(getApplicationContext(),
+                                "Las contraseñas no coinciden", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
+                        toast.show();
+
+                    }
                 }
                 //Se cierra la conexión abierta a la Base de Datos
                 sqlite.close();
-
-                /*SharedPreferences preferenciasLike = getSharedPreferences("datos", Context.MODE_PRIVATE);
-                like = preferenciasLike.getInt("likes", defaultValue);
-                verLike=like.toString();
-                numLike.setText("LIKE: "+verLike);
-
-                SharedPreferences preferenciasLike = getSharedPreferences("datos", Context.MODE_PRIVATE);
-                like = preferenciasLike.getInt("likes", defaultValue);
-                like++;
-                SharedPreferences.Editor editor=preferenciasLike.edit();
-                editor.putInt("likes", like);
-                editor.commit();*/
 
             }
         });
