@@ -25,14 +25,13 @@ tercer commit. Limpiando un poco el proyecto
 
 11 commit. Nueva rama cambios sustanciales en la app. nuevo formato
 
-12Komit. Hacer usable la app por mi (SharedPreferences) e ir viendo la ejecucion. por hacer!!
-         Probar la BBDD e intentar administrarla en remoto. por hacer!!
+Commit12. NewLoginActivity guarda en BBDD
 
-         Implementar tiempo en minutos y segundos
-         Implementar Kcal
-         Implementar pulsaciones ppm
-         Velocidad media, Real(m/s,km/h)
-         
-         
-        
-         
+13Komit.    Implementar el CRUD completo de la BBDD SQLite.
+            Hacer usable la app por mi (SharedPreferences) e ir viendo la ejecucion. por hacer!!
+            Probar la BBDD e intentar administrarla en remoto. por hacer!!
+
+            Implementar tiempo en minutos y segundos
+            Implementar Kcal
+            Implementar pulsaciones ppm
+            Velocidad media, Real(m/s,km/h)        
