@@ -2,7 +2,7 @@ package com.example.byekiloh;
 
 public class Usuario {
 
-    private long id;
+    private int id;
     private String name;
     private String pass;
 
@@ -14,11 +14,11 @@ public class Usuario {
         this.pass = pass;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

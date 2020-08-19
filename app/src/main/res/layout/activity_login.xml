@@ -17,14 +17,18 @@
 
         <ImageView
             android:id="@+id/imgUser"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="300dp"
+            android:layout_height="450dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -32,7 +36,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".60"
                 android:orientation="vertical"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="1dp">
@@ -40,7 +44,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="1dp"
@@ -51,13 +55,24 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="12dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="1dp"
                     android:textSize="18.5dp"
                     android:textColor="@color/naranja"
                     android:text="Contraseña:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="1dp"
+                    android:textSize="18.5dp"
+                    android:textColor="@color/naranja"
+                    android:text="Contraseña:\n   (repetir)" />
 
             </LinearLayout>
 
@@ -66,7 +81,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".40"
                 android:orientation="vertical"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="18dp">
@@ -77,9 +92,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="8dp"
+                    android:maxLength="16"
+                    android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
                     android:maxLines="1"
                     android:textColor="@color/naranja"
-                    android:hint="Introduzca usuario..." />
+                    android:textSize="15dp"
+                    android:hint=" pattern [0-9] [aáä-zAÁÄ-Z]" />
 
                 <EditText
                     android:id="@+id/etPass"
@@ -88,10 +106,13 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="8dp"
+                    android:maxLength="16"
+                    android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ@#"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:textColor="@color/naranja"
-                    android:hint="Introduzca contraseña..." />
+                    android:textSize="15dp"
+                    android:hint=" pattern [0-9] [aáä-zAÁÄ-Z@#]" />
 
                 <EditText
                     android:id="@+id/etPassRe"
@@ -100,10 +121,23 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="8dp"
+                    android:maxLength="16"
+                    android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ@#"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:textColor="@color/naranja"
-                    android:hint="Repita contraseña..." />
+                    android:textSize="15dp"
+                    android:hint=" Repita contraseña..." />
+
+                <CheckBox
+                    android:id="@+id/radSesion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:text="Mantener sesión iniciada"
+                    android:textSize="15dp" />
 
             </LinearLayout>
 
@@ -120,7 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="24dp"
             android:orientation="vertical">
 
@@ -129,7 +163,7 @@
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_box_button"
                 android:text="REGISTRARSE" />
 
@@ -139,7 +173,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:orientation="vertical">
 
@@ -148,7 +182,7 @@
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_box_button"
                 android:text="INICIAR\nSESION" />
 

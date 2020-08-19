@@ -17,13 +17,18 @@ tercer commit. Limpiando un poco el proyecto
 Commit12. NewLoginActivity guarda en BBDD
 Commit13. LoginActivity. Creado apaisado y finalizado diseño
 Commit14. REGISTRO() finalizado (primero verifica y luego añade) 
-Commit15. LOGIN() finalizado. Clase Usuario implementada 
-
+Commit15. LOGIN() finalizado. Clase Usuario implementada
+Commit16. LoginActivity finalizada 
+--new branch: format1.0 
+    DONE
+Commit16    
+Restricciones a los digitos EditText patterns insertar, consultar datos
+Implementado Mantener sesion iniciada(CheckBox)
+SHAREDPREFERENCES para Mantener sesion iniciada. PRIORIDAD ALTA
+nuevo branch al acabar .LoginActivity
 --  
-    TASK      
-    ESTABLECER UN RECORDAR USUARIO CON SHAREDPREFERENCES. PRIORIDAD MEDIA
-    EMPIEZO CON LAS RESTRICCIONES A LOS DIGITOS. PRIORIDAD BAJA
-    nuevo branch al acabar .LoginActivity  
+    TASK
+    Pasar objeto Usuario de .LoginActivity a .FirstActivity    
     IMPLEMENTAR CRUD completo SQLite
 --
     Hacer usable la app por mi e ir viendo la ejecucion. por hacer!!

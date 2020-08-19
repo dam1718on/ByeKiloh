@@ -17,8 +17,11 @@
 
         <ImageView
             android:id="@+id/imgUser"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="175dp"
+            android:layout_height="262dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="12dp"
             android:layout_weight=".55"/>
 
         <LinearLayout
@@ -32,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".60"
                 android:orientation="vertical"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="1dp">
@@ -52,12 +55,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="9dp"
-                    android:layout_marginBottom="1dp"
+                    android:layout_marginBottom="12dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="1dp"
                     android:textSize="18.5dp"
                     android:textColor="@color/naranja"
                     android:text="Contraseña:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="1dp"
+                    android:textSize="18.5dp"
+                    android:textColor="@color/naranja"
+                    android:text="Contraseña:\n   (repetir)" />
 
             </LinearLayout>
 
@@ -77,9 +91,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="8dp"
+                    android:maxLength="16"
+                    android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
                     android:maxLines="1"
                     android:textColor="@color/naranja"
-                    android:hint="Introduzca usuario..." />
+                    android:hint=" pattern [0-9] [aáä-zAÁÄ-Z]" />
 
                 <EditText
                     android:id="@+id/etPass"
@@ -88,10 +104,12 @@
                     android:layout_marginTop="1dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="8dp"
+                    android:maxLength="16"
+                    android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ@#"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:textColor="@color/naranja"
-                    android:hint="Introduzca contraseña..." />
+                    android:hint=" pattern [0-9] [aáä-zAÁÄ-Z@#]" />
 
                 <EditText
                     android:id="@+id/etPassRe"
@@ -100,10 +118,12 @@
                     android:layout_marginTop="1dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="8dp"
+                    android:maxLength="16"
+                    android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ@#"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:textColor="@color/naranja"
-                    android:hint="Repita contraseña..." />
+                    android:hint=" Repita contraseña..." />
 
             </LinearLayout>
 

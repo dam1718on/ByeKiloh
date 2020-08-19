@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -18,6 +20,7 @@ import android.view.Gravity;
 import android.view.View;
 
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -29,6 +32,10 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView imgUser;
     private EditText etUser, etPass, etPassRe;
     private Button btnRegistro, btnLogin;
+    private CheckBox radSesion;
+
+    String userSP;
+    String defaultValue;
 
     LoginBaseDatos basedatos;
 
@@ -43,6 +50,14 @@ public class LoginActivity extends AppCompatActivity {
         etPassRe=findViewById(R.id.etPassRe);
         btnRegistro=findViewById(R.id.btnRegistro);
         btnLogin=findViewById(R.id.btnLogin);
+        radSesion=findViewById(R.id.radSesion);
+
+        imgUser.setImageResource(R.drawable.userh);
+
+        SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
+        userSP = prefSesion.getString("usuario", defaultValue);
+        //verLike=like.toString();
+        etUser.setText(userSP);
 
         basedatos = new LoginBaseDatos(getApplicationContext());
 
@@ -153,9 +168,27 @@ public class LoginActivity extends AppCompatActivity {
                             //Cuarto if comprueba que las contraseñas coinciden
                             if(userL.getPass().equals(passCNL)) {
                                 //Como es el usuario correcto, incluimos el valor del atributo id en el objeto userL
-                                long identificadorL = cursorL.getLong(cursorL.getColumnIndex(Estructura._ID));
-                                mensaje("Login correcto\n"+userL.toString());
+                                int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Estructura._ID));
                                 userL.setId(identificadorL);
+                                mensaje("Login correcto\n"+userL.toString());
+                                //Quinto if comprueba si Mantener sesion iniciada esta checked
+                                if(radSesion.isChecked()){
+                                    SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
+                                    userSP = userL.getName();
+                                    SharedPreferences.Editor editor=prefSesion.edit();
+                                    editor.putString("usuario", userSP);
+                                    editor.commit();
+                                    etPass.setText("");
+                                }
+                                else {
+                                    SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
+                                    userSP = "";
+                                    SharedPreferences.Editor editor=prefSesion.edit();
+                                    editor.putString("usuario", userSP);
+                                    editor.commit();
+                                    etUser.setText("");
+                                    etPass.setText("");
+                                }
                             }
                             else {
                                 mensaje("La contraseña no es correcta");
@@ -163,7 +196,6 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                         else {
-                            //no existe user
                             mensaje("El usuario: "+userL.getName()+" no existe");
                             etPass.setText("");
                         }
@@ -201,7 +233,3 @@ toast.setView(textview);
 toast.setDuration(Toast.LENGTH_LONG);
 toast.setGravity(Gravity.BOTTOM, 0, 0);
 toast.show();*/
-
-//long identificador = cursor.getLong(cursor.getColumnIndex(LoginEstructuraDatos.Estructura._ID));
-//Toast.makeText(this, "El Usuario " +  edProducto.getText().toString()
-//       + " está almacenado con Identificador " + identificador, 3000).show();
