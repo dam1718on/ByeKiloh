@@ -1,12 +1,12 @@
 package com.example.byekiloh;
 
-import com.example.byekiloh.MainEstructuraDatos.Estructura;
+import com.example.byekiloh.FirstEstructuraDatos.Estructura;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class MainBaseDatos extends SQLiteOpenHelper {
+public class FirstBaseDatos extends SQLiteOpenHelper {
 
     //Se declaran e inicializan las variables encargadas de almacenar las consultas para crear la tabla 'Ventas',
     //y las consultas de eliminar/crear la Base de Datos 'Ferreteria.sqlite'.
@@ -23,7 +23,7 @@ public class MainBaseDatos extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "byekIdAuto.sqlite";
 
-    public MainBaseDatos(Context context) { super(context, DATABASE_NAME, null, DATABASE_VERSION); }
+    public FirstBaseDatos(Context context) { super(context, DATABASE_NAME, null, DATABASE_VERSION); }
 
     //Método para crear la Tabla que recibe la consulta Transact-SQL
     @Override

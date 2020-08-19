@@ -2,9 +2,9 @@ package com.example.byekiloh;
 
 import android.provider.BaseColumns;
 
-public class MainEstructuraDatos {
+public class FirstEstructuraDatos {
 
-    public MainEstructuraDatos() {  }
+    public FirstEstructuraDatos() {  }
 
     public static abstract class Estructura implements BaseColumns {
         public static final String TABLE_NAME = "Ejercicios";

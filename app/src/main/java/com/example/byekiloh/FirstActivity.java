@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity {
+public class FirstActivity extends AppCompatActivity {
 
     private EditText etFecha, etDistancia, etTiempo;
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnGuardar, btnBuscar, btnModificar, btnBorrar, btnReset;
 
     //Declaramos la clase encargada de crear y actualizar la Base de Datos
-    MainBaseDatos basedatos;
+    FirstBaseDatos basedatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 //velocidad(ejercicio.getDistancia(), ejercicio.getTiempo(), 1);
 
                 //Se inicializa la clase.
-                basedatos = new MainBaseDatos(getApplicationContext());
+                basedatos = new FirstBaseDatos(getApplicationContext());
                 //Clase que permite llamar a los métodos para crear, eliminar, leer y actualizar registros. Se establecen permisos de escritura.
                 SQLiteDatabase sqlite = basedatos.getWritableDatabase();
                 String fecha = String.valueOf(ejercicio.getFecha());
@@ -113,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
                     toast.show();
                 } else {
                     //Se añaden los valores introducidos de cada campo mediante clave(columna)/valor(valor introducido en el campo de texto)
-                    content.put(MainEstructuraDatos.Estructura.COLUMN_NAME_FECHA,fecha);
-                    content.put(MainEstructuraDatos.Estructura.COLUMN_NAME_DISTANCIA, distancia);
-                    content.put(MainEstructuraDatos.Estructura.COLUMN_NAME_TIEMPO, tiempo);
-                    sqlite.insert(MainEstructuraDatos.Estructura.TABLE_NAME, null, content);
+                    content.put(FirstEstructuraDatos.Estructura.COLUMN_NAME_FECHA,fecha);
+                    content.put(FirstEstructuraDatos.Estructura.COLUMN_NAME_DISTANCIA, distancia);
+                    content.put(FirstEstructuraDatos.Estructura.COLUMN_NAME_TIEMPO, tiempo);
+                    sqlite.insert(FirstEstructuraDatos.Estructura.TABLE_NAME, null, content);
                     Toast toast= Toast.makeText(getApplicationContext(),
                             "El Ejercicio ha sido almacenado", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
