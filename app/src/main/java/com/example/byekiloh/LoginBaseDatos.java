@@ -11,7 +11,7 @@ public class LoginBaseDatos extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + LoginEstructuraDatos.Estructura.TABLE_NAME + " (" +
                     LoginEstructuraDatos.Estructura._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    LoginEstructuraDatos.Estructura.COLUMN_NAME_USER + TEXT_TYPE + COMMA_SEP +
+                    LoginEstructuraDatos.Estructura.COLUMN_NAME_NAME + TEXT_TYPE + COMMA_SEP +
                     LoginEstructuraDatos.Estructura.COLUMN_NAME_PASS + TEXT_TYPE + " )";
     private static String user;
     /*private static final String SQL_READ_ENTRIES =

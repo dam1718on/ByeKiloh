@@ -17,11 +17,13 @@ tercer commit. Limpiando un poco el proyecto
 Commit12. NewLoginActivity guarda en BBDD
 Commit13. LoginActivity. Creado apaisado y finalizado diseño
 Commit14. REGISTRO() finalizado (primero verifica y luego añade) 
+Commit15. LOGIN() finalizado. Clase Usuario implementada 
+
 --  
-    TASK
-    TERMINAR LOGIN(). PRIORIDAD ALTA
+    TASK      
     ESTABLECER UN RECORDAR USUARIO CON SHAREDPREFERENCES. PRIORIDAD MEDIA
     EMPIEZO CON LAS RESTRICCIONES A LOS DIGITOS. PRIORIDAD BAJA
+    nuevo branch al acabar .LoginActivity  
     IMPLEMENTAR CRUD completo SQLite
 --
     Hacer usable la app por mi e ir viendo la ejecucion. por hacer!!
@@ -29,4 +31,5 @@ Commit14. REGISTRO() finalizado (primero verifica y luego añade)
     Implementar tiempo en minutos y segundos
     Implementar Kcal
     Implementar pulsaciones ppm
-    Velocidad media, Real(m/s,km/h)        
+    Velocidad media, Real(m/s,km/h) 
+    Hacer la BBDD syncronizable.(JSON?)       

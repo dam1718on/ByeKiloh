@@ -9,7 +9,7 @@ public class LoginEstructuraDatos {
     public static abstract class Estructura implements BaseColumns {
         public static final String TABLE_NAME = "Usuarios";
         public static final String COLUMN_NAME_ID = "id";
-        public static final String COLUMN_NAME_USER = "user";
+        public static final String COLUMN_NAME_NAME = "name";
         public static final String COLUMN_NAME_PASS = "pass";
     }
 
