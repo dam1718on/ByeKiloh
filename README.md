@@ -19,15 +19,22 @@ Commit13. LoginActivity. Creado apaisado y finalizado diseño
 Commit14. REGISTRO() finalizado (primero verifica y luego añade) 
 Commit15. LOGIN() finalizado. Clase Usuario implementada
 Commit16. LoginActivity finalizada 
+Commit17. RegistroActivity creada
 --new branch: format1.0 
     DONE
 Commit16    
 Restricciones a los digitos EditText patterns insertar, consultar datos
 Implementado Mantener sesion iniciada(CheckBox)
-SHAREDPREFERENCES para Mantener sesion iniciada. PRIORIDAD ALTA
+SHAREDPREFERENCES para Mantener sesion iniciada.
 nuevo branch al acabar .LoginActivity
+Commit17
+Se crea .RegistroActivity para profundizar en la información de la cuenta de cada usuario
+Se cambia a ConstrainLayout en esta activity mejoría en la integridad visual de los objetos
+Se crean las restricciones de los atributos 
 --  
     TASK
+    Comprobar a traves de booleanos cada edittext(renombrarlos). PRIORIDAD ALTA
+    INTEGRIDAD DE LA INFORMACIÓN DE CADA CUENTA. PRIORIDAD ALTA
     Pasar objeto Usuario de .LoginActivity a .FirstActivity    
     IMPLEMENTAR CRUD completo SQLite
 --

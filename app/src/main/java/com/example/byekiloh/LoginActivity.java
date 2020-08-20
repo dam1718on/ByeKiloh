@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.byekiloh.LoginEstructuraDatos.Estructura;
+import com.example.byekiloh.Mensaje;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     String userSP;
     String defaultValue;
 
+    Mensaje mensaje;
     LoginBaseDatos basedatos;
 
     @Override
@@ -56,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
         userSP = prefSesion.getString("usuario", defaultValue);
-        //verLike=like.toString();
         etUser.setText(userSP);
 
         basedatos = new LoginBaseDatos(getApplicationContext());
@@ -64,6 +66,9 @@ public class LoginActivity extends AppCompatActivity {
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            Intent registro = new Intent(getApplicationContext(), RegistroActivity.class);
+            startActivity(registro);
+            /*
             //Se crea e inicializa el objeto userR
             Usuario userR = new Usuario();
             //Se recogen los datos de los EditText
@@ -72,12 +77,12 @@ public class LoginActivity extends AppCompatActivity {
             String contraseñaR2 = etPassRe.getText().toString();
             //Primer if comprueba si están vacíos todos los EditText
             if(userR.getName().equals("") || userR.getPass().equals("") || contraseñaR2.equals("")) {
-                mensaje("Revise los datos introducidos,\ntodos los campos son obligatorios");
+                mensaje = new Mensaje(getApplicationContext(),"Revise los datos introducidos,\ntodos los campos son obligatorios");
             }
             else {
                 //Segundo if comprueba si no coinciden las contraseñas
                 if(!userR.getPass().equals(contraseñaR2)) {
-                    mensaje("Las contraseñas no coinciden");
+                    mensaje = new Mensaje(getApplicationContext(),"Las contraseñas no coinciden");
                 }
                 else {
                     //Se establece conexion con permisos de lectura
@@ -99,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                     //Tercer if comprueba que el cursor no esté vacío
                     if(cursorR.getCount() != 0) {
                         cursorR.moveToFirst();
-                        mensaje("El nombre de usuario: "+userR.getName()+"\nno está disponible, pruebe con otro");
+                        mensaje = new Mensaje(getApplicationContext(),"El nombre de usuario: "+userR.getName()+"\nno está disponible, pruebe con otro");
                     }
                     else {
                         //Aqui se introduce el usuario nuevo en la base de datos
@@ -112,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                         content.put(Estructura.COLUMN_NAME_NAME, userR.getName());
                         content.put(Estructura.COLUMN_NAME_PASS, userR.getPass());
                         sqliteR.insert(Estructura.TABLE_NAME, null, content);
-                        mensaje("El usuario: "+userR.getName()+"\nha sido registrado con éxito");
+                        mensaje = new Mensaje(getApplicationContext(),"El usuario: "+userR.getName()+"\nha sido registrado con éxito");
                         //Reseteo de EditText
                         etUser.setText("");
                         etPass.setText("");
@@ -121,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                     //Se cierra la conexión abierta a la Base de Datos
                     sqliteR.close();
                 }
-            }
+            }*/
             }
         });
 
@@ -136,12 +141,12 @@ public class LoginActivity extends AppCompatActivity {
                 String contraseñaL2 = etPassRe.getText().toString();
                 //Primer if comprueba si están vacíos los dos primeros EditText
                 if(userL.getName().equals("") || userL.getPass().equals("")) {
-                    mensaje("Revise los datos introducidos\ntodos los campos son obligatorios");
+                    mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos\ntodos los campos son obligatorios");
                 }
                 else {
                     //Segundo if comprueba que no esté vacía la contraseña2
                     if(!contraseñaL2.equals("")) {
-                        mensaje("Repita contraseña... ha de estar vacía");
+                        mensaje = new Mensaje(getApplicationContext(), "Repita contraseña... ha de estar vacía");
                         etPassRe.setText("");
                     }
                     else {
@@ -170,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
                                 //Como es el usuario correcto, incluimos el valor del atributo id en el objeto userL
                                 int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Estructura._ID));
                                 userL.setId(identificadorL);
-                                mensaje("Login correcto\n"+userL.toString());
+                                mensaje = new Mensaje(getApplicationContext(), "Login correcto\n"+userL.toString());
                                 //Quinto if comprueba si Mantener sesion iniciada esta checked
                                 if(radSesion.isChecked()){
                                     SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
@@ -191,12 +196,12 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }
                             else {
-                                mensaje("La contraseña no es correcta");
+                                mensaje = new Mensaje(getApplicationContext(), "La contraseña no es correcta");
                                 etPass.setText("");
                             }
                         }
                         else {
-                            mensaje("El usuario: "+userL.getName()+" no existe");
+                            mensaje = new Mensaje(getApplicationContext(), "El usuario: "+userL.getName()+" no existe");
                             etPass.setText("");
                         }
                         //Se cierra la conexión abierta a la Base de Datos
@@ -206,17 +211,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
-    //Método para lanzar toast personalizados
-    public void mensaje(String cad) {
-        Spannable centeredText = new SpannableString(cad);
-        centeredText.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
-                0, cad.length() - 1,
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        Toast toast= Toast.makeText(getApplicationContext(),
-                centeredText, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 14);
-        toast.show();
     }
 
 }
