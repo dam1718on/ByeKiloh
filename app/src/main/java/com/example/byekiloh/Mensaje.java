@@ -23,4 +23,15 @@ public class Mensaje {
         toast.show();
     }
 
+/*TextView textview = new TextView(getApplicationContext());
+textview.setText("Revise los datos introducidos.\nTodos los campos son obligatorios");
+textview.setBackgroundColor(Color.GRAY);
+textview.setTextColor(Color.BLUE);
+textview.setPadding(10,10,10,10);
+Toast toast = new Toast(getApplicationContext());
+toast.setView(textview);
+toast.setDuration(Toast.LENGTH_LONG);
+toast.setGravity(Gravity.BOTTOM, 0, 0);
+toast.show();*/
+
 }

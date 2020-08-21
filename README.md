@@ -19,9 +19,11 @@ Commit13. LoginActivity. Creado apaisado y finalizado diseño
 Commit14. REGISTRO() finalizado (primero verifica y luego añade) 
 Commit15. LOGIN() finalizado. Clase Usuario implementada
 Commit16. LoginActivity finalizada 
+--new branch: format1.0
 Commit17. RegistroActivity creada
---new branch: format1.0 
-    DONE
+Commit18. RegistroActivity implementada parte lógica
+
+-   DONE
 Commit16    
 Restricciones a los digitos EditText patterns insertar, consultar datos
 Implementado Mantener sesion iniciada(CheckBox)
@@ -31,11 +33,17 @@ Commit17
 Se crea .RegistroActivity para profundizar en la información de la cuenta de cada usuario
 Se cambia a ConstrainLayout en esta activity mejoría en la integridad visual de los objetos
 Se crean las restricciones de los atributos 
---  
-    TASK
-    Comprobar a traves de booleanos cada edittext(renombrarlos). PRIORIDAD ALTA
+Commit18
+Los atributos relativos al peso, se quitan de la clase/tabla usuario Edad, Altura, Peso, Fecha inserccion
+Creados varios if anidados para comprobar errores de introduccion de datos, con mensajes toast personalizados
+
+-   TASK
+    activity_registro_land.xml y activity_login_land.xml  HACER    
+    Objeto Usuario mas complejo y guardarlo en la BBDD
     INTEGRIDAD DE LA INFORMACIÓN DE CADA CUENTA. PRIORIDAD ALTA
-    Pasar objeto Usuario de .LoginActivity a .FirstActivity    
+    nuevo branch al acabar .RegistroActivity
+    Pasar objeto Usuario de .LoginActivity a .FirstActivity   
+    Posibilidad de varios idiomas 
     IMPLEMENTAR CRUD completo SQLite
 --
     Hacer usable la app por mi e ir viendo la ejecucion. por hacer!!

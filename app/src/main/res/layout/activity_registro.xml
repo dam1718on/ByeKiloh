@@ -9,10 +9,10 @@
     tools:context=".RegistroActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="140dp"
+        android:id="@+id/imgPerfil"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="136dp"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,48 +20,182 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvTratamiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
+        android:text="Tratamiento:"
         android:textColor="@color/naranja"
-        android:text="Nombre y Apellidos:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfil" />
 
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:text="Nombre:"
+        android:textColor="@color/naranja"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTratamiento" />
 
-    <EditText
-        android:id="@+id/editText1"
+    <TextView
+        android:id="@+id/tvDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:textColor="@color/naranja"
+        android:text="Dirección:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
+
+    <TextView
+        android:id="@+id/tvLocalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:text="Localidad:"
+        android:textColor="@color/naranja"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDireccion" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:text="E-mail:"
+        android:textColor="@color/naranja"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocalidad" />
+
+    <TextView
+        android:id="@+id/tvFechaNac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:textColor="@color/naranja"
+        android:text="Fecha de Nacimiento:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+    <TextView
+        android:id="@+id/tvUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:text="Usuario:"
+        android:textColor="@color/naranja"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFechaNac" />
+
+    <TextView
+        android:id="@+id/tvContraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:textColor="@color/naranja"
+        android:textStyle="bold"
+        android:text="Contraseña:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsuario" />
+
+    <TextView
+        android:id="@+id/tvContraseñaRe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:textColor="@color/naranja"
+        android:textStyle="bold"
+        android:text="Repita contraseña:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvContraseña" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="29dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfil">
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="Sr." />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="Sra." />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
         android:digits=" abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-        android:hint=" ej. Raul Cimas Trul"
+        android:hint=" ej. Raul Cimas Trolo"
         android:maxLength="25"
         android:maxLines="1"
         android:textColor="@color/naranja"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etDireccion"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
         android:digits=" /\()-_.:;,ºª0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-        android:hint=" ej. C/Leon XII, 2 - Arganda"
+        android:hint=" ej. C/Leon XII, 2 - 1ºD"
         android:maxLength="40"
         android:maxLines="1"
         android:textColor="@color/naranja"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText1" />
+        app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etLocalidad"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
+        android:digits=" /\()-_.:;,ºª0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+        android:hint=" ej. (28820) Coslada"
+        android:maxLength="40"
+        android:maxLines="1"
+        android:textColor="@color/naranja"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDireccion" />
+
+    <EditText
+        android:id="@+id/etEmail"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
@@ -72,10 +206,10 @@
         android:textColor="@color/naranja"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/etLocalidad" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/etFechaNac"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
@@ -86,52 +220,10 @@
         android:textColor="@color/naranja"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <EditText
-        android:id="@+id/editText5"
-        android:layout_width="187dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="187dp"
-        android:digits="0123456789"
-        android:hint=" ej. 33"
-        android:maxLength="3"
-        android:maxLines="1"
-        android:textColor="@color/naranja"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
-
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="187dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="187dp"
-        android:digits=",0123456789"
-        android:hint=" ej. 1,71"
-        android:maxLength="4"
-        android:maxLines="1"
-        android:textColor="@color/naranja"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
-
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="187dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="187dp"
-        android:digits="0123456789"
-        android:hint=" ej. 99"
-        android:maxLength="3"
-        android:maxLines="1"
-        android:textColor="@color/naranja"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
-
-    <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/etUsuario"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
@@ -142,201 +234,58 @@
         android:textColor="@color/naranja"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintTop_toBottomOf="@+id/etFechaNac" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/etContraseña"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
-        android:digits="-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+        android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
         android:hint=" ej. 12bFe@-5"
         android:maxLength="20"
         android:maxLines="1"
         android:textColor="@color/naranja"
         android:textSize="15dp"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsuario" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/etContraseñaRe"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
-        android:digits="-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+        android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
         android:hint=" ej. 12bFe@-5"
         android:maxLength="20"
         android:maxLines="1"
         android:textColor="@color/naranja"
         android:textSize="15dp"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText9" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:text="Dirección:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:text="E-mail:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:text="Fecha de Nacimiento:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:text="Tratamiento:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:text="Edad:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:text="Altura:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:text="Peso:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:textStyle="bold"
-        android:text="Usuario:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:textStyle="bold"
-        android:text="Contraseña:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:textColor="@color/naranja"
-        android:textStyle="bold"
-        android:text="Repita contraseña:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/etContraseña" />
 
     <Button
         android:id="@+id/btnReg"
-        android:layout_width="104dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="48dp"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/rounded_box_button"
-        android:text="Registrarme"
+        android:text="REGISTRARME"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="104dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="48dp"
+        android:id="@+id/btnLog"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/rounded_box_button"
-        android:text="VOLVER\nLOGIN"
+        android:text="VOLVER\nAL LOGIN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup2"
-        android:layout_width="187dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="187dp"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4">
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:text="Sr."
-            android:onClick="onRadioButtonClicked" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:text="Sra."
-            android:onClick="onRadioButtonClicked" />
-
-    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
