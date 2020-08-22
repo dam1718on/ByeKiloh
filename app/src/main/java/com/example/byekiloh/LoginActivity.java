@@ -18,7 +18,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.byekiloh.LoginEstructuraDatos.Estructura;
+import com.example.byekiloh.LoginEstructuraDatos.EstructuraUsuario;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -82,26 +82,26 @@ public class LoginActivity extends AppCompatActivity {
                 SQLiteDatabase sqliteL = basedatos.getReadableDatabase();
                 //Columnas que recogerá los datos de la consulta
                 String[] columnasL = {
-                        Estructura._ID,
-                        Estructura.COLUMN_NAME_NAME,
-                        Estructura.COLUMN_NAME_PASS,
+                        LoginEstructuraDatos.EstructuraUsuario._ID,
+                        EstructuraUsuario.COLUMN_NAME_NAME,
+                        EstructuraUsuario.COLUMN_NAME_PASS,
                 };
                 //Cláusula WHERE para buscar por usuario
-                String usuarioL = Estructura.COLUMN_NAME_NAME+" LIKE '"+userL.getUser()+"'";
+                String usuarioL = EstructuraUsuario.COLUMN_NAME_NAME+" LIKE '"+userL.getUser()+"'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                String ordenSalidaNameL = Estructura.COLUMN_NAME_NAME + " DESC";
+                String ordenSalidaNameL = LoginEstructuraDatos.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
                 //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                 // columnas, usuario y orden de los resultados.
-                Cursor cursorL = sqliteL.query(Estructura.TABLE_NAME, columnasL, usuarioL,
+                Cursor cursorL = sqliteL.query(EstructuraUsuario.TABLE_NAME, columnasL, usuarioL,
                         null , null, null, ordenSalidaNameL);
                 //Segundo if comprueba que el cursor no esté vacío
                 if(cursorL.getCount() != 0) {
                     cursorL.moveToFirst();
-                    String passCNL = cursorL.getString(cursorL.getColumnIndex(Estructura.COLUMN_NAME_PASS));
+                    String passCNL = cursorL.getString(cursorL.getColumnIndex(EstructuraUsuario.COLUMN_NAME_PASS));
                     //Tercer if comprueba que las contraseñas coinciden
                     if(userL.getPass().equals(passCNL)) {
                         //Como es el usuario correcto, incluimos el valor del atributo id en el objeto userL
-                        int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Estructura._ID));
+                        int identificadorL = cursorL.getInt(cursorL.getColumnIndex(LoginEstructuraDatos.EstructuraUsuario._ID));
                         userL.setId(identificadorL);
                         mensaje = new Mensaje(getApplicationContext(), "Bienvenido, "+userL.getUser()+"\nLogin correcto");
                         //Cuarto if comprueba si Recordar nombre de usuario está checked

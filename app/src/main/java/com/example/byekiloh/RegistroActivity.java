@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.byekiloh.LoginEstructuraDatos.Estructura;
+import com.example.byekiloh.LoginEstructuraDatos.*;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -105,46 +105,71 @@ public class RegistroActivity extends AppCompatActivity {
                         //Cuarto if comprueba si no coinciden las contraseñas
                         if (!userR.getPass().equals(contraseñaR2)) {
                             mensaje = new Mensaje(getApplicationContext(), "Las contraseñas no coinciden");
-                        } else {
+                        }
+                        else {
                             //Se establece conexion con permisos de lectura
                             SQLiteDatabase sqliteR = basedatos.getReadableDatabase();
                             //Columnas que recogerá los datos de la consulta
                             String[] columnasR = {
-                                    Estructura._ID,
-                                    Estructura.COLUMN_NAME_NAME,
-                                    Estructura.COLUMN_NAME_PASS,
+                                    EstructuraUsuario._ID,
+                                    EstructuraUsuario.COLUMN_NAME_NAME,
+                                    EstructuraUsuario.COLUMN_NAME_PASS,
                             };
                             //Cláusula WHERE para buscar por usuario
-                            String usuarioR = Estructura.COLUMN_NAME_NAME + " LIKE '" + userR.getUser() + "'";
+                            String usuarioR = EstructuraUsuario.COLUMN_NAME_NAME + " LIKE '" + userR.getUser() + "'";
                             //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                            String ordenSalidaR = Estructura.COLUMN_NAME_NAME + " DESC";
+                            String ordenSalidaR = EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
                             //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                             // columnas, usuario y orden de los resultados.
-                            Cursor cursorR = sqliteR.query(Estructura.TABLE_NAME, columnasR, usuarioR,
+                            Cursor cursorR = sqliteR.query(EstructuraUsuario.TABLE_NAME, columnasR, usuarioR,
                                     null, null, null, ordenSalidaR);
                             //Quinto if comprueba que el cursor no esté vacío
                             if (cursorR.getCount() != 0) {
                                 cursorR.moveToFirst();
-                                mensaje = new Mensaje(getApplicationContext(), "El nombre de usuario: " + userR.getUser() +
-                                        "\nno está disponible, pruebe con otro");
+                                mensaje = new Mensaje(getApplicationContext(), "El nombre de usuario: " +
+                                        userR.getUser() + "\nno está disponible, pruebe con otro");
                                 etUsuario.setText("");
-                            } else {
+                            }
+                            else {
                                 //Aqui se introduce el usuario nuevo en la base de datos
                                 //Se ganan tambien permisos de escritura
                                 sqliteR = basedatos.getWritableDatabase();
-                                //Estructura de insercción de datos
+                                //EstructuraUsuario de insercción de datos
                                 ContentValues content = new ContentValues();
                                 //Se añaden los valores introducidos de cada campo mediante
                                 // clave(columna)/valor(valor introducido en el campo de texto)
-                                content.put(LoginEstructuraDatos.Estructura.COLUMN_NAME_NAME, userR.getUser());
-                                content.put(LoginEstructuraDatos.Estructura.COLUMN_NAME_PASS, userR.getPass());
-                                sqliteR.insert(LoginEstructuraDatos.Estructura.TABLE_NAME, null, content);
-                                //Sexto if que diferencia entre Sr. y Sra.
+                                content.put(EstructuraUsuario.COLUMN_NAME_NAME, userR.getUser());
+                                content.put(EstructuraUsuario.COLUMN_NAME_PASS, userR.getPass());
+                                sqliteR.insert(EstructuraUsuario.TABLE_NAME, null, content);
+                                //Volvemos a rellenar el cursorR el cual incluye los datos ya insertados
+                                cursorR = sqliteR.query(EstructuraUsuario.TABLE_NAME, columnasR, usuarioR,
+                                        null, null, null, ordenSalidaR);
+                                cursorR.moveToFirst();
+                                //Extraemos el atributo id y se lo pasamos al objeto Usuario
+                                int identificadorL = cursorR.getInt(cursorR.getColumnIndex(EstructuraUsuario._ID));
+                                userR.setId(identificadorL);
+                                //Sexto if que diferencia entre Sr. y Sra. pasando el atributo al objeto usuario
                                 if (srsra == 1) {
-                                    mensaje = new Mensaje(getApplicationContext(), "El Sr.: " + userR.getUser() + "\nha sido registrado con éxito");
-                                } else {
-                                    mensaje = new Mensaje(getApplicationContext(), "La Sra.: " + userR.getUser() + "\nha sido registrada con éxito");
+                                    userR.setSexo("Hombre");
                                 }
+                                else {
+                                    userR.setSexo("Mujer");
+                                }
+                                //EstructuraCuenta de insercción de datos
+                                ContentValues content2 = new ContentValues();
+                                //Se añaden los valores introducidos de cada campo mediante
+                                // clave(columna)/valor(valor introducido en el campo de texto)
+                                content2.put(EstructuraCuenta._IDUSER, userR.getId());
+                                content2.put(EstructuraCuenta.COLUMN_NAME_SEXO, userR.getSexo());
+                                content2.put(EstructuraCuenta.COLUMN_NAME_NOMBRE, userR.getNombre());
+                                content2.put(EstructuraCuenta.COLUMN_NAME_DIRECCION, userR.getDireccion());
+                                content2.put(EstructuraCuenta.COLUMN_NAME_LOCALIDAD, userR.getLocalidad());
+                                content2.put(EstructuraCuenta.COLUMN_NAME_EMAIL, userR.getEmail());
+                                content2.put(EstructuraCuenta.COLUMN_NAME_FECHANAC, userR.getFechaNac());
+                                sqliteR.insert(EstructuraCuenta.TABLE_NAME, null, content2);
+                                //Registro exitoso
+                                mensaje = new Mensaje(getApplicationContext(), "El usuario: " +
+                                        userR.getUser() + "\nha sido registrado con éxito");
                                 //Reseteo del RadioButtonGroup y de los EditText
                                 radioGroup2.clearCheck();
                                 etNombre.setText("");
@@ -180,7 +205,8 @@ public class RegistroActivity extends AppCompatActivity {
         int num;
         num=et.getText().toString().length();
         if(num<=minDig){
-            mensaje = new Mensaje(getApplicationContext(), "El campo "+campo+"\ntiene "+String.valueOf(num)+" carácteres, corrígalo");
+            mensaje = new Mensaje(getApplicationContext(), "El campo "+campo+"\ntiene "+
+                    String.valueOf(num)+" carácteres, corrígalo");
             countError=countError+1;
         }
 

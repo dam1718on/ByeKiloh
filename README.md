@@ -22,6 +22,7 @@ Commit16. LoginActivity finalizada
 --new branch: format1.0
 Commit17. RegistroActivity creada
 Commit18. RegistroActivity implementada parte lógica
+Commit19. Obj. Usuario se completa ATR y se guarda en dos tablas de la BBDD(Usuarios-Cuentas)
 
 -   DONE
 Commit16    
@@ -36,20 +37,23 @@ Se crean las restricciones de los atributos
 Commit18
 Los atributos relativos al peso, se quitan de la clase/tabla usuario Edad, Altura, Peso, Fecha inserccion
 Creados varios if anidados para comprobar errores de introduccion de datos, con mensajes toast personalizados
+Commit19
+El Objeto Usuario ya se completa en ejecucion sobre .RegistroActivity y se guardar en la BBDD(completo)
+INTEGRIDAD DE LA INFORMACIÓN DE CADA CUENTA. PRIORIDAD ALTA
+Creo activity_registro.xml(land) y activity_login.xml(land) 
 
 -   TASK
-    activity_registro_land.xml y activity_login_land.xml  HACER    
-    Objeto Usuario mas complejo y guardarlo en la BBDD
-    INTEGRIDAD DE LA INFORMACIÓN DE CADA CUENTA. PRIORIDAD ALTA
-    nuevo branch al acabar .RegistroActivity
-    Pasar objeto Usuario de .LoginActivity a .FirstActivity   
-    Posibilidad de varios idiomas 
-    IMPLEMENTAR CRUD completo SQLite
+Corregir Diseño en terminal real(Xiaomi)
+Hacer pruebas a estas dos activitys para depurar errores, nuevo branch al acabar(.RegistroActivity) 
+
+Pasar objeto Usuario de .LoginActivity a .FirstActivity   
+Posibilidad de varios idiomas 
+IMPLEMENTAR CRUD completo SQLite
 --
-    Hacer usable la app por mi e ir viendo la ejecucion. por hacer!!
-    Probar la BBDD e intentar administrarla en remoto. por hacer!!
-    Implementar tiempo en minutos y segundos
-    Implementar Kcal
-    Implementar pulsaciones ppm
-    Velocidad media, Real(m/s,km/h) 
-    Hacer la BBDD syncronizable.(JSON?)       
+Hacer usable la app por mi e ir viendo la ejecucion. por hacer!!
+Probar la BBDD e intentar administrarla en remoto. por hacer!!
+Implementar tiempo en minutos y segundos
+Implementar Kcal
+Implementar pulsaciones ppm
+Velocidad media, Real(m/s,km/h) 
+Hacer la BBDD syncronizable.(JSON?)       

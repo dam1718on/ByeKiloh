@@ -3,7 +3,7 @@ package com.example.byekiloh;
 public class Usuario {
 
     private int id;
-    private String nombre, direccion, localidad, email, fechaNac, user, pass;
+    private String sexo, nombre, direccion, localidad, email, fechaNac, user, pass;
 
     public Usuario() {    }
 
@@ -25,6 +25,10 @@ public class Usuario {
     public int getId() {  return id;  }
 
     public void setId(int id) {  this.id = id;  }
+
+    public String getSexo() {  return sexo;  }
+
+    public void setSexo(String sexo) {  this.sexo = sexo;  }
 
     public String getNombre() {  return nombre;  }
 
@@ -58,13 +62,14 @@ public class Usuario {
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
+                ", sexo='" + sexo + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", localidad='" + localidad + '\'' +
                 ", email='" + email + '\'' +
                 ", fechaNac='" + fechaNac + '\'' +
-                ", nomUser='" + user + '\'' +
-                ", contraseña='" + pass + '\'' +
+                ", user='" + user + '\'' +
+                ", pass='" + pass + '\'' +
                 '}';
     }
 
