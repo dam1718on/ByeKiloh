@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     mensaje = new Mensaje(getApplicationContext(), "El usuario: "+userL.getUser()+" no existe");
-                    etPass.setText("");
+                    etUser.setText("");
                 }
                 //Se cierra la conexión abierta a la Base de Datos
                 sqliteL.close();
@@ -140,6 +140,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public boolean checkUser(){
+
+
+        return true;
     }
 
 //spinEjercicios.setAdapter(new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,

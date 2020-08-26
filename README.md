@@ -23,6 +23,7 @@ Commit16. LoginActivity finalizada
 Commit17. RegistroActivity creada
 Commit18. RegistroActivity implementada parte lógica
 Commit19. Obj. Usuario se completa ATR y se guarda en dos tablas de la BBDD(Usuarios-Cuentas)
+Commit20. Depuración y nuevo branch: format1.1
 
 -   DONE
 Commit16    
@@ -41,10 +42,14 @@ Commit19
 El Objeto Usuario ya se completa en ejecucion sobre .RegistroActivity y se guardar en la BBDD(completo)
 INTEGRIDAD DE LA INFORMACIÓN DE CADA CUENTA. PRIORIDAD ALTA
 Creo activity_registro.xml(land) y activity_login.xml(land) 
+Commit20
+Pruebas realizadas y depurados errores en diseño y lógica 
+Creo nuevo branch ya que comienzo un enfoque diferente, usando fragments(3) en .RegistroActivity
 
 -   TASK
-Corregir Diseño en terminal real(Xiaomi)
-Hacer pruebas a estas dos activitys para depurar errores, nuevo branch al acabar(.RegistroActivity) 
+Hay que hacer mas fluida .RegistroActivity se intenta con 3 fragments
+uno para el usuario, otro para la info de cuenta y otro para la imagen de la misma.
+
 
 Pasar objeto Usuario de .LoginActivity a .FirstActivity   
 Posibilidad de varios idiomas 
