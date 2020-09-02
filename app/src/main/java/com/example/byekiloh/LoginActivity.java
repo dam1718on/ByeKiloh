@@ -18,7 +18,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.byekiloh.LoginEstructuraDatos.EstructuraUsuario;
+import com.example.byekiloh.crearcuenta.CrearCuenta1de3;
+import com.example.byekiloh.utilidades.*;
+import com.example.byekiloh.objetos.*;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private String defaultValue;
 
     Mensaje mensaje;
-    LoginBaseDatos basedatos;
+    BaseDatos basedatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +56,13 @@ public class LoginActivity extends AppCompatActivity {
         userSP = prefSesion.getString("usuario", defaultValue);
         etUser.setText(userSP);
 
-        basedatos = new LoginBaseDatos(getApplicationContext());
+        basedatos = new BaseDatos(getApplicationContext());
 
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Creamos Intent para ir a .RegistroActivity
-            Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
+            //Creamos Intent para ir a .CrearCuenta1de3
+            Intent intent = new Intent(getApplicationContext(), CrearCuenta1de3.class);
             startActivity(intent);
             }
         });
@@ -82,26 +84,26 @@ public class LoginActivity extends AppCompatActivity {
                 SQLiteDatabase sqliteL = basedatos.getReadableDatabase();
                 //Columnas que recogerá los datos de la consulta
                 String[] columnasL = {
-                        LoginEstructuraDatos.EstructuraUsuario._ID,
-                        EstructuraUsuario.COLUMN_NAME_NAME,
-                        EstructuraUsuario.COLUMN_NAME_PASS,
+                        Tablas.EstructuraUsuario._ID,
+                        Tablas.EstructuraUsuario.COLUMN_NAME_NAME,
+                        Tablas.EstructuraUsuario.COLUMN_NAME_PASS,
                 };
                 //Cláusula WHERE para buscar por usuario
-                String usuarioL = EstructuraUsuario.COLUMN_NAME_NAME+" LIKE '"+userL.getUser()+"'";
+                String usuarioL = Tablas.EstructuraUsuario.COLUMN_NAME_NAME+" LIKE '"+userL.getUser()+"'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                String ordenSalidaNameL = LoginEstructuraDatos.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
+                String ordenSalidaNameL = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
                 //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                 // columnas, usuario y orden de los resultados.
-                Cursor cursorL = sqliteL.query(EstructuraUsuario.TABLE_NAME, columnasL, usuarioL,
+                Cursor cursorL = sqliteL.query(Tablas.EstructuraUsuario.TABLE_NAME, columnasL, usuarioL,
                         null , null, null, ordenSalidaNameL);
                 //Segundo if comprueba que el cursor no esté vacío
                 if(cursorL.getCount() != 0) {
                     cursorL.moveToFirst();
-                    String passCNL = cursorL.getString(cursorL.getColumnIndex(EstructuraUsuario.COLUMN_NAME_PASS));
+                    String passCNL = cursorL.getString(cursorL.getColumnIndex(Tablas.EstructuraUsuario.COLUMN_NAME_PASS));
                     //Tercer if comprueba que las contraseñas coinciden
                     if(userL.getPass().equals(passCNL)) {
                         //Como es el usuario correcto, incluimos el valor del atributo id en el objeto userL
-                        int identificadorL = cursorL.getInt(cursorL.getColumnIndex(LoginEstructuraDatos.EstructuraUsuario._ID));
+                        int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Tablas.EstructuraUsuario._ID));
                         userL.setId(identificadorL);
                         mensaje = new Mensaje(getApplicationContext(), "Bienvenido, "+userL.getUser()+"\nLogin correcto");
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
@@ -142,13 +144,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public boolean checkUser(){
-
-
-        return true;
-    }
-
-//spinEjercicios.setAdapter(new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,
-//      Collections.singletonList(ejercicio.toString())));
+    //spinEjercicios.setAdapter(new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item,
+    //Collections.singletonList(ejercicio.toString())));
 
 }

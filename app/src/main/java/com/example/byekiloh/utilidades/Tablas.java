@@ -1,10 +1,10 @@
-package com.example.byekiloh;
+package com.example.byekiloh.utilidades;
 
 import android.provider.BaseColumns;
 
-public class LoginEstructuraDatos {
+public class Tablas {
 
-    public LoginEstructuraDatos() {    }
+    public Tablas() {    }
 
     public static abstract class EstructuraUsuario implements BaseColumns {
         public static final String TABLE_NAME = "Usuarios";

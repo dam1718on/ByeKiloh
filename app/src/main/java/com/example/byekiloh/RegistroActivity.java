@@ -18,7 +18,8 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.byekiloh.LoginEstructuraDatos.*;
+import com.example.byekiloh.utilidades.*;
+import com.example.byekiloh.objetos.*;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class RegistroActivity extends AppCompatActivity {
     private Button btnReg, btnLog;
 
     Mensaje mensaje;
-    LoginBaseDatos basedatos;
+    BaseDatos basedatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class RegistroActivity extends AppCompatActivity {
         btnReg=findViewById(R.id.btnReg);
         btnLog=findViewById(R.id.btnLog);
 
-        basedatos = new LoginBaseDatos(getApplicationContext());
+        basedatos = new BaseDatos(getApplicationContext());
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,17 +112,17 @@ public class RegistroActivity extends AppCompatActivity {
                             SQLiteDatabase sqliteR = basedatos.getReadableDatabase();
                             //Columnas que recogerá los datos de la consulta
                             String[] columnasR = {
-                                    EstructuraUsuario._ID,
-                                    EstructuraUsuario.COLUMN_NAME_NAME,
-                                    EstructuraUsuario.COLUMN_NAME_PASS,
+                                    Tablas.EstructuraUsuario._ID,
+                                    Tablas.EstructuraUsuario.COLUMN_NAME_NAME,
+                                    Tablas.EstructuraUsuario.COLUMN_NAME_PASS,
                             };
                             //Cláusula WHERE para buscar por usuario
-                            String usuarioR = EstructuraUsuario.COLUMN_NAME_NAME + " LIKE '" + userR.getUser() + "'";
+                            String usuarioR = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " LIKE '" + userR.getUser() + "'";
                             //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                            String ordenSalidaR = EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
+                            String ordenSalidaR = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
                             //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                             // columnas, usuario y orden de los resultados.
-                            Cursor cursorR = sqliteR.query(EstructuraUsuario.TABLE_NAME, columnasR, usuarioR,
+                            Cursor cursorR = sqliteR.query(Tablas.EstructuraUsuario.TABLE_NAME, columnasR, usuarioR,
                                     null, null, null, ordenSalidaR);
                             //Quinto if comprueba que el cursor no esté vacío
                             if (cursorR.getCount() != 0) {
@@ -138,15 +139,15 @@ public class RegistroActivity extends AppCompatActivity {
                                 ContentValues content = new ContentValues();
                                 //Se añaden los valores introducidos de cada campo mediante
                                 // clave(columna)/valor(valor introducido en el campo de texto)
-                                content.put(EstructuraUsuario.COLUMN_NAME_NAME, userR.getUser());
-                                content.put(EstructuraUsuario.COLUMN_NAME_PASS, userR.getPass());
-                                sqliteR.insert(EstructuraUsuario.TABLE_NAME, null, content);
+                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_NAME, userR.getUser());
+                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_PASS, userR.getPass());
+                                sqliteR.insert(Tablas.EstructuraUsuario.TABLE_NAME, null, content);
                                 //Volvemos a rellenar el cursorR el cual incluye los datos ya insertados
-                                cursorR = sqliteR.query(EstructuraUsuario.TABLE_NAME, columnasR, usuarioR,
+                                cursorR = sqliteR.query(Tablas.EstructuraUsuario.TABLE_NAME, columnasR, usuarioR,
                                         null, null, null, ordenSalidaR);
                                 cursorR.moveToFirst();
                                 //Extraemos el atributo id y se lo pasamos al objeto Usuario
-                                int identificadorL = cursorR.getInt(cursorR.getColumnIndex(EstructuraUsuario._ID));
+                                int identificadorL = cursorR.getInt(cursorR.getColumnIndex(Tablas.EstructuraUsuario._ID));
                                 userR.setId(identificadorL);
                                 //Sexto if que diferencia entre Sr. y Sra. pasando el atributo al objeto usuario
                                 if (srsra == 1) {
@@ -159,14 +160,14 @@ public class RegistroActivity extends AppCompatActivity {
                                 ContentValues content2 = new ContentValues();
                                 //Se añaden los valores introducidos de cada campo mediante
                                 // clave(columna)/valor(valor introducido en el campo de texto)
-                                content2.put(EstructuraCuenta._IDUSER, userR.getId());
-                                content2.put(EstructuraCuenta.COLUMN_NAME_SEXO, userR.getSexo());
-                                content2.put(EstructuraCuenta.COLUMN_NAME_NOMBRE, userR.getNombre());
-                                content2.put(EstructuraCuenta.COLUMN_NAME_DIRECCION, userR.getDireccion());
-                                content2.put(EstructuraCuenta.COLUMN_NAME_LOCALIDAD, userR.getLocalidad());
-                                content2.put(EstructuraCuenta.COLUMN_NAME_EMAIL, userR.getEmail());
-                                content2.put(EstructuraCuenta.COLUMN_NAME_FECHANAC, userR.getFechaNac());
-                                sqliteR.insert(EstructuraCuenta.TABLE_NAME, null, content2);
+                                content2.put(Tablas.EstructuraCuenta._IDUSER, userR.getId());
+                                content2.put(Tablas.EstructuraCuenta.COLUMN_NAME_SEXO, userR.getSexo());
+                                content2.put(Tablas.EstructuraCuenta.COLUMN_NAME_NOMBRE, userR.getNombre());
+                                content2.put(Tablas.EstructuraCuenta.COLUMN_NAME_DIRECCION, userR.getDireccion());
+                                content2.put(Tablas.EstructuraCuenta.COLUMN_NAME_LOCALIDAD, userR.getLocalidad());
+                                content2.put(Tablas.EstructuraCuenta.COLUMN_NAME_EMAIL, userR.getEmail());
+                                content2.put(Tablas.EstructuraCuenta.COLUMN_NAME_FECHANAC, userR.getFechaNac());
+                                sqliteR.insert(Tablas.EstructuraCuenta.TABLE_NAME, null, content2);
                                 //Registro exitoso
                                 mensaje = new Mensaje(getApplicationContext(), "El usuario: " +
                                         userR.getUser() + "\nha sido registrado con éxito");
