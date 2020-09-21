@@ -37,7 +37,7 @@
   <li>Commit23. Estructura README.md</li>
 </ul>
 <h3>DONE</h3>
-<p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado "Mantener sesion iniciada"(CheckBox). SHAREDPREFERENCES para Mantener sesion iniciada. nuevo branch al acabar .LoginActivity</p>
+<p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado "Mantener sesion iniciada"(CheckBox). SharedPreferences para Mantener sesion iniciada. nuevo branch al acabar .LoginActivity</p>
 <p>Commit17. Se crea .RegistroActivity para profundizar en la información de la cuenta de cada usuario. Se cambia a ConstrainLayout en esta activity mejoría en la integridad visual de los "com.example.byekiloh.objetos". Se crean las restricciones de los atributos</p>
 <p>Commit18. Los atributos relativos al peso, se quitan de la clase/tabla usuario Edad, Altura, Peso, Fecha inserccion. Creados varios if anidados para comprobar errores de introduccion de datos, con mensajes toast personalizados</p>
 <p>Commit19. El Objeto Usuario ya se completa en ejecucion sobre .RegistroActivity y se guardar en la BBDD(completo). Integridad de la información de cada cuenta (prioridad alta). Creo activity_registro.xml(land) y activity_login.xml(land)</p>
@@ -51,7 +51,7 @@
   <li>Implementar un menu para el Usuario/Cuenta</li>
   <li>Pasar objeto Usuario de .LoginActivity a .FirstActivity</li>
   <li>Posibilidad de varios idiomas</li>
-  <li>IMPLEMENTAR CRUD completo SQLite</li>
+  <li>Implementar CRUD completo SQLite</li>
   <li>Hacer usable la app por mi e ir viendo la ejecucion</li>
   <li>Probar la BBDD e intentar administrarla en remoto</li>
   <li>Implementar tiempo en minutos y segundos</li>
