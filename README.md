@@ -1,32 +1,40 @@
-# ByeKiloh
-Beware of the Dog!!
---
-initial commit. Generado proyecto desde Portatil-Ubuntu(branch:master)  
-primer commit. Upgradeado proyecto con FraseDelDia  
-segundo commit.  Adaptar la app a las necesidades propias   
-tercer commit. Limpiando un poco el proyecto    
-4commit. Limpio total, guardar() y calcular() implementados 
-5commit. Sacado atributo ms, kmh de la clase    
-6Kommit. Mejora gráfica e implementacion botón reset con listener   
-7Kommit. Implementado método velocidad(). Todos los botones ahora con onClickListener      
-8Kommit. Implementado id(YYYYMMDD) al objeto ejercicio  
-9Kommit. Arreglado el id(YYMMDD). Teniendo en cuenta los ceros a la izquierda   
-10Komit. Implementada BBDD SQLite embebida  
---new branch: format0.2 
-11 commit. Nueva rama cambios sustanciales en la app. nuevo formato 
-Commit12. NewLoginActivity guarda en BBDD   
-Commit13. LoginActivity. Creado apaisado y finalizado diseño    
-Commit14. REGISTRO() finalizado (primero verifica y luego añade)    
-Commit15. LOGIN() finalizado. Clase Usuario implementada    
-Commit16. LoginActivity finalizada  
---new branch: format1.0 
-Commit17. RegistroActivity creada   
-Commit18. RegistroActivity implementada parte lógica    
-Commit19. Obj. Usuario se completa ATR y se guarda en dos tablas de la BBDD(Usuarios-Cuentas)   
-Commit20. Depuración y nuevo branch: format1.1  
---new branch: format1.1
-Commit21. Implementado Paso1de3 para CrearCuenta
--   DONE    
+#ByeKiloh
+##Beware of the Dog!!
+<ul>
+<li>initial commit. Generado proyecto desde Portatil-Ubuntu(branch:master)</li>
+<li>primer commit. Upgradeado proyecto con FraseDelDia</li>
+<li>segundo commit.  Adaptar la app a las necesidades propias</li>
+<li>tercer commit. Limpiando un poco el proyecto</li>
+<li>4commit. Limpio total, guardar() y calcular() implementados</li>
+<li>5commit. Sacado atributo ms, kmh de la clase</li>
+<li>6Kommit. Mejora gráfica e implementacion botón reset con listener</li>
+<li>7Kommit. Implementado método velocidad(). Todos los botones ahora con onClickListener</li>
+<li>8Kommit. Implementado id(YYYYMMDD) al objeto ejercicio</li>
+<li>9Kommit. Arreglado el id(YYMMDD). Teniendo en cuenta los ceros a la izquierda</li>
+<li>10Komit. Implementada BBDD SQLite embebida</li>
+</ul>
+<p>--new branch: format0.2</p>
+<ul>
+<li>11 commit. Nueva rama cambios sustanciales en la app. nuevo formato</li>
+<li>Commit12. NewLoginActivity guarda en BBDD</li>
+<li>Commit13. LoginActivity. Creado apaisado y finalizado diseño</li>
+<li>Commit14. REGISTRO() finalizado (primero verifica y luego añade)</li>
+<li>Commit15. LOGIN() finalizado. Clase Usuario implementada</li>
+<li>Commit16. LoginActivity finalizada</li>
+</ul>
+<p>--new branch: format1.0</p>
+<ul>
+<li>Commit17. RegistroActivity creada</li>
+<li>Commit18. RegistroActivity implementada parte lógica</li>
+<li>Commit19. Obj. Usuario se completa ATR y se guarda en dos tablas de la BBDD(Usuarios-Cuentas)</li>
+<li>Commit20. Depuración y nuevo branch: format1.1</li>
+</ul>
+<p>--new branch: format1.1</p>
+<ul>
+<li>Commit21. Implementado Paso1de3 para CrearCuenta</li>
+<li>Commit22. Logos Aplicación en naranja degradado y en ByN</li>
+</ul>
+<p>DONE</p>
 Commit16    
 Restricciones a los digitos EditText patterns insertar, consultar datos
 Implementado Mantener sesion iniciada(CheckBox)
@@ -49,10 +57,12 @@ Creo nuevo branch ya que comienzo un enfoque diferente, usando fragments(3) en .
 Commit21
 No consigo con fragments el aspecto que me gustaría de pestañas de navegador web, así que hago
 layouts normales para poder continuar en la parte lógica. Implementado Paso1de3 de CrearCuenta
+Commit22
+Creo con Illustrator el logo de la aplicación tanto en naranja degradado hacia amarillo
+y en blancoynegro, se adjuntan ambos y se comprueban
 -   TASK
-Hay que hacer mas fluida .RegistroActivity se intenta con 3 fragments
-uno para el usuario, otro para la info de cuenta y otro para la imagen de la misma.
-
+Terminar la parte lógica de Login y Registro de cuenta
+Implementar un menu para el Usuario/Cuenta.
 
 Pasar objeto Usuario de .LoginActivity a .FirstActivity   
 Posibilidad de varios idiomas 

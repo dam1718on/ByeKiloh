@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         btnRegistro=findViewById(R.id.btnRegistro);
         btnLogin=findViewById(R.id.btnLogin);
 
-        imgUser.setImageResource(R.drawable.userh);
+        //imgUser.setImageResource(R.drawable.userh);
         //SharedPreferences para Recordar nombre de usuario
         SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
         userSP = prefSesion.getString("usuario", defaultValue);

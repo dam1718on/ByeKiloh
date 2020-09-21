@@ -1,6 +1,8 @@
 package com.example.byekiloh.objetos;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
 
     private int id;
     private String sexo, nombre, direccion, localidad, email, fechaNac, user, pass;
@@ -20,6 +22,18 @@ public class Usuario {
         this.fechaNac = fechaNac;
         this.user = user;
         this.pass = pass;
+    }
+
+    public Usuario(Usuario user){
+        this.id=user.getId();
+        this.sexo=user.getSexo();
+        this.nombre=user.getNombre();
+        this.direccion=user.getDireccion();
+        this.localidad=user.getLocalidad();
+        this.email=user.getEmail();
+        this.fechaNac=user.getFechaNac();
+        this.user=user.getUser();
+        this.pass=user.getPass();
     }
 
     public int getId() {  return id;  }
