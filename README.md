@@ -34,22 +34,41 @@
 <ul>
   <li>Commit21. Implementado Paso1de3 para CrearCuenta</li>
   <li>Commit22. Logos Aplicación en naranja degradado y en ByN</li>
-  <li>Commit23. Estructura README.md</li>
+  <li>Commit23. Estructuro README.md</li>
+  <li>Commit24. Estructuro styles.xml y se actualiza .Login</li>
 </ul>
 <h3>DONE</h3>
-<p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado "Mantener sesion iniciada"(CheckBox). SharedPreferences para Mantener sesion iniciada. nuevo branch al acabar .LoginActivity</p>
-<p>Commit17. Se crea .RegistroActivity para profundizar en la información de la cuenta de cada usuario. Se cambia a ConstrainLayout en esta activity mejoría en la integridad visual de los "com.example.byekiloh.objetos". Se crean las restricciones de los atributos</p>
-<p>Commit18. Los atributos relativos al peso, se quitan de la clase/tabla usuario Edad, Altura, Peso, Fecha inserccion. Creados varios if anidados para comprobar errores de introduccion de datos, con mensajes toast personalizados</p>
-<p>Commit19. El Objeto Usuario ya se completa en ejecucion sobre .RegistroActivity y se guardar en la BBDD(completo). Integridad de la información de cada cuenta (prioridad alta). Creo activity_registro.xml(land) y activity_login.xml(land)</p>
-<p>Commit20. Pruebas realizadas y depurados errores en diseño y lógica. Creo nuevo branch ya que comienzo un enfoque diferente, usando fragments(3) en .RegistroActivity</p>
-<p>Commit21. No consigo con fragments el aspecto que me gustaría de pestañas de navegador web, así que hago layouts normales para poder continuar en la parte lógica. Implementado Paso1de3 de CrearCuenta</p>
-<p>Commit22. Aprendo el uso básico de Illustrator para crear el logo de la aplicación, tanto en naranja degradado hacia amarillo como en blancoynegro, se adjuntan ambos y se comprueba el ajuste en la aplicación a través de LinearLayouts</p>
-<p>Commit23. Reestructuro README.md con lenguaje HTML que facilita la visualización de las tareas realizadas y pendientes</p>
+<p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
+"Mantener sesion iniciada"(CheckBox). SharedPreferences para Mantener sesion iniciada. nuevo branch
+al acabar .LoginActivity</p>
+<p>Commit17. Se crea .RegistroActivity para profundizar en la información de la cuenta de cada
+usuario. Se cambia a ConstrainLayout en esta activity mejoría en la integridad visual de los
+"com.example.byekiloh.objetos". Se crean las restricciones de los atributos</p>
+<p>Commit18. Los atributos relativos al peso, se quitan de la clase/tabla usuario Edad, Altura,
+Peso, Fecha inserccion. Creados varios if anidados para comprobar errores de introduccion de datos,
+con mensajes toast personalizados</p>
+<p>Commit19. El Objeto Usuario ya se completa en ejecucion sobre .RegistroActivity y se guardar en
+la BBDD(completo). Integridad de la información de cada cuenta (prioridad alta). Creo
+activity_registro.xml(land) y activity_login.xml(land)</p>
+<p>Commit20. Pruebas realizadas y depurados errores en diseño y lógica. Creo nuevo branch ya que
+comienzo un enfoque diferente, usando fragments(3) en .RegistroActivity</p>
+<p>Commit21. No consigo con fragments el aspecto que me gustaría de pestañas de navegador web, así
+que hago layouts normales para poder continuar en la parte lógica. Implementado Paso1de3 de
+CrearCuenta</p>
+<p>Commit22. Aprendo el uso básico de Illustrator para crear el logo de la aplicación, tanto en
+naranja degradado hacia amarillo como en blancoynegro, se adjuntan ambos y se comprueba el ajuste
+en la aplicación a través de LinearLayouts</p>
+<p>Commit23. Reestructuro README.md con lenguaje HTML que facilita la visualización de las tareas
+realizadas y pendientes</p>
+<p>Commit24. Reestructuro styles.xml y añado dos nuevos estilos uno vacío para quitar la ActionBar
+de inicio y otro para el borde de letra para los Botones. También se introduce el logo en byn sobre
+un fondo degradado y se termina activity_login.xml</p>
 <h3>TASK</h3>
 <ul>
   <li>Terminar la parte lógica de Login y Registro de cuenta</li>
   <li>Implementar un menu para el Usuario/Cuenta</li>
   <li>Pasar objeto Usuario de .LoginActivity a .FirstActivity</li>
+  <li>Posibilidad de implementar un diseño para día y otro para noche</li>
   <li>Posibilidad de varios idiomas</li>
   <li>Implementar CRUD completo SQLite</li>
   <li>Hacer usable la app por mi e ir viendo la ejecucion</li>

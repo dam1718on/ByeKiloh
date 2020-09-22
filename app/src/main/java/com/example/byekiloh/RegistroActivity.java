@@ -18,8 +18,9 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.byekiloh.utilidades.*;
+import com.example.byekiloh.crearcuenta.*;
 import com.example.byekiloh.objetos.*;
+import com.example.byekiloh.utilidades.*;
 
 public class RegistroActivity extends AppCompatActivity {
 

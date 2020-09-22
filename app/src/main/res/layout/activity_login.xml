@@ -1,109 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/platino"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imgUser"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/byekilohlogo"
-        tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_box_button">
 
-    <TextView
-        android:id="@+id/tvNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="66dp"
-        android:text="Usuario:"
-        android:textColor="@color/naranja"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgUser" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/byekilohlogobyn">
 
-    <TextView
-        android:id="@+id/tvDireccion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="17dp"
-        android:text="Contraseña:"
-        android:textColor="@color/naranja"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
+        </LinearLayout>
 
-    <EditText
-        android:id="@+id/etUser"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="60dp"
-        android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-        android:hint=" ej. RaulRunner88"
-        android:maxLength="15"
-        android:maxLines="1"
-        android:textColor="@color/naranja"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgUser" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/etPass"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="155dp"
-        android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-        android:hint=" ej. 12bFe@-5"
-        android:maxLength="20"
-        android:maxLines="1"
-        android:textColor="@color/naranja"
-        android:textSize="18dp"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUser" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
 
-    <CheckBox
-        android:id="@+id/cbUsuario"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="151dp"
-        android:text="Recordar nombre de usuario"
-        android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPass" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="86dp">
 
-    <Button
-        android:id="@+id/btnRegistro"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/rounded_box_button"
-        android:text="CREAR\nCUENTA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/imgUsuario"
+                android:layout_width="33dp"
+                android:layout_height="33dp" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/rounded_box_button"
-        android:text="INICIAR\nSESION"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/tvUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33dp"
+                android:layout_gravity="center"
+                android:text="Usuario"
+                android:textColor="@color/naranja"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="86dp">
+
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+            android:hint="     ej. RaulRunner88"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:textColor="@color/naranja"
+            android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="86dp">
+
+            <ImageView
+                android:id="@+id/imgContraseña"
+                android:layout_width="33dp"
+                android:layout_height="33dp" />
+
+            <TextView
+                android:id="@+id/tvContraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33dp"
+                android:layout_gravity="center"
+                android:text="Contraseña"
+                android:textColor="@color/naranja"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="86dp">
+
+            <EditText
+                android:id="@+id/etContraseña"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:hint="     ej. 12bFe@-5"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:textColor="@color/naranja"
+                android:textSize="18dp"
+                android:inputType="textPassword" />
+
+            <CheckBox
+                android:id="@+id/cbSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:text="Mantener sesión iniciada"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="131dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnRegistro"
+                android:layout_width="110dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="CREAR\nCUENTA"
+                android:textStyle="bold"
+                style="@style/shadoweffect"
+                android:background="@drawable/rounded_box_button" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="110dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="INICIAR\nSESION"
+                android:textStyle="bold"
+                style="@style/shadoweffect"
+                android:background="@drawable/rounded_box_button" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

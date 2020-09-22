@@ -16,18 +16,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 
-import com.example.byekiloh.crearcuenta.CrearCuenta1de3;
-import com.example.byekiloh.utilidades.*;
+import com.example.byekiloh.crearcuenta.*;
 import com.example.byekiloh.objetos.*;
+import com.example.byekiloh.utilidades.*;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private ImageView imgUser;
-    private EditText etUser, etPass;
+    private EditText etUsuario, etContraseña;
     private Button btnRegistro, btnLogin;
-    private CheckBox cbUsuario;
+    private CheckBox cbSesion;
 
     private String userSP;
     private String defaultValue;
@@ -40,21 +38,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        imgUser=findViewById(R.id.imgUser);
+        etUsuario =findViewById(R.id.etUsuario);
+        etContraseña =findViewById(R.id.etContraseña);
 
-        etUser=findViewById(R.id.etUser);
-        etPass=findViewById(R.id.etPass);
-
-        cbUsuario =findViewById(R.id.cbUsuario);
+        cbSesion =findViewById(R.id.cbSesion);
 
         btnRegistro=findViewById(R.id.btnRegistro);
         btnLogin=findViewById(R.id.btnLogin);
-
-        //imgUser.setImageResource(R.drawable.userh);
         //SharedPreferences para Recordar nombre de usuario
         SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
         userSP = prefSesion.getString("usuario", defaultValue);
-        etUser.setText(userSP);
+        etUsuario.setText(userSP);
 
         basedatos = new BaseDatos(getApplicationContext());
 
@@ -73,8 +67,8 @@ public class LoginActivity extends AppCompatActivity {
             //Se crea e inicializa el objeto userL
             Usuario userL = new Usuario();
             //Se recogen los datos de los EditText
-            userL.setUser(etUser.getText().toString());
-            userL.setPass(etPass.getText().toString());
+            userL.setUser(etUsuario.getText().toString());
+            userL.setPass(etContraseña.getText().toString());
             //Primer if comprueba si están vacíos los dos primeros EditText
             if(userL.getUser().equals("") || userL.getPass().equals("")) {
                 mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos\ntodos los campos son obligatorios");
@@ -107,14 +101,14 @@ public class LoginActivity extends AppCompatActivity {
                         userL.setId(identificadorL);
                         mensaje = new Mensaje(getApplicationContext(), "Bienvenido, "+userL.getUser()+"\nLogin correcto");
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
-                        if(cbUsuario.isChecked()) {//dentro de este if va el intent a implementar
+                        if(cbSesion.isChecked()) {//dentro de este if va el intent a implementar
                             //Le pasamos el nombre de usuario al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
                             userSP = userL.getUser();
                             SharedPreferences.Editor editor=prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
-                            etPass.setText("");
+                            etContraseña.setText("");
                         }
                         else {
                             //Le pasamos usuario="" al SharedPreferences
@@ -123,18 +117,18 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor=prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
-                            etUser.setText("");
-                            etPass.setText("");
+                            etUsuario.setText("");
+                            etContraseña.setText("");
                         }
                     }
                     else {
                         mensaje = new Mensaje(getApplicationContext(), "La contraseña no es correcta");
-                        etPass.setText("");
+                        etContraseña.setText("");
                     }
                 }
                 else {
                     mensaje = new Mensaje(getApplicationContext(), "El usuario: "+userL.getUser()+" no existe");
-                    etUser.setText("");
+                    etUsuario.setText("");
                 }
                 //Se cierra la conexión abierta a la Base de Datos
                 sqliteL.close();
