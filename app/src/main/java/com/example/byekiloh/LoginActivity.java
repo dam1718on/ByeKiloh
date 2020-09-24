@@ -17,15 +17,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.example.byekiloh.crearcuenta.*;
 import com.example.byekiloh.objetos.*;
 import com.example.byekiloh.utilidades.*;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText etUsuario, etContraseña;
-    private Button btnRegistro, btnLogin;
-    private CheckBox cbSesion;
+    private EditText etUsuarioLogin, etContraseñaLogin;
+    private Button btnCrearCuentaLogin, btnIniciarSesionLogin;
+    private CheckBox cbMantenerSesionIniciadaLogin;
 
     private String userSP;
     private String defaultValue;
@@ -38,37 +37,37 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etUsuario =findViewById(R.id.etUsuario);
-        etContraseña =findViewById(R.id.etContraseña);
+        etUsuarioLogin =findViewById(R.id.etUsuarioRegistro);
+        etContraseñaLogin =findViewById(R.id.etContraseñaRegistro);
 
-        cbSesion =findViewById(R.id.cbSesion);
+        cbMantenerSesionIniciadaLogin =findViewById(R.id.cbAceptarTOSregistro);
 
-        btnRegistro=findViewById(R.id.btnRegistro);
-        btnLogin=findViewById(R.id.btnLogin);
+        btnCrearCuentaLogin =findViewById(R.id.btnCrearCuentaLogin);
+        btnIniciarSesionLogin =findViewById(R.id.btnRegistroRegistro);
         //SharedPreferences para Recordar nombre de usuario
         SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
         userSP = prefSesion.getString("usuario", defaultValue);
-        etUsuario.setText(userSP);
+        etUsuarioLogin.setText(userSP);
 
         basedatos = new BaseDatos(getApplicationContext());
 
-        btnRegistro.setOnClickListener(new View.OnClickListener() {
+        btnCrearCuentaLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             //Creamos Intent para ir a .CrearCuenta1de3
-            Intent intent = new Intent(getApplicationContext(), CrearCuenta1de3.class);
+            Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
             startActivity(intent);
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnIniciarSesionLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             //Se crea e inicializa el objeto userL
             Usuario userL = new Usuario();
             //Se recogen los datos de los EditText
-            userL.setUser(etUsuario.getText().toString());
-            userL.setPass(etContraseña.getText().toString());
+            userL.setUser(etUsuarioLogin.getText().toString());
+            userL.setPass(etContraseñaLogin.getText().toString());
             //Primer if comprueba si están vacíos los dos primeros EditText
             if(userL.getUser().equals("") || userL.getPass().equals("")) {
                 mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos\ntodos los campos son obligatorios");
@@ -101,14 +100,14 @@ public class LoginActivity extends AppCompatActivity {
                         userL.setId(identificadorL);
                         mensaje = new Mensaje(getApplicationContext(), "Bienvenido, "+userL.getUser()+"\nLogin correcto");
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
-                        if(cbSesion.isChecked()) {//dentro de este if va el intent a implementar
+                        if(cbMantenerSesionIniciadaLogin.isChecked()) {//dentro de este if va el intent a implementar
                             //Le pasamos el nombre de usuario al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
                             userSP = userL.getUser();
                             SharedPreferences.Editor editor=prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
-                            etContraseña.setText("");
+                            etContraseñaLogin.setText("");
                         }
                         else {
                             //Le pasamos usuario="" al SharedPreferences
@@ -117,18 +116,19 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor=prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
-                            etUsuario.setText("");
-                            etContraseña.setText("");
+                            etUsuarioLogin.setText("");
+                            etContraseñaLogin.setText("");
                         }
                     }
                     else {
                         mensaje = new Mensaje(getApplicationContext(), "La contraseña no es correcta");
-                        etContraseña.setText("");
+                        etContraseñaLogin.setText("");
                     }
                 }
                 else {
                     mensaje = new Mensaje(getApplicationContext(), "El usuario: "+userL.getUser()+" no existe");
-                    etUsuario.setText("");
+                    etUsuarioLogin.setText("");
+                    etContraseñaLogin.setText("");
                 }
                 //Se cierra la conexión abierta a la Base de Datos
                 sqliteL.close();

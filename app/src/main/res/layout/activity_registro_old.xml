@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/platino"
-    tools:context=".RegistroActivity">
+    tools:context=".RegistroActivityOld">
 
     <ImageView
         android:id="@+id/imgPerfil"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="396dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userh"
@@ -24,18 +24,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="35dp"
         android:text="Tratamiento:"
         android:textColor="@color/naranja"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfil" />
 
     <TextView
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:text="Nombre:"
         android:textColor="@color/naranja"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:textColor="@color/naranja"
         android:text="Dirección:"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:text="Localidad:"
         android:textColor="@color/naranja"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:text="E-mail:"
         android:textColor="@color/naranja"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,18 +79,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:textColor="@color/naranja"
         android:text="Fecha de Nacimiento:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
     <TextView
-        android:id="@+id/tvUsuario"
+        android:id="@+id/tvUsuarioLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:text="Usuario:"
         android:textColor="@color/naranja"
         android:textStyle="bold"
@@ -98,38 +98,38 @@
         app:layout_constraintTop_toBottomOf="@+id/tvFechaNac" />
 
     <TextView
-        android:id="@+id/tvContraseña"
+        android:id="@+id/tvContraseñaLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:textColor="@color/naranja"
         android:textStyle="bold"
         android:text="Contraseña:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUsuarioLogin" />
 
     <TextView
         android:id="@+id/tvContraseñaRe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:textColor="@color/naranja"
         android:textStyle="bold"
         android:text="Repita contraseña:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/tvContraseñaLogin" />
 
     <RadioGroup
         android:id="@+id/radioGroup2"
         android:layout_width="187dp"
-        android:layout_height="34dp"
+        android:layout_height="36dp"
         android:layout_marginStart="187dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="29dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfil">
 
         <RadioButton
             android:id="@+id/radioButton2"
@@ -223,7 +223,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <EditText
-        android:id="@+id/etUsuario"
+        android:id="@+id/etUsuarioRegistro"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
@@ -237,7 +237,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etFechaNac" />
 
     <EditText
-        android:id="@+id/etContraseña"
+        android:id="@+id/etContraseñaRegistro"
         android:layout_width="187dp"
         android:layout_height="36dp"
         android:layout_marginStart="187dp"
@@ -249,7 +249,7 @@
         android:textSize="15dp"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsuarioRegistro" />
 
     <EditText
         android:id="@+id/etContraseñaRe"
@@ -264,25 +264,25 @@
         android:textSize="15dp"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/etContraseñaRegistro" />
 
     <Button
         android:id="@+id/btnReg"
         android:layout_width="110dp"
         android:layout_height="60dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/rounded_box_button"
         android:text="REGISTRARME"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnLog"
+        android:id="@+id/btnVolverAtrasRegistro"
         android:layout_width="110dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/rounded_box_button"
         android:text="VOLVER\nAL LOGIN"
         app:layout_constraintBottom_toBottomOf="parent"

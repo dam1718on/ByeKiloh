@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.byekiloh.*;
-import com.example.byekiloh.crearcuenta.*;
 import com.example.byekiloh.objetos.*;
 import com.example.byekiloh.utilidades.*;
 
@@ -48,7 +46,7 @@ public class CrearCuenta2de3 extends AppCompatActivity {
         radioButton2=findViewById(R.id.radioButton2);
         radioButton3=findViewById(R.id.radioButton3);
 
-        btnLog=findViewById(R.id.btnLog);
+        btnLog=findViewById(R.id.btnVolverAtrasRegistro);
         btnPaso3=findViewById(R.id.btnPaso3);
 
         basedatos = new BaseDatos(getApplicationContext());

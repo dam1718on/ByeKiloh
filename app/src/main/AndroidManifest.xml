@@ -21,10 +21,16 @@
             android:name=".FirstActivity"
             android:parentActivityName=".LoginActivity" />
 
-        <activity android:name=".RegistroActivity" />
+        <activity android:name=".RegistroActivityOld" />
 
-        <activity android:name=".CrearCuenta1de3" />
-        <activity android:name=".CrearCuenta2de3" />
+
+
+        <activity
+            android:name=".RegistroActivity"
+            android:parentActivityName=".LoginActivity" />
+
+
+
 
     </application>
 

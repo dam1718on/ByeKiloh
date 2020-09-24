@@ -6,73 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/platino"
-    tools:context=".crearcuenta.CrearCuenta2de3">
+    tools:context=".RegistroActivityOld">
 
-    <TextView
-        android:id="@+id/tvProceso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+    <ImageView
+        android:id="@+id/imgPerfil"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="396dp"
         android:layout_marginTop="20dp"
-        android:text="Proceso para Creación de Cuenta"
-        android:textAlignment="center"
-        android:textColor="@color/negro"
-        android:textSize="20dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/userh"
         tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/tvPaso1de3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="20dp"
-        android:text="Paso 2 de 3.  --opcional"
-        android:textAlignment="center"
-        android:textColor="@color/naranja"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProceso" />
-
-    <TextView
-        android:id="@+id/tvUseryPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="20dp"
-        android:text="-Datos para la cuenta Cuenta-"
-        android:textAlignment="center"
-        android:textColor="@color/negro"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPaso1de3" />
 
     <TextView
         android:id="@+id/tvTratamiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="14dp"
         android:text="Tratamiento:"
         android:textColor="@color/naranja"
-        android:textSize="18dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUseryPass" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="16dp"
         android:text="Nombre:"
         android:textColor="@color/naranja"
-        android:textSize="18dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTratamiento" />
 
@@ -81,11 +46,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:text="Dirección:"
+        android:layout_marginTop="16dp"
         android:textColor="@color/naranja"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:text="Dirección:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
 
@@ -94,11 +57,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="16dp"
         android:text="Localidad:"
         android:textColor="@color/naranja"
-        android:textSize="18dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDireccion" />
 
@@ -107,11 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="16dp"
         android:text="E-mail:"
         android:textColor="@color/naranja"
-        android:textSize="18dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLocalidad" />
 
@@ -120,23 +79,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
-        android:text="Fecha de Nacimiento:"
+        android:layout_marginTop="16dp"
         android:textColor="@color/naranja"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:text="Fecha de Nacimiento:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
+    <TextView
+        android:id="@+id/tvUsuarioLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:text="Usuario:"
+        android:textColor="@color/naranja"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFechaNac" />
+
+    <TextView
+        android:id="@+id/tvContraseñaLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/naranja"
+        android:textStyle="bold"
+        android:text="Contraseña:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsuarioLogin" />
+
+    <TextView
+        android:id="@+id/tvContraseñaRe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/naranja"
+        android:textStyle="bold"
+        android:text="Repita contraseña:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvContraseñaLogin" />
+
     <RadioGroup
         android:id="@+id/radioGroup2"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="187dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="187dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUseryPass">
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/radioButton2"
@@ -160,9 +153,9 @@
 
     <EditText
         android:id="@+id/etNombre"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="188dp"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
         android:digits=" abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
         android:hint=" ej. Raul Cimas Trolo"
         android:maxLength="25"
@@ -174,9 +167,9 @@
 
     <EditText
         android:id="@+id/etDireccion"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="188dp"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
         android:digits=" /\()-_.:;,ºª0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
         android:hint=" ej. C/Leon XII, 2 - 1ºD"
         android:maxLength="40"
@@ -189,9 +182,9 @@
 
     <EditText
         android:id="@+id/etLocalidad"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="188dp"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
         android:digits=" /\()-_.:;,ºª0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
         android:hint=" ej. (28820) Coslada"
         android:maxLength="40"
@@ -203,9 +196,9 @@
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="188dp"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
         android:digits="@-_.0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
         android:hint=" ej. rcimas@hotmail.es"
         android:maxLength="25"
@@ -217,9 +210,9 @@
 
     <EditText
         android:id="@+id/etFechaNac"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="188dp"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
         android:digits="/0123456789"
         android:hint=" ej. 31/12/1999"
         android:maxLength="10"
@@ -229,25 +222,69 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
+    <EditText
+        android:id="@+id/etUsuarioRegistro"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
+        android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+        android:hint=" ej. RaulRunner88"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:textColor="@color/naranja"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFechaNac" />
+
+    <EditText
+        android:id="@+id/etContraseñaRegistro"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
+        android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+        android:hint=" ej. 12bFe@-5"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:textColor="@color/naranja"
+        android:textSize="15dp"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUsuarioRegistro" />
+
+    <EditText
+        android:id="@+id/etContraseñaRe"
+        android:layout_width="187dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="187dp"
+        android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+        android:hint=" ej. 12bFe@-5"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:textColor="@color/naranja"
+        android:textSize="15dp"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etContraseñaRegistro" />
+
+    <Button
+        android:id="@+id/btnReg"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/rounded_box_button"
+        android:text="REGISTRARME"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btnVolverAtrasRegistro"
         android:layout_width="110dp"
         android:layout_height="60dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/rounded_box_button"
         android:text="VOLVER\nAL LOGIN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnPaso3"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/rounded_box_button"
-        android:text="SIGUIENTE\nPASO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
