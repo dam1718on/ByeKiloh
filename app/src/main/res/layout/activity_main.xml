@@ -5,174 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".MainActivity"
-    android:background="@color/platino">
+    android:background="@color/platino"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight=".26">
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_box_button">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/rounded_box_linear">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="14dp"
-                android:textStyle="bold"
-                android:text="Fecha:"/>
-
-            <EditText
-                android:id="@+id/etFecha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:maxLength="6"
-                android:digits="1234567890"
-                android:textColor="@color/naranja"
-                android:hint="[YYMMDD] (p. ej.,  201130)"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="14dp"
-                android:textStyle="bold"
-                android:text="Distancia:"/>
-
-            <EditText
-                android:id="@+id/etDistancia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:maxLength="5"
-                android:digits="1234567890"
-                android:textColor="@color/naranja"
-                android:hint="en metros (p. ej.,  2000)"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="14dp"
-                android:textStyle="bold"
-                android:text="Tiempo:"/>
-
-            <EditText
-                android:id="@+id/etTiempo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:maxLength="5"
-                android:digits="1234567890:"
-                android:textColor="@color/naranja"
-                android:hint="en minutos (p.ej.,  20:30)"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/rounded_box_linear">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="14dp"
-                android:textStyle="bold"
-                android:text="Visualización:"/>
-
-            <TextView
-                android:id="@+id/tvEjercicioGuardado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="14dp"
-                android:layout_marginBottom="14dp"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textColor="@color/naranja"
-                android:textSize="17.5dp"/>
-
-            <RadioGroup
-                android:id="@+id/radGroup"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radMS"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=" m / s "
-                    android:textSize="18dp"
-                    android:onClick="onRadioButtonClicked"/>
-
-                <RadioButton
-                    android:id="@+id/radKMH"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=" km / h "
-                    android:textSize="18dp"
-                    android:onClick="onRadioButtonClicked"/>
-
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/rounded_box_linear">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="14dp"
-                android:textStyle="bold"
-                android:text="Spinner - Lectura"/>
-
-            <Spinner
-                android:id="@+id/spinEjercicios"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="14dp"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/byekilohlogobyn">
 
         </LinearLayout>
 
@@ -181,80 +33,104 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".74"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnGuardar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="148dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginTop="70dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_box_button"
-            android:text="GUARDAR"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnBuscar"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/imgUsuarioMain"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:background="@drawable/icono_usuario" />
+
+            <TextView
+                android:id="@+id/tvUsuarioMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
+                android:text="Usuario"
+                android:textColor="@color/naranjaflojo"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="148dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginTop="30dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_box_button"
-            android:text="BUSCAR"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnModificar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_box_button"
-            android:text="MODIFICAR"/>
+            <ImageView
+                android:id="@+id/imgContraseñaMain"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:background="@drawable/icono_candado" />
 
-        <Button
-            android:id="@+id/btnBorrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_box_button"
-            android:text="BORRAR"/>
+            <TextView
+                android:id="@+id/tvContraseñaMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
+                android:text="Contraseña"
+                android:textColor="@color/naranjaflojo"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnReset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_box_button"
-            android:text="RESET"/>
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imgEngranaje"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:background="@drawable/engranajes"
-            android:onClick="settings"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="131dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnVacio"
+                android:layout_width="110dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="VACIO"
+                android:textStyle="bold"
+                style="@style/shadoweffect"
+                android:background="@drawable/rounded_box_button" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnVacio2"
+                android:layout_width="110dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="VACIO"
+                android:textStyle="bold"
+                style="@style/shadoweffect"
+                android:background="@drawable/rounded_box_button" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -17,9 +17,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.example.byekiloh.objetos.*;
-import com.example.byekiloh.utilidades.*;
-
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etUsuarioLogin, etContraseñaLogin;
@@ -119,6 +116,10 @@ public class LoginActivity extends AppCompatActivity {
                             etUsuarioLogin.setText("");
                             etContraseñaLogin.setText("");
                         }
+                        //Abrimos el intent para ir al .MainActivity
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra("usuario", userL);
+                        startActivity(intent);
                     }
                     else {
                         mensaje = new Mensaje(getApplicationContext(), "La contraseña no es correcta");

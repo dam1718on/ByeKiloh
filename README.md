@@ -40,6 +40,7 @@
 <p>--new branch: format1.2</p>
     <ul>
     <li>Commit25. Re-estructuro carpeta del proyecto</li>
+    <li>Commit26. Implementado el envío del Usuario-Objeto entre Activitys</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -69,8 +70,16 @@ de inicio y otro para el borde de letra para los Botones. También se introduce 
 un fondo degradado y se termina activity_login.xml</p>
 <p>Commit25. Creo este commit para realizar una reestructuración de la carpeta del proyecto, solo
 dejare las clases funcionales del Login, Registro e Inicio y sus xml asociados</p>
+<p>Commit26. Implemento .MainActivity y le envío un Usuario-Objeto desde .LoginActivity, incluyo
+graficamente el acuerdo de Términos y condiciones del servicio y la Política de privacidad de
+byekiloh al checkBox de .RegistroActivity</p>
 <h3>TASK</h3>
     <ul>
+    <li>1. Hacer los documentos, condiciones y privacidad e implementar intent para leerlos</li>
+    <li>2. Inflate el menu con los datos de Usuario</li>
+    <li>3. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>
+    <li>4. Poder cerrar sesión desde el Menu de la .MainActivity, vaciando el shared y volviendo al
+    .Login</li>
     <li>Terminar la parte lógica de Login y Registro de cuenta</li>
     <li>Implementar un menu para el Usuario/Cuenta</li>
     <li>Pasar objeto Usuario de .LoginActivity a .FirstActivity</li>

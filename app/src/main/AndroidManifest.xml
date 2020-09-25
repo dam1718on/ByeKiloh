@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MenuA">
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,19 +19,11 @@
         </activity>
 
         <activity
-            android:name=".FirstActivity"
-            android:parentActivityName=".LoginActivity" />
-
-        <activity android:name=".RegistroActivityOld" />
-
-
-
-        <activity
             android:name=".RegistroActivity"
             android:parentActivityName=".LoginActivity" />
 
-
-
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".LoginActivity" />
 
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.byekiloh.utilidades;
+package com.example.byekiloh;
 
 import android.content.Context;
 import android.text.Layout;
@@ -14,15 +14,14 @@ public class Mensaje {
 
     public Mensaje(Context context, String cad) {
         Spannable centeredText = new SpannableString(cad);
-        centeredText.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
-                0, cad.length() - 1,
-                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        Toast toast= Toast.makeText(context,
-                centeredText, Toast.LENGTH_SHORT);
+        centeredText.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0,
+            cad.length() - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        Toast toast= Toast.makeText(context, centeredText, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 10);
         toast.show();
     }
 
+//Otra Versión para Toast, en desuso
 /*TextView textview = new TextView(getApplicationContext());
 textview.setText("Revise los datos introducidos.\nTodos los campos son obligatorios");
 textview.setBackgroundColor(Color.GRAY);

@@ -1,4 +1,4 @@
-package com.example.byekiloh.objetos;
+package com.example.byekiloh;
 
 import java.io.Serializable;
 
