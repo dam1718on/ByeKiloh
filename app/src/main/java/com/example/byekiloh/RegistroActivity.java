@@ -4,27 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import android.os.Bundle;
+
 import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
+
 import android.view.View;
+
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class RegistroActivity extends AppCompatActivity {
 
+    private Button btnVolverAtrasRegistro, btnRegistroRegistro;
+    private CheckBox cbAcepto;
     private EditText etUsuarioRegistro, etContraseñaRegistro, etConfirmarContraseña;
-
     private TextView tvCondicionesServicio, tvPoliticaPrivacidad;
 
     private int countError=1;
-
-    private Button btnVolverAtrasRegistro, btnRegistroRegistro;
 
     Mensaje mensaje;
     BaseDatos basedatos;
@@ -34,15 +36,17 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        btnVolverAtrasRegistro =findViewById(R.id.btnVolverAtrasRegistro);
+        btnRegistroRegistro =findViewById(R.id.btnRegistroRegistro);
+
+        cbAcepto=findViewById(R.id.cbAcepto);
+
         etUsuarioRegistro =findViewById(R.id.etUsuarioRegistro);
         etContraseñaRegistro =findViewById(R.id.etContraseñaRegistro);
         etConfirmarContraseña =findViewById(R.id.etConfirmarContraseña);
 
         tvCondicionesServicio=findViewById(R.id.tvCondicionesServicio);
         tvPoliticaPrivacidad=findViewById(R.id.tvPoliticaPrivacidad);
-
-        btnVolverAtrasRegistro =findViewById(R.id.btnVolverAtrasRegistro);
-        btnRegistroRegistro =findViewById(R.id.btnRegistroRegistro);
 
         basedatos = new BaseDatos(getApplicationContext());
 
@@ -51,7 +55,6 @@ public class RegistroActivity extends AppCompatActivity {
         //Esta línea permite que aparezca subrayado el TextView, en desuso
         //contentC.setSpan(new UnderlineSpan(), 0, tvCondicionesServicio.length(), 0);
         tvCondicionesServicio.setText(contentC);
-
         SpannableString contentP = new SpannableString(tvPoliticaPrivacidad.getText());
         //contentC.setSpan(new UnderlineSpan(), 0, tvPoliticaPrivacidad.length(), 0);
         tvPoliticaPrivacidad.setText(contentP);
@@ -59,20 +62,26 @@ public class RegistroActivity extends AppCompatActivity {
         tvCondicionesServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(Intent.ACTION_VIEW);
-                //i.setData(Uri.parse("http://www.google.com"));
-                //startActivity(i);
-                mensaje = new Mensaje(getApplicationContext(), "Condiciones del servicio");
+            mensaje = new Mensaje(getApplicationContext(), "Condiciones del servicio");
+            //Creamos Intent para visualizar .PrivacidadActivity
+            Intent intent = new Intent(getApplicationContext(), PrivacidadActivity.class);
+            startActivity(intent);
+            /*
+            //Intent que abre una dirección web, en desuso
+            //Intent i = new Intent(Intent.ACTION_VIEW);
+            //i.setData(Uri.parse("http://www.google.com"));
+            //startActivity(i);
+            */
             }
         });
 
         tvPoliticaPrivacidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(Intent.ACTION_VIEW);
-                //i.setData(Uri.parse("http://www.google.com"));
-                //startActivity(i);
-                mensaje = new Mensaje(getApplicationContext(), "Politica de privacidad");
+            mensaje = new Mensaje(getApplicationContext(), "Politica de privacidad");
+            //Creamos Intent para visualizar .PrivacidadActivity
+            Intent intent = new Intent(getApplicationContext(), PrivacidadActivity.class);
+            startActivity(intent);
             }
         });
 
@@ -82,10 +91,10 @@ public class RegistroActivity extends AppCompatActivity {
             //Primer if comprueba que no hay EditText vacíos
             Usuario useR = null;
             if (etUsuarioRegistro.getText().toString().equals("") ||
-                    etContraseñaRegistro.getText().toString().equals("") ||
-                    etConfirmarContraseña.getText().toString().equals("")) {
-                mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos" +
-                        "\ntodos los campos son obligatorios");
+                etContraseñaRegistro.getText().toString().equals("") ||
+                etConfirmarContraseña.getText().toString().equals("")) {
+                    mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos\n" +
+                        "todos los campos son obligatorios");
             } else {
                 countError=1;
                 //Comprobamos número mínimo de carácteres en cada EditText
@@ -105,62 +114,65 @@ public class RegistroActivity extends AppCompatActivity {
                         mensaje = new Mensaje(getApplicationContext(), "Las Contraseñas " +
                                 "introducidas\nno coinciden");
                     } else {
-                        //Se establece conexion con permisos de lectura
-                        SQLiteDatabase sqlite = basedatos.getReadableDatabase();
-                        //Columnas que recogerá los datos de la consulta
-                        String[] columnas = {
-                                Tablas.EstructuraUsuario._ID,
-                                Tablas.EstructuraUsuario.COLUMN_NAME_NAME,
-                                Tablas.EstructuraUsuario.COLUMN_NAME_PASS,
-                        };
-                        //Cláusula WHERE para buscar por usuario
-                        String usuario = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " LIKE '" + useR.getUser() + "'";
-                        //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                        String ordenSalida = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
-                        //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
-                        // columnas, usuario y orden de los resultados.
-                        Cursor cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnas, usuario,
-                                null, null, null, ordenSalida);
-                        //Cuarto if comprueba que el cursor no esté vacío
-                        if (cursor.getCount() != 0) {
-                            cursor.moveToFirst();
-                            mensaje = new Mensaje(getApplicationContext(), "El nombre de usuario: " +
-                                    useR.getUser() + "\nno está disponible, pruebe con otro");
-                            etUsuarioRegistro.setText("");
-                        } else {
-                            //Aqui se introduce el usuario nuevo en la base de datos
-                            //Se ganan tambien permisos de escritura
-                            sqlite = basedatos.getWritableDatabase();
-                            //EstructuraUsuario de insercción de datos
-                            ContentValues content = new ContentValues();
-                            //Se añaden los valores introducidos de cada campo mediante
-                            // clave(columna)/valor(valor introducido en el campo de texto)
-                            content.put(Tablas.EstructuraUsuario.COLUMN_NAME_NAME, useR.getUser());
-                            content.put(Tablas.EstructuraUsuario.COLUMN_NAME_PASS, useR.getPass());
-                            sqlite.insert(Tablas.EstructuraUsuario.TABLE_NAME, null, content);
-                            //Volvemos a rellenar el cursor el cual incluye los datos ya insertados
-                            cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnas, usuario,
+                        //Cuarto if comprueba que los Terminos y Condiciones están aceptados
+                        if (cbAcepto.isChecked()){
+                            //Se establece conexion con permisos de lectura
+                            SQLiteDatabase sqlite = basedatos.getReadableDatabase();
+                            //Columnas que recogerá los datos de la consulta
+                            String[] columnas = {
+                                    Tablas.EstructuraUsuario._ID,
+                                    Tablas.EstructuraUsuario.COLUMN_NAME_NAME,
+                                    Tablas.EstructuraUsuario.COLUMN_NAME_PASS,
+                            };
+                            //Cláusula WHERE para buscar por usuario
+                            String usuario = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " LIKE '" + useR.getUser() + "'";
+                            //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
+                            String ordenSalida = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
+                            //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
+                            // columnas, usuario y orden de los resultados.
+                            Cursor cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnas, usuario,
                                     null, null, null, ordenSalida);
-                            cursor.moveToFirst();
-                            //Extraemos el atributo id y se lo pasamos al objeto Usuario
-                            int identificador = cursor.getInt(cursor.getColumnIndex(Tablas.EstructuraUsuario._ID));
-                            useR.setId(identificador);
-                            //Registro exitoso
-                            mensaje = new Mensaje(getApplicationContext(), "El usuario " + useR.getUser() +
-                                    " con id " + useR.getId() + "\nha sido registrado con éxito");
-                            //Reseteo de los EditText
-                            etUsuarioRegistro.setText("");
-                            etContraseñaRegistro.setText("");
-                            etConfirmarContraseña.setText("");
-
-                            /*//Abrimos un intent para ir al Paso 2
-                            Intent intent = new Intent(getApplicationContext(), CrearCuenta2de3.class);
-                            intent.putExtra("usuario", useR);
-                            startActivity(intent);*/
-
+                            //Quinto if comprueba que el cursor no esté vacío
+                            if (cursor.getCount() != 0) {
+                                cursor.moveToFirst();
+                                mensaje = new Mensaje(getApplicationContext(), "El nombre de usuario: " +
+                                        useR.getUser() + "\nno está disponible, pruebe con otro");
+                                etUsuarioRegistro.setText("");
+                            } else {
+                                //Aqui se introduce el usuario nuevo en la base de datos
+                                //Se ganan tambien permisos de escritura
+                                sqlite = basedatos.getWritableDatabase();
+                                //EstructuraUsuario de insercción de datos
+                                ContentValues content = new ContentValues();
+                                //Se añaden los valores introducidos de cada campo mediante
+                                // clave(columna)/valor(valor introducido en el campo de texto)
+                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_NAME, useR.getUser());
+                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_PASS, useR.getPass());
+                                sqlite.insert(Tablas.EstructuraUsuario.TABLE_NAME, null, content);
+                                //Volvemos a rellenar el cursor el cual incluye los datos ya insertados
+                                cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnas, usuario,
+                                        null, null, null, ordenSalida);
+                                cursor.moveToFirst();
+                                //Extraemos el atributo id y se lo pasamos al objeto Usuario
+                                int identificador = cursor.getInt(cursor.getColumnIndex(Tablas.EstructuraUsuario._ID));
+                                useR.setId(identificador);
+                                //Registro exitoso
+                                mensaje = new Mensaje(getApplicationContext(), "El usuario " + useR.getUser() +
+                                    "\nse registro con éxito");
+                                //Reseteo de los EditText
+                                etUsuarioRegistro.setText("");
+                                etContraseñaRegistro.setText("");
+                                etConfirmarContraseña.setText("");
+                                //Abrimos un intent para volver a .LoginActivity
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                startActivity(intent);
+                            }
+                            //Se cierra la conexión abierta a la Base de Datos
+                            sqlite.close();
+                        } else {
+                            mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los Términos " +
+                                "y Condiciones\npara poder registrase");
                         }
-                        //Se cierra la conexión abierta a la Base de Datos
-                        sqlite.close();
                     }
                 }
             }

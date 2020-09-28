@@ -8,7 +8,10 @@
     <color name="colorAccentOld">#03DAC5</color>
     <color name="colorAccent">#000000</color>
     <color name="azulCielo">#4EBDEF</color>
-    <color name="azulOscuro">#12419F</color>
+    <color name="azulmedio">#2077FF</color>
+    <color name="azuloscuro">#006BDB</color>
+    <color name="azuloscuroplus">#0057A4</color>
+    <color name="azuloscuroplus2">#12419F</color>
     <color name="blanco">#FFFFFF</color>
     <color name="rojo">#ED0B0B</color>
     <color name="naranja">#F15811</color>
