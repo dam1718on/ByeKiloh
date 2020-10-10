@@ -3,5 +3,13 @@
   <component name="Encoding">
     <file url="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Pixel_3a_API_23 [emulator-5554]/data/data/com.example.byekiloh/databases/byekiloh.sqlite" charset="UTF-16" />
     <file url="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/Pixel_3a_API_23 [emulator-5554]/data/data/com.example.byekiloh/databases/byekiloh.sqlite-journal" charset="CESU-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_action_password_visible.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_action_password_visible.xml" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_action_password_visible_off.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_action_password_visible_off.xml" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_action_password_visible.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_action_password_visible_off.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_action_usuario.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/user_password_forma.xml" charset="ISO-8859-1" />
   </component>
 </project>

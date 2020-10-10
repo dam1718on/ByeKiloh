@@ -42,6 +42,7 @@
     <li>Commit25. Re-estructuro carpeta del proyecto</li>
     <li>Commit26. Implementado el envío del Usuario-Objeto entre Activitys</li>
     <li>Commit27. Consolidación de cambios e implementado acuerdo Servicio</li>
+    <li>Commit28. Visualización de las Contraseñas y nuevos EditText</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -77,12 +78,17 @@ byekiloh al checkBox de .RegistroActivity</p>
 <p>Commit27. Hechos los documentos de Términos y Condiciones del Servicio y Política de privacidad e
 implementado el intent que lleva a .PrivacidadActivity para visualizarlos a través de un ScrollView,
 implementado también el checkbox para poder registrarse</p>
+<p>Commit28. Implemento la opción de visualización de la contraseña. También se cambia el estilo de
+los EditText</p>
 <h3>TASK</h3>
     <ul>
+    <li>1. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
     <li>2. Inflate el menu con los datos de Usuario</li>
     <li>3. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>
     <li>4. Poder cerrar sesión desde el Menu de la .MainActivity, vaciando el shared y volviendo al
     .Login</li>
+    <li>5. Hacer .Splash</li>
+    <li>6. SharedPreferences !=empty, para poder dejar sesion iniciada con intent en oncreate</li>
     <li>Terminar la parte lógica de Login y Registro de cuenta</li>
     <li>Implementar un menu para el Usuario/Cuenta</li>
     <li>Pasar objeto Usuario de .LoginActivity a .FirstActivity</li>

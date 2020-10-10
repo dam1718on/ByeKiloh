@@ -38,52 +38,112 @@
         android:layout_marginBottom="10dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/etUsuarioRegistro"
-            android:layout_width="320dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="80dp"
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
             android:layout_gravity="center"
-            android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-            android:hint="Introduzca Usuario (ej. RaulRunner88)"
-            android:maxLength="15"
-            android:maxLines="1"
-            android:textAlignment="center"
-            android:textColor="@color/azuloscuro"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/etContraseñaRegistro"
-            android:layout_width="320dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center"
-            android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-            android:hint="Introduzca Contraseña (ej. 12bFe@-5)"
-            android:maxLength="20"
-            android:maxLines="1"
-            android:textAlignment="center"
-            android:textColor="@color/azuloscuro"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:drawablePadding="-22dp"
+                android:paddingLeft="6dp"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:background="@drawable/rounded_box_edittext"
+                android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                úÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawableLeft="@drawable/icono_usuario_30x30"
+                android:hint="Usuario (ej. RaulRunner88)"
+                android:textColorHint="@color/naranjaflojo"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etConfirmarContraseña"
-            android:layout_width="320dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="40dp"
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
             android:layout_gravity="center"
-            android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-            android:hint=" Confirmar Contraseña"
-            android:maxLength="20"
-            android:maxLines="1"
-            android:textColor="@color/azuloscuro"
-            android:textAlignment="center"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:inputType="textPassword" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etContraseña"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:drawablePadding="-22dp"
+                android:paddingLeft="10dp"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:background="@drawable/rounded_box_edittext"
+                android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
+                XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawableLeft="@drawable/icono_candado_30x30"
+                android:hint="Contraseña (ej. 12bFe@-5)"
+                android:inputType="textPassword"
+                android:textColorHint="@color/naranjaflojo"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPass"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/ic_action_password_visible_off"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etContraseñaRe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:drawablePadding="-22dp"
+                android:paddingLeft="10dp"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:background="@drawable/rounded_box_edittext"
+                android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
+                XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawableLeft="@drawable/icono_candado_30x30"
+                android:hint="Confirmar Contraseña"
+                android:inputType="textPassword"
+                android:textColorHint="@color/naranjaflojo"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPassRe"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/ic_action_password_visible_off"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"/>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -160,7 +220,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btnVolverAtrasRegistro"
+                android:id="@+id/btnVolverAtras"
                 android:layout_width="110dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -178,7 +238,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btnRegistroRegistro"
+                android:id="@+id/btnRegistro"
                 android:layout_width="110dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"

@@ -1,20 +1,25 @@
-package com.example.byekiloh;
+package com.example.byekiloh.utilidades;
 
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
     private int id;
+
     private String sexo, nombre, direccion, localidad, email, fechaNac, user, pass;
 
     public Usuario() {    }
 
     public Usuario(String user, String pass) {
+
         this.user = user;
         this.pass = pass;
+
     }
 
-    public Usuario(String nombre, String direccion, String localidad, String email, String fechaNac, String user, String pass) {
+    public Usuario(String nombre, String direccion, String localidad, String email, String fechaNac,
+        String user, String pass) {
+
         this.nombre = nombre;
         this.direccion = direccion;
         this.localidad = localidad;
@@ -22,9 +27,11 @@ public class Usuario implements Serializable {
         this.fechaNac = fechaNac;
         this.user = user;
         this.pass = pass;
+
     }
 
     public Usuario(Usuario user){
+
         this.id=user.getId();
         this.sexo=user.getSexo();
         this.nombre=user.getNombre();
@@ -34,6 +41,7 @@ public class Usuario implements Serializable {
         this.fechaNac=user.getFechaNac();
         this.user=user.getUser();
         this.pass=user.getPass();
+
     }
 
     public int getId() {  return id;  }
@@ -74,6 +82,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
+
         return "Usuario{" +
                 "id=" + id +
                 ", sexo='" + sexo + '\'' +
@@ -85,6 +94,7 @@ public class Usuario implements Serializable {
                 ", user='" + user + '\'' +
                 ", pass='" + pass + '\'' +
                 '}';
+
     }
 
 }

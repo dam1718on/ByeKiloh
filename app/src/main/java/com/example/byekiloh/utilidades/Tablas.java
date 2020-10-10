@@ -1,4 +1,4 @@
-package com.example.byekiloh;
+package com.example.byekiloh.utilidades;
 
 import android.provider.BaseColumns;
 
@@ -7,13 +7,16 @@ public class Tablas {
     public Tablas() {    }
 
     public static abstract class EstructuraUsuario implements BaseColumns {
+
         public static final String TABLE_NAME = "Usuarios";
         public static final String _ID = "id";
         public static final String COLUMN_NAME_NAME = "usuario";
         public static final String COLUMN_NAME_PASS = "contraseña";
+
     }
 
     public static abstract class EstructuraCuenta implements BaseColumns {
+
         public static final String TABLE_NAME = "Cuentas";
         public static final String _IDUSER = "idUsuario";
         public static final String COLUMN_NAME_SEXO = "genero";
@@ -22,6 +25,7 @@ public class Tablas {
         public static final String COLUMN_NAME_LOCALIDAD = "localidad";
         public static final String COLUMN_NAME_EMAIL = "email";
         public static final String COLUMN_NAME_FECHANAC = "fechaNac";
+
     }
 
 }

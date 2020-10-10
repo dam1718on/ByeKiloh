@@ -1,26 +1,28 @@
 <resources>
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <!-- Customize your theme here -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <!-- Desarrollar theme específica para aplicación. -->
+
+    <!-- Desarrollar theme específica para aplicación -->
     <style name="byekilohTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
         <item name="android:background">@drawable/byekilohlogo</item>
 
     </style>
-    <!-- Theme vacía para quitar la ActionBar. -->
-    <style name="MenuA" parent="Theme.AppCompat.Light.NoActionBar">
 
-    </style>
-    <!-- Hacer pruebas con modo dia/noche. -->
+    <!-- Theme vacía para quitar la ActionBar -->
+    <style name="MenuA" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <!-- Hacer pruebas con modo dia/noche -->
     <style name="MenuB" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textSize">29dp</item>
     </style>
 
+    <!-- Theme con sombra para los botones -->
     <style name="shadoweffect">
         <item name="android:paddingLeft">4px</item>
         <item name="android:paddingBottom">4px</item>
@@ -31,6 +33,5 @@
         <item name="android:shadowDy">0</item>
         <item name="android:shadowRadius">3</item>
     </style>
-
 
 </resources>

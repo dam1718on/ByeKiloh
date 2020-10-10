@@ -39,100 +39,82 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="148dp"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
             android:layout_marginTop="70dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imgUsuarioLogin"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:background="@drawable/icono_usuario" />
-
-            <TextView
-                android:id="@+id/tvUsuarioLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="center"
-                android:text="Usuario"
-                android:textColor="@color/naranjaflojo"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/etUsuarioRegistro"
-            android:layout_width="318dp"
-            android:layout_height="40dp"
-            android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-            android:maxLength="15"
-            android:maxLines="1"
-            android:textAlignment="center"
-            android:textColor="@color/azuloscuro"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="148dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imgContraseñaLogin"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:background="@drawable/icono_candado" />
-
-            <TextView
-                android:id="@+id/tvContraseñaLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="center"
-                android:text="Contraseña"
-                android:textColor="@color/naranjaflojo"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/etContraseñaRegistro"
-                android:layout_width="318dp"
-                android:layout_height="40dp"
-                android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-                android:maxLength="20"
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:drawablePadding="-44dp"
+                android:paddingLeft="10dp"
+                android:maxLength="15"
                 android:maxLines="1"
+                android:background="@drawable/rounded_box_edittext"
+                android:digits="0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                úÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawableLeft="@drawable/icono_usuario_30x30"
+                android:hint="Usuario"
+                android:textColorHint="@color/naranjaflojo"
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:inputType="textPassword" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etPass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:drawablePadding="-44dp"
+                android:paddingLeft="10dp"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:background="@drawable/rounded_box_edittext"
+                android:digits="@-_.:;,0123456789abcdefghigklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
+                XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawableLeft="@drawable/icono_candado_30x30"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:textColorHint="@color/naranjaflojo"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPass"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/ic_action_password_visible_off"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/cbAceptarTOSregistro"
+                android:id="@+id/cbMantenerSesion"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="20dp"
@@ -140,7 +122,7 @@
                 android:buttonTint="@color/naranjaflojo"
                 android:text="Mantener sesión iniciada"
                 android:textColor="@color/naranjaflojo"
-                android:textSize="15dp" />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -157,7 +139,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btnCrearCuentaLogin"
+                android:id="@+id/btnCrearCuenta"
                 android:layout_width="110dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -175,7 +157,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btnRegistroRegistro"
+                android:id="@+id/btnRegistro"
                 android:layout_width="110dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"

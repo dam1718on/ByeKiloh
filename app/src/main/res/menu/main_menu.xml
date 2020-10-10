@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:title="Principal" />
+
+        <item
+            android:id="@+id/nav_perfil"
+            android:title="Perfil" />
+
+        <item
+            android:id="@+id/nav_notificaciones"
+            android:title="Notificaciones" />
+
+        <item
+            android:id="@+id/nav_escanear"
+            android:title="Escanear" />
+
+    </group>
+
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/groupdivider1">
+
+        <item
+            android:id="@+id/nav_ajustes"
+            android:title="Ajustes" />
+
+        <item
+            android:id="@+id/nav_ayuda"
+            android:title="Ayuda" />
+
+    </group>
+
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/groupdivider2">
+
+        <item
+            android:id="@+id/nav_salir"
+            android:title="Salir" />
+
+    </group>
+
+</menu>
