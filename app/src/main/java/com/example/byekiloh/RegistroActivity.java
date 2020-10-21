@@ -21,10 +21,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.byekiloh.utilidades.BaseDatos;
-import com.example.byekiloh.utilidades.Mensaje;
-import com.example.byekiloh.utilidades.Tablas;
-import com.example.byekiloh.utilidades.Usuario;
+import com.example.byekiloh.utilidades.*;
 
 public class RegistroActivity extends AppCompatActivity {
 

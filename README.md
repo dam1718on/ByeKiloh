@@ -43,6 +43,7 @@
     <li>Commit26. Implementado el envío del Usuario-Objeto entre Activitys</li>
     <li>Commit27. Consolidación de cambios e implementado acuerdo Servicio</li>
     <li>Commit28. Visualización de las Contraseñas y nuevos EditText</li>
+    <li>Commit29. Implementada .EjercicioActivity</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -80,12 +81,18 @@ implementado el intent que lleva a .PrivacidadActivity para visualizarlos a trav
 implementado también el checkbox para poder registrarse</p>
 <p>Commit28. Implemento la opción de visualización de la contraseña. También se cambia el estilo de
 los EditText</p>
+<p>Commit29. Corregido el acuerdo de Terminos y condiciones del servicio, implementada la clase
+Ejercicio y las tablas correspondientes de la Base de Datos, aun falta crear objeto Ejercicio</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
-    <li>2. Inflate el menu con los datos de Usuario</li>
-    <li>3. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>
-    <li>4. Poder cerrar sesión desde el Menu de la .MainActivity, vaciando el shared y volviendo al
+    <li>1. Crear objetos Ejercicio, guardarlos en la base de datos asociados al Usuario logeado</li>
+    <li>2. Hacer spinner en que recoja todos los ejercicios hechos por el Usuario logeado</li>
+    <li>3. El CRUD de .EjercicioActivity debe funcionar correctamente</li>
+    <li>4. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
+    <li>-. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
+    <li>-. Inflate el menu con los datos de Usuario</li>
+    <li>-. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>
+    <li>-. Poder cerrar sesión desde el Menu de la .MainActivity, vaciando el shared y volviendo al
     .Login</li>
     <li>5. Hacer .Splash</li>
     <li>6. SharedPreferences !=empty, para poder dejar sesion iniciada con intent en oncreate</li>

@@ -20,10 +20,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.byekiloh.utilidades.BaseDatos;
-import com.example.byekiloh.utilidades.Mensaje;
-import com.example.byekiloh.utilidades.Tablas;
-import com.example.byekiloh.utilidades.Usuario;
+import com.example.byekiloh.utilidades.*;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -104,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            //Creamos Intent para ir a .CrearCuenta1de3
+            //Creamos Intent para ir a .RegistroActivity
             Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
             startActivity(intent);
 
@@ -164,7 +161,7 @@ public class LoginActivity extends AppCompatActivity {
                         //Como es el usuario correcto, incluimos el valor del atributo id en el objeto userL
                         int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Tablas.EstructuraUsuario._ID));
                         userL.setId(identificadorL);
-                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@, "+userL.getUser()+".");
+                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  "+userL.getUser());
 
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
                         if(cbMantenerSesion.isChecked()) {//dentro de este if va el intent a implementar
@@ -192,7 +189,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         }
 
-                        //Abrimos el intent para ir al .MainActivity
+                        //Creamos intent para ir a .MainActivity y le enviamos Usuario
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.putExtra("usuario", userL);
                         startActivity(intent);

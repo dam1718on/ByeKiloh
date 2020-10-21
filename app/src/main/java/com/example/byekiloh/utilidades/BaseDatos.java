@@ -3,7 +3,6 @@ package com.example.byekiloh.utilidades;
 import android.content.Context;
 
 import android.database.sqlite.SQLiteDatabase;
-
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.byekiloh.utilidades.Tablas.*;
@@ -31,7 +30,17 @@ public class BaseDatos extends SQLiteOpenHelper {
                 EstructuraCuenta.COLUMN_NAME_EMAIL + TEXT_TYPE + COMMA_SEP +
                 EstructuraCuenta.COLUMN_NAME_FECHANAC + TEXT_TYPE + " )";
 
+    private static final String SQL_CREATE_ENTRIES3 =
+            "CREATE TABLE " + EstructuraEjercicio.TABLE_NAME + " (" +
+                    EstructuraEjercicio._IDEJERCICIO + " INTEGER PRIMARY KEY, " +
+                    EstructuraEjercicio.COLUMN_NAME_DISTANCIA + TEXT_TYPE + COMMA_SEP +
+                    EstructuraEjercicio.COLUMN_NAME_TIEMPO + TEXT_TYPE + " )";
+
+
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + EstructuraUsuario.TABLE_NAME;
+    private static final String SQL_DELETE_ENTRIES2 = "DROP TABLE IF EXISTS " + EstructuraCuenta.TABLE_NAME;
+    private static final String SQL_DELETE_ENTRIES3 = "DROP TABLE IF EXISTS " + EstructuraEjercicio.TABLE_NAME;
+
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "alphaFinalizada.sqlite";
 
@@ -43,6 +52,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_ENTRIES);
         db.execSQL(SQL_CREATE_ENTRIES2);
+        db.execSQL(SQL_CREATE_ENTRIES3);
 
     }
 
@@ -51,6 +61,8 @@ public class BaseDatos extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL(SQL_DELETE_ENTRIES);
+        db.execSQL(SQL_DELETE_ENTRIES2);
+        db.execSQL(SQL_DELETE_ENTRIES3);
         onCreate(db);
 
     }
