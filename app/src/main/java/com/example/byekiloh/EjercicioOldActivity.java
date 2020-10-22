@@ -80,19 +80,19 @@ public class EjercicioOldActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EjercicioOld ejercicioOld = new EjercicioOld(Integer.parseInt(etDistancia.getText().toString()),
+               /* Ejercicio ejercicio = new Ejercicio(Integer.parseInt(etDistancia.getText().toString()),
                         Integer.parseInt(etTiempo.getText().toString()));
 
-                velocidad(ejercicioOld.getDistancia(), ejercicioOld.getTiempo(), 1);
-                tvHoraEjercicio.setText(String.valueOf(ejercicioOld.getId()));
+                velocidad(ejercicio.getDistancia(), ejercicio.getTiempo(), 1);
+                tvHoraEjercicio.setText(String.valueOf(ejercicio.getIdUsuario()));
 
                 //Se inicializa la clase.
                 basedatos = new BaseDatos(getApplicationContext());
                 //Clase que permite llamar a los métodos para crear, eliminar, leer y actualizar registros. Se establecen permisos de escritura.
                 SQLiteDatabase sqlite = basedatos.getWritableDatabase();
-                String id = String.valueOf(ejercicioOld.getId());
-                String distancia = String.valueOf(ejercicioOld.getDistancia());
-                String tiempo = String.valueOf(ejercicioOld.getTiempo());
+                String id = String.valueOf(ejercicio.getIdUsuario());
+                String distancia = String.valueOf(ejercicio.getDistancia());
+                String tiempo = String.valueOf(ejercicio.getTiempo());
 
                 ContentValues content = new ContentValues();
 
@@ -103,7 +103,7 @@ public class EjercicioOldActivity extends AppCompatActivity {
                     toast.show();
                 } else {
                     //Se añaden los valores introducidos de cada campo mediante clave(columna)/valor(valor introducido en el campo de texto)
-                    content.put(Tablas.EstructuraEjercicio._IDEJERCICIO,id);
+                    content.put(Tablas.EstructuraEjercicio._IDUSER,id);
                     content.put(Tablas.EstructuraEjercicio.COLUMN_NAME_DISTANCIA, distancia);
                     content.put(Tablas.EstructuraEjercicio.COLUMN_NAME_TIEMPO, tiempo);
                     sqlite.insert(Tablas.EstructuraEjercicio.TABLE_NAME, null, content);
@@ -117,7 +117,7 @@ public class EjercicioOldActivity extends AppCompatActivity {
                 }
                 //Se cierra la conexión abierta a la Base de Datos
                 sqlite.close();
-
+*/
             }
         });
     }

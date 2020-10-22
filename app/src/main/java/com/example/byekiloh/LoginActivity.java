@@ -67,24 +67,24 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            if (select == false){
+            if(select == false) {
 
                 select = true;
                 etPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                if (etPass.getText().length() > 0) {
+                if(etPass.getText().length() > 0) {
 
                     etPass.setSelection(etPass.getText().length());
                     tvPass.setBackgroundResource(R.drawable.ic_action_password_visible);
 
                 }
 
-            }else {
+            } else {
 
                 select = false;
                 etPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
-                if (etPass.getText().length() > 0) {
+                if(etPass.getText().length() > 0) {
 
                     etPass.setSelection(etPass.getText().length());
                     tvPass.setBackgroundResource(R.drawable.ic_action_password_visible_off);
@@ -114,21 +114,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            //Se crea e inicializa el objeto userL
-            Usuario userL = new Usuario();
-            //Se recogen los datos de los EditText
-            userL.setUser(etUsuario.getText().toString());
-            userL.setPass(etPass.getText().toString());
-
             //Primer if comprueba si están vacíos los dos primeros EditText
-            if(userL.getUser().equals("") || userL.getPass().equals("")) {
+            if(etUsuario.getText().toString().equals("") || etPass.getText().toString().equals("")) {
 
                 mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos\n" +
                     "todos los campos son obligatorios");
 
-            }
+            } else {
 
-            else {
+                //Se crea e inicializa el objeto usuario
+                Usuario usuario = new Usuario();
+                //Se recogen los datos de los EditText
+                usuario.setUser(etUsuario.getText().toString());
+                usuario.setPass(etPass.getText().toString());
 
                 //Se establece conexion con permisos de lectura
                 SQLiteDatabase sqliteL = basedatos.getReadableDatabase();
@@ -140,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                 };
 
                 //Cláusula WHERE para buscar por usuario
-                String usuarioL = Tablas.EstructuraUsuario.COLUMN_NAME_NAME+" LIKE '"+userL.getUser()+"'";
+                String usuarioL = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " LIKE '" + usuario.getUser() + "'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
                 String ordenSalidaNameL = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
 
@@ -156,32 +154,32 @@ public class LoginActivity extends AppCompatActivity {
                     String passCNL = cursorL.getString(cursorL.getColumnIndex(Tablas.EstructuraUsuario.COLUMN_NAME_PASS));
 
                     //Tercer if comprueba que las contraseñas coinciden
-                    if(userL.getPass().equals(passCNL)) {
+                    if(usuario.getPass().equals(passCNL)) {
 
-                        //Como es el usuario correcto, incluimos el valor del atributo id en el objeto userL
+                        //Login correcto
+
+                        //Como es el usuario correcto, incluimos el valor del atributo id en el objeto usuario
                         int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Tablas.EstructuraUsuario._ID));
-                        userL.setId(identificadorL);
-                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  "+userL.getUser());
+                        usuario.setId(identificadorL);
+                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  " + usuario.getUser());
 
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
-                        if(cbMantenerSesion.isChecked()) {//dentro de este if va el intent a implementar
+                        if(cbMantenerSesion.isChecked()) {
 
                             //Le pasamos el nombre de usuario al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
-                            userSP = userL.getUser();
-                            SharedPreferences.Editor editor=prefSesion.edit();
+                            userSP = usuario.getUser();
+                            SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
                             etPass.setText("");
 
-                        }
-
-                        else {
+                        } else {
 
                             //Le pasamos usuario="" al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
                             userSP = "";
-                            SharedPreferences.Editor editor=prefSesion.edit();
+                            SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
                             etUsuario.setText("");
@@ -191,23 +189,19 @@ public class LoginActivity extends AppCompatActivity {
 
                         //Creamos intent para ir a .MainActivity y le enviamos Usuario
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.putExtra("usuario", userL);
+                        intent.putExtra("usuario", usuario);
                         startActivity(intent);
 
-                    }
-
-                    else {
+                    } else {
 
                         mensaje = new Mensaje(getApplicationContext(), "La contraseña no es correcta");
                         etPass.setText("");
 
                     }
 
-                }
+                } else {
 
-                else {
-
-                    mensaje = new Mensaje(getApplicationContext(), "El usuario: "+userL.getUser()+" no existe");
+                    mensaje = new Mensaje(getApplicationContext(), "El usuario: " + usuario.getUser() + " no existe");
                     etUsuario.setText("");
                     etPass.setText("");
 

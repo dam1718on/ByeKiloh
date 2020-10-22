@@ -35,7 +35,7 @@ public class RegistroActivity extends AppCompatActivity {
 
     private boolean select = false;
 
-    private int countError=1;
+    private int countError = 1;
 
     BaseDatos basedatos;
     Mensaje mensaje;
@@ -250,15 +250,6 @@ public class RegistroActivity extends AppCompatActivity {
                                 content.put(Tablas.EstructuraUsuario.COLUMN_NAME_PASS, useR.getPass());
                                 sqlite.insert(Tablas.EstructuraUsuario.TABLE_NAME, null, content);
 
-                                //Volvemos a rellenar el cursor el cual incluye los datos ya insertados
-                                cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnas, usuario,
-                                        null, null, null, ordenSalida);
-                                cursor.moveToFirst();
-
-                                //Extraemos el atributo id y se lo pasamos al objeto Usuario
-                                int identificador = cursor.getInt(cursor.getColumnIndex(Tablas.EstructuraUsuario._ID));
-                                useR.setId(identificador);
-
                                 //Registro exitoso
                                 mensaje = new Mensaje(getApplicationContext(), "El usuario " + useR.getUser() +
                                     "\nse registró con éxito");
@@ -308,14 +299,13 @@ public class RegistroActivity extends AppCompatActivity {
     //Método que cuenta el número de caracteres introducidos
     public void numMinL(EditText et, int minDig, String campo){
 
-        int num;
-        num=et.length();
+        int num = et.length();
 
         if(num<minDig){
 
-            mensaje = new Mensaje(getApplicationContext(), "'"+campo+"' tiene "+
-                String.valueOf(num)+" carácteres\ny el mínimo para ese campo son "+minDig);
-            countError=countError+1;
+            mensaje = new Mensaje(getApplicationContext(), "'" + campo + "' tiene " +
+            String.valueOf(num) + " carácteres\ny el mínimo para ese campo son " + minDig);
+            countError = countError + 1;
 
         }
 

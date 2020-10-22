@@ -16,19 +16,27 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES =
         "CREATE TABLE " + EstructuraUsuario.TABLE_NAME + " (" +
-                EstructuraUsuario._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                EstructuraUsuario.COLUMN_NAME_NAME + TEXT_TYPE + COMMA_SEP +
-                EstructuraUsuario.COLUMN_NAME_PASS + TEXT_TYPE + " )";
+            EstructuraUsuario._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            EstructuraUsuario.COLUMN_NAME_NAME + TEXT_TYPE + COMMA_SEP +
+            EstructuraUsuario.COLUMN_NAME_PASS + TEXT_TYPE + " )";
 
     private static final String SQL_CREATE_ENTRIES2 =
         "CREATE TABLE " + EstructuraCuenta.TABLE_NAME + " (" +
-                EstructuraCuenta._IDUSER + " INTEGER," +
-                EstructuraCuenta.COLUMN_NAME_SEXO + TEXT_TYPE + COMMA_SEP +
-                EstructuraCuenta.COLUMN_NAME_NOMBRE + TEXT_TYPE + COMMA_SEP +
-                EstructuraCuenta.COLUMN_NAME_DIRECCION + TEXT_TYPE + COMMA_SEP +
-                EstructuraCuenta.COLUMN_NAME_LOCALIDAD + TEXT_TYPE + COMMA_SEP +
-                EstructuraCuenta.COLUMN_NAME_EMAIL + TEXT_TYPE + COMMA_SEP +
-                EstructuraCuenta.COLUMN_NAME_FECHANAC + TEXT_TYPE + " )";
+            EstructuraCuenta._IDUSER + " INTEGER , " +
+            EstructuraCuenta.COLUMN_NAME_SEXO + TEXT_TYPE + COMMA_SEP +
+            EstructuraCuenta.COLUMN_NAME_NOMBRE + TEXT_TYPE + COMMA_SEP +
+            EstructuraCuenta.COLUMN_NAME_DIRECCION + TEXT_TYPE + COMMA_SEP +
+            EstructuraCuenta.COLUMN_NAME_LOCALIDAD + TEXT_TYPE + COMMA_SEP +
+            EstructuraCuenta.COLUMN_NAME_EMAIL + TEXT_TYPE + COMMA_SEP +
+            EstructuraCuenta.COLUMN_NAME_FECHANAC + TEXT_TYPE + " )";
+
+    private static final String SQL_CREATE_ENTRIES3 =
+        "CREATE TABLE " + EstructuraEjercicio.TABLE_NAME + " (" +
+            EstructuraEjercicio._IDUSER + " INTEGER , " +
+            EstructuraEjercicio.COLUMN_NAME_FECHA + TEXT_TYPE + COMMA_SEP +
+            EstructuraEjercicio.COLUMN_NAME_DISTANCIA + TEXT_TYPE + COMMA_SEP +
+            EstructuraEjercicio.COLUMN_NAME_TIEMPO + TEXT_TYPE + COMMA_SEP +
+            EstructuraEjercicio.COLUMN_NAME_VELOCIDAD + TEXT_TYPE + " )";
 
     private static final String SQL_CREATE_ENTRIES3 =
             "CREATE TABLE " + EstructuraEjercicio.TABLE_NAME + " (" +
@@ -42,7 +50,7 @@ public class BaseDatos extends SQLiteOpenHelper {
     private static final String SQL_DELETE_ENTRIES3 = "DROP TABLE IF EXISTS " + EstructuraEjercicio.TABLE_NAME;
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "alphaFinalizada.sqlite";
+    public static final String DATABASE_NAME = "byeKiloh22.sqlite";
 
     public BaseDatos(Context context) { super(context, DATABASE_NAME, null, DATABASE_VERSION); }
 

@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
         //spinEjercicios=findViewById(R.id.spinEjercicios);
 
         //Recibimos Usuario a través de un intent
-        final Usuario userL = (Usuario) getIntent().getSerializableExtra("usuario");
+        final Usuario usuario = (Usuario) getIntent().getSerializableExtra("usuario");
         //Creo Usuario_copia del Usuario_recibido
-        Usuario userR = new Usuario(userL);
+        Usuario userR = new Usuario(usuario);
         //Imprimo el Nuevo usuario
         tvUsuarioMain.setText(userR.getUser());
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Creamos intent para ir a .EjercicioActivity y le enviamos Usuario
                 Intent intent = new Intent(getApplicationContext(), EjercicioActivity.class);
-                intent.putExtra("usuario", userL);
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
 
             }
