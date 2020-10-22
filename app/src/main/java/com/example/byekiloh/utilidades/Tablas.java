@@ -28,4 +28,15 @@ public class Tablas {
 
     }
 
+    public static abstract class EstructuraEjercicio implements BaseColumns {
+
+        public static final String TABLE_NAME = "Ejercicios";
+        public static final String _IDUSER = "idUsuario";
+        public static final String COLUMN_NAME_FECHA = "fecha";
+        public static final String COLUMN_NAME_DISTANCIA = "distancia";
+        public static final String COLUMN_NAME_TIEMPO = "tiempo";
+        public static final String COLUMN_NAME_VELOCIDAD = "velocidad";
+
+    }
+
 }
