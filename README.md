@@ -46,6 +46,7 @@
     <li>Commit29. Implementada .EjercicioActivity</li>
 <p>--new branch: format1.3</p>
     <li>Commit30. Se guardan Objetos Ejercicio asociados al Usuario en BBDD</li>
+    <li>Commit31. Diagramas byeKiloh</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -87,11 +88,14 @@ los EditText</p>
 Ejercicio y las tablas correspondientes de la Base de Datos, aun falta crear objeto Ejercicio</p>
 <p>Commit30. Se crean objetos Ejercicio y se guardan en la Base de datos asociados al Usuario
 logeado. Arreglos menores en .RegistroActivity y en .LoginActivity</p>
+<p>Commit31. Al realizar los diagramas propios de la BBDD se encuentran errores, se depuran e
+implementa la nueva tabla de Pesaje, falta implementar la activity y su correspondiente CRUD</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. Hacer spinner en que recoja todos los ejercicios hechos por el Usuario logeado</li>
-    <li>2. El CRUD de .EjercicioActivity debe funcionar correctamente</li>
-    <li>3. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
+    <li>1. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
+    <li>2. Hacer spinner en que recoja todos los ejercicios hechos por el Usuario logeado</li>
+    <li>3. El CRUD de .EjercicioActivity debe funcionar correctamente</li>
+    <li>4. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
     <li>-. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
     <li>-. Inflate el menu con los datos de Usuario</li>
     <li>-. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>

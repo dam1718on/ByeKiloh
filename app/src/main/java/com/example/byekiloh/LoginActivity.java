@@ -125,22 +125,22 @@ public class LoginActivity extends AppCompatActivity {
                 //Se crea e inicializa el objeto usuario
                 Usuario usuario = new Usuario();
                 //Se recogen los datos de los EditText
-                usuario.setUser(etUsuario.getText().toString());
-                usuario.setPass(etPass.getText().toString());
+                usuario.setUsuario(etUsuario.getText().toString());
+                usuario.setContraseña(etPass.getText().toString());
 
                 //Se establece conexion con permisos de lectura
                 SQLiteDatabase sqliteL = basedatos.getReadableDatabase();
                 //Columnas que recogerá los datos de la consulta
                 String[] columnasL = {
-                        Tablas.EstructuraUsuario._ID,
-                        Tablas.EstructuraUsuario.COLUMN_NAME_NAME,
-                        Tablas.EstructuraUsuario.COLUMN_NAME_PASS,
+                        Tablas.EstructuraUsuario._IDUSUARIO,
+                        Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO,
+                        Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA,
                 };
 
                 //Cláusula WHERE para buscar por usuario
-                String usuarioL = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " LIKE '" + usuario.getUser() + "'";
+                String usuarioL = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " LIKE '" + usuario.getUsuario() + "'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                String ordenSalidaNameL = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
+                String ordenSalidaNameL = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " DESC";
 
                 //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                 // columnas, usuario y orden de los resultados.
@@ -151,24 +151,24 @@ public class LoginActivity extends AppCompatActivity {
                 if(cursorL.getCount() != 0) {
 
                     cursorL.moveToFirst();
-                    String passCNL = cursorL.getString(cursorL.getColumnIndex(Tablas.EstructuraUsuario.COLUMN_NAME_PASS));
+                    String passCNL = cursorL.getString(cursorL.getColumnIndex(Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA));
 
                     //Tercer if comprueba que las contraseñas coinciden
-                    if(usuario.getPass().equals(passCNL)) {
+                    if(usuario.getContraseña().equals(passCNL)) {
 
                         //Login correcto
 
                         //Como es el usuario correcto, incluimos el valor del atributo id en el objeto usuario
-                        int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Tablas.EstructuraUsuario._ID));
-                        usuario.setId(identificadorL);
-                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  " + usuario.getUser());
+                        int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Tablas.EstructuraUsuario._IDUSUARIO));
+                        usuario.setIdUsuario(identificadorL);
+                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  " + usuario.getUsuario());
 
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
                         if(cbMantenerSesion.isChecked()) {
 
                             //Le pasamos el nombre de usuario al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
-                            userSP = usuario.getUser();
+                            userSP = usuario.getUsuario();
                             SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
@@ -201,7 +201,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
 
-                    mensaje = new Mensaje(getApplicationContext(), "El usuario: " + usuario.getUser() + " no existe");
+                    mensaje = new Mensaje(getApplicationContext(), "El usuario: " + usuario.getUsuario() + " no existe");
                     etUsuario.setText("");
                     etPass.setText("");
 

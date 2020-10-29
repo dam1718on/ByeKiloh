@@ -4,53 +4,62 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
-    private int id;
-
-    private String sexo, nombre, direccion, localidad, email, fechaNac, user, pass;
+    private int idUsuario;
+    private String usuario, contraseña;
+    private String email, nombre, direccion, localidad, fechaNac, genero;
 
     public Usuario() {    }
 
-    public Usuario(String user, String pass) {
+    public Usuario(String usuario, String contraseña) {
 
-        this.user = user;
-        this.pass = pass;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
 
     }
 
-    public Usuario(String nombre, String direccion, String localidad, String email, String fechaNac,
-        String user, String pass) {
+    public Usuario(String usuario, String contraseña, String email, String nombre, String direccion,
+                   String localidad, String fechaNac, String genero) {
 
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.email = email;
         this.nombre = nombre;
         this.direccion = direccion;
         this.localidad = localidad;
-        this.email = email;
         this.fechaNac = fechaNac;
-        this.user = user;
-        this.pass = pass;
+        this.genero = genero;
 
     }
 
-    public Usuario(Usuario user){
+    public Usuario(Usuario usuario) {
 
-        this.id=user.getId();
-        this.sexo=user.getSexo();
-        this.nombre=user.getNombre();
-        this.direccion=user.getDireccion();
-        this.localidad=user.getLocalidad();
-        this.email=user.getEmail();
-        this.fechaNac=user.getFechaNac();
-        this.user=user.getUser();
-        this.pass=user.getPass();
+        this.idUsuario = usuario.getIdUsuario();
+        this.usuario = usuario.getUsuario();
+        this.contraseña = usuario.getContraseña();
+        this.email= usuario.getEmail();
+        this.nombre= usuario.getNombre();
+        this.direccion= usuario.getDireccion();
+        this.localidad= usuario.getLocalidad();
+        this.fechaNac= usuario.getFechaNac();
+        this.genero = usuario.getGenero();
 
     }
 
-    public int getId() {  return id;  }
+    public int getIdUsuario() {  return idUsuario;  }
 
-    public void setId(int id) {  this.id = id;  }
+    public void setIdUsuario(int idUsuario) {  this.idUsuario = idUsuario;  }
 
-    public String getSexo() {  return sexo;  }
+    public String getUsuario() {  return usuario;  }
 
-    public void setSexo(String sexo) {  this.sexo = sexo;  }
+    public void setUsuario(String usuario) {  this.usuario = usuario;  }
+
+    public String getContraseña() {  return contraseña;  }
+
+    public void setContraseña(String contraseña) {  this.contraseña = contraseña;  }
+
+    public String getEmail() {  return email;  }
+
+    public void setEmail(String email) {  this.email = email;  }
 
     public String getNombre() {  return nombre;  }
 
@@ -64,35 +73,27 @@ public class Usuario implements Serializable {
 
     public void setLocalidad(String localidad) {  this.localidad = localidad;  }
 
-    public String getEmail() {  return email;  }
-
-    public void setEmail(String email) {  this.email = email;  }
-
     public String getFechaNac() {  return fechaNac;  }
 
     public void setFechaNac(String fechaNac) {  this.fechaNac = fechaNac;  }
 
-    public String getUser() {  return user;  }
+    public String getGenero() {  return genero;  }
 
-    public void setUser(String user) {  this.user = user;  }
-
-    public String getPass() {  return pass;  }
-
-    public void setPass(String pass) {  this.pass = pass;  }
+    public void setGenero(String genero) {  this.genero = genero;  }
 
     @Override
     public String toString() {
 
         return "Usuario{" +
-                "id=" + id +
-                ", sexo='" + sexo + '\'' +
+                "id=" + idUsuario +
+                ", user='" + usuario + '\'' +
+                ", pass='" + contraseña + '\'' +
+                ", email='" + email + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", localidad='" + localidad + '\'' +
-                ", email='" + email + '\'' +
                 ", fechaNac='" + fechaNac + '\'' +
-                ", user='" + user + '\'' +
-                ", pass='" + pass + '\'' +
+                ", sexo='" + genero + '\'' +
                 '}';
 
     }

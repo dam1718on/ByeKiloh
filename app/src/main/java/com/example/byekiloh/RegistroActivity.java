@@ -196,12 +196,12 @@ public class RegistroActivity extends AppCompatActivity {
                     //Se crea e inicializa el objeto useR
                     useR = new Usuario();
                     //Se recogen los datos de los EditText
-                    useR.setUser(etUsuario.getText().toString());
-                    useR.setPass(etContraseña.getText().toString());
+                    useR.setUsuario(etUsuario.getText().toString());
+                    useR.setContraseña(etContraseña.getText().toString());
                     String passRe = etContraseñaRe.getText().toString();
 
                     //Tercer if comprueba si no coinciden las contraseñas
-                    if (!useR.getPass().equals(passRe)) {
+                    if (!useR.getContraseña().equals(passRe)) {
 
                         mensaje = new Mensaje(getApplicationContext(), "Las Contraseñas " +
                             "introducidas\nno coinciden");
@@ -214,15 +214,15 @@ public class RegistroActivity extends AppCompatActivity {
                             SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                             //Columnas que recogerá los datos de la consulta
                             String[] columnas = {
-                                Tablas.EstructuraUsuario._ID,
-                                Tablas.EstructuraUsuario.COLUMN_NAME_NAME,
-                                Tablas.EstructuraUsuario.COLUMN_NAME_PASS,
+                                Tablas.EstructuraUsuario._IDUSUARIO,
+                                Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO,
+                                Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA,
                             };
 
                             //Cláusula WHERE para buscar por usuario
-                            String usuario = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " LIKE '" + useR.getUser() + "'";
+                            String usuario = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " LIKE '" + useR.getUsuario() + "'";
                             //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                            String ordenSalida = Tablas.EstructuraUsuario.COLUMN_NAME_NAME + " DESC";
+                            String ordenSalida = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " DESC";
                             //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                             // columnas, usuario y orden de los resultados.
                             Cursor cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnas, usuario,
@@ -233,7 +233,7 @@ public class RegistroActivity extends AppCompatActivity {
 
                                 cursor.moveToFirst();
                                 mensaje = new Mensaje(getApplicationContext(), "El nombre de usuario: " +
-                                        useR.getUser() + "\nno está disponible, pruebe con otro");
+                                        useR.getUsuario() + "\nno está disponible, pruebe con otro");
                                 etUsuario.setText("");
 
                             } else {
@@ -246,12 +246,12 @@ public class RegistroActivity extends AppCompatActivity {
 
                                 //Se añaden los valores introducidos de cada campo mediante
                                 // clave(columna)/valor(valor introducido en el campo de texto)
-                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_NAME, useR.getUser());
-                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_PASS, useR.getPass());
+                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO, useR.getUsuario());
+                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA, useR.getContraseña());
                                 sqlite.insert(Tablas.EstructuraUsuario.TABLE_NAME, null, content);
 
                                 //Registro exitoso
-                                mensaje = new Mensaje(getApplicationContext(), "El usuario " + useR.getUser() +
+                                mensaje = new Mensaje(getApplicationContext(), "El usuario " + useR.getUsuario() +
                                     "\nse registró con éxito");
 
                                 //Reseteo de los EditText

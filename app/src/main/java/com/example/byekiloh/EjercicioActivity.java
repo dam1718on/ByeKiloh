@@ -76,7 +76,7 @@ public class EjercicioActivity extends AppCompatActivity {
                 if (countError == 1) {
 
                     //Se crea objeto Ejercicio con parámetros
-                    ejercicio = new Ejercicio(userR.getId(), etFecha.getText().toString(),
+                    ejercicio = new Ejercicio(userR.getIdUsuario(), etFecha.getText().toString(),
                         Integer.parseInt(etDistancia.getText().toString()),
                         Integer.parseInt(etTiempo.getText().toString()));
 
@@ -87,7 +87,7 @@ public class EjercicioActivity extends AppCompatActivity {
 
                     /*Se añaden los valores introducidos de cada campo mediante clave(columna) /
                     valor(valor introducido en el campo de texto)*/
-                    content.put(Tablas.EstructuraEjercicio._IDUSER, ejercicio.getIdUsuario());
+                    content.put(Tablas.EstructuraEjercicio._IDUSUARIO, ejercicio.getIdUsuario());
                     content.put(Tablas.EstructuraEjercicio.COLUMN_NAME_FECHA,
                             String.valueOf(ejercicio.getFecha()));
                     content.put(Tablas.EstructuraEjercicio.COLUMN_NAME_DISTANCIA,

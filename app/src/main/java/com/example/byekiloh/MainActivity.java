@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //Creo Usuario_copia del Usuario_recibido
         Usuario userR = new Usuario(usuario);
         //Imprimo el Nuevo usuario
-        tvUsuarioMain.setText(userR.getUser());
+        tvUsuarioMain.setText(userR.getUsuario());
 
         //menu=findViewById(((Menu) R.menu.main_menu));
         //menu.getItem(nav_home);

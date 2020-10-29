@@ -84,7 +84,7 @@
                 android:maxLength="20"
                 android:maxLines="1"
                 android:background="@drawable/rounded_box_edittext"
-                android:digits="@-_.:;,0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
+                android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
                 XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
                 android:drawableLeft="@drawable/icono_candado_30x30"
                 android:hint="Contraseña"

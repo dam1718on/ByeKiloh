@@ -1,35 +1,27 @@
 package com.example.byekiloh.utilidades;
 
-import java.util.Calendar;
-
 public class Ejercicio {
 
-    private int idUsuario;
+    private int idEjercicio;
     private String fecha;
     private int distancia;
     private int tiempo;
     private float velocidad;
+    private float consumoE;
+    private int idUsuario;
 
     public Ejercicio() {  }
 
-    public Ejercicio(int idUsuario, String fecha, int distancia, int tiempo) {
+    public Ejercicio(String fecha, int distancia, int tiempo, int idUsuario) {
 
-        this.idUsuario = idUsuario;
         this.fecha = fecha;
         this.distancia = distancia;
         this.tiempo = tiempo;
+        this.idUsuario = idUsuario;
         setVelocidad(distancia, tiempo);
+        //IMPLEMENTAR setConsumoE;
 
     }
-    //Método para generar un id a través de una Fecha. en desuso
-    /*public void setId(){
-        Calendar today = Calendar.getInstance();
-        int año = today.get(Calendar.YEAR);
-        int mes = today.get(Calendar.MONTH)+1;
-        int dia = today.get(Calendar.DATE);
-        String num = String.valueOf(año).substring(2)+String.format("%02d" , mes)+String.format("%02d" , dia);
-        this.idUsuario =Integer.parseInt(num);
-    }*/
 
     public float getVelocidad() {
         return velocidad;
@@ -40,13 +32,16 @@ public class Ejercicio {
         velocidad = ms;
     }
 
-    public int getIdUsuario(){
-        return idUsuario;
-    }
+    //Getters y Setters de Consumo HAN DE IMPLEMENTARSE CORRECTAMENTE
+    public float getConsumoE() { return consumoE; }
 
-    public void setIdUsuario(int idUsuario){
-        this.idUsuario = idUsuario;
-    }
+    public void setConsumoE(float consumoE) { this.consumoE = consumoE; }
+
+
+
+    public int getIdEjercicio() {return idEjercicio; }
+
+    public void setIdEjercicio(int idEjercicio) { this.idEjercicio = idEjercicio; }
 
     public String getFecha() { return fecha; }
 
@@ -60,15 +55,27 @@ public class Ejercicio {
 
     public void setTiempo(int tiempo) { this.tiempo = tiempo; }
 
+    public int getIdUsuario(){
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario){
+        this.idUsuario = idUsuario;
+    }
+
     @Override
     public String toString() {
+
         return "Ejercicio{" +
-                "idUsuario: " + idUsuario +
+                "idEjercicio: " + idEjercicio +
                 ", fecha: " + fecha +
                 ", distancia: " + distancia +
                 ", tiempo: " + tiempo +
                 ", velocidad: " + velocidad +
+                ", consumoE: " + consumoE +
+                ", idUsuario: " + idUsuario +
                 '}';
+
     }
 
 }
