@@ -44,9 +44,12 @@
     <li>Commit27. Consolidación de cambios e implementado acuerdo Servicio</li>
     <li>Commit28. Visualización de las Contraseñas y nuevos EditText</li>
     <li>Commit29. Implementada .EjercicioActivity</li>
+    </ul>
 <p>--new branch: format1.3</p>
+    <ul>
     <li>Commit30. Se guardan Objetos Ejercicio asociados al Usuario en BBDD</li>
     <li>Commit31. Diagramas byeKiloh</li>
+    <li>Commit32. Spinner de .EjericiciosActivity</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -90,12 +93,15 @@ Ejercicio y las tablas correspondientes de la Base de Datos, aun falta crear obj
 logeado. Arreglos menores en .RegistroActivity y en .LoginActivity</p>
 <p>Commit31. Al realizar los diagramas propios de la BBDD se encuentran errores, se depuran e
 implementa la nueva tabla de Pesaje, falta implementar la activity y su correspondiente CRUD</p>
+<p>Commit32. Implementado Spinner que recoge todos los ejercicios hechos por el Usuario logeado y se
+ actualiza en tiempo de ejecución al añadir nuevos registros</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
-    <li>2. Hacer spinner en que recoja todos los ejercicios hechos por el Usuario logeado</li>
-    <li>3. El CRUD de .EjercicioActivity debe funcionar correctamente</li>
-    <li>4. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
+    <li>1. Implementar el CRUD completo al Spinner</li>
+    <li>2. El CRUD de .EjercicioActivity debe funcionar correctamente</li>
+    <li>3. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
+    <li>4. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
+    <li>-. Icono de usuario 36x36 naranja degradado, hacer o descargar</li>
     <li>-. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
     <li>-. Inflate el menu con los datos de Usuario</li>
     <li>-. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>

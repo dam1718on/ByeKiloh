@@ -13,6 +13,7 @@ import android.os.Bundle;
 
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+
 import android.view.View;
 
 import android.widget.Button;
@@ -25,15 +26,12 @@ import com.example.byekiloh.utilidades.*;
 public class LoginActivity extends AppCompatActivity {
 
     private Button btnCrearCuenta, btnIniciarSesion;
-
     private CheckBox cbMantenerSesion;
-
     private EditText etUsuario, etPass;
-
     private TextView tvPass;
 
     private boolean select = false;
-
+    //Variables para SharedPreferences
     private String defaultValue;
     private String userSP;
 
@@ -67,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            if(select == false) {
+            if(!select) {
 
                 select = true;
                 etPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
@@ -100,7 +98,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
             //Creamos Intent para ir a .RegistroActivity
             Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
             startActivity(intent);
@@ -113,7 +110,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
             //Primer if comprueba si están vacíos los dos primeros EditText
             if(etUsuario.getText().toString().equals("") || etPass.getText().toString().equals("")) {
 
@@ -121,51 +117,42 @@ public class LoginActivity extends AppCompatActivity {
                     "todos los campos son obligatorios");
 
             } else {
-
                 //Se crea e inicializa el objeto usuario
                 Usuario usuario = new Usuario();
                 //Se recogen los datos de los EditText
                 usuario.setUsuario(etUsuario.getText().toString());
                 usuario.setContraseña(etPass.getText().toString());
-
                 //Se establece conexion con permisos de lectura
-                SQLiteDatabase sqliteL = basedatos.getReadableDatabase();
+                SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                 //Columnas que recogerá los datos de la consulta
                 String[] columnasL = {
                         Tablas.EstructuraUsuario._IDUSUARIO,
                         Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO,
                         Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA,
                 };
-
                 //Cláusula WHERE para buscar por usuario
                 String usuarioL = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " LIKE '" + usuario.getUsuario() + "'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
                 String ordenSalidaNameL = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " DESC";
-
                 //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                 // columnas, usuario y orden de los resultados.
-                Cursor cursorL = sqliteL.query(Tablas.EstructuraUsuario.TABLE_NAME, columnasL, usuarioL,
+                Cursor cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnasL, usuarioL,
                         null , null, null, ordenSalidaNameL);
-
                 //Segundo if comprueba que el cursor no esté vacío
-                if(cursorL.getCount() != 0) {
+                if(cursor.getCount() != 0) {
 
-                    cursorL.moveToFirst();
-                    String passCNL = cursorL.getString(cursorL.getColumnIndex(Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA));
-
+                    cursor.moveToFirst();
+                    String passCNL = cursor.getString(cursor.getColumnIndex(Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA));
                     //Tercer if comprueba que las contraseñas coinciden
                     if(usuario.getContraseña().equals(passCNL)) {
-
                         //Login correcto
-
                         //Como es el usuario correcto, incluimos el valor del atributo id en el objeto usuario
-                        int identificadorL = cursorL.getInt(cursorL.getColumnIndex(Tablas.EstructuraUsuario._IDUSUARIO));
+                        int identificadorL = cursor.getInt(cursor.getColumnIndex(Tablas.EstructuraUsuario._IDUSUARIO));
                         usuario.setIdUsuario(identificadorL);
-                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  " + usuario.getUsuario());
 
+                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  " + usuario.getUsuario());
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
                         if(cbMantenerSesion.isChecked()) {
-
                             //Le pasamos el nombre de usuario al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
                             userSP = usuario.getUsuario();
@@ -175,7 +162,6 @@ public class LoginActivity extends AppCompatActivity {
                             etPass.setText("");
 
                         } else {
-
                             //Le pasamos usuario="" al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
                             userSP = "";
@@ -186,7 +172,6 @@ public class LoginActivity extends AppCompatActivity {
                             etPass.setText("");
 
                         }
-
                         //Creamos intent para ir a .MainActivity y le enviamos Usuario
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.putExtra("usuario", usuario);
@@ -206,9 +191,10 @@ public class LoginActivity extends AppCompatActivity {
                     etPass.setText("");
 
                 }
-
-                //Se cierra la conexión abierta a la Base de Datos
-                sqliteL.close();
+                //Se cierra cursor
+                cursor.close();
+                //Se cierra la conexión a la Base de Datos
+                sqlite.close();
 
             }
             }

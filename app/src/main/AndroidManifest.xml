@@ -12,9 +12,6 @@
         <activity
             android:name=".EjercicioActivity"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".EjercicioOldActivity"
-            android:parentActivityName=".MainActivity" />
         <activity android:name=".PrivacidadActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>

@@ -28,16 +28,14 @@ public class Ejercicio {
     }
 
     public void setVelocidad(int distancia, int tiempo) {
-        float ms = (float) distancia / (tiempo * 60);
-        velocidad = ms;
+        //float ms = (float) distancia / (tiempo * 60);
+        velocidad = (float) distancia / (tiempo * 60);
     }
 
     //Getters y Setters de Consumo HAN DE IMPLEMENTARSE CORRECTAMENTE
     public float getConsumoE() { return consumoE; }
 
     public void setConsumoE(float consumoE) { this.consumoE = consumoE; }
-
-
 
     public int getIdEjercicio() {return idEjercicio; }
 
@@ -63,7 +61,7 @@ public class Ejercicio {
         this.idUsuario = idUsuario;
     }
 
-    @Override
+    /*@Override
     public String toString() {
 
         return "Ejercicio{" +
@@ -72,6 +70,19 @@ public class Ejercicio {
                 ", distancia: " + distancia +
                 ", tiempo: " + tiempo +
                 ", velocidad: " + velocidad +
+                ", consumoE: " + consumoE +
+                ", idUsuario: " + idUsuario +
+                '}';
+
+    }*/
+    @Override
+    public String toString() {
+
+        return "Ejercicio " + idEjercicio +
+                ", del " + fecha +
+                ", con " + distancia +
+                " m, en " + tiempo +
+                " mins, velocidad: " + velocidad +
                 ", consumoE: " + consumoE +
                 ", idUsuario: " + idUsuario +
                 '}';
