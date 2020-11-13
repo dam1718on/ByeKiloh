@@ -1,12 +1,14 @@
 package com.example.byekiloh.utilidades;
 
+import java.text.DecimalFormat;
+
 public class Ejercicio {
 
     private int idEjercicio;
     private String fecha;
     private int distancia;
     private int tiempo;
-    private float velocidad;
+    private String velocidad;
     private float consumoE;
     private int idUsuario;
 
@@ -18,18 +20,21 @@ public class Ejercicio {
         this.distancia = distancia;
         this.tiempo = tiempo;
         this.idUsuario = idUsuario;
-        setVelocidad(distancia, tiempo);
+        setVelocidad();
         //IMPLEMENTAR setConsumoE;
 
     }
 
-    public float getVelocidad() {
-        return velocidad;
-    }
+    public Ejercicio(Ejercicio ejercicio) {
 
-    public void setVelocidad(int distancia, int tiempo) {
-        //float ms = (float) distancia / (tiempo * 60);
-        velocidad = (float) distancia / (tiempo * 60);
+        this.idEjercicio = ejercicio.getIdEjercicio();
+        this.fecha = ejercicio.getFecha();
+        this.distancia = ejercicio.getDistancia();
+        this.tiempo= ejercicio.getTiempo();
+        this.velocidad= ejercicio.getVelocidad();
+        this.consumoE= ejercicio.getConsumoE();
+        this.idUsuario= ejercicio.getIdUsuario();
+
     }
 
     //Getters y Setters de Consumo HAN DE IMPLEMENTARSE CORRECTAMENTE
@@ -53,39 +58,29 @@ public class Ejercicio {
 
     public void setTiempo(int tiempo) { this.tiempo = tiempo; }
 
-    public int getIdUsuario(){
-        return idUsuario;
+    public String getVelocidad() { return velocidad; }
+
+    public void setVelocidad() {
+
+        DecimalFormat df = new DecimalFormat("0.0000");
+        velocidad = df.format((float) distancia / (tiempo * 60));
+
     }
 
-    public void setIdUsuario(int idUsuario){
-        this.idUsuario = idUsuario;
-    }
+    public int getIdUsuario() { return idUsuario; }
 
-    /*@Override
-    public String toString() {
+    public void setIdUsuario(int idUsuario) { this.idUsuario = idUsuario; }
 
-        return "Ejercicio{" +
-                "idEjercicio: " + idEjercicio +
-                ", fecha: " + fecha +
-                ", distancia: " + distancia +
-                ", tiempo: " + tiempo +
-                ", velocidad: " + velocidad +
-                ", consumoE: " + consumoE +
-                ", idUsuario: " + idUsuario +
-                '}';
-
-    }*/
     @Override
     public String toString() {
 
-        return "Ejercicio " + idEjercicio +
-                ", del " + fecha +
-                ", con " + distancia +
-                " m, en " + tiempo +
-                " mins, velocidad: " + velocidad +
-                ", consumoE: " + consumoE +
-                ", idUsuario: " + idUsuario +
-                '}';
+        return "- Ejercicio " + idEjercicio +
+                " del " + fecha +
+                " con " + distancia +
+                " m en " + tiempo +
+                " min\n    velocidad " + velocidad +
+                " consumoE " + consumoE +
+                " idUsuario " + idUsuario + ".";
 
     }
 

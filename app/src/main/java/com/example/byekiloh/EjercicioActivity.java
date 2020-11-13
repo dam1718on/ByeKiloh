@@ -12,10 +12,13 @@ import android.os.Bundle;
 
 import android.view.View;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.byekiloh.utilidades.*;
 import static com.example.byekiloh.utilidades.Tablas.EstructuraEjercicio.*;
@@ -24,8 +27,8 @@ import java.util.ArrayList;
 
 public class EjercicioActivity extends AppCompatActivity {
 
-    private Button btnGuardar, btnActualizar, btnBorrar, btnVolverE;
-    private EditText etFecha, etDistancia, etTiempo;
+    private Button btnAnadirEjercicio, btnActualizar, btnBorrar, btnVolverE;
+    private EditText etFecha, etDistancia, etTiempo, etFecha2, etDistancia2, etTiempo2;
     private Spinner spinEjercicios;
     //Esta variable permite comprobar los digitos de varios EditText a la vez
     private int countError = 1;
@@ -40,7 +43,7 @@ public class EjercicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ejercicio);
 
-        btnGuardar=findViewById(R.id.btnGuardar);
+        btnAnadirEjercicio =findViewById(R.id.btnAnadirEjercicio);
         btnActualizar=findViewById(R.id.btnActualizar);
         btnBorrar=findViewById(R.id.btnBorrar);
         btnVolverE=findViewById(R.id.btnVolverE);
@@ -48,28 +51,47 @@ public class EjercicioActivity extends AppCompatActivity {
         etFecha=findViewById(R.id.etFecha);
         etDistancia=findViewById(R.id.etDistancia);
         etTiempo=findViewById(R.id.etTiempo);
+        etFecha2=findViewById(R.id.etFecha2);
+        etDistancia2=findViewById(R.id.etDistancia2);
+        etTiempo2=findViewById(R.id.etTiempo2);
 
         spinEjercicios=findViewById(R.id.spinEjercicios);
 
         //Recibimos el Usuario que logea a través del intent
-        final Usuario userL = (Usuario) getIntent().getSerializableExtra("usuario");
+        final Usuario usuarioMain = (Usuario) getIntent().getSerializableExtra("usuario");
         //Creo Usuario copia del Usuario recibido
-        usuario = new Usuario(userL);
+        usuario = new Usuario(usuarioMain);
 
         basedatos = new BaseDatos(getApplicationContext());
-        //Actualizamos el contenido del Spinner
-        actualizaSpin();
+        //Visualizamos el Spinner onCreate
+        actualizarSpinner();
 
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
+        spinEjercicios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                //Creamos objeto Ejercicio con el item seleccionado del Spinner
+                ejercicio = new Ejercicio((Ejercicio) spinEjercicios.getSelectedItem());
+                //Rellenamos los EditText con los datos del Ejercicio
+                etFecha2.setText(String.valueOf(ejercicio.getFecha()));
+                etDistancia2.setText(String.valueOf(ejercicio.getDistancia()));
+                etTiempo2.setText(String.valueOf(ejercicio.getTiempo()));
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {    }
+
+        });
+
+        btnAnadirEjercicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             //Primer if comprueba que no hay EditText vacíos
-            if(etFecha.getText().toString().equals("") || etDistancia.getText().toString().equals("")
-                || etFecha.getText().toString().equals("")) {
+            if(etFecha.getText().toString().equals("") ||
+                etDistancia.getText().toString().equals("") ||
+                etFecha.getText().toString().equals("")) {
 
-                mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos\n" +
-                        "todos los campos son obligatorios");
+                mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
+                    "introducidos\ntodos los campos son obligatorios");
 
             } else {
 
@@ -79,52 +101,65 @@ public class EjercicioActivity extends AppCompatActivity {
                 numMinL(etDistancia, 3, "Distancia");
                 numMinL(etTiempo, 2, "Tiempo");
                 //Segundo if comprueba si se cumple con el mínimo de carácteres para cada EditText
-                if (countError == 1) {
+                if(countError == 1) {
                     //Se crea objeto Ejercicio con parámetros
                     ejercicio = new Ejercicio(etFecha.getText().toString(),
                         Integer.parseInt(etDistancia.getText().toString()),
                         Integer.parseInt(etTiempo.getText().toString()), usuario.getIdUsuario());
                     //Se ganan tambien permisos de escritura
                     SQLiteDatabase sqlite = basedatos.getWritableDatabase();
-                    //EstructuraUsuario de insercción de datos
+                    //EstructuraEjercicio de insercción de datos
                     ContentValues content = new ContentValues();
                     /*Se añaden los valores introducidos de cada campo mediante clave(columna) /
                     valor(valor introducido en el campo de texto)*/
-                    content.put(Tablas.EstructuraEjercicio._IDUSUARIO, ejercicio.getIdUsuario());
-                    content.put(Tablas.EstructuraEjercicio.COLUMN_NAME_FECHA,
-                            String.valueOf(ejercicio.getFecha()));
-                    content.put(Tablas.EstructuraEjercicio.COLUMN_NAME_DISTANCIA,
-                            String.valueOf(ejercicio.getDistancia()));
-                    content.put(Tablas.EstructuraEjercicio.COLUMN_NAME_TIEMPO,
-                            String.valueOf(ejercicio.getTiempo()));
-                    content.put(Tablas.EstructuraEjercicio.COLUMN_NAME_VELOCIDAD,
-                            String.valueOf(ejercicio.getVelocidad()));
-                    sqlite.insert(Tablas.EstructuraEjercicio.TABLE_NAME, null, content);
+                    content.put(_IDUSUARIO, ejercicio.getIdUsuario());
+                    content.put(COLUMN_NAME_FECHA, ejercicio.getFecha());
+                    content.put(COLUMN_NAME_DISTANCIA, String.valueOf(ejercicio.getDistancia()));
+                    content.put(COLUMN_NAME_TIEMPO, String.valueOf(ejercicio.getTiempo()));
+                    content.put(COLUMN_NAME_VELOCIDAD, ejercicio.getVelocidad());
+                    sqlite.insert(TABLE_NAME, null, content);
                     //Mensaje de éxito al añadir
-                    mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido almacenado");
-                    //Actualizamos el contenido del Spinner, incluyendo el ejercicio añadido
-                    actualizaSpin();
-                    //Vaciamos los EditText
-                    etFecha.setText("");
-                    etDistancia.setText("");
-                    etTiempo.setText("");
+                    mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido " +
+                        "almacenado");
+
+                    vaciarEditText();
                     //Se cierra la conexión abierta a la Base de Datos
                     sqlite.close();
+
+                    actualizarSpinner();
 
                 }
 
             }
+
             }
 
         });
+
+        btnActualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            actualizarEjercicio();
+
+            vaciarEditText();
+
+            actualizarSpinner();
+
+            }
+
+        });
+
 
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            etFecha.setText("");
-            etDistancia.setText("");
-            etTiempo.setText("");
+            borrarEjercicio();
+
+            vaciarEditText();
+
+            actualizarSpinner();
 
             }
 
@@ -135,12 +170,21 @@ public class EjercicioActivity extends AppCompatActivity {
             public void onClick(View v) {
             //Creamos intent para ir a .MainActivity y le enviamos Usuario
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.putExtra("usuario", userL);
+            intent.putExtra("usuario", usuarioMain);
             startActivity(intent);
 
             }
 
         });
+
+    }
+
+    //Método que vacía los EditText
+    public void vaciarEditText() {
+
+        etFecha.setText("");
+        etDistancia.setText("");
+        etTiempo.setText("");
 
     }
 
@@ -160,30 +204,81 @@ public class EjercicioActivity extends AppCompatActivity {
 
     }
 
-    //Método que crea un ArrayList con los ejercicios guardados en la Base de Datos
-    public ArrayList<Ejercicio> SelectAllEjer() {
-        //Creamos un ArrayList de Ejercicio
+    //Método que actualiza un ejercicio
+    public void actualizarEjercicio() {
+        //Creamos objeto Ejercicio con el item seleccionado del Spinner
+        ejercicio = new Ejercicio((Ejercicio) spinEjercicios.getSelectedItem());
+        //Visualizamos el objeto antes de ser modificado
+        //verSelected.setText(ejercicio.toString());
+        //Actualziamos el Ejercicio con los datos de los EditText si no están vacios
+        if(!etFecha2.getText().toString().equals("")) {
+            ejercicio.setFecha(etFecha2.getText().toString());
+        }
+        if(!etDistancia2.getText().toString().equals("")) {
+            ejercicio.setDistancia(Integer.parseInt(etDistancia2.getText().toString()));
+        }
+        if(!etTiempo2.getText().toString().equals("")) {
+            ejercicio.setTiempo(Integer.parseInt(etTiempo2.getText().toString()));
+        }
+        ejercicio.setVelocidad();
+        //Se establece conexion con permisos de escritura
+        SQLiteDatabase sqlite = basedatos.getWritableDatabase();
+        //EstructuraUsuario de insercción de datos
+        ContentValues content = new ContentValues();
+        content.put(COLUMN_NAME_FECHA, ejercicio.getFecha());
+        content.put(COLUMN_NAME_DISTANCIA, String.valueOf(ejercicio.getDistancia()));
+        content.put(COLUMN_NAME_TIEMPO, String.valueOf(ejercicio.getTiempo()));
+        content.put(COLUMN_NAME_VELOCIDAD, ejercicio.getVelocidad());
+        //Actualizamos el registro en la base de datos
+        sqlite.update("Ejercicios", content, "Ejercicios.idEjercicio = '" +
+                ejercicio.getIdEjercicio() + "'", null);
+        //Mensaje de éxito al actualizar
+        mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido actualizado");
+        //Cerramos la conexión con la Base de Datos
+        sqlite.close();
+
+    }
+
+    //Método que borra el ejercicio seleccionado del Spinner
+    public void borrarEjercicio() {
+        //Creamos objeto Ejercicio con el item seleccionado del Spinner
+        ejercicio = new Ejercicio((Ejercicio) spinEjercicios.getSelectedItem());
+        //Se establece conexion con permisos de escritura
+        SQLiteDatabase sqlite = basedatos.getWritableDatabase();
+        //Sentencia que borra el ejercicio indicado
+        sqlite.delete("Ejercicios", "Ejercicios.idEjercicio = '" +
+                ejercicio.getIdEjercicio() + "'", null);
+        //Mensaje de éxito al borrar
+        mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido borrado");
+        //Cerramos la conexión con la Base de Datos
+        sqlite.close();
+
+    }
+
+    //Método que crea un ArrayList con los ejercicios en la Base de Datos
+    public void actualizarSpinner() {
+        //Creamos un ArrayList de ejercicios
         ArrayList<Ejercicio> ejerciciosAL = new ArrayList<>();
         //Se establece conexion con permisos de lectura
         SQLiteDatabase sqlite = basedatos.getReadableDatabase();
         //Query que devuelve todos los ejercicios del Usuario logeado
-        Cursor cursor = sqlite.rawQuery("SELECT * FROM Ejercicios WHERE Ejercicios.idUsuario " +
-                "LIKE '" + usuario.getIdUsuario() + "'", null);
+        Cursor cursor = sqlite.rawQuery("SELECT * FROM Ejercicios WHERE Ejercicios.idUsuario "
+                + "LIKE '" + usuario.getIdUsuario() + "'", null);
         //Comprobamos si el cursor no es null
-        if (cursor != null) {
+        if(cursor != null) {
 
-            if (cursor.moveToFirst()) {
+            if(cursor.moveToFirst()) {
                 //Bucle do-while, crea un ejercicio y lo incluye en el Array mientras haya registros
                 do {
 
-                    Ejercicio ejercicio = new Ejercicio();
+                    ejercicio = new Ejercicio();
                     ejercicio.setIdEjercicio(cursor.getInt(cursor.getColumnIndex(_IDEJERCICIO)));
                     ejercicio.setFecha(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_FECHA)));
                     ejercicio.setDistancia(Integer.parseInt(cursor.getString(cursor.getColumnIndex(
                         COLUMN_NAME_DISTANCIA))));
                     ejercicio.setTiempo(Integer.parseInt(cursor.getString(cursor.getColumnIndex(
                         COLUMN_NAME_TIEMPO))));
-                    ejercicio.setVelocidad(ejercicio.getDistancia(), ejercicio.getTiempo());
+                    ejercicio.setVelocidad();
                     ejercicio.setIdUsuario(usuario.getIdUsuario());
 
                     ejerciciosAL.add(ejercicio);
@@ -197,16 +292,11 @@ public class EjercicioActivity extends AppCompatActivity {
         cursor.close();
         //Cerramos la conexión con la Base de Datos
         sqlite.close();
-        //Devuelve el ArrayList
-        return ejerciciosAL;
-
-    }
-
-    //Método para actualizar el contenido del Spinner
-    public void actualizaSpin() {
-        //Usamos el método SelecAllEjer que devuelve un Array con la Tabla Ejercicios
+        //Inflamos el Spinner con el ArrayList
         spinEjercicios.setAdapter(new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_item, SelectAllEjer()));
+            R.layout.spinner_item_c, ejerciciosAL));
+        //Seleccionamos el último registro del Array
+        spinEjercicios.setSelection(ejerciciosAL.size()-1);
 
     }
 

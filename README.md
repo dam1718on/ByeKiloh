@@ -50,6 +50,7 @@
     <li>Commit30. Se guardan Objetos Ejercicio asociados al Usuario en BBDD</li>
     <li>Commit31. Diagramas byeKiloh</li>
     <li>Commit32. Spinner de .EjericiciosActivity</li>
+    <li>Commit33. Mejoras de stylo y del Spinner</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -95,12 +96,18 @@ logeado. Arreglos menores en .RegistroActivity y en .LoginActivity</p>
 implementa la nueva tabla de Pesaje, falta implementar la activity y su correspondiente CRUD</p>
 <p>Commit32. Implementado Spinner que recoge todos los ejercicios hechos por el Usuario logeado y se
  actualiza en tiempo de ejecución al añadir nuevos registros</p>
+<p>Commit33. Implementado el CRUD completo al Spinner, falta actualizar los EditText con cada item
+seleccionado del Spinner. Iconos mejorados: candado, usuario, visible</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. Implementar el CRUD completo al Spinner</li>
-    <li>2. El CRUD de .EjercicioActivity debe funcionar correctamente</li>
+    <li>1. El CRUD de .EjercicioActivity debe funcionar correctamente</li>
+     <li>2. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView, comprobar
+        en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
+    <li>3. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>
+    <li>7. Valorar probabilidad de convertir .PrivacidadActivity en un Fragment</li>
     <li>3. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
     <li>4. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
+    <li>8. Hacer diferentes degradados de azul-blanco en activity_main.xml</li>
     <li>-. Icono de usuario 36x36 naranja degradado, hacer o descargar</li>
     <li>-. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
     <li>-. Inflate el menu con los datos de Usuario</li>

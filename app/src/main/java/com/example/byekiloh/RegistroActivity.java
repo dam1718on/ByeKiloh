@@ -20,16 +20,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.byekiloh.utilidades.*;
+import static com.example.byekiloh.utilidades.Tablas.EstructuraUsuario.*;
 
 public class RegistroActivity extends AppCompatActivity {
 
     private Button btnVolverAtras, btnRegistro;
     private CheckBox cbAcepto;
     private EditText etUsuario, etContrasena, etContrasenaRe;
-    private TextView tvCondicionesServicio, tvPoliticaPrivacidad, tvPass, tvPassRe;
+    private ImageView imgPass, imgPassRe;
+    private TextView tvCondicionesServicio, tvPoliticaPrivacidad;
 
     private boolean select = false;
     //Esta variable permite comprobar los digitos de varios EditText a la vez
@@ -43,38 +46,37 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        btnVolverAtras =findViewById(R.id.btnVolverAtras);
-        btnRegistro =findViewById(R.id.btnRegistro);
+        btnVolverAtras = findViewById(R.id.btnVolverAtras);
+        btnRegistro = findViewById(R.id.btnRegistro);
 
-        cbAcepto=findViewById(R.id.cbAcepto);
+        cbAcepto = findViewById(R.id.cbAcepto);
 
-        etUsuario =findViewById(R.id.etUsuario);
-        etContrasena =findViewById(R.id.etContraseña);
-        etContrasenaRe =findViewById(R.id.etContraseñaRe);
+        etUsuario = findViewById(R.id.etUsuario);
+        etContrasena = findViewById(R.id.etContrasena);
+        etContrasenaRe = findViewById(R.id.etContrasenaRe);
 
-        tvCondicionesServicio=findViewById(R.id.tvCondicionesServicio);
-        tvPoliticaPrivacidad=findViewById(R.id.tvPoliticaPrivacidad);
-        tvPass=findViewById(R.id.tvPass);
-        tvPassRe=findViewById(R.id.tvPassRe);
+        imgPass = findViewById(R.id.imgPass);
+        imgPassRe = findViewById(R.id.imgPassRe);
+
+        tvCondicionesServicio = findViewById(R.id.tvCondicionesServicio);
+        tvPoliticaPrivacidad = findViewById(R.id.tvPoliticaPrivacidad);
 
         basedatos = new BaseDatos(getApplicationContext());
-
         //Convertimos en enlaces los TextViews de, Condiciones del Servicio y Política de privacidad
         SpannableString contentC = new SpannableString(tvCondicionesServicio.getText());
         tvCondicionesServicio.setText(contentC);
-
         SpannableString contentP = new SpannableString(tvPoliticaPrivacidad.getText());
         tvPoliticaPrivacidad.setText(contentP);
 
         tvCondicionesServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\nservicio " +
-                "y Política de privacidad");
             //Creamos Intent para visualizar .PrivacidadActivity
             Intent intent = new Intent(getApplicationContext(), PrivacidadActivity.class);
             startActivity(intent);
+
+            mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
+                "servicio y Política de privacidad");
 
             }
 
@@ -83,82 +85,82 @@ public class RegistroActivity extends AppCompatActivity {
         tvPoliticaPrivacidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\nservicio " +
-                "y Política de privacidad");
             //Creamos Intent para visualizar .PrivacidadActivity
             Intent intent = new Intent(getApplicationContext(), PrivacidadActivity.class);
             startActivity(intent);
 
+            mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
+                "servicio y Política de privacidad");
+
             }
 
         });
-
         //TextView que permite la visualización de "Confirmar Contraseña"
-        tvPassRe.setOnClickListener(new View.OnClickListener() {
+        imgPassRe.setOnClickListener(new View.OnClickListener() {
+            boolean selectPassRe = false;
             @Override
             public void onClick(View v) {
 
-                if (!select){
+            if(!selectPassRe) {
 
-                    select = true;
-                    etContrasenaRe.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                selectPassRe = true;
+                etContrasenaRe.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                    if (etContrasenaRe.getText().length() > 0) {
+                if(etContrasenaRe.getText().length() > 0) {
 
-                        etContrasenaRe.setSelection(etContrasenaRe.getText().length());
-                        tvPassRe.setBackgroundResource(R.drawable.ic_action_password_visible);
+                    etContrasenaRe.setSelection(etContrasenaRe.getText().length());
+                    imgPassRe.setBackgroundResource(R.drawable.ic_visible);
 
-                    }
-
-                }else {
-
-                    select = false;
-                    etContrasenaRe.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
-                    if (etContrasenaRe.getText().length() > 0) {
-
-                        etContrasenaRe.setSelection(etContrasenaRe.getText().length());
-                        tvPassRe.setBackgroundResource(R.drawable.ic_action_password_visible_off);
-
-                    }
                 }
 
             }
+            else {
+
+                selectPassRe = false;
+                etContrasenaRe.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+                if(etContrasenaRe.getText().length() > 0) {
+
+                    etContrasenaRe.setSelection(etContrasenaRe.getText().length());
+                    imgPassRe.setBackgroundResource(R.drawable.ic_visible_no);
+
+                }
+            }
+            }
 
         });
-
         //TextView que permite la visualización de "Contraseña"
-        tvPass.setOnClickListener(new View.OnClickListener() {
+        imgPass.setOnClickListener(new View.OnClickListener() {
+            boolean selectPass = false;
             @Override
             public void onClick(View v) {
 
-            if (!select){
+            if(!selectPass) {
 
-                select = true;
+                selectPass = true;
                 etContrasena.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                if (etContrasena.getText().length() > 0) {
+                if(etContrasena.getText().length() > 0) {
 
                     etContrasena.setSelection(etContrasena.getText().length());
-                    tvPass.setBackgroundResource(R.drawable.ic_action_password_visible);
+                    imgPass.setBackgroundResource(R.drawable.ic_visible);
 
                 }
 
-            }else {
+            }
+            else {
 
-                select = false;
+                selectPass = false;
                 etContrasena.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
                 if (etContrasena.getText().length() > 0) {
 
                     etContrasena.setSelection(etContrasena.getText().length());
-                    tvPass.setBackgroundResource(R.drawable.ic_action_password_visible_off);
+                    imgPass.setBackgroundResource(R.drawable.ic_visible_no);
 
                 }
             }
-
-        }
+            }
 
         });
 
@@ -166,13 +168,13 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             //Primer if comprueba que no hay EditText vacíos
-            Usuario useR;
+            Usuario usuario;
             if (etUsuario.getText().toString().equals("") ||
                 etContrasena.getText().toString().equals("") ||
                 etContrasenaRe.getText().toString().equals("")) {
 
-                    mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos\n" +
-                        "todos los campos son obligatorios");
+                    mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
+                        "introducidos\ntodos los campos son obligatorios");
 
             } else {
 
@@ -183,14 +185,14 @@ public class RegistroActivity extends AppCompatActivity {
                 numMinL(etContrasenaRe, 6, "Confirmar Contraseña");
                 //Segundo if comprueba si se cumple con el mínimo de carácteres
                 if (countError == 1) {
-                    //Se crea e inicializa el objeto useR
-                    useR = new Usuario();
+                    //Se crea e inicializa el objeto usuario
+                    usuario = new Usuario();
                     //Se recogen los datos de los EditText
-                    useR.setUsuario(etUsuario.getText().toString());
-                    useR.setContraseña(etContrasena.getText().toString());
+                    usuario.setUsuario(etUsuario.getText().toString());
+                    usuario.setContraseña(etContrasena.getText().toString());
                     String passRe = etContrasenaRe.getText().toString();
                     //Tercer if comprueba si no coinciden las contraseñas
-                    if (!useR.getContraseña().equals(passRe)) {
+                    if (!usuario.getContraseña().equals(passRe)) {
 
                         mensaje = new Mensaje(getApplicationContext(), "Las Contraseñas " +
                             "introducidas\nno coinciden");
@@ -201,29 +203,28 @@ public class RegistroActivity extends AppCompatActivity {
                             //Se establece conexion con permisos de lectura
                             SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                             //Columnas que recogerá los datos de la consulta
-                            String[] columnas = {
-                                Tablas.EstructuraUsuario._IDUSUARIO,
-                                Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO,
-                                Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA,
-                            };
+                            String[] columnas = {_IDUSUARIO, COLUMN_NAME_USUARIO,
+                                COLUMN_NAME_CONTRASEÑA};
                             //Cláusula WHERE para buscar por usuario
-                            String usuario = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " LIKE '" + useR.getUsuario() + "'";
-                            //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                            String ordenSalida = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " DESC";
-                            //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
-                            // columnas, usuario y orden de los resultados.
-                            Cursor cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnas, usuario,
+                            String usuarioSQL = COLUMN_NAME_USUARIO + " LIKE '" +
+                                usuario.getUsuario() + "'";
+                            //Orden de los resultados devueltos por usuario, de forma
+                            // Descendente alfabéticamente
+                            String ordenSalida = COLUMN_NAME_USUARIO + " DESC";
+                            //Ejecuta la sentencia devolviendo los resultados de los parámetros
+                            // pasados de tabla, columnas, usuario y orden de los resultados.
+                            Cursor cursor = sqlite.query(TABLE_NAME, columnas, usuarioSQL,
                                 null, null, null, ordenSalida);
                             //Quinto if comprueba que el cursor no esté vacío
                             if (cursor.getCount() != 0) {
 
                                 cursor.moveToFirst();
-                                mensaje = new Mensaje(getApplicationContext(), "El nombre de usuario: " +
-                                        useR.getUsuario() + "\nno está disponible, pruebe con otro");
+                                mensaje = new Mensaje(getApplicationContext(), "El nombre de" +
+                                    " usuario: " + usuario.getUsuario() + "\nno está disponible, " +
+                                    "pruebe con otro");
                                 etUsuario.setText("");
 
                             } else {
-
                                 //Aqui se introduce el usuario nuevo en la base de datos
                                 //Se ganan tambien permisos de escritura
                                 sqlite = basedatos.getWritableDatabase();
@@ -231,18 +232,19 @@ public class RegistroActivity extends AppCompatActivity {
                                 ContentValues content = new ContentValues();
                                 //Se añaden los valores introducidos de cada campo mediante
                                 // clave(columna)/valor(valor introducido en el campo de texto)
-                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO, useR.getUsuario());
-                                content.put(Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA, useR.getContraseña());
-                                sqlite.insert(Tablas.EstructuraUsuario.TABLE_NAME, null, content);
+                                content.put(COLUMN_NAME_USUARIO, usuario.getUsuario());
+                                content.put(COLUMN_NAME_CONTRASEÑA, usuario.getContraseña());
+                                sqlite.insert(TABLE_NAME, null, content);
                                 //Registro exitoso
-                                mensaje = new Mensaje(getApplicationContext(), "El usuario " + useR.getUsuario() +
-                                    "\nse registró con éxito");
+                                mensaje = new Mensaje(getApplicationContext(), "El usuario " +
+                                    usuario.getUsuario() + "\nse registró con éxito");
                                 //Reseteo de los EditText
                                 etUsuario.setText("");
                                 etContrasena.setText("");
                                 etContrasenaRe.setText("");
                                 //Abrimos un intent para volver a .LoginActivity
-                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                Intent intent = new Intent(getApplicationContext(),
+                                    LoginActivity.class);
                                 startActivity(intent);
 
                             }
@@ -253,8 +255,8 @@ public class RegistroActivity extends AppCompatActivity {
 
                         } else {
 
-                            mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los Términos " +
-                                "y Condiciones\npara poder registrarse");
+                            mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los" +
+                                " Términos y Condiciones\npara poder registrarse");
 
                         }
                     }

@@ -19,16 +19,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.example.byekiloh.utilidades.*;
+import static com.example.byekiloh.utilidades.Tablas.EstructuraUsuario.*;
 
 public class LoginActivity extends AppCompatActivity {
 
     private Button btnCrearCuenta, btnIniciarSesion;
     private CheckBox cbMantenerSesion;
     private EditText etUsuario, etPass;
-    private TextView tvPass;
+    private ImageView imgPassL;
 
     private boolean select = false;
     //Variables para SharedPreferences
@@ -43,59 +44,57 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnCrearCuenta =findViewById(R.id.btnCrearCuenta);
-        btnIniciarSesion =findViewById(R.id.btnRegistro);
+        btnCrearCuenta = findViewById(R.id.btnCrearCuenta);
+        btnIniciarSesion = findViewById(R.id.btnRegistro);
 
-        cbMantenerSesion =findViewById(R.id.cbMantenerSesion);
+        cbMantenerSesion = findViewById(R.id.cbMantenerSesion);
 
-        etUsuario =findViewById(R.id.etUsuario);
-        etPass =findViewById(R.id.etPass);
+        etUsuario = findViewById(R.id.etUsuario);
+        etPass = findViewById(R.id.etPass);
 
-        tvPass=findViewById(R.id.tvPass);
-
+        imgPassL = findViewById(R.id.imgPassL);
         //SharedPreferences para Recordar nombre de usuario
         SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
         userSP = prefSesion.getString("usuario", defaultValue);
         etUsuario.setText(userSP);
 
         basedatos = new BaseDatos(getApplicationContext());
-
         //TextView que permite la visualización de la contraseña
-        tvPass.setOnClickListener(new View.OnClickListener() {
+        imgPassL.setOnClickListener(new View.OnClickListener() {
+            boolean selectPassL = false;
             @Override
             public void onClick(View v) {
 
-            if(!select) {
+            if(!selectPassL) {
 
-                select = true;
+                selectPassL = true;
                 etPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
                 if(etPass.getText().length() > 0) {
 
                     etPass.setSelection(etPass.getText().length());
-                    tvPass.setBackgroundResource(R.drawable.ic_action_password_visible);
+                    imgPassL.setBackgroundResource(R.drawable.ic_visible);
 
                 }
 
-            } else {
+            }
+            else {
 
-                select = false;
+                selectPassL = false;
                 etPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
                 if(etPass.getText().length() > 0) {
 
                     etPass.setSelection(etPass.getText().length());
-                    tvPass.setBackgroundResource(R.drawable.ic_action_password_visible_off);
+                    imgPassL.setBackgroundResource(R.drawable.ic_visible_no);
 
                 }
             }
-
-        }
+            }
 
         });
 
         btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
             //Creamos Intent para ir a .RegistroActivity
@@ -107,14 +106,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
             //Primer if comprueba si están vacíos los dos primeros EditText
             if(etUsuario.getText().toString().equals("") || etPass.getText().toString().equals("")) {
 
-                mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos\n" +
-                    "todos los campos son obligatorios");
+                mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos"
+                        + "\ntodos los campos son obligatorios");
 
             } else {
                 //Se crea e inicializa el objeto usuario
@@ -125,36 +123,35 @@ public class LoginActivity extends AppCompatActivity {
                 //Se establece conexion con permisos de lectura
                 SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                 //Columnas que recogerá los datos de la consulta
-                String[] columnasL = {
-                        Tablas.EstructuraUsuario._IDUSUARIO,
-                        Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO,
-                        Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA,
-                };
+                String[] columnasL = {_IDUSUARIO, COLUMN_NAME_USUARIO, COLUMN_NAME_CONTRASEÑA};
                 //Cláusula WHERE para buscar por usuario
-                String usuarioL = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " LIKE '" + usuario.getUsuario() + "'";
+                String usuarioL = COLUMN_NAME_USUARIO + " LIKE '" + usuario.getUsuario() + "'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                String ordenSalidaNameL = Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO + " DESC";
+                String ordenSalidaNameL = COLUMN_NAME_USUARIO + " DESC";
                 //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                 // columnas, usuario y orden de los resultados.
-                Cursor cursor = sqlite.query(Tablas.EstructuraUsuario.TABLE_NAME, columnasL, usuarioL,
-                        null , null, null, ordenSalidaNameL);
+                Cursor cursor = sqlite.query(TABLE_NAME, columnasL, usuarioL,null ,
+                    null, null, ordenSalidaNameL);
                 //Segundo if comprueba que el cursor no esté vacío
                 if(cursor.getCount() != 0) {
 
                     cursor.moveToFirst();
-                    String passCNL = cursor.getString(cursor.getColumnIndex(Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA));
+
+                    String passCNL = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CONTRASEÑA));
                     //Tercer if comprueba que las contraseñas coinciden
                     if(usuario.getContraseña().equals(passCNL)) {
                         //Login correcto
-                        //Como es el usuario correcto, incluimos el valor del atributo id en el objeto usuario
-                        int identificadorL = cursor.getInt(cursor.getColumnIndex(Tablas.EstructuraUsuario._IDUSUARIO));
+                        //Incluimos el valor del atributo id en el objeto usuario a logear
+                        int identificadorL = cursor.getInt(cursor.getColumnIndex(_IDUSUARIO));
                         usuario.setIdUsuario(identificadorL);
 
-                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  " + usuario.getUsuario());
+                        mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  " +
+                            usuario.getUsuario());
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
                         if(cbMantenerSesion.isChecked()) {
                             //Le pasamos el nombre de usuario al SharedPreferences
-                            SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
+                            SharedPreferences prefSesion = getSharedPreferences("datos",
+                                Context.MODE_PRIVATE);
                             userSP = usuario.getUsuario();
                             SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
@@ -163,7 +160,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         } else {
                             //Le pasamos usuario="" al SharedPreferences
-                            SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
+                            SharedPreferences prefSesion = getSharedPreferences("datos",
+                                Context.MODE_PRIVATE);
                             userSP = "";
                             SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
@@ -179,14 +177,16 @@ public class LoginActivity extends AppCompatActivity {
 
                     } else {
 
-                        mensaje = new Mensaje(getApplicationContext(), "La contraseña no es correcta");
+                        mensaje = new Mensaje(getApplicationContext(), "La contraseña no es " +
+                            "correcta");
                         etPass.setText("");
 
                     }
 
                 } else {
 
-                    mensaje = new Mensaje(getApplicationContext(), "El usuario: " + usuario.getUsuario() + " no existe");
+                    mensaje = new Mensaje(getApplicationContext(), "El usuario: " +
+                        usuario.getUsuario() + " no existe");
                     etUsuario.setText("");
                     etPass.setText("");
 

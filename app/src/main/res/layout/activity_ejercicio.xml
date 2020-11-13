@@ -34,15 +34,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="- Ejercicio -"
+            android:textColor="@color/azuloscuro"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/rounded_box_edittext">
@@ -50,100 +58,72 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/etFecha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="0dp"
-                android:digits="0123456789"
-                android:maxLength="6"
-                android:maxLines="1"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:hint="Fecha (ej. 201215) [YYMMDD]"
-                android:textAlignment="center"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:digits="0123456789"
+                    android:hint="Fecha(ej. 201215) [YYMMDD]"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/azuloscuro"
+                    android:textColorHint="@color/naranjaflojo"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etDistancia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="0dp"
-                android:digits="0123456789"
-                android:maxLength="5"
-                android:maxLines="1"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:hint="Distancia (ej. 3280) [metros]"
-                android:textAlignment="center"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etDistancia"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:digits="0123456789"
+                    android:hint="Distancia (ej. 3280) [metros]"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/azuloscuro"
+                    android:textColorHint="@color/naranjaflojo"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etTiempo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="0dp"
-                android:digits="0123456789"
-                android:maxLength="3"
-                android:maxLines="1"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textAlignment="center"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:hint="Tiempo (ej. 45) [minutos]"/>
+                <EditText
+                    android:id="@+id/etTiempo"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="6dp"
+                    android:digits="0123456789"
+                    android:hint="Tiempo (ej. 45) [minutos]"
+                    android:maxLength="3"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/azuloscuro"
+                    android:textColorHint="@color/naranjaflojo"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnGuardar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:textStyle="bold"
-                    style="@style/shadoweffect"
-                    android:background="@drawable/rounded_box_button6"
-                    android:text="GUARDAR"/>
+                    android:id="@+id/btnAnadirEjercicio"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
 
-                <Button
-                    android:id="@+id/btnActualizar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
-                    android:textStyle="bold"
-                    style="@style/shadoweffect17"
+                    android:layout_gravity="center"
                     android:background="@drawable/rounded_box_button6"
-                    android:text="ACTUALIZAR"/>
-
-                <Button
-                    android:id="@+id/btnBorrar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:text="AÑADIR"
                     android:textStyle="bold"
-                    style="@style/shadoweffect"
-                    android:background="@drawable/rounded_box_button6"
-                    android:text="BORRAR"/>
+                    style="@style/shadoweffect" />
 
             </LinearLayout>
 
@@ -152,7 +132,104 @@
         <Spinner
             android:id="@+id/spinEjercicios"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:spinnerMode="dialog" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_box_edittext">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/etFecha2"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="5dp"
+                    android:digits="0123456789"
+                    android:hint="Fecha"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/azuloscuro"
+                    android:textColorHint="@color/naranjaflojo"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etDistancia2"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:digits="0123456789"
+                    android:hint="Distancia"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/azuloscuro"
+                    android:textColorHint="@color/naranjaflojo"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etTiempo2"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="6dp"
+                    android:digits="0123456789"
+                    android:hint="Tiempo"
+                    android:maxLength="3"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/azuloscuro"
+                    android:textColorHint="@color/naranjaflojo"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnActualizar"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="7dp"
+
+                    android:textStyle="bold"
+                    style="@style/shadoweffect17"
+                    android:background="@drawable/rounded_box_button6"
+                    android:text="ACTUALIZAR"/>
+
+                <Button
+                    android:id="@+id/btnBorrar"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+
+                    android:textStyle="bold"
+                    style="@style/shadoweffect"
+                    android:background="@drawable/rounded_box_button6"
+                    android:text="BORRAR"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -171,10 +248,10 @@
                 android:layout_width="110dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:background="@drawable/rounded_box_button"
                 android:text="VOLVER\nATRAS"
                 android:textStyle="bold"
-                style="@style/shadoweffect"
-                android:background="@drawable/rounded_box_button" />
+                style="@style/shadoweffect" />
 
         </LinearLayout>
 
@@ -189,10 +266,10 @@
                 android:layout_width="110dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:background="@drawable/rounded_box_button"
                 android:text="XXX"
                 android:textStyle="bold"
-                style="@style/shadoweffect"
-                android:background="@drawable/rounded_box_button" />
+                style="@style/shadoweffect" />
 
         </LinearLayout>
 

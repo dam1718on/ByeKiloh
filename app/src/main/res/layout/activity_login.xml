@@ -38,8 +38,17 @@
         android:layout_marginBottom="10dp"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="- Login -"
+            android:textColor="@color/azuloscuro"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="320dp"
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
             android:layout_gravity="center"
@@ -50,25 +59,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:drawablePadding="-44dp"
-                android:paddingLeft="10dp"
-                android:maxLength="15"
-                android:maxLines="1"
                 android:background="@drawable/rounded_box_edittext"
                 android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
                 úÁÉÍÓÚäëïöüÄËÏÖÜ"
-                android:drawableLeft="@drawable/icono_usuario_30x30"
+                android:drawableLeft="@drawable/ic_usuario"
+                android:drawablePadding="-44dp"
                 android:hint="Usuario"
-                android:textColorHint="@color/naranjaflojo"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
         <RelativeLayout
-            android:layout_width="300dp"
+            android:layout_width="320dp"
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
             android:layout_gravity="center"
@@ -79,52 +88,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:drawablePadding="-44dp"
-                android:paddingLeft="10dp"
-                android:maxLength="20"
-                android:maxLines="1"
                 android:background="@drawable/rounded_box_edittext"
                 android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
                 XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-                android:drawableLeft="@drawable/icono_candado_30x30"
+                android:drawableLeft="@drawable/ic_candado"
+                android:drawablePadding="-44dp"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
-                android:textColorHint="@color/naranjaflojo"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvPass"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:background="@drawable/ic_action_password_visible_off"
+            <ImageView
+                android:id="@+id/imgPassL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"/>
+                android:background="@drawable/ic_visible_no" />
 
         </RelativeLayout>
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/cbMantenerSesion"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <CheckBox
-                android:id="@+id/cbMantenerSesion"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:buttonTint="@color/naranjaflojo"
-                android:text="Mantener sesión iniciada"
-                android:textColor="@color/naranjaflojo"
-                android:textSize="18dp" />
-
-        </LinearLayout>
+            android:buttonTint="@color/naranjaflojo"
+            android:text="Mantener sesión iniciada"
+            android:textColor="@color/naranjaflojo"
+            android:textSize="18dp" />
 
     </LinearLayout>
 
@@ -143,10 +143,10 @@
                 android:layout_width="110dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:background="@drawable/rounded_box_button"
                 android:text="CREAR\nCUENTA"
                 android:textStyle="bold"
-                style="@style/shadoweffect"
-                android:background="@drawable/rounded_box_button" />
+                style="@style/shadoweffect" />
 
         </LinearLayout>
 
@@ -161,10 +161,10 @@
                 android:layout_width="110dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:background="@drawable/rounded_box_button"
                 android:text="INICIAR\nSESION"
                 android:textStyle="bold"
-                style="@style/shadoweffect"
-                android:background="@drawable/rounded_box_button" />
+                style="@style/shadoweffect" />
 
         </LinearLayout>
 

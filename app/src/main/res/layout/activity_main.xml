@@ -25,27 +25,59 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgPeso"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/icono_usuario_30x30" />
+                    android:background="@drawable/ic_usuario" />
 
                 <TextView
-                    android:id="@+id/tvPeso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Actualizar\nPeso"
-                    style="@style/shadoweffect"
+                    android:text="Pesajes"
                     android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="@style/shadoweffect" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llEjercicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_usuario" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Ejercicios"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    style="@style/shadoweffect" />
 
             </LinearLayout>
 
@@ -66,56 +98,19 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgEjercicio"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/icono_usuario_30x30" />
+                    android:background="@drawable/ic_usuario" />
 
                 <TextView
-                    android:id="@+id/tvEjercicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Añadir\nEjercicio"
-                    style="@style/shadoweffect"
+                    android:text="Backups"
                     android:textSize="18dp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imgSyncro"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/icono_usuario_30x30" />
-
-                <TextView
-                    android:id="@+id/tvSyncro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Hacer Copia\nSeguridad"
-                    style="@style/shadoweffect"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="@style/shadoweffect" />
 
             </LinearLayout>
 
@@ -124,23 +119,33 @@
     </LinearLayout>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="- Main -"
+        android:textColor="@color/azuloscuro"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/tvUsuarioMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:gravity="center"
         android:text="Añadir\nEjercicio"
-        style="@style/shadoweffect"
         android:textSize="18dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        style="@style/shadoweffect" />
 
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -148,29 +153,27 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/azuloscuro"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/img1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
-                android:background="@drawable/icono_usuario_30x30" />
+                android:background="@drawable/ic_usuario" />
 
             <TextView
-                android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:text="MEDIA"
-                style="@style/shadoweffect"
                 android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
 
         </LinearLayout>
 
@@ -179,29 +182,27 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="40dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/azuloscuro"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/img2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
-                android:background="@drawable/icono_usuario_30x30" />
+                android:background="@drawable/ic_usuario" />
 
             <TextView
-                android:id="@+id/tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:text="MEDIA"
-                style="@style/shadoweffect"
                 android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
 
         </LinearLayout>
 
@@ -220,29 +221,27 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/azuloscuro"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/img3"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
-                android:background="@drawable/icono_usuario_30x30" />
+                android:background="@drawable/ic_usuario" />
 
             <TextView
-                android:id="@+id/tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:text="MEDIA"
-                style="@style/shadoweffect"
                 android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
 
         </LinearLayout>
 
@@ -251,29 +250,27 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="40dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/azuloscuro"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/img4"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
-                android:background="@drawable/icono_usuario_30x30" />
+                android:background="@drawable/ic_usuario" />
 
             <TextView
-                android:id="@+id/tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:text="MEDIA"
-                style="@style/shadoweffect"
                 android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
 
         </LinearLayout>
 
