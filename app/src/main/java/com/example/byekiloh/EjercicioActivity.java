@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.byekiloh.utilidades.*;
 import static com.example.byekiloh.utilidades.Tablas.EstructuraEjercicio.*;
@@ -28,7 +27,8 @@ import java.util.ArrayList;
 public class EjercicioActivity extends AppCompatActivity {
 
     private Button btnAnadirEjercicio, btnActualizar, btnBorrar, btnVolverE;
-    private EditText etFecha, etDistancia, etTiempo, etFecha2, etDistancia2, etTiempo2;
+    private EditText    etFecha, etDistancia, etTiempo, etInclinacion, etFecha2, etDistancia2,
+                        etTiempo2, etInclinacion2;
     private Spinner spinEjercicios;
     //Esta variable permite comprobar los digitos de varios EditText a la vez
     private int countError = 1;
@@ -43,19 +43,21 @@ public class EjercicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ejercicio);
 
-        btnAnadirEjercicio =findViewById(R.id.btnAnadirEjercicio);
-        btnActualizar=findViewById(R.id.btnActualizar);
-        btnBorrar=findViewById(R.id.btnBorrar);
-        btnVolverE=findViewById(R.id.btnVolverE);
+        btnAnadirEjercicio = findViewById(R.id.btnAnadirEjercicio);
+        btnActualizar = findViewById(R.id.btnActualizar);
+        btnBorrar = findViewById(R.id.btnBorrar);
+        btnVolverE = findViewById(R.id.btnVolverE);
 
-        etFecha=findViewById(R.id.etFecha);
-        etDistancia=findViewById(R.id.etDistancia);
-        etTiempo=findViewById(R.id.etTiempo);
-        etFecha2=findViewById(R.id.etFecha2);
-        etDistancia2=findViewById(R.id.etDistancia2);
-        etTiempo2=findViewById(R.id.etTiempo2);
+        etFecha = findViewById(R.id.etFecha);
+        etDistancia = findViewById(R.id.etDistancia);
+        etTiempo = findViewById(R.id.etTiempo);
+        etInclinacion = findViewById(R.id.etInclinacion);
+        etFecha2 = findViewById(R.id.etFecha2);
+        etDistancia2 = findViewById(R.id.etDistancia2);
+        etTiempo2 = findViewById(R.id.etTiempo2);
+        etInclinacion2 = findViewById(R.id.etInclinacion2);
 
-        spinEjercicios=findViewById(R.id.spinEjercicios);
+        spinEjercicios = findViewById(R.id.spinEjercicios);
 
         //Recibimos el Usuario que logea a través del intent
         final Usuario usuarioMain = (Usuario) getIntent().getSerializableExtra("usuario");
@@ -72,9 +74,10 @@ public class EjercicioActivity extends AppCompatActivity {
                 //Creamos objeto Ejercicio con el item seleccionado del Spinner
                 ejercicio = new Ejercicio((Ejercicio) spinEjercicios.getSelectedItem());
                 //Rellenamos los EditText con los datos del Ejercicio
-                etFecha2.setText(String.valueOf(ejercicio.getFecha()));
+                etFecha2.setText(ejercicio.getFecha());
                 etDistancia2.setText(String.valueOf(ejercicio.getDistancia()));
                 etTiempo2.setText(String.valueOf(ejercicio.getTiempo()));
+                etInclinacion2.setText(ejercicio.getInclinacion());
 
             }
             @Override
@@ -88,7 +91,8 @@ public class EjercicioActivity extends AppCompatActivity {
             //Primer if comprueba que no hay EditText vacíos
             if(etFecha.getText().toString().equals("") ||
                 etDistancia.getText().toString().equals("") ||
-                etFecha.getText().toString().equals("")) {
+                etFecha.getText().toString().equals("") ||
+                etInclinacion.getText().toString().equals("")) {
 
                 mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
                     "introducidos\ntodos los campos son obligatorios");
@@ -100,12 +104,15 @@ public class EjercicioActivity extends AppCompatActivity {
                 numMinL(etFecha, 6, "Fecha");
                 numMinL(etDistancia, 3, "Distancia");
                 numMinL(etTiempo, 2, "Tiempo");
+                numMinL(etInclinacion, 1, "Inclinacion");
                 //Segundo if comprueba si se cumple con el mínimo de carácteres para cada EditText
                 if(countError == 1) {
                     //Se crea objeto Ejercicio con parámetros
                     ejercicio = new Ejercicio(etFecha.getText().toString(),
                         Integer.parseInt(etDistancia.getText().toString()),
-                        Integer.parseInt(etTiempo.getText().toString()), usuario.getIdUsuario());
+                        Integer.parseInt(etTiempo.getText().toString()),
+                        Float.parseFloat(etInclinacion.getText().toString()),
+                        usuario.getIdUsuario());
                     //Se ganan tambien permisos de escritura
                     SQLiteDatabase sqlite = basedatos.getWritableDatabase();
                     //EstructuraEjercicio de insercción de datos
@@ -117,12 +124,13 @@ public class EjercicioActivity extends AppCompatActivity {
                     content.put(COLUMN_NAME_DISTANCIA, String.valueOf(ejercicio.getDistancia()));
                     content.put(COLUMN_NAME_TIEMPO, String.valueOf(ejercicio.getTiempo()));
                     content.put(COLUMN_NAME_VELOCIDAD, ejercicio.getVelocidad());
+                    content.put(COLUMN_NAME_INCLINACION, ejercicio.getInclinacion());
                     sqlite.insert(TABLE_NAME, null, content);
                     //Mensaje de éxito al añadir
                     mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido " +
                         "almacenado");
 
-                    vaciarEditText();
+                    vaciarEditText(1);
                     //Se cierra la conexión abierta a la Base de Datos
                     sqlite.close();
 
@@ -142,7 +150,7 @@ public class EjercicioActivity extends AppCompatActivity {
 
             actualizarEjercicio();
 
-            vaciarEditText();
+            vaciarEditText(1);
 
             actualizarSpinner();
 
@@ -157,7 +165,9 @@ public class EjercicioActivity extends AppCompatActivity {
 
             borrarEjercicio();
 
-            vaciarEditText();
+            vaciarEditText(1);
+
+            vaciarEditText(2);
 
             actualizarSpinner();
 
@@ -179,12 +189,26 @@ public class EjercicioActivity extends AppCompatActivity {
 
     }
 
-    //Método que vacía los EditText
-    public void vaciarEditText() {
+    //Método que vacía los EditText, si x vale 1 vacía los de Añadir y si vale 2 los de Seleccionado
+    public void vaciarEditText(int x) {
 
-        etFecha.setText("");
-        etDistancia.setText("");
-        etTiempo.setText("");
+        if(x==1) {
+
+            etFecha.setText("");
+            etDistancia.setText("");
+            etTiempo.setText("");
+            etInclinacion.setText("");
+
+        }
+
+        if(x==2) {
+
+            etFecha2.setText("");
+            etDistancia2.setText("");
+            etTiempo2.setText("");
+            etInclinacion2.setText("");
+
+        }
 
     }
 
@@ -220,6 +244,9 @@ public class EjercicioActivity extends AppCompatActivity {
         if(!etTiempo2.getText().toString().equals("")) {
             ejercicio.setTiempo(Integer.parseInt(etTiempo2.getText().toString()));
         }
+        if(!etInclinacion2.getText().toString().equals("")) {
+            ejercicio.setInclinacion(Float.parseFloat(etInclinacion2.getText().toString()));
+        }
         ejercicio.setVelocidad();
         //Se establece conexion con permisos de escritura
         SQLiteDatabase sqlite = basedatos.getWritableDatabase();
@@ -229,6 +256,7 @@ public class EjercicioActivity extends AppCompatActivity {
         content.put(COLUMN_NAME_DISTANCIA, String.valueOf(ejercicio.getDistancia()));
         content.put(COLUMN_NAME_TIEMPO, String.valueOf(ejercicio.getTiempo()));
         content.put(COLUMN_NAME_VELOCIDAD, ejercicio.getVelocidad());
+        content.put(COLUMN_NAME_INCLINACION, ejercicio.getInclinacion());
         //Actualizamos el registro en la base de datos
         sqlite.update("Ejercicios", content, "Ejercicios.idEjercicio = '" +
                 ejercicio.getIdEjercicio() + "'", null);
@@ -274,11 +302,13 @@ public class EjercicioActivity extends AppCompatActivity {
                     ejercicio = new Ejercicio();
                     ejercicio.setIdEjercicio(cursor.getInt(cursor.getColumnIndex(_IDEJERCICIO)));
                     ejercicio.setFecha(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_FECHA)));
-                    ejercicio.setDistancia(Integer.parseInt(cursor.getString(cursor.getColumnIndex(
-                        COLUMN_NAME_DISTANCIA))));
-                    ejercicio.setTiempo(Integer.parseInt(cursor.getString(cursor.getColumnIndex(
-                        COLUMN_NAME_TIEMPO))));
+                    ejercicio.setDistancia(Integer.parseInt(cursor.getString(cursor.getColumnIndex
+                        (COLUMN_NAME_DISTANCIA))));
+                    ejercicio.setTiempo(Integer.parseInt(cursor.getString(cursor.getColumnIndex
+                        (COLUMN_NAME_TIEMPO))));
                     ejercicio.setVelocidad();
+                    ejercicio.setInclinacion(Float.parseFloat(cursor.getString(cursor.getColumnIndex
+                        (COLUMN_NAME_INCLINACION))));
                     ejercicio.setIdUsuario(usuario.getIdUsuario());
 
                     ejerciciosAL.add(ejercicio);

@@ -256,7 +256,7 @@ public class RegistroActivity extends AppCompatActivity {
                         } else {
 
                             mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los" +
-                                " Términos y Condiciones\npara poder registrarse");
+                                " Términos y\nCondiciones para poder registrarse");
 
                         }
                     }

@@ -21,7 +21,7 @@ public class Mensaje {
         centeredText.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0,
             cad.length() - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         Toast toast= Toast.makeText(context, centeredText, Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 10);
+        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 340);
         toast.show();
 
     }

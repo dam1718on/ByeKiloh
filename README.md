@@ -49,8 +49,9 @@
     <ul>
     <li>Commit30. Se guardan Objetos Ejercicio asociados al Usuario en BBDD</li>
     <li>Commit31. Diagramas byeKiloh</li>
-    <li>Commit32. Spinner de .EjericiciosActivity</li>
+    <li>Commit32. Spinner de .EjericicioActivity</li>
     <li>Commit33. Mejoras de stylo y del Spinner</li>
+    <li>Commit34. Implementado el campo inclinacion y finalización de .EjercicioActivity</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -98,17 +99,21 @@ implementa la nueva tabla de Pesaje, falta implementar la activity y su correspo
  actualiza en tiempo de ejecución al añadir nuevos registros</p>
 <p>Commit33. Implementado el CRUD completo al Spinner, falta actualizar los EditText con cada item
 seleccionado del Spinner. Iconos mejorados: candado, usuario, visible</p>
+<p>Commit34. Implementado nuevo campo Inclinación, totalmente funcional. CRUD de .EjercicioActivity
+funciona correctamente, se actualizan los EditText con cada item seleccionado del Spinner, incluido
+inclinacion</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. El CRUD de .EjercicioActivity debe funcionar correctamente</li>
-     <li>2. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView, comprobar
+    <li>1. DEJAR DE USAR EL EMULADOR y AJUSTAR LA APP A MOVIL XIAOMI</li>
+    <li>2. Hacer usable la app por mi e ir viendo la ejecucion</li>
+    <li>2. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView, comprobar
         en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
     <li>3. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>
     <li>7. Valorar probabilidad de convertir .PrivacidadActivity en un Fragment</li>
     <li>3. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
     <li>4. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
     <li>8. Hacer diferentes degradados de azul-blanco en activity_main.xml</li>
-    <li>-. Icono de usuario 36x36 naranja degradado, hacer o descargar</li>
+    <LI>-. Implementar Ejercicio complejo/porTramos</li>
     <li>-. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
     <li>-. Inflate el menu con los datos de Usuario</li>
     <li>-. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>
@@ -116,17 +121,11 @@ seleccionado del Spinner. Iconos mejorados: candado, usuario, visible</p>
     .Login</li>
     <li>5. Hacer .Splash</li>
     <li>6. SharedPreferences !=empty, para poder dejar sesion iniciada con intent en oncreate</li>
-    <li>Terminar la parte lógica de Login y Registro de cuenta</li>
     <li>Implementar un menu para el Usuario/Cuenta</li>
-    <li>Pasar objeto Usuario de .LoginActivity a .FirstActivity</li>
     <li>Posibilidad de implementar un diseño para día y otro para noche</li>
     <li>Posibilidad de varios idiomas</li>
-    <li>Implementar CRUD completo SQLite</li>
-    <li>Hacer usable la app por mi e ir viendo la ejecucion</li>
     <li>Probar la BBDD e intentar administrarla en remoto</li>
-    <li>Implementar tiempo en minutos y segundos</li>
     <li>Implementar Kcal</li>
     <li>Implementar pulsaciones ppm</li>
-    <li>Velocidad media, Real(m/s,km/h)</li>
     <li>Hacer la BBDD syncronizable.(JSON?)</li>
     </ul>

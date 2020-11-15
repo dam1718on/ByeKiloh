@@ -37,6 +37,7 @@ public class Tablas {
         public static final String COLUMN_NAME_TIEMPO = "tiempo";
         public static final String COLUMN_NAME_VELOCIDAD = "velocidad";
         public static final String COLUMN_NAME_CONSUMOE = "consumoE";
+        public static final String COLUMN_NAME_INCLINACION = "inclinacion";
         public static final String _IDUSUARIO = "idUsuario";
 
     }

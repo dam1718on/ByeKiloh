@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("usuario", usuarioLogin);
                 startActivity(intent);
 
-                mensaje = new Mensaje(getApplicationContext(), "CRUD Ejercicio");
+                //mensaje = new Mensaje(getApplicationContext(), "CRUD Ejercicio");
 
             }
 

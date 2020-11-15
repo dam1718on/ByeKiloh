@@ -10,17 +10,19 @@ public class Ejercicio {
     private int tiempo;
     private String velocidad;
     private float consumoE;
+    private String inclinacion;
     private int idUsuario;
 
     public Ejercicio() {  }
 
-    public Ejercicio(String fecha, int distancia, int tiempo, int idUsuario) {
+    public Ejercicio(String fecha, int distancia, int tiempo, float inclinacion, int idUsuario) {
 
         this.fecha = fecha;
         this.distancia = distancia;
         this.tiempo = tiempo;
-        this.idUsuario = idUsuario;
         setVelocidad();
+        setInclinacion(inclinacion);
+        this.idUsuario = idUsuario;
         //IMPLEMENTAR setConsumoE;
 
     }
@@ -30,10 +32,11 @@ public class Ejercicio {
         this.idEjercicio = ejercicio.getIdEjercicio();
         this.fecha = ejercicio.getFecha();
         this.distancia = ejercicio.getDistancia();
-        this.tiempo= ejercicio.getTiempo();
-        this.velocidad= ejercicio.getVelocidad();
-        this.consumoE= ejercicio.getConsumoE();
-        this.idUsuario= ejercicio.getIdUsuario();
+        this.tiempo = ejercicio.getTiempo();
+        this.velocidad = ejercicio.getVelocidad();
+        this.consumoE = ejercicio.getConsumoE();
+        this.inclinacion = ejercicio.getInclinacion();
+        this.idUsuario = ejercicio.getIdUsuario();
 
     }
 
@@ -67,6 +70,15 @@ public class Ejercicio {
 
     }
 
+    public String getInclinacion() { return inclinacion; }
+
+    public void setInclinacion(float inclinacion) {
+
+        DecimalFormat df = new DecimalFormat("0.0");
+        this.inclinacion = df.format(inclinacion);
+
+    }
+
     public int getIdUsuario() { return idUsuario; }
 
     public void setIdUsuario(int idUsuario) { this.idUsuario = idUsuario; }
@@ -80,7 +92,7 @@ public class Ejercicio {
                 " m en " + tiempo +
                 " min\n    velocidad " + velocidad +
                 " consumoE " + consumoE +
-                " idUsuario " + idUsuario + ".";
+                " inclinación " + inclinacion + ".";
 
     }
 

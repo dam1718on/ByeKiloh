@@ -38,6 +38,7 @@ public class BaseDatos extends SQLiteOpenHelper {
             EstructuraEjercicio.COLUMN_NAME_TIEMPO + TEXT_TYPE + COMMA_SEP +
             EstructuraEjercicio.COLUMN_NAME_VELOCIDAD + TEXT_TYPE + COMMA_SEP +
             EstructuraEjercicio.COLUMN_NAME_CONSUMOE + TEXT_TYPE + COMMA_SEP +
+            EstructuraEjercicio.COLUMN_NAME_INCLINACION + TEXT_TYPE + COMMA_SEP +
             EstructuraEjercicio._IDUSUARIO + " INTEGER  )";
 
     private static final String SQL_CREATE_ENTRIES_PESAJE =
@@ -55,7 +56,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     //Se declaran e inicializan las variables encargadas de crear la Base de Datos 'byeKiloh.sqlite'.
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "byeKiloh.sqlite";
+    public static final String DATABASE_NAME = "byeKiloh2.sqlite";
 
     public BaseDatos(Context context) { super(context, DATABASE_NAME, null, DATABASE_VERSION); }
 
