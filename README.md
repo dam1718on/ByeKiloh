@@ -1,4 +1,4 @@
-# byeKiloh
+# ByeKiloh
 ## Beware of the Dog!!
 <h3>initial branch: master</h3>
     <ul>
