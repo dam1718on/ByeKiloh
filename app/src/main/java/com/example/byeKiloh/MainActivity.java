@@ -1,4 +1,4 @@
-package com.example.byekiloh;
+package com.example.byeKiloh;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.byekiloh.utilidades.*;
+import com.example.byeKiloh.utilidades.*;
 
 public class MainActivity extends AppCompatActivity {
 

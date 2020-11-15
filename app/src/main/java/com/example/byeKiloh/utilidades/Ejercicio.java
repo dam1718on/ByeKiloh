@@ -1,4 +1,4 @@
-package com.example.byekiloh.utilidades;
+package com.example.byeKiloh.utilidades;
 
 import java.text.DecimalFormat;
 
@@ -15,13 +15,13 @@ public class Ejercicio {
 
     public Ejercicio() {  }
 
-    public Ejercicio(String fecha, int distancia, int tiempo, float inclinacion, int idUsuario) {
+    public Ejercicio(String fecha, int distancia, int tiempo, String inclinacion, int idUsuario) {
 
         this.fecha = fecha;
         this.distancia = distancia;
         this.tiempo = tiempo;
         setVelocidad();
-        setInclinacion(inclinacion);
+        this.inclinacion = inclinacion;
         this.idUsuario = idUsuario;
         //IMPLEMENTAR setConsumoE;
 
@@ -72,12 +72,7 @@ public class Ejercicio {
 
     public String getInclinacion() { return inclinacion; }
 
-    public void setInclinacion(float inclinacion) {
-
-        DecimalFormat df = new DecimalFormat("0.0");
-        this.inclinacion = df.format(inclinacion);
-
-    }
+    public void setInclinacion(String inclinacion) { this.inclinacion = inclinacion; }
 
     public int getIdUsuario() { return idUsuario; }
 
@@ -92,7 +87,7 @@ public class Ejercicio {
                 " m en " + tiempo +
                 " min\n    velocidad " + velocidad +
                 " consumoE " + consumoE +
-                " inclinación " + inclinacion + ".";
+                " inclinación " + inclinacion;
 
     }
 

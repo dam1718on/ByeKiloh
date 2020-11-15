@@ -1,4 +1,4 @@
-package com.example.byekiloh;
+package com.example.byeKiloh;
 
 import org.junit.Test;
 

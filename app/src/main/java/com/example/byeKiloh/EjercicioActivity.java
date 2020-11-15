@@ -1,4 +1,4 @@
-package com.example.byekiloh;
+package com.example.byeKiloh;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,8 +19,8 @@ import android.widget.EditText;
 
 import android.widget.Spinner;
 
-import com.example.byekiloh.utilidades.*;
-import static com.example.byekiloh.utilidades.Tablas.EstructuraEjercicio.*;
+import com.example.byeKiloh.utilidades.*;
+import static com.example.byeKiloh.utilidades.Tablas.EstructuraEjercicio.*;
 
 import java.util.ArrayList;
 
@@ -28,7 +28,7 @@ public class EjercicioActivity extends AppCompatActivity {
 
     private Button btnAnadirEjercicio, btnActualizar, btnBorrar, btnVolverE;
     private EditText    etFecha, etDistancia, etTiempo, etInclinacion, etFecha2, etDistancia2,
-                        etTiempo2, etInclinacion2;
+            etTiempo2, etInclinacion2;
     private Spinner spinEjercicios;
     //Esta variable permite comprobar los digitos de varios EditText a la vez
     private int countError = 1;
@@ -88,57 +88,57 @@ public class EjercicioActivity extends AppCompatActivity {
         btnAnadirEjercicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Primer if comprueba que no hay EditText vacíos
-            if(etFecha.getText().toString().equals("") ||
-                etDistancia.getText().toString().equals("") ||
-                etFecha.getText().toString().equals("") ||
-                etInclinacion.getText().toString().equals("")) {
+                //Primer if comprueba que no hay EditText vacíos
+                if(etFecha.getText().toString().equals("") ||
+                        etDistancia.getText().toString().equals("") ||
+                        etFecha.getText().toString().equals("") ||
+                        etInclinacion.getText().toString().equals("")) {
 
-                mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
-                    "introducidos\ntodos los campos son obligatorios");
+                    mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
+                            "introducidos\ntodos los campos son obligatorios");
 
-            } else {
+                } else {
 
-                countError=1;
-                //Comprobamos número mínimo de carácteres en cada EditText
-                numMinL(etFecha, 6, "Fecha");
-                numMinL(etDistancia, 3, "Distancia");
-                numMinL(etTiempo, 2, "Tiempo");
-                numMinL(etInclinacion, 1, "Inclinacion");
-                //Segundo if comprueba si se cumple con el mínimo de carácteres para cada EditText
-                if(countError == 1) {
-                    //Se crea objeto Ejercicio con parámetros
-                    ejercicio = new Ejercicio(etFecha.getText().toString(),
-                        Integer.parseInt(etDistancia.getText().toString()),
-                        Integer.parseInt(etTiempo.getText().toString()),
-                        Float.parseFloat(etInclinacion.getText().toString()),
-                        usuario.getIdUsuario());
-                    //Se ganan tambien permisos de escritura
-                    SQLiteDatabase sqlite = basedatos.getWritableDatabase();
-                    //EstructuraEjercicio de insercción de datos
-                    ContentValues content = new ContentValues();
+                    countError=1;
+                    //Comprobamos número mínimo de carácteres en cada EditText
+                    numMinL(etFecha, 6, "Fecha");
+                    numMinL(etDistancia, 3, "Distancia");
+                    numMinL(etTiempo, 2, "Tiempo");
+                    numMinL(etInclinacion, 1, "Inclinacion");
+                    //Segundo if comprueba si se cumple con el mínimo de carácteres para cada EditText
+                    if(countError == 1) {
+                        //Se crea objeto Ejercicio con parámetros
+                        ejercicio = new Ejercicio(etFecha.getText().toString(),
+                                Integer.parseInt(etDistancia.getText().toString()),
+                                Integer.parseInt(etTiempo.getText().toString()),
+                                etInclinacion.getText().toString(),
+                                usuario.getIdUsuario());
+                        //Se ganan tambien permisos de escritura
+                        SQLiteDatabase sqlite = basedatos.getWritableDatabase();
+                        //EstructuraEjercicio de insercción de datos
+                        ContentValues content = new ContentValues();
                     /*Se añaden los valores introducidos de cada campo mediante clave(columna) /
                     valor(valor introducido en el campo de texto)*/
-                    content.put(_IDUSUARIO, ejercicio.getIdUsuario());
-                    content.put(COLUMN_NAME_FECHA, ejercicio.getFecha());
-                    content.put(COLUMN_NAME_DISTANCIA, String.valueOf(ejercicio.getDistancia()));
-                    content.put(COLUMN_NAME_TIEMPO, String.valueOf(ejercicio.getTiempo()));
-                    content.put(COLUMN_NAME_VELOCIDAD, ejercicio.getVelocidad());
-                    content.put(COLUMN_NAME_INCLINACION, ejercicio.getInclinacion());
-                    sqlite.insert(TABLE_NAME, null, content);
-                    //Mensaje de éxito al añadir
-                    mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido " +
-                        "almacenado");
+                        content.put(_IDUSUARIO, ejercicio.getIdUsuario());
+                        content.put(COLUMN_NAME_FECHA, ejercicio.getFecha());
+                        content.put(COLUMN_NAME_DISTANCIA, String.valueOf(ejercicio.getDistancia()));
+                        content.put(COLUMN_NAME_TIEMPO, String.valueOf(ejercicio.getTiempo()));
+                        content.put(COLUMN_NAME_VELOCIDAD, ejercicio.getVelocidad());
+                        content.put(COLUMN_NAME_INCLINACION, ejercicio.getInclinacion());
+                        sqlite.insert(TABLE_NAME, null, content);
+                        //Mensaje de éxito al añadir
+                        mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido " +
+                                "almacenado");
 
-                    vaciarEditText(1);
-                    //Se cierra la conexión abierta a la Base de Datos
-                    sqlite.close();
+                        vaciarEditText(1);
+                        //Se cierra la conexión abierta a la Base de Datos
+                        sqlite.close();
 
-                    actualizarSpinner();
+                        actualizarSpinner();
+
+                    }
 
                 }
-
-            }
 
             }
 
@@ -148,11 +148,11 @@ public class EjercicioActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            actualizarEjercicio();
+                actualizarEjercicio();
 
-            vaciarEditText(1);
+                vaciarEditText(1);
 
-            actualizarSpinner();
+                actualizarSpinner();
 
             }
 
@@ -163,13 +163,13 @@ public class EjercicioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            borrarEjercicio();
+                borrarEjercicio();
 
-            vaciarEditText(1);
+                vaciarEditText(1);
 
-            vaciarEditText(2);
+                vaciarEditText(2);
 
-            actualizarSpinner();
+                actualizarSpinner();
 
             }
 
@@ -178,10 +178,10 @@ public class EjercicioActivity extends AppCompatActivity {
         btnVolverE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Creamos intent para ir a .MainActivity y le enviamos Usuario
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.putExtra("usuario", usuarioMain);
-            startActivity(intent);
+                //Creamos intent para ir a .MainActivity y le enviamos Usuario
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("usuario", usuarioMain);
+                startActivity(intent);
 
             }
 
@@ -220,7 +220,7 @@ public class EjercicioActivity extends AppCompatActivity {
         if(num<minDig) {
             //Retorno de mensaje de error detallado
             mensaje = new Mensaje(getApplicationContext(), "'" + campo + "' tiene " + num +
-                " carácteres\ny el mínimo para ese campo son " + minDig);
+                    " carácteres\ny el mínimo para ese campo son " + minDig);
 
             countError += 1;
 
@@ -245,7 +245,7 @@ public class EjercicioActivity extends AppCompatActivity {
             ejercicio.setTiempo(Integer.parseInt(etTiempo2.getText().toString()));
         }
         if(!etInclinacion2.getText().toString().equals("")) {
-            ejercicio.setInclinacion(Float.parseFloat(etInclinacion2.getText().toString()));
+            ejercicio.setInclinacion(etInclinacion2.getText().toString());
         }
         ejercicio.setVelocidad();
         //Se establece conexion con permisos de escritura
@@ -303,12 +303,12 @@ public class EjercicioActivity extends AppCompatActivity {
                     ejercicio.setIdEjercicio(cursor.getInt(cursor.getColumnIndex(_IDEJERCICIO)));
                     ejercicio.setFecha(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_FECHA)));
                     ejercicio.setDistancia(Integer.parseInt(cursor.getString(cursor.getColumnIndex
-                        (COLUMN_NAME_DISTANCIA))));
+                            (COLUMN_NAME_DISTANCIA))));
                     ejercicio.setTiempo(Integer.parseInt(cursor.getString(cursor.getColumnIndex
-                        (COLUMN_NAME_TIEMPO))));
+                            (COLUMN_NAME_TIEMPO))));
                     ejercicio.setVelocidad();
-                    ejercicio.setInclinacion(Float.parseFloat(cursor.getString(cursor.getColumnIndex
-                        (COLUMN_NAME_INCLINACION))));
+                    ejercicio.setInclinacion(cursor.getString(cursor.getColumnIndex
+                            (COLUMN_NAME_INCLINACION)));
                     ejercicio.setIdUsuario(usuario.getIdUsuario());
 
                     ejerciciosAL.add(ejercicio);
@@ -324,7 +324,7 @@ public class EjercicioActivity extends AppCompatActivity {
         sqlite.close();
         //Inflamos el Spinner con el ArrayList
         spinEjercicios.setAdapter(new ArrayAdapter<>(getApplicationContext(),
-            R.layout.spinner_item_c, ejerciciosAL));
+                R.layout.spinner_item_c, ejerciciosAL));
         //Seleccionamos el último registro del Array
         spinEjercicios.setSelection(ejerciciosAL.size()-1);
 

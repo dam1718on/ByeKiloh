@@ -1,4 +1,4 @@
-package com.example.byekiloh;
+package com.example.byeKiloh;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,9 +24,9 @@ public class PrivacidadActivity extends AppCompatActivity {
         btnLeido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Creamos Intent para volver a .RegistroActivity
-            Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
-            startActivity(intent);
+                //Creamos Intent para volver a .RegistroActivity
+                Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
+                startActivity(intent);
 
             }
 

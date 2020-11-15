@@ -1,4 +1,4 @@
-package com.example.byekiloh.utilidades;
+package com.example.byeKiloh.utilidades;
 
 import android.content.Context;
 
@@ -19,7 +19,7 @@ public class Mensaje {
 
         Spannable centeredText = new SpannableString(cad);
         centeredText.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0,
-            cad.length() - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                cad.length() - 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         Toast toast= Toast.makeText(context, centeredText, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 340);
         toast.show();

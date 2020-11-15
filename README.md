@@ -1,4 +1,4 @@
-# ByeKiloh
+# byeKiloh
 ## Beware of the Dog!!
 <h3>initial branch: master</h3>
     <ul>
@@ -27,7 +27,8 @@
     <ul>
     <li>Commit17. RegistroActivity creada</li>
     <li>Commit18. RegistroActivity implementada parte lógica</li>
-    <li>Commit19. Obj. Usuario se completa ATR y se guarda en dos tablas de la BBDD(Usuarios-Cuentas)</li>
+    <li>Commit19. Obj. Usuario se completa ATR y se guarda en dos tablas de la BBDD(Usuarios-
+    Cuentas)</li>
     <li>Commit20. Depuración y nuevo branch: format1.1</li>
     </ul>
 <p>--new branch: format1.1</p>
@@ -52,6 +53,11 @@
     <li>Commit32. Spinner de .EjericicioActivity</li>
     <li>Commit33. Mejoras de stylo y del Spinner</li>
     <li>Commit34. Implementado el campo inclinacion y finalización de .EjercicioActivity</li>
+    <li>Commit35. Solucionados errores, app rdy para testeo en móvil físico</li>
+    </ul>
+<p>--new branch: format1.4</p>
+    <ul>
+    <li>Commit36. Iniciar diseño en móvil físico</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -102,6 +108,8 @@ seleccionado del Spinner. Iconos mejorados: candado, usuario, visible</p>
 <p>Commit34. Implementado nuevo campo Inclinación, totalmente funcional. CRUD de .EjercicioActivity
 funciona correctamente, se actualizan los EditText con cada item seleccionado del Spinner, incluido
 inclinacion</p>
+<p>Commit35. Resuelto problema del campo Inclinación, cambiando el campo a String, y estructura del
+proyecto</p>
 <h3>TASK</h3>
     <ul>
     <li>1. DEJAR DE USAR EL EMULADOR y AJUSTAR LA APP A MOVIL XIAOMI</li>
@@ -113,7 +121,8 @@ inclinacion</p>
     <li>3. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
     <li>4. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
     <li>8. Hacer diferentes degradados de azul-blanco en activity_main.xml</li>
-    <LI>-. Implementar Ejercicio complejo/porTramos</li>
+    <li>9. Atento a los Float.parseFloat, de inclinacion y velocidad</li>
+    <li>-. Implementar Ejercicio complejo/porTramos</li>
     <li>-. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
     <li>-. Inflate el menu con los datos de Usuario</li>
     <li>-. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>
