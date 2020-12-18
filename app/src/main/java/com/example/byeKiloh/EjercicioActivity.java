@@ -264,6 +264,8 @@ public class EjercicioActivity extends AppCompatActivity {
         mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido actualizado");
         //Cerramos la conexión con la Base de Datos
         sqlite.close();
+        //Vaciamos los EditText
+        vaciarEditText(2);
 
     }
 

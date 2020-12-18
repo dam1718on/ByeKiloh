@@ -11,18 +11,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="244px"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
         android:background="@drawable/rounded_box_button">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
             android:layout_gravity="center"
             android:background="@drawable/byekilohlogobyn">
 
@@ -32,8 +32,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="710px"
         android:orientation="vertical">
 
         <TextView
@@ -42,14 +41,14 @@
             android:layout_gravity="center"
             android:text="- Login -"
             android:textColor="@color/azuloscuro"
-            android:textSize="18dp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etUsuario"
-            android:layout_width="330dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="70dp"
+            android:layout_width="640px"
+            android:layout_height="100px"
+            android:layout_marginTop="120px"
             android:layout_gravity="center"
             android:background="@drawable/rounded_box_edittext"
             android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
@@ -59,17 +58,17 @@
             android:hint="Usuario"
             android:maxLength="15"
             android:maxLines="1"
-            android:paddingLeft="15dp"
+            android:paddingLeft="20px"
             android:textAlignment="center"
             android:textColor="@color/azuloscuro"
             android:textColorHint="@color/naranjaflojo"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <RelativeLayout
-            android:layout_width="330dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="70dp"
+            android:layout_width="640px"
+            android:layout_height="100px"
+            android:layout_marginTop="120px"
             android:layout_gravity="center"
             android:orientation="horizontal">
 
@@ -87,18 +86,18 @@
                 android:inputType="textPassword"
                 android:maxLength="20"
                 android:maxLines="1"
-                android:paddingLeft="15dp"
+                android:paddingLeft="20px"
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
                 android:textColorHint="@color/naranjaflojo"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imgPassL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="20px"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/ic_visible_no" />
@@ -108,55 +107,40 @@
         <CheckBox
             android:id="@+id/cbMantenerSesion"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="35dp"
+            android:layout_height="60px"
+            android:layout_marginTop="60px"
             android:layout_gravity="center"
             android:buttonTint="@color/naranjaflojo"
             android:text="Mantener sesión iniciada"
             android:textColor="@color/naranjaflojo"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        android:layout_height="142px"
+        android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnCrearCuenta"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
+                android:layout_width="240px"
+                android:layout_height="122px"
+                android:layout_marginLeft="40px"
                 android:background="@drawable/rounded_box_button"
                 android:text="CREAR\nCUENTA"
                 android:textStyle="bold"
                 style="@style/shadoweffect" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
             <Button
-                android:id="@+id/btnRegistro"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
+                android:id="@+id/btnIniciarSesion"
+                android:layout_width="240px"
+                android:layout_height="122px"
+                android:layout_marginLeft="160px"
                 android:background="@drawable/rounded_box_button"
                 android:text="INICIAR\nSESION"
                 android:textStyle="bold"
                 style="@style/shadoweffect" />
-
-        </LinearLayout>
 
     </LinearLayout>
 

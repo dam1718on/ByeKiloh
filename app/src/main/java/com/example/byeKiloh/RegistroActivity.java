@@ -47,7 +47,7 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         btnVolverAtras = findViewById(R.id.btnVolverAtras);
-        btnRegistro = findViewById(R.id.btnRegistro);
+        btnRegistro = findViewById(R.id.btnIniciarSesion);
 
         cbAcepto = findViewById(R.id.cbAcepto);
 

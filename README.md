@@ -54,10 +54,7 @@
     <li>Commit33. Mejoras de stylo y del Spinner</li>
     <li>Commit34. Implementado el campo inclinacion y finalización de .EjercicioActivity</li>
     <li>Commit35. Solucionados errores, app rdy para testeo en móvil físico</li>
-    </ul>
-<p>--new branch: format1.4</p>
-    <ul>
-    <li>Commit36. Iniciar diseño en móvil físico</li>
+    <li>Commit36. Inicio del proceso de ajuste para LG K8(LG-K350)</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -110,10 +107,13 @@ funciona correctamente, se actualizan los EditText con cada item seleccionado de
 inclinacion</p>
 <p>Commit35. Resuelto problema del campo Inclinación, cambiando el campo a String, y estructura del
 proyecto</p>
+<p>Commit36. Se inicia el proceso de cambio del diseño de la aplicación, para adaptarlo al terminal
+LG K8(LG-K350) que és el que se usará para hacer la demo, también se crea emulador con el mismo
+tamaño 720px(ancho) y 1136px(largo), se subdivide la pantalla en 8 tiras de 142px cada una</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. DEJAR DE USAR EL EMULADOR y AJUSTAR LA APP A MOVIL XIAOMI</li>
-    <li>2. Hacer usable la app por mi e ir viendo la ejecucion</li>
+    <li>1. Cambiar de px a dp, hacer calculos...</li>
+    <li>1. Hacer usable la app por mi e ir viendo la ejecucion</li>
     <li>2. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView, comprobar
         en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
     <li>3. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>
