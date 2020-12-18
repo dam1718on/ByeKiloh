@@ -55,6 +55,7 @@
     <li>Commit34. Implementado el campo inclinacion y finalización de .EjercicioActivity</li>
     <li>Commit35. Solucionados errores, app rdy para testeo en móvil físico</li>
     <li>Commit36. Inicio del proceso de ajuste para LG K8(LG-K350)</li>
+    <li>Commit37. Cambio en la referencia de medida</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -110,16 +111,22 @@ proyecto</p>
 <p>Commit36. Se inicia el proceso de cambio del diseño de la aplicación, para adaptarlo al terminal
 LG K8(LG-K350) que és el que se usará para hacer la demo, también se crea emulador con el mismo
 tamaño 720px(ancho) y 1136px(largo), se subdivide la pantalla en 8 tiras de 142px cada una</p>
+<p>Commit37. Por sugerencia de AndroidStudio se usa "dp" como referencia en vez de "px". Cada "dp"
+equivale a "2px" por lo que las medidas en dp son la mitad de las medidas en px. Quedan como sigue
+tamaño 360dp(ancho) y 568dp(largo), sin ACTION_BAR, se subdivide la pantalla en 8 tiras de 71dp cada
+una. Se crea un TableLayout en .MainActivity para implementar los promedios en la misma</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. Cambiar de px a dp, hacer calculos...</li>
-    <li>1. Hacer usable la app por mi e ir viendo la ejecucion</li>
-    <li>2. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView, comprobar
+    <li>1. Implementar conjunto de fragments en .EjercicioActivity para un uso mas vistoso del CRUD
+    propio de la actividad, adecuarlo a los tamaños nuevos para LG K8</li>
+    <li>2. Copiar el CRUD en fragments de .EjercicioActivity y exportarlo a .PesajeActivity</li>
+    <li>3. Hacer usable la app por mi e ir viendo la ejecucion</li>
+    <li>4. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView, comprobar
         en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
-    <li>3. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>
-    <li>7. Valorar probabilidad de convertir .PrivacidadActivity en un Fragment</li>
-    <li>3. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
-    <li>4. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
+    <li>5. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>
+    <li>6. Valorar probabilidad de convertir .PrivacidadActivity en un Fragment</li>
+    <li>7. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
+    <li>8. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
     <li>8. Hacer diferentes degradados de azul-blanco en activity_main.xml</li>
     <li>9. Atento a los Float.parseFloat, de inclinacion y velocidad</li>
     <li>-. Implementar Ejercicio complejo/porTramos</li>

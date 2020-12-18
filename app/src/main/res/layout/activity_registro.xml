@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="122dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -21,8 +21,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_gravity="center"
             android:background="@drawable/byekilohlogobyn">
 
@@ -32,8 +32,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="355dp"
         android:orientation="vertical">
 
         <TextView
@@ -42,35 +41,35 @@
             android:layout_gravity="center"
             android:text="- Registro -"
             android:textColor="@color/azuloscuro"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etUsuario"
-            android:layout_width="330dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="50dp"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="35dp"
             android:layout_gravity="center"
             android:background="@drawable/rounded_box_edittext"
             android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
             úÁÉÍÓÚäëïöüÄËÏÖÜ"
             android:drawableLeft="@drawable/ic_usuario"
-            android:drawablePadding="-22dp"
+            android:drawablePadding="-2dp"
             android:hint="Usuario (ej. RaulRunner88)"
             android:inputType=""
             android:maxLength="15"
             android:maxLines="1"
-            android:paddingLeft="15dp"
+            android:paddingLeft="10dp"
             android:textAlignment="center"
             android:textColor="@color/azuloscuro"
             android:textColorHint="@color/naranjaflojo"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <RelativeLayout
-            android:layout_width="330dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="50dp"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="35dp"
             android:layout_gravity="center"
             android:orientation="horizontal">
 
@@ -83,23 +82,23 @@
                 android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
                 XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
                 android:drawableLeft="@drawable/ic_candado"
-                android:drawablePadding="-22dp"
+                android:drawablePadding="-32dp"
                 android:hint="Contraseña(ej. 12bFe@-5)"
                 android:inputType="textPassword"
                 android:maxLength="20"
                 android:maxLines="1"
-                android:paddingLeft="15dp"
+                android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
                 android:textColorHint="@color/naranjaflojo"
-                android:textSize="17.5sp"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imgPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/ic_visible_no" />
@@ -107,9 +106,9 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="330dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="50dp"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="35dp"
             android:layout_gravity="center"
             android:orientation="horizontal">
 
@@ -127,18 +126,18 @@
                 android:inputType="textPassword"
                 android:maxLength="20"
                 android:maxLines="1"
-                android:paddingLeft="15dp"
+                android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
                 android:textColorHint="@color/naranjaflojo"
-                android:textSize="18sp"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imgPassRe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/ic_visible_no" />
@@ -148,18 +147,18 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/cbAcepto"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="20dp"
                 android:buttonTint="@color/naranjaflojo"
                 android:text="Acepto los"
                 android:textColor="@color/naranjaflojo"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvCondicionesServicio"
@@ -168,7 +167,7 @@
                 android:layout_marginLeft="6dp"
                 android:text="Términos y Condiciones"
                 android:textColor="@color/azuloscuro"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -185,7 +184,7 @@
                 android:layout_marginLeft="18dp"
                 android:text="y la"
                 android:textColor="@color/naranjaflojo"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvPoliticaPrivacidad"
@@ -194,7 +193,7 @@
                 android:layout_marginLeft="6dp"
                 android:text="Política de privacidad"
                 android:textColor="@color/azuloscuro"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvTexto2"
@@ -203,7 +202,7 @@
                 android:layout_marginLeft="6dp"
                 android:text="de byekiloh"
                 android:textColor="@color/naranjaflojo"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 
@@ -211,43 +210,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="71dp"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        <Button
+            android:id="@+id/btnVolverALogin"
+            android:layout_width="120dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/rounded_box_button"
+            android:text="VOLVER\nAL LOGIN"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
-            <Button
-                android:id="@+id/btnVolverAtras"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:background="@drawable/rounded_box_button"
-                android:text="VOLVER\nAL LOGIN"
-                android:textStyle="bold"
-                style="@style/shadoweffect" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btnIniciarSesion"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:background="@drawable/rounded_box_button"
-                android:text="GUARDAR\nUSUARIO"
-                android:textStyle="bold"
-                style="@style/shadoweffect" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnGuardarUsuario"
+            android:layout_width="120dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/rounded_box_button"
+            android:text="GUARDAR\nUSUARIO"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
     </LinearLayout>
 
