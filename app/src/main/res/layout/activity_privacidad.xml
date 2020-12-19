@@ -16,7 +16,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_box_button">
+        android:background="@drawable/rounded_button_gradient_orange">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,9 +24,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_gravity="center"
-            android:background="@drawable/byekilohlogobyn">
-
-        </LinearLayout>
+            android:background="@drawable/byekilohlogobyn" />
 
     </LinearLayout>
 
@@ -74,7 +72,7 @@
             android:layout_width="120dp"
             android:layout_height="61dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_box_button"
+            android:background="@drawable/rounded_button_gradient_orange"
             android:text="LEIDO"
             android:textStyle="bold"
             style="@style/shadoweffect" />

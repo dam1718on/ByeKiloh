@@ -12,13 +12,17 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.byeKiloh.utilidades.*;
+import com.example.byeKiloh.fragments.FragPromedios;
+import com.example.byeKiloh.objetos.Usuario;
+import com.example.byeKiloh.utils.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout llEjercicio;
+    private LinearLayout llPromedios, llEjercicios;
     private TextView tvUsuarioMain;
     private Menu menu;
+    FragPromedios fragPromedios;
+
 
     Mensaje mensaje;
     Usuario usuario;
@@ -29,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        llEjercicio = findViewById(R.id.llEjercicio);
+        llPromedios = findViewById(R.id.llPromedios);
+
+        llEjercicios = findViewById(R.id.llEjercicios);
 
         tvUsuarioMain=findViewById(R.id.tvUsuarioMain);
         //Recibimos Usuario por intent desde .LoginActivity
@@ -42,8 +48,27 @@ public class MainActivity extends AppCompatActivity {
         //menu=findViewById(((Menu) R.menu.main_menu));
         //menu.getItem(nav_home);
 
+        //Iniciamos el fragmento por defecto correspondiente a los Promedios
+        fragPromedios= new FragPromedios();
+        getSupportFragmentManager().beginTransaction().add(R.id.contenedorFrag, fragPromedios).commit();
+
         //LinearLayout clickeable que contiene un intent
-        llEjercicio.setOnClickListener(new View.OnClickListener() {
+        llPromedios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* //Creamos intent para ir a .EjercicioActivity y le enviamos Usuario
+                Intent intent = new Intent(getApplicationContext(), EjercicioActivity.class);
+                intent.putExtra("usuario", usuarioLogin);
+                startActivity(intent);
+
+                //mensaje = new Mensaje(getApplicationContext(), "CRUD Ejercicio");*/
+
+            }
+
+        });
+
+        //LinearLayout clickeable que contiene un intent
+        llEjercicios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Creamos intent para ir a .EjercicioActivity y le enviamos Usuario

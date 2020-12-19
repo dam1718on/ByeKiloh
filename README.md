@@ -56,6 +56,7 @@
     <li>Commit35. Solucionados errores, app rdy para testeo en móvil físico</li>
     <li>Commit36. Inicio del proceso de ajuste para LG K8(LG-K350)</li>
     <li>Commit37. Cambio en la referencia de medida</li>
+    <li>Commit38. Iniciada implementación de fragments en .MainActivity/li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -115,6 +116,9 @@ tamaño 720px(ancho) y 1136px(largo), se subdivide la pantalla en 8 tiras de 142
 equivale a "2px" por lo que las medidas en dp son la mitad de las medidas en px. Quedan como sigue
 tamaño 360dp(ancho) y 568dp(largo), sin ACTION_BAR, se subdivide la pantalla en 8 tiras de 71dp cada
 una. Se crea un TableLayout en .MainActivity para implementar los promedios en la misma</p>
+<p>Commit38. Medio Implementados fragments en .MainActivity e Implementado nuevo .EjercicioActivity
+con botones que darán paso a la actividad que contendra el CRUD de Ejercicio, hay que cambiar el
+actual .EjercicioActivity y transformarlo en el fragment</p>
 <h3>TASK</h3>
     <ul>
     <li>1. Implementar conjunto de fragments en .EjercicioActivity para un uso mas vistoso del CRUD

@@ -11,29 +11,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="122dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_box_button">
+        android:background="@drawable/rounded_button_gradient_orange">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_gravity="center"
-            android:background="@drawable/byekilohlogobyn">
-
-        </LinearLayout>
+            android:background="@drawable/byekilohlogobyn" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="355dp"
         android:orientation="vertical">
 
         <TextView
@@ -42,309 +39,75 @@
             android:layout_gravity="center"
             android:text="- Ejercicio -"
             android:textColor="@color/azuloscuro"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_box_edittext"
-            android:orientation="horizontal">
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="33dp"
+            android:layout_gravity="center"
+            android:text="CREATE"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="33dp"
+            android:layout_gravity="center"
+            android:text="READ"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="AÑADIR EJERCICIO:"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="33dp"
+            android:layout_gravity="center"
+            android:text="UPDATE"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
-                <EditText
-                    android:id="@+id/etFecha"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:digits="0123456789"
-                    android:hint="Fecha (ej. 201215) [YYMMDD]"
-                    android:maxLength="6"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textColorHint="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etDistancia"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:digits="0123456789"
-                    android:hint="Distancia (ej. 3280) [metros]"
-                    android:maxLength="5"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textColorHint="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etTiempo"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:digits="0123456789"
-                    android:hint="Tiempo (ej. 45) [minutos]"
-                    android:maxLength="3"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textColorHint="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etInclinacion"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="6dp"
-                    android:digits=",.0123456789"
-                    android:hint="Inclinación (ej. 1,5) [%]"
-                    android:maxLength="4"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textColorHint="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnAnadirEjercicio"
-                    android:layout_width="110dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_box_button6"
-                    android:text="AÑADIR"
-                    android:textStyle="bold"
-                    style="@style/shadoweffect" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="20dp"
-            android:text="SPINNER CON TODOS LOS EJERCICIOS GUARDADOS:"
-            android:textColor="@color/naranjaflojo"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spinEjercicios"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:spinnerMode="dialog" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_box_edittext">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="EJERCICIO SELECCIONADO:"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etFecha2"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:digits="0123456789"
-                    android:hint="fecha"
-                    android:maxLength="6"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textColorHint="@color/naranjaflojo"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etDistancia2"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:digits="0123456789"
-                    android:hint="distancia"
-                    android:maxLength="5"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textColorHint="@color/naranjaflojo"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etTiempo2"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:digits="0123456789"
-                    android:hint="tiempo"
-                    android:maxLength="3"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textColorHint="@color/naranjaflojo"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etInclinacion2"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="6dp"
-                    android:digits=",.0123456789"
-                    android:hint="inclinación"
-                    android:maxLength="4"
-                    android:maxLines="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textColorHint="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnActualizar"
-                        android:layout_width="110dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/rounded_box_button6"
-                        android:text="ACTUALIZAR"
-                        android:textStyle="bold"
-                        style="@style/shadoweffect17" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btnBorrar"
-                        android:layout_width="110dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/rounded_box_button6"
-                        android:text="BORRAR"
-                        android:textStyle="bold"
-                        style="@style/shadoweffect" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="33dp"
+            android:layout_gravity="center"
+            android:text="DELETE"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="71dp"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        <Button
+            android:id="@+id/btnVolverAlMain"
+            android:layout_width="120dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/rounded_button_gradient_orange"
+            android:text="VOLVER\nAL MAIN"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
-            <Button
-                android:id="@+id/btnVolverE"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="3dp"
-                android:layout_gravity="center"
-                android:background="@drawable/rounded_box_button"
-                android:text="VOLVER\nAL MAIN"
-                android:textStyle="bold"
-                style="@style/shadoweffect" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btnXXX"
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="3dp"
-                android:layout_gravity="center"
-                android:background="@drawable/rounded_box_button"
-                android:text="XXX"
-                android:textStyle="bold"
-                style="@style/shadoweffect" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnXXX"
+            android:layout_width="120dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/rounded_button_gradient_orange"
+            android:text="XXX\nXXX"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
     </LinearLayout>
 

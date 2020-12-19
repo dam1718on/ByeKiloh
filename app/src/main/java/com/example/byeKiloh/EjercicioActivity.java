@@ -2,62 +2,42 @@ package com.example.byeKiloh;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
-import android.content.Intent;
-
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
 import android.os.Bundle;
-
-import android.view.View;
-
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-
-import android.widget.Spinner;
-
-import com.example.byeKiloh.utilidades.*;
-import static com.example.byeKiloh.utilidades.Tablas.EstructuraEjercicio.*;
-
-import java.util.ArrayList;
 
 public class EjercicioActivity extends AppCompatActivity {
 
-    private Button btnAnadirEjercicio, btnActualizar, btnBorrar, btnVolverE;
-    private EditText    etFecha, etDistancia, etTiempo, etInclinacion, etFecha2, etDistancia2,
+    /*//private Button btnAnadirEjercicio, btnActualizar, btnBorrar, btnVolverE;
+    //private EditText    etFecha, etDistancia, etTiempo, etInclinacion, etFecha2, etDistancia2,
             etTiempo2, etInclinacion2;
-    private Spinner spinEjercicios;
+    //private Spinner spinEjercicios;
     //Esta variable permite comprobar los digitos de varios EditText a la vez
-    private int countError = 1;
+    //private int countError = 1;
 
     BaseDatos basedatos;
     Ejercicio ejercicio;
     Mensaje mensaje;
-    Usuario usuario;
+    Usuario usuario;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ejercicio);
 
-        btnAnadirEjercicio = findViewById(R.id.btnAnadirEjercicio);
-        btnActualizar = findViewById(R.id.btnActualizar);
-        btnBorrar = findViewById(R.id.btnBorrar);
-        btnVolverE = findViewById(R.id.btnVolverE);
+        /*//btnAnadirEjercicio = findViewById(R.id.btnAnadirEjercicio);
+        //btnActualizar = findViewById(R.id.btnActualizar);
+        //btnBorrar = findViewById(R.id.btnBorrar);
+        btnVolverE = findViewById(R.id.btnVolverAlMain);
 
-        etFecha = findViewById(R.id.etFecha);
-        etDistancia = findViewById(R.id.etDistancia);
-        etTiempo = findViewById(R.id.etTiempo);
-        etInclinacion = findViewById(R.id.etInclinacion);
-        etFecha2 = findViewById(R.id.etFecha2);
-        etDistancia2 = findViewById(R.id.etDistancia2);
-        etTiempo2 = findViewById(R.id.etTiempo2);
-        etInclinacion2 = findViewById(R.id.etInclinacion2);
+        //etFecha = findViewById(R.id.etFecha);
+        //etDistancia = findViewById(R.id.etDistancia);
+        //etTiempo = findViewById(R.id.etTiempo);
+        //etInclinacion = findViewById(R.id.etInclinacion);
+        //etFecha2 = findViewById(R.id.etFecha2);
+        //etDistancia2 = findViewById(R.id.etDistancia2);
+        //etTiempo2 = findViewById(R.id.etTiempo2);
+        //etInclinacion2 = findViewById(R.id.etInclinacion2);
 
-        spinEjercicios = findViewById(R.id.spinEjercicios);
+        //spinEjercicios = findViewById(R.id.spinEjercicios);
 
         //Recibimos el Usuario que logea a través del intent
         final Usuario usuarioMain = (Usuario) getIntent().getSerializableExtra("usuario");
@@ -119,7 +99,7 @@ public class EjercicioActivity extends AppCompatActivity {
                         ContentValues content = new ContentValues();
                     /*Se añaden los valores introducidos de cada campo mediante clave(columna) /
                     valor(valor introducido en el campo de texto)*/
-                        content.put(_IDUSUARIO, ejercicio.getIdUsuario());
+                        /*content.put(_IDUSUARIO, ejercicio.getIdUsuario());
                         content.put(COLUMN_NAME_FECHA, ejercicio.getFecha());
                         content.put(COLUMN_NAME_DISTANCIA, String.valueOf(ejercicio.getDistancia()));
                         content.put(COLUMN_NAME_TIEMPO, String.valueOf(ejercicio.getTiempo()));
@@ -208,11 +188,11 @@ public class EjercicioActivity extends AppCompatActivity {
             etTiempo2.setText("");
             etInclinacion2.setText("");
 
-        }
+        }*/
 
     }
 
-    //Método que cuenta el número de caracteres introducidos
+/*    //Método que cuenta el número de caracteres introducidos
     public void numMinL(EditText et, int minDig, String campo){
         //Contamos el tamaño del EditText introducido
         int num = et.length();
@@ -330,6 +310,6 @@ public class EjercicioActivity extends AppCompatActivity {
         //Seleccionamos el último registro del Array
         spinEjercicios.setSelection(ejerciciosAL.size()-1);
 
-    }
+    }*/
 
 }

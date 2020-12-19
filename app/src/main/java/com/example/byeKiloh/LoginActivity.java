@@ -21,8 +21,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.byeKiloh.utilidades.*;
-import static com.example.byeKiloh.utilidades.Tablas.EstructuraUsuario.*;
+import com.example.byeKiloh.objetos.Usuario;
+import com.example.byeKiloh.persistenciadatos.BaseDatos;
+import com.example.byeKiloh.utils.*;
+import static com.example.byeKiloh.persistenciadatos.Tablas.EstructuraUsuario.*;
 
 public class LoginActivity extends AppCompatActivity {
 
