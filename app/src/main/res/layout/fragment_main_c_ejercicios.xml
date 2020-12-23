@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/platino"
+    tools:context=".fragments.Main_c_Ejercicios">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="EJERCICIOS"
+            android:textColor="@color/naranjaflojo"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCreateEjercicios"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:text="CREATE"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
+
+        <Button
+            android:id="@+id/btnReadEjercicios"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:text="READ"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
+
+        <Button
+            android:id="@+id/btnUpdateEjercicios"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:text="UPDATE"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
+
+        <Button
+            android:id="@+id/btnDeleteEjercicios"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:text="DELETE"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
+
+    </LinearLayout>
+
+</FrameLayout>

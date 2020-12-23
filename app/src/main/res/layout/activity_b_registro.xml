@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/platino"
     android:orientation="vertical"
-    tools:context=".RegistroActivity">
+    tools:context=".Activity_b_Registro">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="122dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_button_gradient_orange">
@@ -21,9 +20,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_gravity="center"
             android:background="@drawable/byekilohlogobyn" />
 
     </LinearLayout>
@@ -46,8 +45,8 @@
             android:id="@+id/etUsuario"
             android:layout_width="320dp"
             android:layout_height="50dp"
-            android:layout_marginTop="35dp"
             android:layout_gravity="center"
+            android:layout_marginTop="35dp"
             android:background="@drawable/rounded_edittext_solid_orange"
             android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
             úÁÉÍÓÚäëïöüÄËÏÖÜ"
@@ -67,8 +66,8 @@
         <RelativeLayout
             android:layout_width="320dp"
             android:layout_height="50dp"
-            android:layout_marginTop="35dp"
             android:layout_gravity="center"
+            android:layout_marginTop="35dp"
             android:orientation="horizontal">
 
             <EditText
@@ -96,9 +95,9 @@
                 android:id="@+id/imgPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/ic_visible_no" />
 
         </RelativeLayout>
@@ -106,8 +105,8 @@
         <RelativeLayout
             android:layout_width="320dp"
             android:layout_height="50dp"
-            android:layout_marginTop="35dp"
             android:layout_gravity="center"
+            android:layout_marginTop="35dp"
             android:orientation="horizontal">
 
             <EditText
@@ -135,9 +134,9 @@
                 android:id="@+id/imgPassRe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/ic_visible_no" />
 
         </RelativeLayout>
@@ -145,8 +144,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <CheckBox
@@ -208,28 +207,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="71dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnVolverALogin"
+            style="@style/shadoweffect"
             android:layout_width="120dp"
-            android:layout_height="61dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:background="@drawable/rounded_button_gradient_orange"
             android:text="VOLVER\nAL LOGIN"
-            android:textStyle="bold"
-            style="@style/shadoweffect" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnGuardarUsuario"
+            style="@style/shadoweffect"
             android:layout_width="120dp"
-            android:layout_height="61dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="80dp"
             android:background="@drawable/rounded_button_gradient_orange"
             android:text="GUARDAR\nUSUARIO"
-            android:textStyle="bold"
-            style="@style/shadoweffect" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 

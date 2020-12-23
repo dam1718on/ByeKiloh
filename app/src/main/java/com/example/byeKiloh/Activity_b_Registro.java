@@ -23,12 +23,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.byeKiloh.objetos.Usuario;
-import com.example.byeKiloh.persistenciadatos.BaseDatos;
+import com.example.byeKiloh.objects.*;
+import com.example.byeKiloh.datapersistence.*;
 import com.example.byeKiloh.utils.*;
-import static com.example.byeKiloh.persistenciadatos.Tablas.EstructuraUsuario.*;
 
-public class RegistroActivity extends AppCompatActivity {
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.*;
+
+public class Activity_b_Registro extends AppCompatActivity {
 
     private Button btnVolverAtras, btnRegistro;
     private CheckBox cbAcepto;
@@ -46,24 +47,21 @@ public class RegistroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_b_registro);
 
         btnVolverAtras = findViewById(R.id.btnVolverALogin);
         btnRegistro = findViewById(R.id.btnGuardarUsuario);
-
         cbAcepto = findViewById(R.id.cbAcepto);
-
         etUsuario = findViewById(R.id.etUsuario);
         etContrasena = findViewById(R.id.etContrasena);
         etContrasenaRe = findViewById(R.id.etContrasenaRe);
-
         imgPass = findViewById(R.id.imgPass);
         imgPassRe = findViewById(R.id.imgPassRe);
-
         tvCondicionesServicio = findViewById(R.id.tvCondicionesServicio);
         tvPoliticaPrivacidad = findViewById(R.id.tvPoliticaPrivacidad);
 
         basedatos = new BaseDatos(getApplicationContext());
+
         //Convertimos en enlaces los TextViews de, Condiciones del Servicio y Política de privacidad
         SpannableString contentC = new SpannableString(tvCondicionesServicio.getText());
         tvCondicionesServicio.setText(contentC);
@@ -73,8 +71,8 @@ public class RegistroActivity extends AppCompatActivity {
         tvCondicionesServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para visualizar .PrivacidadActivity
-                Intent intent = new Intent(getApplicationContext(), PrivacidadActivity.class);
+                //Creamos Intent para visualizar .Activity_c_Privacidad
+                Intent intent = new Intent(getApplicationContext(), Activity_c_Privacidad.class);
                 startActivity(intent);
 
                 mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
@@ -87,8 +85,8 @@ public class RegistroActivity extends AppCompatActivity {
         tvPoliticaPrivacidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para visualizar .PrivacidadActivity
-                Intent intent = new Intent(getApplicationContext(), PrivacidadActivity.class);
+                //Creamos Intent para visualizar .Activity_c_Privacidad
+                Intent intent = new Intent(getApplicationContext(), Activity_c_Privacidad.class);
                 startActivity(intent);
 
                 mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
@@ -97,70 +95,58 @@ public class RegistroActivity extends AppCompatActivity {
             }
 
         });
+
         //TextView que permite la visualización de "Confirmar Contraseña"
         imgPassRe.setOnClickListener(new View.OnClickListener() {
             boolean selectPassRe = false;
             @Override
             public void onClick(View v) {
-
                 if(!selectPassRe) {
-
                     selectPassRe = true;
                     etContrasenaRe.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
                     if(etContrasenaRe.getText().length() > 0) {
-
                         etContrasenaRe.setSelection(etContrasenaRe.getText().length());
                         imgPassRe.setBackgroundResource(R.drawable.ic_visible);
-
                     }
 
-                }
-                else {
-
+                } else {
                     selectPassRe = false;
                     etContrasenaRe.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
                     if(etContrasenaRe.getText().length() > 0) {
-
                         etContrasenaRe.setSelection(etContrasenaRe.getText().length());
                         imgPassRe.setBackgroundResource(R.drawable.ic_visible_no);
-
                     }
+
                 }
             }
 
         });
+
         //TextView que permite la visualización de "Contraseña"
         imgPass.setOnClickListener(new View.OnClickListener() {
             boolean selectPass = false;
             @Override
             public void onClick(View v) {
-
                 if(!selectPass) {
-
                     selectPass = true;
                     etContrasena.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
                     if(etContrasena.getText().length() > 0) {
-
                         etContrasena.setSelection(etContrasena.getText().length());
                         imgPass.setBackgroundResource(R.drawable.ic_visible);
-
                     }
 
-                }
-                else {
-
+                } else {
                     selectPass = false;
                     etContrasena.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
                     if (etContrasena.getText().length() > 0) {
-
                         etContrasena.setSelection(etContrasena.getText().length());
                         imgPass.setBackgroundResource(R.drawable.ic_visible_no);
-
                     }
+
                 }
             }
 
@@ -174,17 +160,15 @@ public class RegistroActivity extends AppCompatActivity {
                 if (etUsuario.getText().toString().equals("") ||
                         etContrasena.getText().toString().equals("") ||
                         etContrasenaRe.getText().toString().equals("")) {
-
                     mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
                             "introducidos\ntodos los campos son obligatorios");
-
                 } else {
-
                     countError=1;
                     //Comprobamos número mínimo de carácteres en cada EditText
                     numMinL(etUsuario, 4, "Usuario");
                     numMinL(etContrasena, 6, "Contraseña");
                     numMinL(etContrasenaRe, 6, "Confirmar Contraseña");
+
                     //Segundo if comprueba si se cumple con el mínimo de carácteres
                     if (countError == 1) {
                         //Se crea e inicializa el objeto usuario
@@ -193,13 +177,13 @@ public class RegistroActivity extends AppCompatActivity {
                         usuario.setUsuario(etUsuario.getText().toString());
                         usuario.setContraseña(etContrasena.getText().toString());
                         String passRe = etContrasenaRe.getText().toString();
+
                         //Tercer if comprueba si no coinciden las contraseñas
                         if (!usuario.getContraseña().equals(passRe)) {
-
                             mensaje = new Mensaje(getApplicationContext(), "Las Contraseñas " +
                                     "introducidas\nno coinciden");
-
                         } else {
+
                             //Cuarto if comprueba que los Terminos y Condiciones están aceptados
                             if (cbAcepto.isChecked()){
                                 //Se establece conexion con permisos de lectura
@@ -217,15 +201,14 @@ public class RegistroActivity extends AppCompatActivity {
                                 // pasados de tabla, columnas, usuario y orden de los resultados.
                                 Cursor cursor = sqlite.query(TABLE_NAME, columnas, usuarioSQL,
                                         null, null, null, ordenSalida);
+
                                 //Quinto if comprueba que el cursor no esté vacío
                                 if (cursor.getCount() != 0) {
-
                                     cursor.moveToFirst();
                                     mensaje = new Mensaje(getApplicationContext(), "El nombre de" +
                                             " usuario: " + usuario.getUsuario() + "\nno está disponible, " +
                                             "pruebe con otro");
                                     etUsuario.setText("");
-
                                 } else {
                                     //Aqui se introduce el usuario nuevo en la base de datos
                                     //Se ganan tambien permisos de escritura
@@ -244,22 +227,18 @@ public class RegistroActivity extends AppCompatActivity {
                                     etUsuario.setText("");
                                     etContrasena.setText("");
                                     etContrasenaRe.setText("");
-                                    //Abrimos un intent para volver a .LoginActivity
+                                    //Abrimos un intent para volver a .Activity_a_Login
                                     Intent intent = new Intent(getApplicationContext(),
-                                            LoginActivity.class);
+                                            Activity_a_Login.class);
                                     startActivity(intent);
-
                                 }
                                 //Se cierra el cursor
                                 cursor.close();
                                 //Se cierra la conexión abierta a la Base de Datos
                                 sqlite.close();
-
                             } else {
-
                                 mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los" +
                                         " Términos y\nCondiciones para poder registrarse");
-
                             }
                         }
                     }
@@ -272,10 +251,9 @@ public class RegistroActivity extends AppCompatActivity {
         btnVolverAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para volver a .LoginActivity
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                //Creamos Intent para volver a .Activity_a_Login
+                Intent intent = new Intent(getApplicationContext(), Activity_a_Login.class);
                 startActivity(intent);
-
             }
 
         });
@@ -291,9 +269,7 @@ public class RegistroActivity extends AppCompatActivity {
             //Retorno de mensaje de error detallado
             mensaje = new Mensaje(getApplicationContext(), "'" + campo + "' tiene " + num +
                     " carácteres\ny el mínimo para ese campo son " + minDig);
-
             countError += 1;
-
         }
 
     }

@@ -12,10 +12,10 @@ import com.example.byeKiloh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragPromedios#newInstance} factory method to
+ * Use the {@link Main_a_Promedios#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragPromedios extends Fragment {
+public class Main_a_Promedios extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class FragPromedios extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragPromedios() {
+    public Main_a_Promedios() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class FragPromedios extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragPromedios.
+     * @return A new instance of fragment Main_a_Promedios.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragPromedios newInstance(String param1, String param2) {
-        FragPromedios fragment = new FragPromedios();
+    public static Main_a_Promedios newInstance(String param1, String param2) {
+        Main_a_Promedios fragment = new Main_a_Promedios();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -58,9 +58,9 @@ public class FragPromedios extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag_promedios, container, false);
+        return inflater.inflate(R.layout.fragment_main_a_promedios, container, false);
     }
+
 }

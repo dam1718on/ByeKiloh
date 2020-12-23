@@ -10,32 +10,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MenuA">
-
-        <activity
-            android:name=".LoginActivity">
+        <activity android:name=".Activity_e_CRUD"></activity>
+        <activity android:name=".Activity_a_Login">
             <intent-filter>
-                <action
-                    android:name="android.intent.action.MAIN" />
-                <category
-                    android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".RegistroActivity"
-            android:parentActivityName=".LoginActivity" />
-
-        <activity android:name=".PrivacidadActivity" />
-
+            android:name=".Activity_b_Registro"
+            android:parentActivityName=".Activity_a_Login" />
+        <activity android:name=".Activity_c_Privacidad" />
         <activity
-            android:name=".MainActivity"
-            android:parentActivityName=".LoginActivity"
+            android:name=".Activity_d_Main"
+            android:parentActivityName=".Activity_a_Login"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".EjercicioActivity"
-            android:parentActivityName=".MainActivity" />
-
+            android:parentActivityName=".Activity_d_Main" />
     </application>
 
 </manifest>

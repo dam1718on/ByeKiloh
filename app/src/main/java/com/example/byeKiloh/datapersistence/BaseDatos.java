@@ -1,11 +1,11 @@
-package com.example.byeKiloh.persistenciadatos;
+package com.example.byeKiloh.datapersistence;
 
 import android.content.Context;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.byeKiloh.persistenciadatos.Tablas.*;
+import com.example.byeKiloh.datapersistence.Tablas.*;
 
 public class BaseDatos extends SQLiteOpenHelper {
 

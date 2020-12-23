@@ -21,7 +21,7 @@ public class EjercicioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ejercicio);
+        setContentView(R.layout.activity_e_ejercicio);
 
         /*//btnAnadirEjercicio = findViewById(R.id.btnAnadirEjercicio);
         //btnActualizar = findViewById(R.id.btnActualizar);
@@ -158,8 +158,8 @@ public class EjercicioActivity extends AppCompatActivity {
         btnVolverE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos intent para ir a .MainActivity y le enviamos Usuario
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                //Creamos intent para ir a .Activity_d_Main y le enviamos Usuario
+                Intent intent = new Intent(getApplicationContext(), Activity_d_Main.class);
                 intent.putExtra("usuario", usuarioMain);
                 startActivity(intent);
 
@@ -238,7 +238,7 @@ public class EjercicioActivity extends AppCompatActivity {
         content.put(COLUMN_NAME_VELOCIDAD, ejercicio.getVelocidad());
         content.put(COLUMN_NAME_INCLINACION, ejercicio.getInclinacion());
         //Actualizamos el registro en la base de datos
-        sqlite.update("Ejercicios", content, "Ejercicios.idEjercicio = '" +
+        sqlite.update("Main_c_Ejercicios", content, "Main_c_Ejercicios.idEjercicio = '" +
                 ejercicio.getIdEjercicio() + "'", null);
         //Mensaje de éxito al actualizar
         mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido actualizado");
@@ -256,7 +256,7 @@ public class EjercicioActivity extends AppCompatActivity {
         //Se establece conexion con permisos de escritura
         SQLiteDatabase sqlite = basedatos.getWritableDatabase();
         //Sentencia que borra el ejercicio indicado
-        sqlite.delete("Ejercicios", "Ejercicios.idEjercicio = '" +
+        sqlite.delete("Main_c_Ejercicios", "Main_c_Ejercicios.idEjercicio = '" +
                 ejercicio.getIdEjercicio() + "'", null);
         //Mensaje de éxito al borrar
         mensaje = new Mensaje(getApplicationContext(), "El Ejercicio ha sido borrado");
@@ -265,14 +265,14 @@ public class EjercicioActivity extends AppCompatActivity {
 
     }
 
-    //Método que crea un ArrayList con los ejercicios en la Base de Datos
+    //Método que crea un ArrayList con los maincEjercicios en la Base de Datos
     public void actualizarSpinner() {
-        //Creamos un ArrayList de ejercicios
+        //Creamos un ArrayList de maincEjercicios
         ArrayList<Ejercicio> ejerciciosAL = new ArrayList<>();
         //Se establece conexion con permisos de lectura
         SQLiteDatabase sqlite = basedatos.getReadableDatabase();
-        //Query que devuelve todos los ejercicios del Usuario logeado
-        Cursor cursor = sqlite.rawQuery("SELECT * FROM Ejercicios WHERE Ejercicios.idUsuario "
+        //Query que devuelve todos los maincEjercicios del Usuario logeado
+        Cursor cursor = sqlite.rawQuery("SELECT * FROM Main_c_Ejercicios WHERE Main_c_Ejercicios.idUsuario "
                 + "LIKE '" + usuario.getIdUsuario() + "'", null);
         //Comprobamos si el cursor no es null
         if(cursor != null) {

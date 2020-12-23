@@ -12,10 +12,10 @@ import com.example.byeKiloh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragEjercicios#newInstance} factory method to
+ * Use the {@link CRUD_a_Create#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragEjercicios extends Fragment {
+public class CRUD_a_Create extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class FragEjercicios extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragEjercicios() {
+    public CRUD_a_Create() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class FragEjercicios extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragEjercicios.
+     * @return A new instance of fragment CRUD_a_Create.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragEjercicios newInstance(String param1, String param2) {
-        FragEjercicios fragment = new FragEjercicios();
+    public static CRUD_a_Create newInstance(String param1, String param2) {
+        CRUD_a_Create fragment = new CRUD_a_Create();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class FragEjercicios extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag_ejercicios, container, false);
+        return inflater.inflate(R.layout.fragment_crud_a_crear, container, false);
     }
 }

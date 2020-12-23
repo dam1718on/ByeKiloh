@@ -57,6 +57,7 @@
     <li>Commit36. Inicio del proceso de ajuste para LG K8(LG-K350)</li>
     <li>Commit37. Cambio en la referencia de medida</li>
     <li>Commit38. Iniciada implementación de fragments en .MainActivity/li>
+    <li>Commit39. Fragments a fragments. incio proceso</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -119,14 +120,21 @@ una. Se crea un TableLayout en .MainActivity para implementar los promedios en l
 <p>Commit38. Medio Implementados fragments en .MainActivity e Implementado nuevo .EjercicioActivity
 con botones que darán paso a la actividad que contendra el CRUD de Ejercicio, hay que cambiar el
 actual .EjercicioActivity y transformarlo en el fragment</p>
+<p>Commit39. Implementados los 4 Fragments Dinámicos en .MainActivity a través de buttons en vez de
+linearslayouts, facilita el switch onClick, implementados los botones del fragment Ejercicios que
+inician .Activity_e_CRUD y conseguimos enviar un string diferente por cada button pulsado</p>
 <h3>TASK</h3>
     <ul>
+    <li>1. Con el string enviado a traves del intent tenemos que seleccionar onCreate el fragment a
+    visualizar al iniciar .Activity_e_CRUD</li>
     <li>1. Implementar conjunto de fragments en .EjercicioActivity para un uso mas vistoso del CRUD
     propio de la actividad, adecuarlo a los tamaños nuevos para LG K8</li>
     <li>2. Copiar el CRUD en fragments de .EjercicioActivity y exportarlo a .PesajeActivity</li>
     <li>3. Hacer usable la app por mi e ir viendo la ejecucion</li>
-    <li>4. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView, comprobar
-        en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
+    <li>4a. Hacer, dl, mod 4 iconos para .MainActivity("Promedios","Pesajes","Ejericicos","Backups")
+    </li>
+    <li>4b. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView,
+    comprobar en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
     <li>5. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>
     <li>6. Valorar probabilidad de convertir .PrivacidadActivity en un Fragment</li>
     <li>7. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>

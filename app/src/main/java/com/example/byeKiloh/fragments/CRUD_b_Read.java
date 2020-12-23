@@ -12,10 +12,10 @@ import com.example.byeKiloh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragPesajes#newInstance} factory method to
+ * Use the {@link CRUD_b_Read#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragPesajes extends Fragment {
+public class CRUD_b_Read extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class FragPesajes extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragPesajes() {
+    public CRUD_b_Read() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class FragPesajes extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragPesajes.
+     * @return A new instance of fragment CRUD_b_Read.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragPesajes newInstance(String param1, String param2) {
-        FragPesajes fragment = new FragPesajes();
+    public static CRUD_b_Read newInstance(String param1, String param2) {
+        CRUD_b_Read fragment = new CRUD_b_Read();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class FragPesajes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag_pesajes, container, false);
+        return inflater.inflate(R.layout.fragment_crud_b_read, container, false);
     }
 }
