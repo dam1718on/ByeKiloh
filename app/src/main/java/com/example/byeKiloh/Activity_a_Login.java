@@ -48,7 +48,7 @@ public class Activity_a_Login extends AppCompatActivity {
         setContentView(R.layout.activity_a_login);
 
         btnCrearCuenta = findViewById(R.id.btnCrearCuenta);
-        btnIniciarSesion = findViewById(R.id.btnGuardarUsuario);
+        btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
         cbMantenerSesion = findViewById(R.id.cbMantenerSesion);
         etUsuario = findViewById(R.id.etUsuario);
         etPass = findViewById(R.id.etPass);

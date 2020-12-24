@@ -58,6 +58,7 @@
     <li>Commit37. Cambio en la referencia de medida</li>
     <li>Commit38. Iniciada implementación de fragments en .MainActivity/li>
     <li>Commit39. Fragments a fragments. incio proceso</li>
+    <li>Commit40. Fragments a fragments hecho</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -123,12 +124,13 @@ actual .EjercicioActivity y transformarlo en el fragment</p>
 <p>Commit39. Implementados los 4 Fragments Dinámicos en .MainActivity a través de buttons en vez de
 linearslayouts, facilita el switch onClick, implementados los botones del fragment Ejercicios que
 inician .Activity_e_CRUD y conseguimos enviar un string diferente por cada button pulsado</p>
+<p>Commit40. Consigo enviar un string a través de un intent desde el fragment Main_c_Ejercicios de
+la actividad .Activity_d_Main que permite cargar los fragment asociados en .Activity_e_CRUD
+{CRUD_a_Create, CRUD_b_Read, CRUD_c_Updata y CRUD_d_Delete}</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. Con el string enviado a traves del intent tenemos que seleccionar onCreate el fragment a
-    visualizar al iniciar .Activity_e_CRUD</li>
-    <li>1. Implementar conjunto de fragments en .EjercicioActivity para un uso mas vistoso del CRUD
-    propio de la actividad, adecuarlo a los tamaños nuevos para LG K8</li>
+    <li>1. Propagar el método de Fragment a fragment tambien a: Main_b_Pesajes e implementar otra
+    Activity para ello</li>
     <li>2. Copiar el CRUD en fragments de .EjercicioActivity y exportarlo a .PesajeActivity</li>
     <li>3. Hacer usable la app por mi e ir viendo la ejecucion</li>
     <li>4a. Hacer, dl, mod 4 iconos para .MainActivity("Promedios","Pesajes","Ejericicos","Backups")

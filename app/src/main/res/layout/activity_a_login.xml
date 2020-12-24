@@ -131,7 +131,7 @@
             style="@style/shadoweffect" />
 
         <Button
-            android:id="@+id/btnGuardarUsuario"
+            android:id="@+id/btnIniciarSesion"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_marginLeft="80dp"

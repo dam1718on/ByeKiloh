@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/platino"
     android:orientation="vertical"
-    tools:context=".Activity_a_Login">
+    tools:context=".Activity_e_CRUD">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,28 +27,52 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="- CRUD -"
-        android:textColor="@color/azuloscuro"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvFragMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_gravity="center"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        style="@style/shadoweffect"/>
-
-    <FrameLayout
-        android:id="@+id/contenedorFragmentosCRUD"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="355dp" />
+        android:layout_height="355dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="- CRUD -"
+            android:textColor="@color/azuloscuro"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:id="@+id/contenedorFragmentosCRUD"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnVolverAlMain"
+            style="@style/shadoweffect"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/rounded_button_gradient_orange"
+            android:text="VOLVER\nAL MAIN"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnnoway"
+            style="@style/shadoweffect"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/rounded_button_gradient_orange"
+            android:text="GUARDAR\nUSUARIO"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </LinearLayout>

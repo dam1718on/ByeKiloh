@@ -1,7 +1,5 @@
 package com.example.byeKiloh;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
 import android.content.Intent;
 
@@ -17,6 +15,8 @@ import android.text.method.PasswordTransformationMethod;
 
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -31,7 +31,7 @@ import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.*;
 
 public class Activity_b_Registro extends AppCompatActivity {
 
-    private Button btnVolverAtras, btnRegistro;
+    private Button btnVolverALogin, btnGuardarUsuario;
     private CheckBox cbAcepto;
     private EditText etUsuario, etContrasena, etContrasenaRe;
     private ImageView imgPass, imgPassRe;
@@ -49,8 +49,8 @@ public class Activity_b_Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b_registro);
 
-        btnVolverAtras = findViewById(R.id.btnVolverALogin);
-        btnRegistro = findViewById(R.id.btnGuardarUsuario);
+        btnVolverALogin = findViewById(R.id.btnVolverALogin);
+        btnGuardarUsuario = findViewById(R.id.btnIniciarSesion);
         cbAcepto = findViewById(R.id.cbAcepto);
         etUsuario = findViewById(R.id.etUsuario);
         etContrasena = findViewById(R.id.etContrasena);
@@ -152,7 +152,7 @@ public class Activity_b_Registro extends AppCompatActivity {
 
         });
 
-        btnRegistro.setOnClickListener(new View.OnClickListener() {
+        btnGuardarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Primer if comprueba que no hay EditText vacíos
@@ -248,7 +248,7 @@ public class Activity_b_Registro extends AppCompatActivity {
 
         });
 
-        btnVolverAtras.setOnClickListener(new View.OnClickListener() {
+        btnVolverALogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Creamos Intent para volver a .Activity_a_Login

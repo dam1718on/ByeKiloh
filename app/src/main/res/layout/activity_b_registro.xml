@@ -221,7 +221,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnGuardarUsuario"
+            android:id="@+id/btnIniciarSesion"
             style="@style/shadoweffect"
             android:layout_width="120dp"
             android:layout_height="60dp"

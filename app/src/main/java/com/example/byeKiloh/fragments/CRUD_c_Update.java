@@ -12,10 +12,10 @@ import com.example.byeKiloh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CRUD_c_Upload#newInstance} factory method to
+ * Use the {@link CRUD_c_Update#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CRUD_c_Upload extends Fragment {
+public class CRUD_c_Update extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class CRUD_c_Upload extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CRUD_c_Upload() {
+    public CRUD_c_Update() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class CRUD_c_Upload extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CRUD_c_Upload.
+     * @return A new instance of fragment CRUD_c_Update.
      */
     // TODO: Rename and change types and number of parameters
-    public static CRUD_c_Upload newInstance(String param1, String param2) {
-        CRUD_c_Upload fragment = new CRUD_c_Upload();
+    public static CRUD_c_Update newInstance(String param1, String param2) {
+        CRUD_c_Update fragment = new CRUD_c_Update();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class CRUD_c_Upload extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_crud_c_upload, container, false);
+        return inflater.inflate(R.layout.fragment_crud_c_update, container, false);
     }
 }

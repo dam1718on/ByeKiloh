@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.byeKiloh.fragments.*;
@@ -21,6 +22,7 @@ public class Activity_d_Main extends AppCompatActivity {
     private TextView tvUsuarioMain;
     private Menu menu;
 
+    //Fragments asociados a esta Activity
     Main_a_Promedios mainaPromedios;
     Main_b_Pesajes mainbPesajes;
     Main_c_Ejercicios maincEjercicios;
@@ -39,6 +41,7 @@ public class Activity_d_Main extends AppCompatActivity {
         btnEjercicios = findViewById(R.id.btnEjercicios);
         btnBackups = findViewById(R.id.btnBackups);
         tvUsuarioMain=findViewById(R.id.tvUsuarioMain);
+
         //Recibimos Usuario por intent desde .Activity_a_Login
         final Usuario usuarioLogin = (Usuario) getIntent().getSerializableExtra("usuario");
         //Creo Usuario_copia del Usuario recibido
@@ -58,29 +61,6 @@ public class Activity_d_Main extends AppCompatActivity {
         //Fragment que se visualiza por defecto onCreate
         getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragmentosMAIN, mainaPromedios).commit();
 
-        /*//LinearLayout clickeable que contiene un intent
-        llEjercicios.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Creamos intent para ir a .EjercicioActivity y le enviamos Usuario
-                Intent intent = new Intent(getApplicationContext(), EjercicioActivity.class);
-                intent.putExtra("usuario", usuarioLogin);
-                startActivity(intent);
-                //mensaje = new Mensaje(getApplicationContext(), "CRUD Ejercicio");
-            }
-
-        });*/
-
-        /*btnCreateEjercicios.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Creamos intent para ir a .Activity_e_CRUD
-                Intent intent = new Intent(getApplicationContext(), Activity_e_CRUD.class);
-                startActivity(intent);
-            }
-
-        });*/
-
     }
 
     //Método onClick para cambiar entre fragments
@@ -89,13 +69,13 @@ public class Activity_d_Main extends AppCompatActivity {
 
         switch(view.getId()) {
             case R.id.btnPromedios:
-                    transaction.replace(R.id.contenedorFragmentosMAIN, mainaPromedios);
+                transaction.replace(R.id.contenedorFragmentosMAIN, mainaPromedios);
                 break;
             case R.id.btnPesajes:
-                    transaction.replace(R.id.contenedorFragmentosMAIN, mainbPesajes);
+                transaction.replace(R.id.contenedorFragmentosMAIN, mainbPesajes);
                 break;
             case R.id.btnEjercicios:
-                    transaction.replace(R.id.contenedorFragmentosMAIN, maincEjercicios);
+                transaction.replace(R.id.contenedorFragmentosMAIN, maincEjercicios);
                 break;
             case R.id.btnBackups:
                 transaction.replace(R.id.contenedorFragmentosMAIN, maindBackups);
