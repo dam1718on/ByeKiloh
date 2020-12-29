@@ -1,4 +1,4 @@
-package com.example.byeKiloh;
+package com.example.byeKiloh.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,13 +21,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.byeKiloh.R;
 import com.example.byeKiloh.datapersistence.*;
 import com.example.byeKiloh.objects.*;
 import com.example.byeKiloh.utils.*;
 
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.*;
 
-public class Activity_a_Login extends AppCompatActivity {
+public class A_Login extends AppCompatActivity {
 
     private Button btnCrearCuenta, btnIniciarSesion;
     private CheckBox cbMantenerSesion;
@@ -91,8 +92,8 @@ public class Activity_a_Login extends AppCompatActivity {
         btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Creamos Intent para ir a .Activity_b_Registro
-            Intent intent = new Intent(getApplicationContext(), Activity_b_Registro.class);
+            //Creamos Intent para ir a .B_Registro
+            Intent intent = new Intent(getApplicationContext(), B_Registro.class);
             startActivity(intent);
             }
         });
@@ -158,8 +159,8 @@ public class Activity_a_Login extends AppCompatActivity {
                             etUsuario.setText("");
                             etPass.setText("");
                         }
-                        //Creamos intent para ir a .Activity_d_Main y le enviamos Usuario
-                        Intent intent = new Intent(getApplicationContext(), Activity_d_Main.class);
+                        //Creamos intent para ir a .D_Main y le enviamos Usuario
+                        Intent intent = new Intent(getApplicationContext(), D_Main.class);
                         intent.putExtra("usuario", usuario);
                         startActivity(intent);
                     } else {

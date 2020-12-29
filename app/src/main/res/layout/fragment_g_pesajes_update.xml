@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CRUD_b_Read">
+    tools:context=".fragments.G_Pesajes_Update">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="READ"
+        android:text="UPDATE"
         android:textColor="@color/naranjaflojo"
         android:textSize="17sp"
         android:textStyle="bold" />

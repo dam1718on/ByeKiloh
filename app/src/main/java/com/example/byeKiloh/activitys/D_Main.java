@@ -1,4 +1,4 @@
-package com.example.byeKiloh;
+package com.example.byeKiloh.activitys;
 
 import android.os.Bundle;
 
@@ -12,21 +12,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.byeKiloh.R;
 import com.example.byeKiloh.fragments.*;
 import com.example.byeKiloh.objects.*;
 import com.example.byeKiloh.utils.*;
 
-public class Activity_d_Main extends AppCompatActivity {
+public class D_Main extends AppCompatActivity {
 
+    public int idUs;
     private Button btnPromedios, btnPesajes, btnEjercicios, btnBackups;
     private TextView tvUsuarioMain;
     private Menu menu;
 
     //Fragments asociados a esta Activity
-    Main_a_Promedios mainaPromedios;
-    Main_b_Pesajes mainbPesajes;
-    Main_c_Ejercicios maincEjercicios;
-    Main_d_Backups maindBackups;
+    A_Main_Promedios mainaPromedios;
+    B_Main_Pesajes mainbPesajes;
+    C_Main_Ejercicios maincEjercicios;
+    D_Main_Backups maindBackups;
+
+    //int idUs;
 
     Mensaje mensaje;
     Usuario usuario;
@@ -42,21 +46,23 @@ public class Activity_d_Main extends AppCompatActivity {
         btnBackups = findViewById(R.id.btnBackups);
         tvUsuarioMain=findViewById(R.id.tvUsuarioMain);
 
-        //Recibimos Usuario por intent desde .Activity_a_Login
+        //Recibimos Usuario por intent desde .A_Login
         final Usuario usuarioLogin = (Usuario) getIntent().getSerializableExtra("usuario");
         //Creo Usuario_copia del Usuario recibido
         usuario = new Usuario(usuarioLogin);
         //Imprimo la copia del usuario recibido
         tvUsuarioMain.setText(usuario.getUsuario());
 
+        idUs = usuario.getIdUsuario();
+
         //menu=findViewById(((Menu) R.menu.main_menu));
         //menu.getItem(nav_home);
 
         //Iniciamos los fragments
-        mainaPromedios = new Main_a_Promedios();
-        mainbPesajes = new Main_b_Pesajes();
-        maincEjercicios = new Main_c_Ejercicios();
-        maindBackups = new Main_d_Backups();
+        mainaPromedios = new A_Main_Promedios();
+        mainbPesajes = new B_Main_Pesajes();
+        maincEjercicios = new C_Main_Ejercicios();
+        maindBackups = new D_Main_Backups();
 
         //Fragment que se visualiza por defecto onCreate
         getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragmentosMAIN, mainaPromedios).commit();

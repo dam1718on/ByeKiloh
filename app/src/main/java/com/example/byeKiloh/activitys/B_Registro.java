@@ -1,4 +1,4 @@
-package com.example.byeKiloh;
+package com.example.byeKiloh.activitys;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -23,13 +23,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.byeKiloh.R;
 import com.example.byeKiloh.objects.*;
 import com.example.byeKiloh.datapersistence.*;
 import com.example.byeKiloh.utils.*;
 
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.*;
 
-public class Activity_b_Registro extends AppCompatActivity {
+public class B_Registro extends AppCompatActivity {
 
     private Button btnVolverALogin, btnGuardarUsuario;
     private CheckBox cbAcepto;
@@ -71,8 +72,8 @@ public class Activity_b_Registro extends AppCompatActivity {
         tvCondicionesServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para visualizar .Activity_c_Privacidad
-                Intent intent = new Intent(getApplicationContext(), Activity_c_Privacidad.class);
+                //Creamos Intent para visualizar .C_Privacidad
+                Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
                 startActivity(intent);
 
                 mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
@@ -85,8 +86,8 @@ public class Activity_b_Registro extends AppCompatActivity {
         tvPoliticaPrivacidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para visualizar .Activity_c_Privacidad
-                Intent intent = new Intent(getApplicationContext(), Activity_c_Privacidad.class);
+                //Creamos Intent para visualizar .C_Privacidad
+                Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
                 startActivity(intent);
 
                 mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
@@ -227,9 +228,9 @@ public class Activity_b_Registro extends AppCompatActivity {
                                     etUsuario.setText("");
                                     etContrasena.setText("");
                                     etContrasenaRe.setText("");
-                                    //Abrimos un intent para volver a .Activity_a_Login
+                                    //Abrimos un intent para volver a .A_Login
                                     Intent intent = new Intent(getApplicationContext(),
-                                            Activity_a_Login.class);
+                                            A_Login.class);
                                     startActivity(intent);
                                 }
                                 //Se cierra el cursor
@@ -251,8 +252,8 @@ public class Activity_b_Registro extends AppCompatActivity {
         btnVolverALogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para volver a .Activity_a_Login
-                Intent intent = new Intent(getApplicationContext(), Activity_a_Login.class);
+                //Creamos Intent para volver a .A_Login
+                Intent intent = new Intent(getApplicationContext(), A_Login.class);
                 startActivity(intent);
             }
 

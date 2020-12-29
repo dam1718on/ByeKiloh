@@ -1,4 +1,4 @@
-package com.example.byeKiloh;
+package com.example.byeKiloh.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,9 @@ import android.view.View;
 
 import android.widget.Button;
 
-public class Activity_c_Privacidad extends AppCompatActivity {
+import com.example.byeKiloh.R;
+
+public class C_Privacidad extends AppCompatActivity {
 
     private Button btnLeido;
 
@@ -24,8 +26,8 @@ public class Activity_c_Privacidad extends AppCompatActivity {
         btnLeido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para volver a .Activity_b_Registro
-                Intent intent = new Intent(getApplicationContext(), Activity_b_Registro.class);
+                //Creamos Intent para volver a .B_Registro
+                Intent intent = new Intent(getApplicationContext(), B_Registro.class);
                 startActivity(intent);
 
             }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/platino"
     android:orientation="vertical"
-    tools:context=".activitys.C_Privacidad">
+    tools:context=".activitys.E_PesajesCrud">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,45 +36,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="- Términos y Condiciones -"
+            android:text="- Pesajes_CRUD -"
             android:textColor="@color/azuloscuro"
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <ScrollView
+        <FrameLayout
+            android:id="@+id/contenedorFragPesa"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:text="@string/privacidad"
-                android:textColor="@color/azuloscuro"
-                android:textSize="11sp" />
-
-        </ScrollView>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnLeido"
+            android:id="@+id/btnVolverAlMain"
+            style="@style/shadoweffect"
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/rounded_button_gradient_orange"
-            android:text="LEIDO"
-            android:textStyle="bold"
-            style="@style/shadoweffect" />
+            android:text="VOLVER\nAL MAIN"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnnoway"
+            style="@style/shadoweffect"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/rounded_button_gradient_orange"
+            android:text="NO\nWAY"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

@@ -2,20 +2,20 @@ package com.example.byeKiloh.fragments;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.byeKiloh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Main_a_Promedios#newInstance} factory method to
+ * Use the {@link A_Main_Promedios#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Main_a_Promedios extends Fragment {
+public class A_Main_Promedios extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class Main_a_Promedios extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Main_a_Promedios() {
+    public A_Main_Promedios() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class Main_a_Promedios extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Main_a_Promedios.
+     * @return A new instance of fragment A_Main_Promedios.
      */
     // TODO: Rename and change types and number of parameters
-    public static Main_a_Promedios newInstance(String param1, String param2) {
-        Main_a_Promedios fragment = new Main_a_Promedios();
+    public static A_Main_Promedios newInstance(String param1, String param2) {
+        A_Main_Promedios fragment = new A_Main_Promedios();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,7 +60,7 @@ public class Main_a_Promedios extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_a_promedios, container, false);
+        return inflater.inflate(R.layout.fragment_a_main_promedios, container, false);
     }
 
 }

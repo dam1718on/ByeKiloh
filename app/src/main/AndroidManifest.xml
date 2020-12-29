@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.byeKiloh">
 
     <application
@@ -10,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MenuA">
-        <activity android:name=".Activity_e_CRUD"></activity>
-        <activity android:name=".Activity_a_Login">
+        <activity android:name=".activitys.E_PesajesCrud"></activity>
+        <activity android:name=".activitys.F_EjerciciosCrud" />
+        <activity android:name=".activitys.A_Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,16 +19,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity_b_Registro"
-            android:parentActivityName=".Activity_a_Login" />
-        <activity android:name=".Activity_c_Privacidad" />
+            android:name=".activitys.B_Registro"
+            android:parentActivityName=".activitys.A_Login" />
+        <activity android:name=".activitys.C_Privacidad" />
         <activity
-            android:name=".Activity_d_Main"
-            android:parentActivityName=".Activity_a_Login"
+            android:name=".activitys.D_Main"
+            android:parentActivityName=".activitys.A_Login"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".EjercicioActivity"
-            android:parentActivityName=".Activity_d_Main" />
+            android:parentActivityName=".activitys.D_Main" />
     </application>
 
 </manifest>

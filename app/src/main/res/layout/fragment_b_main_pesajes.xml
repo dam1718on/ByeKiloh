@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/platino"
-    tools:context=".fragments.Main_d_Backups">
+    tools:context=".fragments.B_Main_Pesajes">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -18,13 +18,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="BACKUPS\nEN CONSTRUCCION"
-            android:textAlignment="center"
+            android:text="PESAJES"
             android:textColor="@color/naranjaflojo"
             android:textSize="17sp"
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btnCreatePesajes"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
@@ -35,6 +35,7 @@
             style="@style/shadoweffect" />
 
         <Button
+            android:id="@+id/btnReadPesajes"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
@@ -45,6 +46,7 @@
             style="@style/shadoweffect" />
 
         <Button
+            android:id="@+id/btnUpdatePesajes"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
@@ -55,6 +57,7 @@
             style="@style/shadoweffect" />
 
         <Button
+            android:id="@+id/btnDeletePesajes"
             android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
@@ -65,6 +68,5 @@
             style="@style/shadoweffect" />
 
     </LinearLayout>
-
 
 </FrameLayout>

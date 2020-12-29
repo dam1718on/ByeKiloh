@@ -2,20 +2,20 @@ package com.example.byeKiloh.fragments;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.byeKiloh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Main_b_Pesajes#newInstance} factory method to
+ * Use the {@link D_Main_Backups#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Main_b_Pesajes extends Fragment {
+public class D_Main_Backups extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class Main_b_Pesajes extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Main_b_Pesajes() {
+    public D_Main_Backups() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class Main_b_Pesajes extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Main_b_Pesajes.
+     * @return A new instance of fragment D_Main_Backups.
      */
     // TODO: Rename and change types and number of parameters
-    public static Main_b_Pesajes newInstance(String param1, String param2) {
-        Main_b_Pesajes fragment = new Main_b_Pesajes();
+    public static D_Main_Backups newInstance(String param1, String param2) {
+        D_Main_Backups fragment = new D_Main_Backups();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class Main_b_Pesajes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_b_pesajes, container, false);
+        return inflater.inflate(R.layout.fragment_d_main_backups, container, false);
     }
 }

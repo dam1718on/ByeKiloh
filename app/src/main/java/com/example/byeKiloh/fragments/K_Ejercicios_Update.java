@@ -2,20 +2,20 @@ package com.example.byeKiloh.fragments;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.byeKiloh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Main_d_Backups#newInstance} factory method to
+ * Use the {@link K_Ejercicios_Update#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Main_d_Backups extends Fragment {
+public class K_Ejercicios_Update extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class Main_d_Backups extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Main_d_Backups() {
+    public K_Ejercicios_Update() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class Main_d_Backups extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Main_d_Backups.
+     * @return A new instance of fragment K_Ejercicios_Update.
      */
     // TODO: Rename and change types and number of parameters
-    public static Main_d_Backups newInstance(String param1, String param2) {
-        Main_d_Backups fragment = new Main_d_Backups();
+    public static K_Ejercicios_Update newInstance(String param1, String param2) {
+        K_Ejercicios_Update fragment = new K_Ejercicios_Update();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class Main_d_Backups extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_d_backups, container, false);
+        return inflater.inflate(R.layout.fragment_k_ejercicios_update, container, false);
     }
 }

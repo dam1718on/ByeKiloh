@@ -12,15 +12,15 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.byeKiloh.Activity_e_CRUD;
+import com.example.byeKiloh.activitys.E_PesajesCrud;
 import com.example.byeKiloh.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Main_c_Ejercicios#newInstance} factory method to
+ * Use the {@link B_Main_Pesajes#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Main_c_Ejercicios extends Fragment {
+public class B_Main_Pesajes extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,11 +31,13 @@ public class Main_c_Ejercicios extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    View vista;
-    Button btnCreateEjercicios, btnReadEjercicios, btnUpdateEjercicios, btnDeleteEjercicios;
-    String frag = "";
+    View vistaP;
+    Button btnCreatePesajes, btnReadPesajes, btnUpdatePesajes, btnDeletePesajes;
+    String fragPesa = "";
 
-    public Main_c_Ejercicios() {    }
+    public B_Main_Pesajes() {
+        // Required empty public constructor
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -43,11 +45,11 @@ public class Main_c_Ejercicios extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Main_c_Ejercicios.
+     * @return A new instance of fragment B_Main_Pesajes.
      */
     // TODO: Rename and change types and number of parameters
-    public static Main_c_Ejercicios newInstance(String param1, String param2) {
-        Main_c_Ejercicios fragment = new Main_c_Ejercicios();
+    public static B_Main_Pesajes newInstance(String param1, String param2) {
+        B_Main_Pesajes fragment = new B_Main_Pesajes();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,61 +68,61 @@ public class Main_c_Ejercicios extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-         Bundle savedInstanceState) {
+        Bundle savedInstanceState) {
 
-        vista = inflater.inflate(R.layout.fragment_main_c_ejercicios, container, false);
+        vistaP = inflater.inflate(R.layout.fragment_b_main_pesajes, container, false);
 
-        btnCreateEjercicios = vista.findViewById(R.id.btnCreateEjercicios);
-        btnReadEjercicios = vista. findViewById(R.id.btnReadEjercicios);
-        btnUpdateEjercicios = vista.findViewById(R.id.btnUpdateEjercicios);
-        btnDeleteEjercicios = vista.findViewById(R.id.btnDeleteEjercicios);
+        btnCreatePesajes = vistaP.findViewById(R.id.btnCreatePesajes);
+        btnReadPesajes = vistaP.findViewById(R.id.btnReadPesajes);
+        btnUpdatePesajes = vistaP.findViewById(R.id.btnUpdatePesajes);
+        btnDeletePesajes = vistaP.findViewById(R.id.btnDeletePesajes);
 
-        //Creamos los intent que inician .Activity_e_CRUD
-        btnCreateEjercicios.setOnClickListener(new View.OnClickListener() {
+        //Creamos los intent que inician .E_PesajesCrud
+        btnCreatePesajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            frag = "uno";
-            Intent intent = new Intent(getActivity(), Activity_e_CRUD.class);
-            intent.putExtra("nfrag", frag);
+            fragPesa = "uno";
+            Intent intent = new Intent(getActivity(), E_PesajesCrud.class);
+            intent.putExtra("nfragp", fragPesa);
             startActivity(intent);
             }
 
         });
 
-        btnReadEjercicios.setOnClickListener(new View.OnClickListener() {
+        btnReadPesajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            frag = "dos";
-            Intent intent = new Intent(getActivity(), Activity_e_CRUD.class);
-            intent.putExtra("nfrag", frag);
+            fragPesa = "dos";
+            Intent intent = new Intent(getActivity(), E_PesajesCrud.class);
+            intent.putExtra("nfragp", fragPesa);
             startActivity(intent);
             }
 
         });
 
-        btnUpdateEjercicios.setOnClickListener(new View.OnClickListener() {
+        btnUpdatePesajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            frag = "tres";
-            Intent intent = new Intent(getActivity(), Activity_e_CRUD.class);
-            intent.putExtra("nfrag", frag);
+            fragPesa = "tres";
+            Intent intent = new Intent(getActivity(), E_PesajesCrud.class);
+            intent.putExtra("nfragp", fragPesa);
             startActivity(intent);
             }
 
         });
 
-        btnDeleteEjercicios.setOnClickListener(new View.OnClickListener() {
+        btnDeletePesajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            frag = "cuatro";
-            Intent intent = new Intent(getActivity(), Activity_e_CRUD.class);
-            intent.putExtra("nfrag", frag);
+            fragPesa = "cuatro";
+            Intent intent = new Intent(getActivity(), E_PesajesCrud.class);
+            intent.putExtra("nfragp", fragPesa);
             startActivity(intent);
             }
 
         });
 
-        return vista;
+        return vistaP;
 
     }
 

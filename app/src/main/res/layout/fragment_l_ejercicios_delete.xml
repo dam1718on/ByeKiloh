@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.L_Ejercicios_Delete">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/platino"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="DELETE"
+            android:textColor="@color/naranjaflojo"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_edittext_solid_orange"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="10dp"
+                android:text="SPINNER CON TODOS LOS EJERCICIOS GUARDADOS:"
+                android:textColor="@color/azuloscuro"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinEjerciciosU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:text="EJERCICIO SELECCIONADO:"
+                android:textColor="@color/azuloscuro"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etFechaU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits="0123456789"
+                android:hint="fecha"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etDistanciaU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits="0123456789"
+                android:hint="distancia"
+                android:maxLength="5"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etTiempoU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits="0123456789"
+                android:hint="tiempo"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etInclinacionU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits=",.0123456789"
+                android:hint="inclinación"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnBorrarEjercicioU"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button_gradient_blue"
+                android:text="BORRAR\nEJERCICIO"
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

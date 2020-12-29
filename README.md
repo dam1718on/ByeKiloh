@@ -57,8 +57,9 @@
     <li>Commit36. Inicio del proceso de ajuste para LG K8(LG-K350)</li>
     <li>Commit37. Cambio en la referencia de medida</li>
     <li>Commit38. Iniciada implementación de fragments en .MainActivity/li>
-    <li>Commit39. Fragments a fragments. incio proceso</li>
-    <li>Commit40. Fragments a fragments hecho</li>
+    <li>Commit39. Fragment to fragment. incio proceso</li>
+    <li>Commit40. Fragment to fragment hecho</li>
+    <li>Commit41. Diseño .xml de los fragments de .F_EjerciciosCrud</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -127,11 +128,15 @@ inician .Activity_e_CRUD y conseguimos enviar un string diferente por cada butto
 <p>Commit40. Consigo enviar un string a través de un intent desde el fragment Main_c_Ejercicios de
 la actividad .Activity_d_Main que permite cargar los fragment asociados en .Activity_e_CRUD
 {CRUD_a_Create, CRUD_b_Read, CRUD_c_Updata y CRUD_d_Delete}</p>
+<p>Commit41. Implemento la activity .E_PesajesCrud en la que propago el Fragment to fragment, se
+renombran todos los archivos de la aplicación con la intención de facilitar su lectura y uso,
+terminado el diseño .xml de la Activity .F_EjerciciosCrud incluidos todos los fragments, se consigue
+terminar la parte lógica del fragment I_Ejercicios_Create ya recibe correctamente el idUsuario</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. Propagar el método de Fragment a fragment tambien a: Main_b_Pesajes e implementar otra
-    Activity para ello</li>
-    <li>2. Copiar el CRUD en fragments de .EjercicioActivity y exportarlo a .PesajeActivity</li>
+    <li>1. Parte lógica de los fragments: Read, Update y Delete de EjerciciosCRUD</li>
+    <li>2a. Diseño .xml de la Activity .E_PesajesCrud</li>
+    <li>2b. Parte lógica de todos los fragments de PesajesCRUD</li>
     <li>3. Hacer usable la app por mi e ir viendo la ejecucion</li>
     <li>4a. Hacer, dl, mod 4 iconos para .MainActivity("Promedios","Pesajes","Ejericicos","Backups")
     </li>

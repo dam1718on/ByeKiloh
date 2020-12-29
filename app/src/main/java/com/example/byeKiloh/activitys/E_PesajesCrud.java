@@ -1,4 +1,4 @@
-package com.example.byeKiloh;
+package com.example.byeKiloh.activitys;
 
 import android.os.Bundle;
 
@@ -9,55 +9,56 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.byeKiloh.R;
 import com.example.byeKiloh.fragments.*;
 
-public class Activity_e_CRUD extends AppCompatActivity {
+public class E_PesajesCrud extends AppCompatActivity {
 
     private Button btnVolverAlMain;
 
     //fragments asociados a esta Activity
-    CRUD_a_Create crudaCreate;
-    CRUD_b_Read crudbRead;
-    CRUD_c_Update crudcUpload;
-    CRUD_d_Delete cruddDelete;
+    E_Pesajes_Create pesaeCreate;
+    F_Pesajes_Read pesafRead;
+    G_Pesajes_Update pesagUpdate;
+    H_Pesajes_Delete pesahDelete;
 
-    String fragCRUD;
+    String fragPesaCRUD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_e_crud);
+        setContentView(R.layout.activity_e_pesajescrud);
 
         btnVolverAlMain = findViewById(R.id.btnVolverAlMain);
 
         //Iniciamos los fragments
-        crudaCreate = new CRUD_a_Create();
-        crudbRead = new CRUD_b_Read();
-        crudcUpload = new CRUD_c_Update();
-        cruddDelete = new CRUD_d_Delete();
+        pesaeCreate = new E_Pesajes_Create();
+        pesafRead = new F_Pesajes_Read();
+        pesagUpdate = new G_Pesajes_Update();
+        pesahDelete = new H_Pesajes_Delete();
 
-        //Recibimos String por intent desde el fragment Main_c_Ejercicios
-        final String frag = (String) getIntent().getSerializableExtra("nfrag");
+        //Recibimos String por intent desde el fragment C_Main_Pesajes
+        final String fragPesa = (String) getIntent().getSerializableExtra("nfragp");
         //Creo String_copia del String recibido
-        fragCRUD = new String(frag);
+        fragPesaCRUD = new String(fragPesa);
 
-        //Fragment de inicio en función del String enviado a través del intent de .Activity_d_Main
+        //Fragment de inicio en función del String enviado a través del intent de .D_Main
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
-            .add(R.id.contenedorFragmentosCRUD, crudaCreate);
+                .add(R.id.contenedorFragPesa, pesaeCreate);
 
         //según valor se carga uno u otro fragment
-        switch(fragCRUD) {
+        switch(fragPesaCRUD) {
             case "uno":
-                transaction.replace(R.id.contenedorFragmentosCRUD, crudaCreate);
+                transaction.replace(R.id.contenedorFragPesa, pesaeCreate);
                 break;
             case "dos":
-                transaction.replace(R.id.contenedorFragmentosCRUD, crudbRead);
+                transaction.replace(R.id.contenedorFragPesa, pesafRead);
                 break;
             case "tres":
-                transaction.replace(R.id.contenedorFragmentosCRUD, crudcUpload);
+                transaction.replace(R.id.contenedorFragPesa, pesagUpdate);
                 break;
             case "cuatro":
-                transaction.replace(R.id.contenedorFragmentosCRUD, cruddDelete);
+                transaction.replace(R.id.contenedorFragPesa, pesahDelete);
                 break;
             default:
                 break;

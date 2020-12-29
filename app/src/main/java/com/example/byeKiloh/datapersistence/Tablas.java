@@ -30,7 +30,7 @@ public class Tablas {
 
     public static abstract class EstructuraEjercicio implements BaseColumns {
 
-        public static final String TABLE_NAME = "Main_c_Ejercicios";
+        public static final String TABLE_NAME = "Ejercicios";
         public static final String _IDEJERCICIO = "idEjercicio";
         public static final String COLUMN_NAME_FECHA = "fecha";
         public static final String COLUMN_NAME_DISTANCIA = "distancia";
@@ -44,7 +44,7 @@ public class Tablas {
 
     public static abstract class EstructuraPesaje implements BaseColumns {
 
-        public static final String TABLE_NAME = "Main_b_Pesajes";
+        public static final String TABLE_NAME = "Pesajes";
         public static final String _IDPESAJE = "idPesaje";
         public static final String COLUMN_NAME_PESO = "peso";
         public static final String COLUMN_NAME_ALTURA = "altura";

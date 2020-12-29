@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/platino"
-    tools:context=".fragments.Main_c_Ejercicios">
+    tools:context=".fragments.C_Main_Ejercicios">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -21,6 +21,17 @@
             android:text="EJERCICIOS"
             android:textColor="@color/naranjaflojo"
             android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvUserId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center"
+            android:text="EJERCICIOS"
+            android:textColor="@color/azuloscuro"
+            android:textSize="11sp"
             android:textStyle="bold" />
 
         <Button
