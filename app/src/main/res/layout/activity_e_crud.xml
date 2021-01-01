@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/platino"
     android:orientation="vertical"
-    tools:context=".activitys.F_EjerciciosCrud">
+    tools:context=".activitys.E_Crud">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="- Ejercicios_CRUD -"
+            android:text="- CRUD -"
             android:textColor="@color/azuloscuro"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -51,26 +51,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnVolverAlMain2"
+            android:id="@+id/btnVolverAlMain"
             style="@style/shadoweffect"
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
             android:background="@drawable/rounded_button_gradient_orange"
             android:text="VOLVER\nAL MAIN"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btnnoway2"
-            style="@style/shadoweffect"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="80dp"
-            android:background="@drawable/rounded_button_gradient_orange"
-            android:text="NO\nWAY2"
             android:textStyle="bold" />
 
     </LinearLayout>

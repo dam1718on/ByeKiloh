@@ -15,8 +15,7 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.byeKiloh.activitys.D_Main;
-import com.example.byeKiloh.activitys.F_EjerciciosCrud;
+import com.example.byeKiloh.activitys.E_Crud;
 import com.example.byeKiloh.datapersistence.*;
 import com.example.byeKiloh.objects.*;
 import com.example.byeKiloh.R;
@@ -52,11 +51,12 @@ public class I_Ejercicios_Create extends Fragment {
     String idI;
 
     //Se carga la activity para poder extraer el idUsuario
-    public F_EjerciciosCrud fejerCrud;
+    public E_Crud fejerCrud;
 
     BaseDatos basedatos;
     Ejercicio ejercicio;
     Mensaje mensaje;
+    VaciarEditText vaciarEditText;
 
     public I_Ejercicios_Create() {
         // Required empty public constructor
@@ -104,7 +104,7 @@ public class I_Ejercicios_Create extends Fragment {
         btnAnadirEjercicioC = vistaEC.findViewById(R.id.btnAnadirEjercicioC);
 
         //Instanciamos la activity que contiene la variable
-        fejerCrud = (F_EjerciciosCrud) getActivity();
+        fejerCrud = (E_Crud) getActivity();
         idI = fejerCrud.fragEjerUsId;
 
         basedatos = new BaseDatos(getActivity());
@@ -118,7 +118,7 @@ public class I_Ejercicios_Create extends Fragment {
                 etTiempoC.getText().toString().equals("") ||
                 etInclinacionC.getText().toString().equals("")) {
                 mensaje = new Mensaje(getActivity(), "Revise los datos " +
-                        "introducidos\ntodos los campos son obligatorios");
+                    "introducidos\ntodos los campos son obligatorios");
             } else {
                 countError=1;
                 //Comprobamos número mínimo de carácteres en cada EditText
@@ -126,16 +126,14 @@ public class I_Ejercicios_Create extends Fragment {
                 numMinL(etDistanciaC, 3, "Distancia");
                 numMinL(etTiempoC, 2, "Tiempo");
                 numMinL(etInclinacionC, 1, "Inclinacion");
+
                 //Segundo if comprueba si se cumple con el mínimo de carácteres para cada EditText
                 if(countError == 1) {
-
                     //Se crea objeto Ejercicio con parámetros
                     ejercicio = new Ejercicio(etFechaC.getText().toString(),
                         Integer.parseInt(etDistanciaC.getText().toString()),
                         Integer.parseInt(etTiempoC.getText().toString()),
-                        etInclinacionC.getText().toString(),
-                            Integer.parseInt(idI)//1
-                    );
+                        etInclinacionC.getText().toString(), Integer.parseInt(idI));
                     //Se otorgan permisos de escritura
                     SQLiteDatabase sqlite = basedatos.getWritableDatabase();
                     //EstructuraEjercicio de insercción de datos
@@ -151,9 +149,12 @@ public class I_Ejercicios_Create extends Fragment {
                     sqlite.insert(TABLE_NAME, null, content);
                     //Mensaje de éxito al añadir
                     mensaje = new Mensaje(getActivity(), "El Ejercicio ha sido almacenado");
-                    vaciarEditText();
+                    //Limpiamos los EditText
+                    vaciarEditText = new VaciarEditText(etFechaC, etDistanciaC, etTiempoC,
+                        etInclinacionC);
                     //Se cierra la conexión abierta a la Base de Datos
                     sqlite.close();
+
                 }
             }
         }
@@ -176,14 +177,6 @@ public class I_Ejercicios_Create extends Fragment {
             countError += 1;
         }
 
-    }
-
-    //Método que vacía los EditText, si x vale 1 vacía los de Añadir y si vale 2 los de Seleccionado
-    public void vaciarEditText() {
-        etFechaC.setText("");
-        etDistanciaC.setText("");
-        etTiempoC.setText("");
-        etInclinacionC.setText("");
     }
 
 }

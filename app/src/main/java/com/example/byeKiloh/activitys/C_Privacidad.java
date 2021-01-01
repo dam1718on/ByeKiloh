@@ -26,10 +26,9 @@ public class C_Privacidad extends AppCompatActivity {
         btnLeido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para volver a .B_Registro
-                Intent intent = new Intent(getApplicationContext(), B_Registro.class);
-                startActivity(intent);
-
+            //Creamos Intent para volver a .B_Registro
+            Intent intent = new Intent(getApplicationContext(), B_Registro.class);
+            startActivity(intent);
             }
 
         });

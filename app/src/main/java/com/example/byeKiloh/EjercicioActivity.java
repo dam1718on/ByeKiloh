@@ -26,7 +26,7 @@ public class EjercicioActivity extends AppCompatActivity {
         /*//btnAnadirEjercicio = findViewById(R.id.btnAnadirEjercicio);
         //btnActualizar = findViewById(R.id.btnActualizar);
         //btnBorrar = findViewById(R.id.btnBorrar);
-        btnVolverE = findViewById(R.id.btnVolverAlMain2);
+        btnVolverE = findViewById(R.id.btnVolverAlMain);
 
         //etFecha = findViewById(R.id.etFecha);
         //etDistancia = findViewById(R.id.etDistancia);

@@ -12,25 +12,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.byeKiloh.R;
 import com.example.byeKiloh.fragments.*;
 import com.example.byeKiloh.objects.*;
+import com.example.byeKiloh.R;
 import com.example.byeKiloh.utils.*;
 
 public class D_Main extends AppCompatActivity {
 
-    public int idUs;
     private Button btnPromedios, btnPesajes, btnEjercicios, btnBackups;
     private TextView tvUsuarioMain;
     private Menu menu;
 
     //Fragments asociados a esta Activity
-    A_Main_Promedios mainaPromedios;
-    B_Main_Pesajes mainbPesajes;
-    C_Main_Ejercicios maincEjercicios;
-    D_Main_Backups maindBackups;
+    private A_Main_Promedios mainaPromedios;
+    private B_Main_Pesajes mainbPesajes;
+    private C_Main_Ejercicios maincEjercicios;
+    private D_Main_Backups maindBackups;
 
-    //int idUs;
+    public int idUs;
 
     Mensaje mensaje;
     Usuario usuario;

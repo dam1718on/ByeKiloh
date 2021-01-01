@@ -44,6 +44,7 @@ public class B_Registro extends AppCompatActivity {
 
     BaseDatos basedatos;
     Mensaje mensaje;
+    VaciarEditText vaciarEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,13 +73,11 @@ public class B_Registro extends AppCompatActivity {
         tvCondicionesServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para visualizar .C_Privacidad
-                Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
-                startActivity(intent);
-
-                mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
-                        "servicio y Política de privacidad");
-
+            //Creamos Intent para visualizar .C_Privacidad
+            Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
+            startActivity(intent);
+            mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
+                "servicio y Política de privacidad");
             }
 
         });
@@ -86,13 +85,11 @@ public class B_Registro extends AppCompatActivity {
         tvPoliticaPrivacidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para visualizar .C_Privacidad
-                Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
-                startActivity(intent);
-
-                mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
-                        "servicio y Política de privacidad");
-
+            //Creamos Intent para visualizar .C_Privacidad
+            Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
+            startActivity(intent);
+            mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
+                "servicio y Política de privacidad");
             }
 
         });
@@ -102,25 +99,24 @@ public class B_Registro extends AppCompatActivity {
             boolean selectPassRe = false;
             @Override
             public void onClick(View v) {
-                if(!selectPassRe) {
-                    selectPassRe = true;
-                    etContrasenaRe.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            if(!selectPassRe) {
+                selectPassRe = true;
+                etContrasenaRe.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                    if(etContrasenaRe.getText().length() > 0) {
-                        etContrasenaRe.setSelection(etContrasenaRe.getText().length());
-                        imgPassRe.setBackgroundResource(R.drawable.ic_visible);
-                    }
-
-                } else {
-                    selectPassRe = false;
-                    etContrasenaRe.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
-                    if(etContrasenaRe.getText().length() > 0) {
-                        etContrasenaRe.setSelection(etContrasenaRe.getText().length());
-                        imgPassRe.setBackgroundResource(R.drawable.ic_visible_no);
-                    }
-
+                if(etContrasenaRe.getText().length() > 0) {
+                    etContrasenaRe.setSelection(etContrasenaRe.getText().length());
+                    imgPassRe.setBackgroundResource(R.drawable.ic_visible);
                 }
+            } else {
+                selectPassRe = false;
+                etContrasenaRe.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+                if(etContrasenaRe.getText().length() > 0) {
+                    etContrasenaRe.setSelection(etContrasenaRe.getText().length());
+                    imgPassRe.setBackgroundResource(R.drawable.ic_visible_no);
+                }
+            }
+
             }
 
         });
@@ -130,25 +126,24 @@ public class B_Registro extends AppCompatActivity {
             boolean selectPass = false;
             @Override
             public void onClick(View v) {
-                if(!selectPass) {
-                    selectPass = true;
-                    etContrasena.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            if(!selectPass) {
+                selectPass = true;
+                etContrasena.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                    if(etContrasena.getText().length() > 0) {
-                        etContrasena.setSelection(etContrasena.getText().length());
-                        imgPass.setBackgroundResource(R.drawable.ic_visible);
-                    }
-
-                } else {
-                    selectPass = false;
-                    etContrasena.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
-                    if (etContrasena.getText().length() > 0) {
-                        etContrasena.setSelection(etContrasena.getText().length());
-                        imgPass.setBackgroundResource(R.drawable.ic_visible_no);
-                    }
-
+                if(etContrasena.getText().length() > 0) {
+                    etContrasena.setSelection(etContrasena.getText().length());
+                    imgPass.setBackgroundResource(R.drawable.ic_visible);
                 }
+            } else {
+                selectPass = false;
+                etContrasena.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+                if (etContrasena.getText().length() > 0) {
+                    etContrasena.setSelection(etContrasena.getText().length());
+                    imgPass.setBackgroundResource(R.drawable.ic_visible_no);
+                }
+            }
+
             }
 
         });
@@ -156,94 +151,93 @@ public class B_Registro extends AppCompatActivity {
         btnGuardarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Primer if comprueba que no hay EditText vacíos
-                Usuario usuario;
-                if (etUsuario.getText().toString().equals("") ||
-                        etContrasena.getText().toString().equals("") ||
-                        etContrasenaRe.getText().toString().equals("")) {
-                    mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
-                            "introducidos\ntodos los campos son obligatorios");
-                } else {
-                    countError=1;
-                    //Comprobamos número mínimo de carácteres en cada EditText
-                    numMinL(etUsuario, 4, "Usuario");
-                    numMinL(etContrasena, 6, "Contraseña");
-                    numMinL(etContrasenaRe, 6, "Confirmar Contraseña");
+            //Primer if comprueba que no hay EditText vacíos
+            Usuario usuario;
+            if (etUsuario.getText().toString().equals("") ||
+                etContrasena.getText().toString().equals("") ||
+                etContrasenaRe.getText().toString().equals("")) {
+                mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
+                    "introducidos\ntodos los campos son obligatorios");
+            } else {
+                countError=1;
+                //Comprobamos número mínimo de carácteres en cada EditText
+                numMinL(etUsuario, 4, "Usuario");
+                numMinL(etContrasena, 6, "Contraseña");
+                numMinL(etContrasenaRe, 6, "Confirmar Contraseña");
 
-                    //Segundo if comprueba si se cumple con el mínimo de carácteres
-                    if (countError == 1) {
-                        //Se crea e inicializa el objeto usuario
-                        usuario = new Usuario();
-                        //Se recogen los datos de los EditText
-                        usuario.setUsuario(etUsuario.getText().toString());
-                        usuario.setContraseña(etContrasena.getText().toString());
-                        String passRe = etContrasenaRe.getText().toString();
+                //Segundo if comprueba si se cumple con el mínimo de carácteres
+                if (countError == 1) {
+                    //Se crea e inicializa el objeto usuario
+                    usuario = new Usuario();
+                    //Se recogen los datos de los EditText
+                    usuario.setUsuario(etUsuario.getText().toString());
+                    usuario.setContraseña(etContrasena.getText().toString());
+                    String passRe = etContrasenaRe.getText().toString();
 
-                        //Tercer if comprueba si no coinciden las contraseñas
-                        if (!usuario.getContraseña().equals(passRe)) {
-                            mensaje = new Mensaje(getApplicationContext(), "Las Contraseñas " +
-                                    "introducidas\nno coinciden");
-                        } else {
+                    //Tercer if comprueba si no coinciden las contraseñas
+                    if (!usuario.getContraseña().equals(passRe)) {
+                        mensaje = new Mensaje(getApplicationContext(), "Las Contraseñas " +
+                                "introducidas\nno coinciden");
+                    } else {
 
-                            //Cuarto if comprueba que los Terminos y Condiciones están aceptados
-                            if (cbAcepto.isChecked()){
-                                //Se establece conexion con permisos de lectura
-                                SQLiteDatabase sqlite = basedatos.getReadableDatabase();
-                                //Columnas que recogerá los datos de la consulta
-                                String[] columnas = {_IDUSUARIO, COLUMN_NAME_USUARIO,
-                                        COLUMN_NAME_CONTRASEÑA};
-                                //Cláusula WHERE para buscar por usuario
-                                String usuarioSQL = COLUMN_NAME_USUARIO + " LIKE '" +
-                                        usuario.getUsuario() + "'";
-                                //Orden de los resultados devueltos por usuario, de forma
-                                // Descendente alfabéticamente
-                                String ordenSalida = COLUMN_NAME_USUARIO + " DESC";
-                                //Ejecuta la sentencia devolviendo los resultados de los parámetros
-                                // pasados de tabla, columnas, usuario y orden de los resultados.
-                                Cursor cursor = sqlite.query(TABLE_NAME, columnas, usuarioSQL,
-                                        null, null, null, ordenSalida);
+                        //Cuarto if comprueba que los Terminos y Condiciones están aceptados
+                        if (cbAcepto.isChecked()){
+                            //Se establece conexion con permisos de lectura
+                            SQLiteDatabase sqlite = basedatos.getReadableDatabase();
+                            //Columnas que recogerá los datos de la consulta
+                            String[] columnas = {_IDUSUARIO, COLUMN_NAME_USUARIO,
+                                    COLUMN_NAME_CONTRASEÑA};
+                            //Cláusula WHERE para buscar por usuario
+                            String usuarioSQL = COLUMN_NAME_USUARIO + " LIKE '" +
+                                usuario.getUsuario() + "'";
+                            //Orden de los resultados devueltos por usuario, de forma
+                            // Descendente alfabéticamente
+                            String ordenSalida = COLUMN_NAME_USUARIO + " DESC";
+                            //Ejecuta la sentencia devolviendo los resultados de los parámetros
+                            // pasados de tabla, columnas, usuario y orden de los resultados.
+                            Cursor cursor = sqlite.query(TABLE_NAME, columnas, usuarioSQL,
+                                    null, null, null, ordenSalida);
 
-                                //Quinto if comprueba que el cursor no esté vacío
-                                if (cursor.getCount() != 0) {
-                                    cursor.moveToFirst();
-                                    mensaje = new Mensaje(getApplicationContext(), "El nombre de" +
-                                            " usuario: " + usuario.getUsuario() + "\nno está disponible, " +
-                                            "pruebe con otro");
-                                    etUsuario.setText("");
-                                } else {
-                                    //Aqui se introduce el usuario nuevo en la base de datos
-                                    //Se ganan tambien permisos de escritura
-                                    sqlite = basedatos.getWritableDatabase();
-                                    //EstructuraUsuario de insercción de datos
-                                    ContentValues content = new ContentValues();
-                                    //Se añaden los valores introducidos de cada campo mediante
-                                    // clave(columna)/valor(valor introducido en el campo de texto)
-                                    content.put(COLUMN_NAME_USUARIO, usuario.getUsuario());
-                                    content.put(COLUMN_NAME_CONTRASEÑA, usuario.getContraseña());
-                                    sqlite.insert(TABLE_NAME, null, content);
-                                    //Registro exitoso
-                                    mensaje = new Mensaje(getApplicationContext(), "El usuario " +
-                                            usuario.getUsuario() + "\nse registró con éxito");
-                                    //Reseteo de los EditText
-                                    etUsuario.setText("");
-                                    etContrasena.setText("");
-                                    etContrasenaRe.setText("");
-                                    //Abrimos un intent para volver a .A_Login
-                                    Intent intent = new Intent(getApplicationContext(),
-                                            A_Login.class);
-                                    startActivity(intent);
-                                }
-                                //Se cierra el cursor
-                                cursor.close();
-                                //Se cierra la conexión abierta a la Base de Datos
-                                sqlite.close();
+                            //Quinto if comprueba que el cursor no esté vacío
+                            if (cursor.getCount() != 0) {
+                                cursor.moveToFirst();
+                                mensaje = new Mensaje(getApplicationContext(), "El nombre de" +
+                                    " usuario: " + usuario.getUsuario() + "\nno está disponible, " +
+                                    "pruebe con otro");
+                                vaciarEditText = new VaciarEditText(etUsuario);
                             } else {
-                                mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los" +
-                                        " Términos y\nCondiciones para poder registrarse");
+                                //Aqui se introduce el usuario nuevo en la base de datos
+                                //Se ganan tambien permisos de escritura
+                                sqlite = basedatos.getWritableDatabase();
+                                //EstructuraUsuario de insercción de datos
+                                ContentValues content = new ContentValues();
+                                //Se añaden los valores introducidos de cada campo mediante
+                                // clave(columna)/valor(valor introducido en el campo de texto)
+                                content.put(COLUMN_NAME_USUARIO, usuario.getUsuario());
+                                content.put(COLUMN_NAME_CONTRASEÑA, usuario.getContraseña());
+                                sqlite.insert(TABLE_NAME, null, content);
+                                //Registro exitoso
+                                mensaje = new Mensaje(getApplicationContext(), "El usuario " +
+                                        usuario.getUsuario() + "\nse registró con éxito");
+                                //Reseteo de los EditText
+                                vaciarEditText = new VaciarEditText(etUsuario, etContrasena,
+                                    etContrasenaRe);
+                                //Abrimos un intent para volver a .A_Login
+                                Intent intent = new Intent(getApplicationContext(), A_Login.class);
+                                startActivity(intent);
                             }
+                            //Se cierra el cursor
+                            cursor.close();
+                            //Se cierra la conexión abierta a la Base de Datos
+                            sqlite.close();
+                        } else {
+                            mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los" +
+                                " Términos y\nCondiciones para poder registrarse");
+
                         }
                     }
                 }
+            }
 
             }
 
@@ -252,9 +246,9 @@ public class B_Registro extends AppCompatActivity {
         btnVolverALogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Creamos Intent para volver a .A_Login
-                Intent intent = new Intent(getApplicationContext(), A_Login.class);
-                startActivity(intent);
+            //Creamos Intent para volver a .A_Login
+            Intent intent = new Intent(getApplicationContext(), A_Login.class);
+            startActivity(intent);
             }
 
         });

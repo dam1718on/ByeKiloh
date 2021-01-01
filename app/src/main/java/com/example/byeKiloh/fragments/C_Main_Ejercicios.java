@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -35,9 +34,8 @@ public class C_Main_Ejercicios extends Fragment {
     View vistaE;
 
     private Button btnCreateEjercicios, btnReadEjercicios, btnUpdateEjercicios, btnDeleteEjercicios;
-    private TextView tvUserId;
 
-    String fragEjer;
+    String fragId;
     String idC;
 
     //Se carga la activity para poder extraer el idUsuario y propagarlo a los fragments
@@ -86,21 +84,17 @@ public class C_Main_Ejercicios extends Fragment {
         btnUpdateEjercicios = vistaE.findViewById(R.id.btnUpdateEjercicios);
         btnDeleteEjercicios = vistaE.findViewById(R.id.btnDeleteEjercicios);
 
-        tvUserId = vistaE.findViewById(R.id.tvUserId);
-
         //Instanciamos la activity que contiene la variable
         dmain = (D_Main) getActivity();
         idC = String.valueOf(dmain.idUs);
 
-        tvUserId.setText(idC);
-
-        //Creamos los intent que inician .F_EjerciciosCrud combinando el nºfragment con el idUsuario
+        //Creamos los intent que inician .E_Crud combinando el nºfragment con el idUsuario
         btnCreateEjercicios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            fragEjer = "1";
-            Intent intent = new Intent(getActivity(), F_EjerciciosCrud.class);
-            intent.putExtra("nfrag", fragEjer+"-"+idC);
+            fragId = "e1";
+            Intent intent = new Intent(getActivity(), E_Crud.class);
+            intent.putExtra("nfrag", fragId + "-" + idC);
             startActivity(intent);
             }
 
@@ -109,9 +103,9 @@ public class C_Main_Ejercicios extends Fragment {
         btnReadEjercicios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            fragEjer = "2";
-            Intent intent = new Intent(getActivity(), F_EjerciciosCrud.class);
-            intent.putExtra("nfrag", fragEjer+"-"+idC);
+            fragId = "e2";
+            Intent intent = new Intent(getActivity(), E_Crud.class);
+            intent.putExtra("nfrag", fragId + "-" + idC);
             startActivity(intent);
             }
 
@@ -120,9 +114,9 @@ public class C_Main_Ejercicios extends Fragment {
         btnUpdateEjercicios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            fragEjer = "3";
-            Intent intent = new Intent(getActivity(), F_EjerciciosCrud.class);
-            intent.putExtra("nfrag", fragEjer+"-"+idC);
+            fragId = "e3";
+            Intent intent = new Intent(getActivity(), E_Crud.class);
+            intent.putExtra("nfrag", fragId + "-" + idC);
             startActivity(intent);
             }
 
@@ -131,15 +125,16 @@ public class C_Main_Ejercicios extends Fragment {
         btnDeleteEjercicios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            fragEjer = "4";
-            Intent intent = new Intent(getActivity(), F_EjerciciosCrud.class);
-            intent.putExtra("nfrag", fragEjer+"-"+idC);
+            fragId = "e4";
+            Intent intent = new Intent(getActivity(), E_Crud.class);
+            intent.putExtra("nfrag", fragId + "-" + idC);
             startActivity(intent);
             }
 
         });
 
         return vistaE;
+
     }
 
 }

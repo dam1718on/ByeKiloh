@@ -42,6 +42,7 @@ public class A_Login extends AppCompatActivity {
 
     BaseDatos basedatos;
     Mensaje mensaje;
+    VaciarEditText vaciarEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,7 +148,7 @@ public class A_Login extends AppCompatActivity {
                             SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
-                            etPass.setText("");
+                            vaciarEditText = new VaciarEditText(etPass);
                         } else {
                             //Le pasamos usuario="" al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos",
@@ -156,8 +157,7 @@ public class A_Login extends AppCompatActivity {
                             SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
                             editor.commit();
-                            etUsuario.setText("");
-                            etPass.setText("");
+                            vaciarEditText = new VaciarEditText(etUsuario, etPass);
                         }
                         //Creamos intent para ir a .D_Main y le enviamos Usuario
                         Intent intent = new Intent(getApplicationContext(), D_Main.class);
@@ -165,15 +165,13 @@ public class A_Login extends AppCompatActivity {
                         startActivity(intent);
                     } else {
                         mensaje = new Mensaje(getApplicationContext(), "La contraseña no es " +
-                                "correcta");
-                        etPass.setText("");
+                            "correcta");
+                        vaciarEditText = new VaciarEditText(etPass);
                     }
-
                 } else {
                     mensaje = new Mensaje(getApplicationContext(), "El usuario: " +
-                            usuario.getUsuario() + " no existe");
-                    etUsuario.setText("");
-                    etPass.setText("");
+                        usuario.getUsuario() + " no existe");
+                    vaciarEditText = new VaciarEditText(etUsuario, etPass);
                 }
                 //Se cierra cursor
                 cursor.close();

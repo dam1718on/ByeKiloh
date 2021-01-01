@@ -61,6 +61,10 @@
     <li>Commit40. Fragment to fragment hecho</li>
     <li>Commit41. Diseño .xml de los fragments de .F_EjerciciosCrud</li>
     </ul>
+<p>--same branch: format1.3 "6000 líneas de código más 400 líneas de documentacion sin apis"</p>
+    <ul>
+    <li>Commit42. Diseño y Lógica de los fragments de Ejercicios finalizada</li>
+    </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
 "Mantener sesion iniciada"(CheckBox). SharedPreferences para Mantener sesion iniciada. nuevo branch
@@ -132,21 +136,26 @@ la actividad .Activity_d_Main que permite cargar los fragment asociados en .Acti
 renombran todos los archivos de la aplicación con la intención de facilitar su lectura y uso,
 terminado el diseño .xml de la Activity .F_EjerciciosCrud incluidos todos los fragments, se consigue
 terminar la parte lógica del fragment I_Ejercicios_Create ya recibe correctamente el idUsuario</p>
+<p>Commit42. Implementada lógica de los 4 fragments correspondientes a Ejercicios. Unifico las
+activitis E_PesajesCrud y F_EjerciciosCrud en una única: E_Crud la cual soporta todos los fragments
+y deriva el id de fragment y de usuario</p>
 <h3>TASK</h3>
     <ul>
-    <li>1. Parte lógica de los fragments: Read, Update y Delete de EjerciciosCRUD</li>
+    <li>1a. Pesaje-Clase-Obj</li>
+    <li>1b. Pesaje-Tabla</li>
+    <li>1c. Pesaje-CRUD</li>
     <li>2a. Diseño .xml de la Activity .E_PesajesCrud</li>
     <li>2b. Parte lógica de todos los fragments de PesajesCRUD</li>
-    <li>3. Hacer usable la app por mi e ir viendo la ejecucion</li>
-    <li>4a. Hacer, dl, mod 4 iconos para .MainActivity("Promedios","Pesajes","Ejericicos","Backups")
+    <li>3a. Promedios</li>
+    <li>3b. Hacer usable la app por mi e ir viendo la ejecucion</li>
+    <li>4a. Splash y fondo corporativo</li>
+    <li>4b. Hacer, dl, mod 4 iconos para .MainActivity("Promedios","Pesajes","Ejericicos","Backups")
     </li>
-    <li>4b. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView,
+    <li>4c. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView,
     comprobar en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
     <li>5. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>
     <li>6. Valorar probabilidad de convertir .PrivacidadActivity en un Fragment</li>
-    <li>7. Implementar la clase Pesaje, buscar hueco para el CRUD del Pesaje</li>
-    <li>8. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
-    <li>8. Hacer diferentes degradados de azul-blanco en activity_main.xml</li>
+    <li>7. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
     <li>9. Atento a los Float.parseFloat, de inclinacion y velocidad</li>
     <li>-. Implementar Ejercicio complejo/porTramos</li>
     <li>-. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
@@ -154,7 +163,6 @@ terminar la parte lógica del fragment I_Ejercicios_Create ya recibe correctamen
     <li>-. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>
     <li>-. Poder cerrar sesión desde el Menu de la .MainActivity, vaciando el shared y volviendo al
     .Login</li>
-    <li>5. Hacer .Splash</li>
     <li>6. SharedPreferences !=empty, para poder dejar sesion iniciada con intent en oncreate</li>
     <li>Implementar un menu para el Usuario/Cuenta</li>
     <li>Posibilidad de implementar un diseño para día y otro para noche</li>

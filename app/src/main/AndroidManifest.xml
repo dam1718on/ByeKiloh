@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MenuA">
-        <activity android:name=".activitys.E_PesajesCrud"></activity>
-        <activity android:name=".activitys.F_EjerciciosCrud" />
+        <activity android:name=".activitys.E_Crud" />
         <activity android:name=".activitys.A_Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

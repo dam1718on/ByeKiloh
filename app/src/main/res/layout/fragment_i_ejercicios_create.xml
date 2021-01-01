@@ -16,9 +16,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="6dp"
             android:gravity="center"
-            android:text="CREATE"
+            android:text="EJERCICIOS CREATE"
             android:textColor="@color/naranjaflojo"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -26,7 +26,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="6dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/rounded_edittext_solid_orange"
@@ -55,7 +55,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
                 android:textColorHint="@color/naranjaflojo"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -71,7 +71,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
                 android:textColorHint="@color/naranjaflojo"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -87,7 +87,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
                 android:textColorHint="@color/naranjaflojo"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -103,7 +103,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
                 android:textColorHint="@color/naranjaflojo"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <Button

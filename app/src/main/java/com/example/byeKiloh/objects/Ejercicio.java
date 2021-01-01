@@ -86,7 +86,7 @@ public class Ejercicio {
                 " con " + distancia +
                 " m en " + tiempo +
                 " min\n    velocidad " + velocidad +
-                " consumoE " + consumoE +
+               // " consumoE " + consumoE +
                 " inclinación " + inclinacion;
 
     }

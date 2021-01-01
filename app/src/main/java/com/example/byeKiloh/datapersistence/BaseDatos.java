@@ -56,7 +56,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     //Se declaran e inicializan las variables encargadas de crear la Base de Datos 'byeKiloh.sqlite'.
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "byeKiloh2.sqlite";
+    public static final String DATABASE_NAME = "byeKiloh.sqlite";
 
     public BaseDatos(Context context) { super(context, DATABASE_NAME, null, DATABASE_VERSION); }
 

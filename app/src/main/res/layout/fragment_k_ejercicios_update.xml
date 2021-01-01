@@ -9,24 +9,24 @@
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/platino"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="UPDATE"
+            android:text="EJERCICIOS UPDATE"
             android:textColor="@color/naranjaflojo"
             android:textSize="17sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="6dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/rounded_edittext_solid_orange"
@@ -35,11 +35,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginLeft="10dp"
                 android:text="SPINNER CON TODOS LOS EJERCICIOS GUARDADOS:"
                 android:textColor="@color/azuloscuro"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Spinner
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:spinnerMode="dialog" />
 
             <TextView
@@ -57,7 +57,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="EJERCICIO SELECCIONADO:"
                 android:textColor="@color/azuloscuro"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -67,13 +67,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:digits="0123456789"
-                android:hint="fecha"
+                android:hint="fecha  [YYMMDD]"
                 android:maxLength="6"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
+                android:textColor="@color/naranjaflojo"
+                android:textColorHint="@color/azuloscuro"
+                android:textSize="15.5sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -83,13 +83,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:digits="0123456789"
-                android:hint="distancia"
+                android:hint="distancia  [metros]"
                 android:maxLength="5"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
+                android:textColor="@color/naranjaflojo"
+                android:textColorHint="@color/azuloscuro"
+                android:textSize="15.5sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -99,13 +99,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:digits="0123456789"
-                android:hint="tiempo"
+                android:hint="tiempo  [minutos]"
                 android:maxLength="3"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
+                android:textColor="@color/naranjaflojo"
+                android:textColorHint="@color/azuloscuro"
+                android:textSize="15.5sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -119,15 +119,15 @@
                 android:maxLength="4"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
+                android:textColor="@color/naranjaflojo"
+                android:textColorHint="@color/azuloscuro"
+                android:textSize="15.5sp"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnActualizarEjercicioU"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rounded_button_gradient_blue"

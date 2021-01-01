@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.byeKiloh.activitys.E_PesajesCrud;
+import com.example.byeKiloh.activitys.*;
 import com.example.byeKiloh.R;
 
 /**
@@ -32,8 +32,14 @@ public class B_Main_Pesajes extends Fragment {
     private String mParam2;
 
     View vistaP;
-    Button btnCreatePesajes, btnReadPesajes, btnUpdatePesajes, btnDeletePesajes;
-    String fragPesa = "";
+
+    private Button btnCreatePesajes, btnReadPesajes, btnUpdatePesajes, btnDeletePesajes;
+
+    String fragId;
+    String idB;
+
+    //Se carga la activity para poder extraer el idUsuario y propagarlo a los fragments
+    public D_Main dmain2;
 
     public B_Main_Pesajes() {
         // Required empty public constructor
@@ -47,6 +53,7 @@ public class B_Main_Pesajes extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment B_Main_Pesajes.
      */
+
     // TODO: Rename and change types and number of parameters
     public static B_Main_Pesajes newInstance(String param1, String param2) {
         B_Main_Pesajes fragment = new B_Main_Pesajes();
@@ -77,13 +84,17 @@ public class B_Main_Pesajes extends Fragment {
         btnUpdatePesajes = vistaP.findViewById(R.id.btnUpdatePesajes);
         btnDeletePesajes = vistaP.findViewById(R.id.btnDeletePesajes);
 
-        //Creamos los intent que inician .E_PesajesCrud
+        //Instanciamos la activity que contiene la variable
+        dmain2 = (D_Main) getActivity();
+        idB = String.valueOf(dmain2.idUs);
+
+        //Creamos los intent que inician .E_Crud
         btnCreatePesajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            fragPesa = "uno";
-            Intent intent = new Intent(getActivity(), E_PesajesCrud.class);
-            intent.putExtra("nfragp", fragPesa);
+            fragId = "p1";
+            Intent intent = new Intent(getActivity(), E_Crud.class);
+            intent.putExtra("nfrag", fragId + "-" + idB);
             startActivity(intent);
             }
 
@@ -92,9 +103,9 @@ public class B_Main_Pesajes extends Fragment {
         btnReadPesajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            fragPesa = "dos";
-            Intent intent = new Intent(getActivity(), E_PesajesCrud.class);
-            intent.putExtra("nfragp", fragPesa);
+            fragId = "p2";
+            Intent intent = new Intent(getActivity(), E_Crud.class);
+            intent.putExtra("nfrag", fragId + "-" + idB);
             startActivity(intent);
             }
 
@@ -103,9 +114,9 @@ public class B_Main_Pesajes extends Fragment {
         btnUpdatePesajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            fragPesa = "tres";
-            Intent intent = new Intent(getActivity(), E_PesajesCrud.class);
-            intent.putExtra("nfragp", fragPesa);
+            fragId = "p3";
+            Intent intent = new Intent(getActivity(), E_Crud.class);
+            intent.putExtra("nfrag", fragId + "-" + idB);
             startActivity(intent);
             }
 
@@ -114,9 +125,9 @@ public class B_Main_Pesajes extends Fragment {
         btnDeletePesajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            fragPesa = "cuatro";
-            Intent intent = new Intent(getActivity(), E_PesajesCrud.class);
-            intent.putExtra("nfragp", fragPesa);
+            fragId = "p4";
+            Intent intent = new Intent(getActivity(), E_Crud.class);
+            intent.putExtra("nfrag", fragId + "-" + idB);
             startActivity(intent);
             }
 

@@ -18,9 +18,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="BACKUPS\nEN CONSTRUCCION"
+            android:text="BACKUPS"
             android:textAlignment="center"
             android:textColor="@color/naranjaflojo"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:text="EN CONSTRUCCION"
+            android:textAlignment="center"
+            android:textColor="@color/azuloscuro"
             android:textSize="17sp"
             android:textStyle="bold" />
 
