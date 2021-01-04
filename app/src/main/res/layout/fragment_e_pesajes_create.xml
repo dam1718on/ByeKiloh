@@ -7,14 +7,120 @@
     tools:context=".fragments.E_Pesajes_Create">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="PESAJES CREATE"
-        android:textColor="@color/naranjaflojo"
-        android:textSize="17sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:background="@color/platino"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="PESAJES CREATE"
+            android:textColor="@color/naranjaflojo"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_edittext_solid_orange"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:text="AÑADIR PESAJE:"
+                android:textColor="@color/azuloscuro"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etFechaPC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits="0123456789"
+                android:hint="Fecha (ej. 201215) [YYMMDD]"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPesoC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits=",0123456789"
+                android:hint="Peso (ej. 99,99) [Kg]"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etAlturaC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits=",0123456789"
+                android:hint="Altura (ej. 1,79) [metros]"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etLugarC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                úÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:hint="Lugar del pesaje (ej. FARMACIA EUROPA)"
+                android:maxLength="23"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnAnadirPesajeC"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="12dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button_gradient_blue"
+                android:text="AÑADIR\nPESAJE"
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

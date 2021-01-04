@@ -7,14 +7,137 @@
     tools:context=".fragments.G_Pesajes_Update">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="PESAJES UPDATE"
-        android:textColor="@color/naranjaflojo"
-        android:textSize="17sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:background="@color/platino"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="PESAJES UPDATE"
+            android:textColor="@color/naranjaflojo"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_edittext_solid_orange"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:text="SPINNER CON TODOS LOS PESAJES GUARDADOS:"
+                android:textColor="@color/azuloscuro"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinPesajesU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:text="PESAJE SELECCIONADO:"
+                android:textColor="@color/azuloscuro"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etFechaPU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits="0123456789"
+                android:hint="fecha  [YYMMDD]"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/naranjaflojo"
+                android:textColorHint="@color/azuloscuro"
+                android:textSize="15.5sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPesoU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits=",0123456789"
+                android:hint="peso [Kg]"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/naranjaflojo"
+                android:textColorHint="@color/azuloscuro"
+                android:textSize="15.5sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etAlturaU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits=",0123456789"
+                android:hint="altura [metros]"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/naranjaflojo"
+                android:textColorHint="@color/azuloscuro"
+                android:textSize="15.5sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etLugarR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                úÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:hint="inclinación"
+                android:maxLength="23"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/naranjaflojo"
+                android:textColorHint="@color/azuloscuro"
+                android:textSize="15.5sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnActualizarPesajeU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button_gradient_blue"
+                android:text="ACTUALIZAR\nPESAJE"
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

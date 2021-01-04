@@ -53,7 +53,7 @@ public class L_Ejercicios_Delete extends Fragment {
     String idD;
 
     //Se carga la activity para poder extraer el idUsuario
-    public E_Crud lejerCrud;
+    public E_Crud dejerCrud;
 
     BaseDatos basedatos;
     Ejercicio ejercicio;
@@ -108,8 +108,8 @@ public class L_Ejercicios_Delete extends Fragment {
         spinEjerciciosD = vistaED.findViewById(R.id.spinEjerciciosD);
 
         //Instanciamos la activity que contiene la variable
-        lejerCrud = (E_Crud) getActivity();
-        idD = lejerCrud.fragEjerUsId;
+        dejerCrud = (E_Crud) getActivity();
+        idD = dejerCrud.fragEjerUsId;
 
         basedatos = new BaseDatos(getActivity());
 

@@ -64,6 +64,7 @@
 <p>--same branch: format1.3 "6000 líneas de código más 400 líneas de documentacion sin apis"</p>
     <ul>
     <li>Commit42. Diseño y Lógica de los fragments de Ejercicios finalizada</li>
+    <li>Commit43. Pesaje: clase-obj, tabla y fragments del CRUD finalizado</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -139,13 +140,10 @@ terminar la parte lógica del fragment I_Ejercicios_Create ya recibe correctamen
 <p>Commit42. Implementada lógica de los 4 fragments correspondientes a Ejercicios. Unifico las
 activitis E_PesajesCrud y F_EjerciciosCrud en una única: E_Crud la cual soporta todos los fragments
 y deriva el id de fragment y de usuario</p>
+<p>Commit43. Implementado la Tabla, Clase y Objeto de Pesaje. Y los 4 fragments del crud. Resuelto
+problema con los strings y los float al hacer cálculos (uso replace para cambiar la "," a ".")</p>
 <h3>TASK</h3>
     <ul>
-    <li>1a. Pesaje-Clase-Obj</li>
-    <li>1b. Pesaje-Tabla</li>
-    <li>1c. Pesaje-CRUD</li>
-    <li>2a. Diseño .xml de la Activity .E_PesajesCrud</li>
-    <li>2b. Parte lógica de todos los fragments de PesajesCRUD</li>
     <li>3a. Promedios</li>
     <li>3b. Hacer usable la app por mi e ir viendo la ejecucion</li>
     <li>4a. Splash y fondo corporativo</li>

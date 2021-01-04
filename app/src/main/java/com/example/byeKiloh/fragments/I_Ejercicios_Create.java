@@ -51,7 +51,7 @@ public class I_Ejercicios_Create extends Fragment {
     String idI;
 
     //Se carga la activity para poder extraer el idUsuario
-    public E_Crud fejerCrud;
+    public E_Crud cejerCrud;
 
     BaseDatos basedatos;
     Ejercicio ejercicio;
@@ -104,8 +104,8 @@ public class I_Ejercicios_Create extends Fragment {
         btnAnadirEjercicioC = vistaEC.findViewById(R.id.btnAnadirEjercicioC);
 
         //Instanciamos la activity que contiene la variable
-        fejerCrud = (E_Crud) getActivity();
-        idI = fejerCrud.fragEjerUsId;
+        cejerCrud = (E_Crud) getActivity();
+        idI = cejerCrud.fragEjerUsId;
 
         basedatos = new BaseDatos(getActivity());
 

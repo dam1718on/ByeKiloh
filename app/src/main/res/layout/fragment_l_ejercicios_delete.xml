@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:digits=",.0123456789"
+                android:digits=",0123456789"
                 android:hint="inclinación"
                 android:maxLength="4"
                 android:maxLines="1"

@@ -50,7 +50,7 @@ public class J_Ejercicios_Read extends Fragment {
     String idJ;
 
     //Se carga la activity para poder extraer el idUsuario
-    public E_Crud jejerCrud;
+    public E_Crud rejerCrud;
 
     BaseDatos basedatos;
     Ejercicio ejercicio;
@@ -101,8 +101,8 @@ public class J_Ejercicios_Read extends Fragment {
         spinEjerciciosR = vistaER.findViewById(R.id.spinEjerciciosR);
 
         //Instanciamos la activity que contiene la variable
-        jejerCrud = (E_Crud) getActivity();
-        idJ = jejerCrud.fragEjerUsId;
+        rejerCrud = (E_Crud) getActivity();
+        idJ = rejerCrud.fragEjerUsId;
 
         basedatos = new BaseDatos(getActivity());
 

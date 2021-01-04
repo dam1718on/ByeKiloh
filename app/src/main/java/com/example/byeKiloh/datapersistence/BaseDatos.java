@@ -9,8 +9,8 @@ import com.example.byeKiloh.datapersistence.Tablas.*;
 
 public class BaseDatos extends SQLiteOpenHelper {
 
-    //Se declaran e inicializan las variables encargadas de almacenar las consultas para crear las tablas,
-    //y las consultas de eliminar/crear la Base de Datos 'byeKiloh.sqlite'.
+    //Se declaran e inicializan las variables encargadas de almacenar las consultas para crear las
+    // tablas, y las consultas de eliminar/crear la Base de Datos 'byeKiloh.sqlite'.
     private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";
 
@@ -44,21 +44,31 @@ public class BaseDatos extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES_PESAJE =
             "CREATE TABLE " + EstructuraPesaje.TABLE_NAME + " (" +
                     EstructuraPesaje._IDPESAJE + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    EstructuraPesaje.COLUMN_NAME_FECHA + TEXT_TYPE + COMMA_SEP +
                     EstructuraPesaje.COLUMN_NAME_PESO + TEXT_TYPE + COMMA_SEP +
                     EstructuraPesaje.COLUMN_NAME_ALTURA + TEXT_TYPE + COMMA_SEP +
+                    EstructuraPesaje.COLUMN_NAME_LUGAR + TEXT_TYPE + COMMA_SEP +
                     EstructuraPesaje.COLUMN_NAME_IMC + TEXT_TYPE + COMMA_SEP +
+                    EstructuraPesaje.COLUMN_NAME_CLASIFICACION + TEXT_TYPE + COMMA_SEP +
                     EstructuraPesaje._IDUSUARIO + " INTEGER  )";
 
-    private static final String SQL_DELETE_ENTRIES_USUARIO = "DROP TABLE IF EXISTS " + EstructuraUsuario.TABLE_NAME;
-    private static final String SQL_DELETE_ENTRIES_CUENTA = "DROP TABLE IF EXISTS " + EstructuraCuenta.TABLE_NAME;
-    private static final String SQL_DELETE_ENTRIES_EJERCICIO = "DROP TABLE IF EXISTS " + EstructuraEjercicio.TABLE_NAME;
-    private static final String SQL_DELETE_ENTRIES_PESAJE = "DROP TABLE IF EXISTS " + EstructuraPesaje.TABLE_NAME;
+    private static final String SQL_DELETE_ENTRIES_USUARIO = "DROP TABLE IF EXISTS " +
+        EstructuraUsuario.TABLE_NAME;
+    private static final String SQL_DELETE_ENTRIES_CUENTA = "DROP TABLE IF EXISTS " +
+        EstructuraCuenta.TABLE_NAME;
+    private static final String SQL_DELETE_ENTRIES_EJERCICIO = "DROP TABLE IF EXISTS " +
+        EstructuraEjercicio.TABLE_NAME;
+    private static final String SQL_DELETE_ENTRIES_PESAJE = "DROP TABLE IF EXISTS " +
+        EstructuraPesaje.TABLE_NAME;
 
-    //Se declaran e inicializan las variables encargadas de crear la Base de Datos 'byeKiloh.sqlite'.
+    //Se declaran e inicializan las variables encargadas de crear la Base d Datos 'byeKiloh.sqlite'
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "byeKiloh.sqlite";
 
-    public BaseDatos(Context context) { super(context, DATABASE_NAME, null, DATABASE_VERSION); }
+    public BaseDatos(Context context) {
+
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
 
     //Método para crear las Tablas que recibe las consultas Transact-SQL
     @Override
@@ -68,10 +78,9 @@ public class BaseDatos extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ENTRIES_CUENTA);
         db.execSQL(SQL_CREATE_ENTRIES_EJERCICIO);
         db.execSQL(SQL_CREATE_ENTRIES_PESAJE);
-
     }
 
-    //Método que elimina las tablas y vuelve a llamar al método que las crea
+    //Método que actualiza las tablas, las borra y despues llama al método que las crea
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -80,7 +89,6 @@ public class BaseDatos extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_ENTRIES_EJERCICIO);
         db.execSQL(SQL_DELETE_ENTRIES_PESAJE);
         onCreate(db);
-
     }
 
 }

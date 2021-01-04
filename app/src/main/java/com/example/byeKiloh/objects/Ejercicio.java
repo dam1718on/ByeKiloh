@@ -4,14 +4,9 @@ import java.text.DecimalFormat;
 
 public class Ejercicio {
 
-    private int idEjercicio;
-    private String fecha;
-    private int distancia;
-    private int tiempo;
-    private String velocidad;
+    private int idEjercicio, distancia, tiempo, idUsuario;
+    private String fecha, velocidad, inclinacion;
     private float consumoE;
-    private String inclinacion;
-    private int idUsuario;
 
     public Ejercicio() {  }
 
@@ -24,7 +19,6 @@ public class Ejercicio {
         this.inclinacion = inclinacion;
         this.idUsuario = idUsuario;
         //IMPLEMENTAR setConsumoE;
-
     }
 
     public Ejercicio(Ejercicio ejercicio) {
@@ -37,7 +31,6 @@ public class Ejercicio {
         this.consumoE = ejercicio.getConsumoE();
         this.inclinacion = ejercicio.getInclinacion();
         this.idUsuario = ejercicio.getIdUsuario();
-
     }
 
     //Getters y Setters de Consumo HAN DE IMPLEMENTARSE CORRECTAMENTE
@@ -45,7 +38,7 @@ public class Ejercicio {
 
     public void setConsumoE(float consumoE) { this.consumoE = consumoE; }
 
-    public int getIdEjercicio() {return idEjercicio; }
+    public int getIdEjercicio() { return idEjercicio; }
 
     public void setIdEjercicio(int idEjercicio) { this.idEjercicio = idEjercicio; }
 
@@ -64,10 +57,12 @@ public class Ejercicio {
     public String getVelocidad() { return velocidad; }
 
     public void setVelocidad() {
-
+        //convertimos los int en float
+        float distanciaVel = new Float(distancia);
+        float tiempoVel = new Float(tiempo);
+        //hacemos el cálculo con un pattern de retorno con 2 decimales
         DecimalFormat df = new DecimalFormat("0.0000");
-        velocidad = df.format((float) distancia / (tiempo * 60));
-
+        velocidad = df.format((float) (distanciaVel / 1000) / (tiempoVel / 60));
     }
 
     public String getInclinacion() { return inclinacion; }
@@ -88,7 +83,6 @@ public class Ejercicio {
                 " min\n    velocidad " + velocidad +
                // " consumoE " + consumoE +
                 " inclinación " + inclinacion;
-
     }
 
 }

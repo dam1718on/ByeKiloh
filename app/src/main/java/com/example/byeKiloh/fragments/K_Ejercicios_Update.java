@@ -55,7 +55,7 @@ public class K_Ejercicios_Update extends Fragment {
     String idK;
 
     //Se carga la activity para poder extraer el idUsuario
-    public E_Crud kejerCrud;
+    public E_Crud uejerCrud;
 
     BaseDatos basedatos;
     Ejercicio ejercicio;
@@ -110,8 +110,8 @@ public class K_Ejercicios_Update extends Fragment {
         spinEjerciciosU = vistaEU.findViewById(R.id.spinEjerciciosU);
 
         //Instanciamos la activity que contiene la variable
-        kejerCrud = (E_Crud) getActivity();
-        idK = kejerCrud.fragEjerUsId;
+        uejerCrud = (E_Crud) getActivity();
+        idK = uejerCrud.fragEjerUsId;
 
         basedatos = new BaseDatos(getActivity());
 
