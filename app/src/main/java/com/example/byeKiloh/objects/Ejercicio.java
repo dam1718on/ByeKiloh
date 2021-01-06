@@ -61,7 +61,7 @@ public class Ejercicio {
         float distanciaVel = new Float(distancia);
         float tiempoVel = new Float(tiempo);
         //hacemos el cálculo con un pattern de retorno con 2 decimales
-        DecimalFormat df = new DecimalFormat("0.0000");
+        DecimalFormat df = new DecimalFormat("0.00");
         velocidad = df.format((float) (distanciaVel / 1000) / (tiempoVel / 60));
     }
 
@@ -82,7 +82,7 @@ public class Ejercicio {
                 " m en " + tiempo +
                 " min\n    velocidad " + velocidad +
                // " consumoE " + consumoE +
-                " inclinación " + inclinacion;
+                " km/h inclinación " + inclinacion;
     }
 
 }

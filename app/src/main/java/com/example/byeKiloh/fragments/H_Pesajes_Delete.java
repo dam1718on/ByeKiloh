@@ -144,9 +144,12 @@ public class H_Pesajes_Delete extends Fragment {
         btnBorrarPesajeD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                borrarEjercicio();
-                vaciarEditText = new VaciarEditText(etFechaPD, etPesoD, etAlturaD, etLugarD);
-                actualizarSpinner();
+
+                if (spinPesajesD.getSelectedItem() != null) {
+                    borrarEjercicio();
+                    vaciarEditText = new VaciarEditText(etFechaPD, etPesoD, etAlturaD, etLugarD);
+                    actualizarSpinner();
+                }
             }
 
         });

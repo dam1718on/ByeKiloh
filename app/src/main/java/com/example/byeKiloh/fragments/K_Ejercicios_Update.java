@@ -138,9 +138,12 @@ public class K_Ejercicios_Update extends Fragment {
         btnActualizarEjercicioU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            actualizarEjercicio();
-            vaciarEditText = new VaciarEditText(etFechaU, etDistanciaU, etTiempoU, etInclinacionU);
-            actualizarSpinner();
+
+                if (spinEjerciciosU.getSelectedItem() != null) {
+                    actualizarEjercicio();
+                    vaciarEditText = new VaciarEditText(etFechaU, etDistanciaU, etTiempoU, etInclinacionU);
+                    actualizarSpinner();
+                }
             }
 
         });

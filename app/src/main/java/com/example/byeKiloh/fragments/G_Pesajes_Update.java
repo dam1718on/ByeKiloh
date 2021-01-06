@@ -138,9 +138,12 @@ public class G_Pesajes_Update extends Fragment {
         btnActualizarPesajeU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actualizarEjercicio();
-                vaciarEditText = new VaciarEditText(etFechaPU, etPesoU, etAlturaU, etLugarR);
-                actualizarSpinner();
+
+                if (spinPesajesU.getSelectedItem() != null) {
+                    actualizarEjercicio();
+                    vaciarEditText = new VaciarEditText(etFechaPU, etPesoU, etAlturaU, etLugarR);
+                    actualizarSpinner();
+                }
             }
 
         });

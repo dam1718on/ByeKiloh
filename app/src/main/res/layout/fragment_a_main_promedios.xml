@@ -82,6 +82,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvDistanciaMin"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -91,6 +92,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvDistanciaMax"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -100,6 +102,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvDistanciaMedia"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -122,6 +125,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvTiempodMin"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -131,6 +135,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvTiempodMax"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -140,6 +145,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvTiempodMedia"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -162,6 +168,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvVelocidadMin"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -171,6 +178,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvVelocidadMax"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -180,6 +188,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvVelocidadMedia"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -202,6 +211,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvInclinacionMin"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -211,6 +221,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvInclinacionMax"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -220,6 +231,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvInclinacionMedia"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -242,6 +254,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvConsumoEMin"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -251,6 +264,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvConsumoEMax"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -260,6 +274,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvConsumoEMedia"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -282,6 +297,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvPesoPMin"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -291,6 +307,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvPesoPMax"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -300,6 +317,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvPesoPMedia"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -322,6 +340,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvImcPMin"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -331,6 +350,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvImcPMax"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -340,6 +360,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvImcPMedia"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -371,6 +392,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvEjerCount"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -393,6 +415,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvPesaCount"
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"

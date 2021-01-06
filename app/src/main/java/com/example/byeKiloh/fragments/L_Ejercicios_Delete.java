@@ -136,9 +136,12 @@ public class L_Ejercicios_Delete extends Fragment {
         btnBorrarEjercicioD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            borrarEjercicio();
-            vaciarEditText = new VaciarEditText(etFechaD, etDistanciaD, etTiempoD, etInclinacionD);
-            actualizarSpinner();
+
+                if (spinEjerciciosD.getSelectedItem() != null) {
+                    borrarEjercicio();
+                    vaciarEditText = new VaciarEditText(etFechaD, etDistanciaD, etTiempoD, etInclinacionD);
+                    actualizarSpinner();
+                }
             }
 
         });

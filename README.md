@@ -65,6 +65,7 @@
     <ul>
     <li>Commit42. Diseño y Lógica de los fragments de Ejercicios finalizada</li>
     <li>Commit43. Pesaje: clase-obj, tabla y fragments del CRUD finalizado</li>
+    <li>Commit44. Promedios, Splash y fondo corporativo finalizado</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -142,13 +143,19 @@ activitis E_PesajesCrud y F_EjerciciosCrud en una única: E_Crud la cual soporta
 y deriva el id de fragment y de usuario</p>
 <p>Commit43. Implementado la Tabla, Clase y Objeto de Pesaje. Y los 4 fragments del crud. Resuelto
 problema con los strings y los float al hacer cálculos (uso replace para cambiar la "," a ".")</p>
+<p>Commit44. Implementado Promedios, resueltos errores de clicks Delete y Update en EditText vacíos.
+Se empieza la fase alfa de uso de la aplicacion. Se crea el Splash Screen usando la técnica
+proporcionada por Material Design para no retrasar intencionalmente el incio de la aplicación,
+perjudicando la experiencia del usuario de la misma.</p>
 <h3>TASK</h3>
     <ul>
-    <li>3a. Promedios</li>
-    <li>3b. Hacer usable la app por mi e ir viendo la ejecucion</li>
-    <li>4a. Splash y fondo corporativo</li>
-    <li>4b. Hacer, dl, mod 4 iconos para .MainActivity("Promedios","Pesajes","Ejericicos","Backups")
-    </li>
+    <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO SEGUN DEMANDA</li>
+    <li>-. Cargar Datos viejos en BBDD para comprobar la persistencia y la homogeneidad</li>
+    <li>-. Homogenizar el stylo, Material Design y/o Adobe XD. Valorar</li>
+    <li>-. Intervalo de tiempo en Promedios, borrar en cascada</li>
+    <li>-. Menu entero, desarrollar cuenta too</li>
+    <li>-. Back-ups para SQLite</li>
+    <li>4b. Hacer, dl, mod 4 iconos para .MainActivity(Promedios, Pesajes, Ejericicos, Backups)</li>
     <li>4c. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView,
     comprobar en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
     <li>5. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>

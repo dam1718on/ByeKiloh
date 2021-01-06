@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/MenuA">
 
-        <activity android:name=".activitys.A_Login">
+        <activity android:name=".activitys.A_Login"
+            android:theme="@style/SplashTheme"> <!--Aquí llamamos nuestro tema con el splash-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
