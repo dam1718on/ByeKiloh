@@ -67,6 +67,10 @@
     <li>Commit43. Pesaje: clase-obj, tabla y fragments del CRUD finalizado</li>
     <li>Commit44. Promedios, Splash y fondo corporativo finalizado</li>
     </ul>
+<p>--same branch: format1.3 "despues del paron de 3 meses"</p>
+    <ul>
+    <li>Commit45. Añadidas imágenes de fondo a la Aplicación</li>
+    </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
 "Mantener sesion iniciada"(CheckBox). SharedPreferences para Mantener sesion iniciada. nuevo branch
@@ -147,13 +151,15 @@ problema con los strings y los float al hacer cálculos (uso replace para cambia
 Se empieza la fase alfa de uso de la aplicacion. Se crea el Splash Screen usando la técnica
 proporcionada por Material Design para no retrasar intencionalmente el incio de la aplicación,
 perjudicando la experiencia del usuario de la misma.</p>
+<p>Commit45. Se añaden imágenes de fondo a todas las pantallas de la aplicacion, modificando el % de
+opacidad con Adobe illustrator y el tamaño de la imagen en online_convert.com</p>
 <h3>TASK</h3>
     <ul>
     <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO SEGUN DEMANDA</li>
+    <li>-. Menu entero, desarrollar cuenta too</li>
     <li>-. Cargar Datos viejos en BBDD para comprobar la persistencia y la homogeneidad</li>
     <li>-. Homogenizar el stylo, Material Design y/o Adobe XD. Valorar</li>
     <li>-. Intervalo de tiempo en Promedios, borrar en cascada</li>
-    <li>-. Menu entero, desarrollar cuenta too</li>
     <li>-. Back-ups para SQLite</li>
     <li>4b. Hacer, dl, mod 4 iconos para .MainActivity(Promedios, Pesajes, Ejericicos, Backups)</li>
     <li>4c. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView,

@@ -7,8 +7,8 @@
     <item>
 
         <bitmap
-            android:gravity="center"
-            android:src="@drawable/cinta" /> <!-- imagen centrada -->
+            android:gravity="center_vertical"
+            android:src="@drawable/cintaoriginal22150x1500" /> <!-- imagen centrada -->
     </item>
 
 </layer-list>

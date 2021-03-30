@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cinta"
+    android:background="@drawable/registro69y2250x1500"
     android:orientation="vertical"
     tools:context=".activitys.B_Registro">
 
@@ -59,7 +59,7 @@
             android:paddingLeft="10dp"
             android:textAlignment="center"
             android:textColor="@color/azuloscuro"
-            android:textColorHint="@color/naranjaflojo"
+            android:textColorHint="@color/naranja"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
+                android:textColorHint="@color/naranja"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
@@ -126,7 +126,7 @@
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
+                android:textColorHint="@color/naranja"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
@@ -154,7 +154,7 @@
                 android:layout_height="20dp"
                 android:buttonTint="@color/naranjaflojo"
                 android:text="Acepto los"
-                android:textColor="@color/naranjaflojo"
+                android:textColor="@color/naranja"
                 android:textSize="15sp" />
 
             <TextView
@@ -180,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:text="y la"
-                android:textColor="@color/naranjaflojo"
+                android:textColor="@color/naranja"
                 android:textSize="15sp" />
 
             <TextView
@@ -198,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
                 android:text="de byekiloh"
-                android:textColor="@color/naranjaflojo"
+                android:textColor="@color/naranja"
                 android:textSize="15sp" />
 
         </LinearLayout>
