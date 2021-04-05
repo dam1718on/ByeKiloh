@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/cinta69y2250x1500"
+        android:background="@drawable/cinta69y720x1280"
         android:orientation="vertical">
 
         <TextView
@@ -20,7 +20,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:text="EJERCICIOS"
-            android:textColor="@color/naranjaflojo"
+            android:textColor="@color/naranja"
             android:textSize="17sp"
             android:textStyle="bold" />
 

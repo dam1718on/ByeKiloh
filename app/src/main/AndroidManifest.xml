@@ -9,27 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MenuA">
-
-        <activity android:name=".activitys.A_Login"
-            android:theme="@style/SplashTheme"> <!--Aquí llamamos nuestro tema con el splash-->
+        <activity android:name=".activitys.G_Perfil"></activity>
+        <activity android:name=".activitys.H_Ayuda" />
+        <activity android:name=".activitys.F_Acercade" />
+        <activity
+            android:name=".activitys.A_Login"
+            android:theme="@style/SplashTheme"> <!-- Aquí llamamos nuestro tema con el splash -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activitys.B_Registro"
+        <activity
+            android:name=".activitys.B_Registro"
             android:parentActivityName=".activitys.A_Login" />
-
         <activity android:name=".activitys.C_Privacidad" />
-
-        <activity android:name=".activitys.D_Main"
+        <activity
+            android:name=".activitys.D_Main"
             android:parentActivityName=".activitys.A_Login"
             android:theme="@style/AppTheme" />
-
         <activity android:name=".activitys.E_Crud" />
-
     </application>
 
 </manifest>

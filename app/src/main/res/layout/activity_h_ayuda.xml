@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/fondoCRUD"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bascula69y720x1280"
+    android:background="@drawable/ayudaoriginal720x1280"
     android:orientation="vertical"
-    tools:context=".activitys.E_Crud">
+    tools:context=".activitys.H_Ayuda">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,10 +32,28 @@
         android:layout_height="355dp"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/contenedorFragEjer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="- Ayuda -"
+            android:textColor="@color/azuloscuro"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="2dp"
+            android:layout_gravity="center"
+            android:text="@string/ayuda"
+            android:textColor="@color/naranja"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
 
     </LinearLayout>
 
@@ -46,7 +63,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnVolverAlMain"
+            android:id="@+id/btnVolverAlMain3"
             style="@style/shadoweffect"
             android:layout_width="120dp"
             android:layout_height="60dp"

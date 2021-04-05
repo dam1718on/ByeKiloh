@@ -78,21 +78,28 @@ public class A_Main_Promedios extends Fragment {
 
     // TODO: Rename and change types and number of parameters
     public static A_Main_Promedios newInstance(String param1, String param2) {
+
         A_Main_Promedios fragment = new A_Main_Promedios();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
+
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
+
     }
 
     @Override

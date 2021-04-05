@@ -6,7 +6,7 @@ public class Usuario implements Serializable {
 
     private int idUsuario;
     private String usuario, contraseña;
-    private String email, nombre, direccion, localidad, fechaNac, genero;
+    private String email, nombre, direccion, localidad, fechaNac;
 
     public Usuario() {    }
 
@@ -18,7 +18,7 @@ public class Usuario implements Serializable {
     }
 
     public Usuario(String usuario, String contraseña, String email, String nombre, String direccion,
-                   String localidad, String fechaNac, String genero) {
+                   String localidad, String fechaNac) {
 
         this.usuario = usuario;
         this.contraseña = contraseña;
@@ -27,7 +27,6 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
         this.localidad = localidad;
         this.fechaNac = fechaNac;
-        this.genero = genero;
 
     }
 
@@ -41,7 +40,6 @@ public class Usuario implements Serializable {
         this.direccion= usuario.getDireccion();
         this.localidad= usuario.getLocalidad();
         this.fechaNac= usuario.getFechaNac();
-        this.genero = usuario.getGenero();
 
     }
 
@@ -77,10 +75,6 @@ public class Usuario implements Serializable {
 
     public void setFechaNac(String fechaNac) {  this.fechaNac = fechaNac;  }
 
-    public String getGenero() {  return genero;  }
-
-    public void setGenero(String genero) {  this.genero = genero;  }
-
     @Override
     public String toString() {
 
@@ -93,7 +87,6 @@ public class Usuario implements Serializable {
                 ", direccion='" + direccion + '\'' +
                 ", localidad='" + localidad + '\'' +
                 ", fechaNac='" + fechaNac + '\'' +
-                ", sexo='" + genero + '\'' +
                 '}';
 
     }

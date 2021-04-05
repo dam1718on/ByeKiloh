@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +16,9 @@ import com.example.byeKiloh.fragments.*;
 
 public class E_Crud extends AppCompatActivity {
 
-    private Button btnVolverAlMain2;
+    private LinearLayout fondoCRUD;
+
+    private Button btnVolverAlMain;
 
     //fragments
     private E_Pesajes_Create pesaeCreate;
@@ -35,7 +38,9 @@ public class E_Crud extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e_crud);
 
-        btnVolverAlMain2 = findViewById(R.id.btnVolverAlMain);
+        fondoCRUD = findViewById(R.id.fondoCRUD);
+
+        btnVolverAlMain = findViewById(R.id.btnVolverAlMain);
 
         //Iniciamos los fragments
         pesaeCreate = new E_Pesajes_Create();
@@ -47,7 +52,7 @@ public class E_Crud extends AppCompatActivity {
         ejerkUpload = new K_Ejercicios_Update();
         ejerlDelete = new L_Ejercicios_Delete();
 
-        //Recibimos String por intent desde el fragment C_Main_Ejercicios
+        //Recibimos String por intent desde el fragment B_Main_Pesaje ó C_Main_Ejercicios 
         final String fragEjer = (String) getIntent().getSerializableExtra("nfrag");
 
         String[] parts = fragEjer.split("-");
@@ -58,39 +63,74 @@ public class E_Crud extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
             .add(R.id.contenedorFragEjer, ejeriCreate);
 
+        //según valor se carga uno u otro fondo
+        switch (fragEjerCRUD) {
+
+            case "e1" :
+            case "e2" :
+            case "e3" :
+            case "e4" :
+
+                fondoCRUD.setBackgroundResource(R.drawable.cinta69y720x1280);
+                break;
+
+            case "p1" :
+            case "p2" :
+            case "p3" :
+            case "p4" :
+
+                fondoCRUD.setBackgroundResource(R.drawable.bascula69y720x1280);
+                break;
+
+            default:
+
+                break;
+
+        }
+        
         //según valor se carga uno u otro fragment
         switch(fragEjerCRUD) {
+
             case "e1":
-                transaction.replace(R.id.contenedorFragEjer, ejeriCreate);
+                transaction.replace(R.id.contenedorFragEjer, ejeriCreate);                
                 break;
+
             case "e2":
                 transaction.replace(R.id.contenedorFragEjer, ejerjRead);
                 break;
+
             case "e3":
                 transaction.replace(R.id.contenedorFragEjer, ejerkUpload);
                 break;
+
             case "e4":
                 transaction.replace(R.id.contenedorFragEjer, ejerlDelete);
                 break;
+
             case "p1":
                 transaction.replace(R.id.contenedorFragEjer, pesaeCreate);
                 break;
+
             case "p2":
                 transaction.replace(R.id.contenedorFragEjer, pesafRead);
                 break;
+
             case "p3":
                 transaction.replace(R.id.contenedorFragEjer, pesagUpdate);
                 break;
+
             case "p4":
                 transaction.replace(R.id.contenedorFragEjer, pesahDelete);
                 break;
+
             default:
                 break;
+
         }
 
         transaction.commit();
 
-        btnVolverAlMain2.setOnClickListener(new View.OnClickListener() {
+        btnVolverAlMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             //Uso este método para volver al fragment(State) desde el que se ha lanzado esta Activity

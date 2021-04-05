@@ -79,26 +79,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_gravity="center"
-        android:text="- Main -"
-        android:textColor="@color/azuloscuro"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvUsuarioMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_gravity="center"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        style="@style/shadoweffect"/>
-
     <FrameLayout
         android:id="@+id/contenedorFragmentosMAIN"
         android:layout_width="match_parent"

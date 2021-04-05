@@ -70,6 +70,7 @@
 <p>--same branch: format1.3 "despues del paron de 3 meses"</p>
     <ul>
     <li>Commit45. Añadidas imágenes de fondo a la Aplicación</li>
+    <li>Commit46. Menu Principal implementado. Primera prueba en Avellaneda</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -153,10 +154,14 @@ proporcionada por Material Design para no retrasar intencionalmente el incio de 
 perjudicando la experiencia del usuario de la misma.</p>
 <p>Commit45. Se añaden imágenes de fondo a todas las pantallas de la aplicacion, modificando el % de
 opacidad con Adobe illustrator y el tamaño de la imagen en online_convert.com</p>
+<p>Commit46. Implementado menu principal en .MainActivity, el menu funciona y los items
+también, se generan 3 grupos y unos de los items "perfil" adquiere onCreate el nombre del Usuario 
+logeado. Se implemnetan todos los fondos de todos los fragments. Implementado todos los métodos de
+Usuario. Pequeño arreglo de las imágenes de fondo, debido a error en LG-K350 "out of memory", se
+cambia la resolución de las mismas a 720x1280. Falta implementar el item "Ajustes" del Menu</p>
 <h3>TASK</h3>
     <ul>
-    <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO SEGUN DEMANDA</li>
-    <li>-. Menu entero, desarrollar cuenta too</li>
+    <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO</li>
     <li>-. Cargar Datos viejos en BBDD para comprobar la persistencia y la homogeneidad</li>
     <li>-. Homogenizar el stylo, Material Design y/o Adobe XD. Valorar</li>
     <li>-. Intervalo de tiempo en Promedios, borrar en cascada</li>

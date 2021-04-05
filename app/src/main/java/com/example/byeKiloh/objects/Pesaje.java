@@ -74,7 +74,7 @@ public class Pesaje {
 
     public void setClasificacion() {
 
-        clasificacion="GORDO";
+        clasificacion="Obesidad II";
     }
 
     @Override

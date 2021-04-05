@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/estadisticas69y2250x1500"
+        android:background="@drawable/estadisticasoriginal69y720x1280"
         android:orientation="vertical">
 
         <TextView
@@ -20,7 +20,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:text="PROMEDIOS"
-            android:textColor="@color/naranjaflojo"
+            android:textColor="@color/naranja"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -398,7 +398,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
+                    android:textColor="@color/naranja"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -421,7 +421,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
+                    android:textColor="@color/naranja"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -443,7 +443,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
+                    android:textColor="@color/naranja"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 

@@ -5,47 +5,37 @@
     tools:context=".activitys.D_Main">
 
     <group
-        android:checkableBehavior="single">
+        android:id="@+id/grupoUno">
 
         <item
-            android:id="@+id/nav_home"
-            android:title="Principal" />
-
-        <item
-            android:id="@+id/nav_perfil"
+            android:id="@+id/perfil"
             android:title="Perfil" />
-
-        <item
-            android:id="@+id/nav_notificaciones"
-            android:title="Notificaciones" />
-
-        <item
-            android:id="@+id/nav_escanear"
-            android:title="Escanear" />
 
     </group>
 
     <group
-        android:checkableBehavior="single"
-        android:id="@+id/groupdivider1">
+        android:id="@+id/grupoDos">
 
         <item
-            android:id="@+id/nav_ajustes"
+            android:id="@+id/ajustes"
             android:title="Ajustes" />
 
         <item
-            android:id="@+id/nav_ayuda"
+            android:id="@+id/ayuda"
             android:title="Ayuda" />
+
+        <item
+            android:id="@+id/acercad"
+            android:title="Acerca de" />
 
     </group>
 
     <group
-        android:checkableBehavior="single"
-        android:id="@+id/groupdivider2">
+        android:id="@+id/grupo3">
 
         <item
-            android:id="@+id/nav_salir"
-            android:title="Salir" />
+            android:id="@+id/cerrarSesion"
+            android:title="Cerrar Sesión" />
 
     </group>
 

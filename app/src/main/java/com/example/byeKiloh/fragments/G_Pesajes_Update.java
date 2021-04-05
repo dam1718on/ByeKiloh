@@ -154,7 +154,7 @@ public class G_Pesajes_Update extends Fragment {
 
     //Método que actualiza un ejercicio
     public void actualizarEjercicio() {
-        //Creamos objeto Ejercicio con el item seleccionado del Spinner
+        //Creamos objeto Pesaje con el item seleccionado del Spinner
         pesaje = new Pesaje((Pesaje) spinPesajesU.getSelectedItem());
         //Actualziamos el Ejercicio con los datos de los EditText si no están vacios
         if(!etFechaPU.getText().toString().equals("")) {

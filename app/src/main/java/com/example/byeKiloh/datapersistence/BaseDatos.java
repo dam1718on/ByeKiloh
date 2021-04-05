@@ -22,12 +22,12 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES_CUENTA =
             "CREATE TABLE " + EstructuraCuenta.TABLE_NAME + " (" +
-                    EstructuraCuenta.COLUMN_NAME_EMAIL + " TEXT PRIMARY KEY, " +
+                    EstructuraCuenta._IDCUENTA + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    EstructuraCuenta.COLUMN_NAME_EMAIL + TEXT_TYPE + COMMA_SEP +
                     EstructuraCuenta.COLUMN_NAME_NOMBRE + TEXT_TYPE + COMMA_SEP +
                     EstructuraCuenta.COLUMN_NAME_DIRECCION + TEXT_TYPE + COMMA_SEP +
                     EstructuraCuenta.COLUMN_NAME_LOCALIDAD + TEXT_TYPE + COMMA_SEP +
                     EstructuraCuenta.COLUMN_NAME_FECHANAC + TEXT_TYPE + COMMA_SEP +
-                    EstructuraCuenta.COLUMN_NAME_GENERO + TEXT_TYPE + COMMA_SEP +
                     EstructuraCuenta._IDUSUARIO + " INTEGER  )";
 
     private static final String SQL_CREATE_ENTRIES_EJERCICIO =
@@ -68,6 +68,7 @@ public class BaseDatos extends SQLiteOpenHelper {
     public BaseDatos(Context context) {
 
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
 
     //Método para crear las Tablas que recibe las consultas Transact-SQL
@@ -78,6 +79,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ENTRIES_CUENTA);
         db.execSQL(SQL_CREATE_ENTRIES_EJERCICIO);
         db.execSQL(SQL_CREATE_ENTRIES_PESAJE);
+
     }
 
     //Método que actualiza las tablas, las borra y despues llama al método que las crea
@@ -89,6 +91,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_ENTRIES_EJERCICIO);
         db.execSQL(SQL_DELETE_ENTRIES_PESAJE);
         onCreate(db);
+
     }
 
 }
