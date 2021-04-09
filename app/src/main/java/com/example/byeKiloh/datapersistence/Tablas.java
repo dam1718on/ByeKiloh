@@ -2,6 +2,8 @@ package com.example.byeKiloh.datapersistence;
 
 import android.provider.BaseColumns;
 
+import java.security.Key;
+
 public class Tablas {
 
     public Tablas() {    }
@@ -11,6 +13,8 @@ public class Tablas {
         public static final String TABLE_NAME = "Usuarios";
         public static final String _IDUSUARIO = "idUsuario";
         public static final String COLUMN_NAME_USUARIO = "usuario";
+        public static final String COLUMN_NAME_CLAVEPUBLICA = "clavePublica";
+        public static final String COLUMN_NAME_CLAVEPRIVADA = "clavePrivada";
         public static final String COLUMN_NAME_CONTRASEÑA = "contraseña";
 
     }

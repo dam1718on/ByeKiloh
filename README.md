@@ -71,6 +71,8 @@
     <ul>
     <li>Commit45. Añadidas imágenes de fondo a la Aplicación</li>
     <li>Commit46. Menu Principal implementado. Primera prueba en Avellaneda</li>
+    <li>Commit47. Arreglos1 de Primera prueba. Encriptación PASS</li>
+    <li>Commit48. Anteproyecto-UML, Casos de Uso, Diagrama de Clases y modelo E-R</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -159,6 +161,9 @@ también, se generan 3 grupos y unos de los items "perfil" adquiere onCreate el 
 logeado. Se implemnetan todos los fondos de todos los fragments. Implementado todos los métodos de
 Usuario. Pequeño arreglo de las imágenes de fondo, debido a error en LG-K350 "out of memory", se
 cambia la resolución de las mismas a 720x1280. Falta implementar el item "Ajustes" del Menu</p>
+<p>Commit47. Arreglos de la primera prueba de cara a la segunda el Lunes 12/04. Se crea clase RSA
+para encriptar correctamente la contraseña(RSA-1024bit) en .RegistroActivity, se guardan en la base
+de datos el par de keys y la pass enconded para desencriptar desde .LoginActivity, todo correcto</p>
 <h3>TASK</h3>
     <ul>
     <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO</li>

@@ -42,6 +42,11 @@ public class B_Registro extends AppCompatActivity {
     //Esta variable permite comprobar los digitos de varios EditText a la vez
     private int countError = 1;
 
+    //Strings para Encriptar la pass
+    private static String encode_pass;
+    private static String publicKey;
+    private static String privateKey;
+
     BaseDatos basedatos;
     Mensaje mensaje;
     VaciarEditText vaciarEditText;
@@ -186,7 +191,7 @@ public class B_Registro extends AppCompatActivity {
                             SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                             //Columnas que recogerá los datos de la consulta
                             String[] columnas = {_IDUSUARIO, COLUMN_NAME_USUARIO,
-                                    COLUMN_NAME_CONTRASEÑA};
+                                COLUMN_NAME_CONTRASEÑA};
                             //Cláusula WHERE para buscar por usuario
                             String usuarioSQL = COLUMN_NAME_USUARIO + " LIKE '" +
                                 usuario.getUsuario() + "'";
@@ -201,36 +206,53 @@ public class B_Registro extends AppCompatActivity {
                             //Quinto if comprueba que el cursor no esté vacío
                             if (cursor.getCount() != 0) {
                                 cursor.moveToFirst();
+
                                 mensaje = new Mensaje(getApplicationContext(), "El nombre de" +
                                     " usuario: " + usuario.getUsuario() + "\nno está disponible, " +
                                     "pruebe con otro");
                                 vaciarEditText = new VaciarEditText(etUsuario);
+
                             } else {
+
                                 //Aqui se introduce el usuario nuevo en la base de datos
                                 //Se ganan tambien permisos de escritura
                                 sqlite = basedatos.getWritableDatabase();
+
+                                //Encriptamos la contraseña
+                                crypt(v);
+
                                 //EstructuraUsuario de insercción de datos
                                 ContentValues content = new ContentValues();
                                 //Se añaden los valores introducidos de cada campo mediante
                                 // clave(columna)/valor(valor introducido en el campo de texto)
                                 content.put(COLUMN_NAME_USUARIO, usuario.getUsuario());
-                                content.put(COLUMN_NAME_CONTRASEÑA, usuario.getContraseña());
+                                content.put(COLUMN_NAME_CLAVEPUBLICA, publicKey);
+                                content.put(COLUMN_NAME_CLAVEPRIVADA, privateKey);
+                                content.put(COLUMN_NAME_CONTRASEÑA, encode_pass);
+
+                                //Insertamos los datos en la Base de Datos - SQLite
                                 sqlite.insert(TABLE_NAME, null, content);
+
                                 //Registro exitoso
                                 mensaje = new Mensaje(getApplicationContext(), "El usuario " +
                                         usuario.getUsuario() + "\nse registró con éxito");
+
                                 //Reseteo de los EditText
                                 vaciarEditText = new VaciarEditText(etUsuario, etContrasena,
                                     etContrasenaRe);
+
                                 //Abrimos un intent para volver a .A_Login
                                 Intent intent = new Intent(getApplicationContext(), A_Login.class);
                                 startActivity(intent);
+
                             }
                             //Se cierra el cursor
                             cursor.close();
                             //Se cierra la conexión abierta a la Base de Datos
                             sqlite.close();
+
                         } else {
+
                             mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los" +
                                 " Términos y\nCondiciones para poder registrarse");
 
@@ -266,6 +288,34 @@ public class B_Registro extends AppCompatActivity {
                     " carácteres\ny el mínimo para ese campo son " + minDig);
             countError += 1;
         }
+
+    }
+
+    //Método que encripta la contraseña
+    public void crypt(View view) {
+
+        try {
+
+        //Obtenemos la contraseña desde el EditText
+        String original = etContrasena.getText().toString();
+
+        //Creamos Objeto rsa
+        RSA rsa = new RSA();
+
+        //Le asignamos el Contexto
+        rsa.setContext(getBaseContext());
+
+        //Generamos par de claves
+        rsa.genKeyPair(1024);
+
+        //Ciframos
+        encode_pass = rsa.Encrypt(original);
+
+        //Guardamos las claves en las variables
+        publicKey = rsa.getPublicKeyString();
+        privateKey = rsa.getPrivateKeyString();
+
+        } catch (Exception e) {    }
 
     }
 

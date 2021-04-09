@@ -40,6 +40,12 @@ public class A_Login extends AppCompatActivity {
     String defaultValue;
     private String userSP;
 
+    //Strings para desEncriptar la pass
+    private static String publicKey;
+    private static String privateKey;
+    private static String encode_pass;
+    private static String decode_pass;
+
     BaseDatos basedatos;
     Mensaje mensaje;
     VaciarEditText vaciarEditText;
@@ -102,11 +108,15 @@ public class A_Login extends AppCompatActivity {
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
             //Primer if comprueba si están vacíos los dos primeros EditText
             if(etUsuario.getText().toString().equals("")||etPass.getText().toString().equals("")) {
+
                 mensaje = new Mensaje(getApplicationContext(), "Revise los datos introducidos"
                         + "\ntodos los campos son obligatorios");
+
             } else {
+
                 //Se crea e inicializa el objeto usuario
                 Usuario usuario = new Usuario();
                 //Se recogen los datos de los EditText
@@ -115,7 +125,8 @@ public class A_Login extends AppCompatActivity {
                 //Se establece conexion con permisos de lectura
                 SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                 //Columnas que recogerá los datos de la consulta
-                String[] columnasL = {_IDUSUARIO, COLUMN_NAME_USUARIO, COLUMN_NAME_CONTRASEÑA};
+                String[] columnasL = {_IDUSUARIO, COLUMN_NAME_USUARIO, COLUMN_NAME_CLAVEPUBLICA,
+                    COLUMN_NAME_CLAVEPRIVADA, COLUMN_NAME_CONTRASEÑA};
                 //Cláusula WHERE para buscar por usuario
                 String usuarioL = COLUMN_NAME_USUARIO + " LIKE '" + usuario.getUsuario() + "'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
@@ -128,10 +139,17 @@ public class A_Login extends AppCompatActivity {
                 //Segundo if comprueba que el cursor no esté vacío
                 if(cursor.getCount() != 0) {
                     cursor.moveToFirst();
-                    String passCNL = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CONTRASEÑA));
+                    //Asignamos los valores del cursor a las variables
+                    publicKey = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CLAVEPUBLICA));
+                    privateKey = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CLAVEPRIVADA));
+                    encode_pass = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CONTRASEÑA));
+
+                    //DesEncriptamos la contraseña
+                    deCrypt(v);
 
                     //Tercer if comprueba que las contraseñas coinciden
-                    if(usuario.getContraseña().equals(passCNL)) {
+                    if(usuario.getContraseña().equals(decode_pass)) {
+
                         //Login correcto
                         //Incluimos el valor del atributo id en el objeto usuario a logear
                         int identificadorL = cursor.getInt(cursor.getColumnIndex(_IDUSUARIO));
@@ -141,6 +159,7 @@ public class A_Login extends AppCompatActivity {
 
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
                         if(cbMantenerSesion.isChecked()) {
+
                             //Le pasamos el nombre de usuario al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos",
                                     Context.MODE_PRIVATE);
@@ -149,7 +168,9 @@ public class A_Login extends AppCompatActivity {
                             editor.putString("usuario", userSP);
                             editor.commit();
                             vaciarEditText = new VaciarEditText(etPass);
+
                         } else {
+
                             //Le pasamos usuario="" al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos",
                                     Context.MODE_PRIVATE);
@@ -158,28 +179,59 @@ public class A_Login extends AppCompatActivity {
                             editor.putString("usuario", userSP);
                             editor.commit();
                             vaciarEditText = new VaciarEditText(etUsuario, etPass);
+
                         }
+
                         //Creamos intent para ir a .D_Main y le enviamos Usuario
                         Intent intent = new Intent(getApplicationContext(), D_Main.class);
                         intent.putExtra("usuario", usuario);
                         startActivity(intent);
+
                     } else {
+
                         mensaje = new Mensaje(getApplicationContext(), "La contraseña no es " +
                             "correcta");
                         vaciarEditText = new VaciarEditText(etPass);
+
                     }
+
                 } else {
+
                     mensaje = new Mensaje(getApplicationContext(), "El usuario: " +
                         usuario.getUsuario() + " no existe");
                     vaciarEditText = new VaciarEditText(etUsuario, etPass);
+
                 }
                 //Se cierra cursor
                 cursor.close();
                 //Se cierra la conexión a la Base de Datos
                 sqlite.close();
+
             }
         }
         });
+
+    }
+
+    //Método que DesEncripta la contraseña
+    public void deCrypt(View view) {
+
+        try {
+
+            //Creamos objeto de la clase RSA
+            RSA rsaD = new RSA();
+
+            //Le pasamos el contexto
+            rsaD.setContext(getBaseContext());
+
+            //Usamos los Strings guardadas anteriormente para generar nuevas Claves
+            rsaD.setPublicKeyString(publicKey);
+            rsaD.setPrivateKeyString(privateKey);
+
+            //Desciframos
+            decode_pass = rsaD.Decrypt(encode_pass);
+
+        } catch (Exception e) {    }
 
     }
 
