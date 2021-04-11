@@ -164,6 +164,7 @@ cambia la resolución de las mismas a 720x1280. Falta implementar el item "Ajust
 <p>Commit47. Arreglos de la primera prueba de cara a la segunda el Lunes 12/04. Se crea clase RSA
 para encriptar correctamente la contraseña(RSA-1024bit) en .RegistroActivity, se guardan en la base
 de datos el par de keys y la pass enconded para desencriptar desde .LoginActivity, todo correcto</p>
+<p>Commit48. Pulidos defectos encontrados, anteproyectoUML</p>
 <h3>TASK</h3>
     <ul>
     <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO</li>

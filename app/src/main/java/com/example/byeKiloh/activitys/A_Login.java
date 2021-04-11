@@ -224,7 +224,7 @@ public class A_Login extends AppCompatActivity {
             //Le pasamos el contexto
             rsaD.setContext(getBaseContext());
 
-            //Usamos los Strings guardadas anteriormente para generar nuevas Claves
+            //Usamos los Strings guardados anteriormente para generar nuevas Claves
             rsaD.setPublicKeyString(publicKey);
             rsaD.setPrivateKeyString(privateKey);
 
