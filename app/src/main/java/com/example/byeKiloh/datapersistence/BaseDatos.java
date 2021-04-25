@@ -18,8 +18,8 @@ public class BaseDatos extends SQLiteOpenHelper {
             "CREATE TABLE " + EstructuraUsuario.TABLE_NAME + " (" +
                     EstructuraUsuario._IDUSUARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     EstructuraUsuario.COLUMN_NAME_USUARIO + TEXT_TYPE + COMMA_SEP +
-                    EstructuraUsuario.COLUMN_NAME_CLAVEPUBLICA + TEXT_TYPE + COMMA_SEP +
-                    EstructuraUsuario.COLUMN_NAME_CLAVEPRIVADA + TEXT_TYPE + COMMA_SEP +
+                    //EstructuraUsuario.COLUMN_NAME_CLAVEPUBLICA + TEXT_TYPE + COMMA_SEP +
+                    //EstructuraUsuario.COLUMN_NAME_CLAVEPRIVADA + TEXT_TYPE + COMMA_SEP +
                     EstructuraUsuario.COLUMN_NAME_CONTRASEÑA + TEXT_TYPE + " )";
 
     private static final String SQL_CREATE_ENTRIES_CUENTA =

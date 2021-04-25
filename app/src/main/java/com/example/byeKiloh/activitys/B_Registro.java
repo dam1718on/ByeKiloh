@@ -8,14 +8,11 @@ import android.database.sqlite.SQLiteDatabase;
 
 import android.os.Bundle;
 
-import android.text.SpannableString;
-
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.text.SpannableString;
 
 import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,29 +20,28 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.byeKiloh.datapersistence.BaseDatos;
+import com.example.byeKiloh.objects.Usuario;
 import com.example.byeKiloh.R;
-import com.example.byeKiloh.objects.*;
-import com.example.byeKiloh.datapersistence.*;
 import com.example.byeKiloh.utils.*;
 
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.*;
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.TABLE_NAME;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario._IDUSUARIO;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA;
 
 public class B_Registro extends AppCompatActivity {
 
-    private Button btnVolverALogin, btnGuardarUsuario;
     private CheckBox cbAcepto;
     private EditText etUsuario, etContrasena, etContrasenaRe;
     private ImageView imgPass, imgPassRe;
-    private TextView tvCondicionesServicio, tvPoliticaPrivacidad;
 
-    private boolean select = false;
     //Esta variable permite comprobar los digitos de varios EditText a la vez
     private int countError = 1;
-
-    //Strings para Encriptar la pass
-    private static String encode_pass;
-    private static String publicKey;
-    private static String privateKey;
 
     BaseDatos basedatos;
     Mensaje mensaje;
@@ -56,16 +52,20 @@ public class B_Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b_registro);
 
-        btnVolverALogin = findViewById(R.id.btnVolverALogin);
-        btnGuardarUsuario = findViewById(R.id.btnIniciarSesion);
+        Button btnVolverALogin = findViewById(R.id.btnVolverALogin);
+        Button btnGuardarUsuario = findViewById(R.id.btnIniciarSesion);
+
         cbAcepto = findViewById(R.id.cbAcepto);
+
         etUsuario = findViewById(R.id.etUsuario);
         etContrasena = findViewById(R.id.etContrasena);
         etContrasenaRe = findViewById(R.id.etContrasenaRe);
+
         imgPass = findViewById(R.id.imgPass);
         imgPassRe = findViewById(R.id.imgPassRe);
-        tvCondicionesServicio = findViewById(R.id.tvCondicionesServicio);
-        tvPoliticaPrivacidad = findViewById(R.id.tvPoliticaPrivacidad);
+
+        TextView tvCondicionesServicio = findViewById(R.id.tvCondicionesServicio);
+        TextView tvPoliticaPrivacidad = findViewById(R.id.tvPoliticaPrivacidad);
 
         basedatos = new BaseDatos(getApplicationContext());
 
@@ -101,69 +101,81 @@ public class B_Registro extends AppCompatActivity {
 
         //TextView que permite la visualización de "Confirmar Contraseña"
         imgPassRe.setOnClickListener(new View.OnClickListener() {
+
             boolean selectPassRe = false;
             @Override
             public void onClick(View v) {
-            if(!selectPassRe) {
-                selectPassRe = true;
-                etContrasenaRe.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                if(etContrasenaRe.getText().length() > 0) {
-                    etContrasenaRe.setSelection(etContrasenaRe.getText().length());
-                    imgPassRe.setBackgroundResource(R.drawable.ic_visible);
+                if(!selectPassRe) {
+                    selectPassRe = true;
+                    etContrasenaRe.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
+                    if(etContrasenaRe.getText().length() > 0) {
+                        etContrasenaRe.setSelection(etContrasenaRe.getText().length());
+                        imgPassRe.setBackgroundResource(R.drawable.ic_visible);
+                    }
+
                 }
-            } else {
-                selectPassRe = false;
-                etContrasenaRe.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                else {
+                    selectPassRe = false;
+                    etContrasenaRe.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
-                if(etContrasenaRe.getText().length() > 0) {
-                    etContrasenaRe.setSelection(etContrasenaRe.getText().length());
-                    imgPassRe.setBackgroundResource(R.drawable.ic_visible_no);
+                    if(etContrasenaRe.getText().length() > 0) {
+                        etContrasenaRe.setSelection(etContrasenaRe.getText().length());
+                        imgPassRe.setBackgroundResource(R.drawable.ic_visible_no);
+                    }
+
                 }
-            }
-
             }
 
         });
 
         //TextView que permite la visualización de "Contraseña"
         imgPass.setOnClickListener(new View.OnClickListener() {
+
             boolean selectPass = false;
             @Override
             public void onClick(View v) {
-            if(!selectPass) {
-                selectPass = true;
-                etContrasena.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                if(etContrasena.getText().length() > 0) {
-                    etContrasena.setSelection(etContrasena.getText().length());
-                    imgPass.setBackgroundResource(R.drawable.ic_visible);
+                if(!selectPass) {
+                    selectPass = true;
+                    etContrasena.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
+                    if(etContrasena.getText().length() > 0) {
+                        etContrasena.setSelection(etContrasena.getText().length());
+                        imgPass.setBackgroundResource(R.drawable.ic_visible);
+                    }
                 }
-            } else {
-                selectPass = false;
-                etContrasena.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                else {
+                    selectPass = false;
+                    etContrasena.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
-                if (etContrasena.getText().length() > 0) {
-                    etContrasena.setSelection(etContrasena.getText().length());
-                    imgPass.setBackgroundResource(R.drawable.ic_visible_no);
+                    if (etContrasena.getText().length() > 0) {
+                        etContrasena.setSelection(etContrasena.getText().length());
+                        imgPass.setBackgroundResource(R.drawable.ic_visible_no);
+                    }
+
                 }
-            }
-
             }
 
         });
 
         btnGuardarUsuario.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-            //Primer if comprueba que no hay EditText vacíos
+
             Usuario usuario;
+
+            //Primer if comprueba que no hay EditText vacíos
             if (etUsuario.getText().toString().equals("") ||
                 etContrasena.getText().toString().equals("") ||
                 etContrasenaRe.getText().toString().equals("")) {
                 mensaje = new Mensaje(getApplicationContext(), "Revise los datos " +
                     "introducidos\ntodos los campos son obligatorios");
-            } else {
+            }
+
+            else {
                 countError=1;
                 //Comprobamos número mínimo de carácteres en cada EditText
                 numMinL(etUsuario, 4, "Usuario");
@@ -183,7 +195,8 @@ public class B_Registro extends AppCompatActivity {
                     if (!usuario.getContraseña().equals(passRe)) {
                         mensaje = new Mensaje(getApplicationContext(), "Las Contraseñas " +
                                 "introducidas\nno coinciden");
-                    } else {
+                    }
+                    else {
 
                         //Cuarto if comprueba que los Terminos y Condiciones están aceptados
                         if (cbAcepto.isChecked()){
@@ -212,23 +225,23 @@ public class B_Registro extends AppCompatActivity {
                                     "pruebe con otro");
                                 vaciarEditText = new VaciarEditText(etUsuario);
 
-                            } else {
+                            }
+                            else {
 
                                 //Aqui se introduce el usuario nuevo en la base de datos
                                 //Se ganan tambien permisos de escritura
                                 sqlite = basedatos.getWritableDatabase();
 
-                                //Encriptamos la contraseña
-                                crypt(v);
+                                //Recogemos contraseña del EditText y le hacemos hash
+                                String password = usuario.getContraseña();
+                                String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
 
                                 //EstructuraUsuario de insercción de datos
                                 ContentValues content = new ContentValues();
                                 //Se añaden los valores introducidos de cada campo mediante
                                 // clave(columna)/valor(valor introducido en el campo de texto)
                                 content.put(COLUMN_NAME_USUARIO, usuario.getUsuario());
-                                content.put(COLUMN_NAME_CLAVEPUBLICA, publicKey);
-                                content.put(COLUMN_NAME_CLAVEPRIVADA, privateKey);
-                                content.put(COLUMN_NAME_CONTRASEÑA, encode_pass);
+                                content.put(COLUMN_NAME_CONTRASEÑA, bcryptHashString);
 
                                 //Insertamos los datos en la Base de Datos - SQLite
                                 sqlite.insert(TABLE_NAME, null, content);
@@ -246,12 +259,14 @@ public class B_Registro extends AppCompatActivity {
                                 startActivity(intent);
 
                             }
+
                             //Se cierra el cursor
                             cursor.close();
                             //Se cierra la conexión abierta a la Base de Datos
                             sqlite.close();
 
-                        } else {
+                        }
+                        else {
 
                             mensaje = new Mensaje(getApplicationContext(), "Debe aceptar los" +
                                 " Términos y\nCondiciones para poder registrarse");
@@ -266,6 +281,7 @@ public class B_Registro extends AppCompatActivity {
         });
 
         btnVolverALogin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
             //Creamos Intent para volver a .A_Login
@@ -288,34 +304,6 @@ public class B_Registro extends AppCompatActivity {
                     " carácteres\ny el mínimo para ese campo son " + minDig);
             countError += 1;
         }
-
-    }
-
-    //Método que encripta la contraseña
-    public void crypt(View view) {
-
-        try {
-
-        //Obtenemos la contraseña desde el EditText
-        String original = etContrasena.getText().toString();
-
-        //Creamos Objeto rsa
-        RSA rsa = new RSA();
-
-        //Le asignamos el Contexto
-        rsa.setContext(getBaseContext());
-
-        //Generamos par de claves
-        rsa.genKeyPair(1024);
-
-        //Ciframos
-        encode_pass = rsa.Encrypt(original);
-
-        //Guardamos las claves en las variables
-        publicKey = rsa.getPublicKeyString();
-        privateKey = rsa.getPrivateKeyString();
-
-        } catch (Exception e) {    }
 
     }
 

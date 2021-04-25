@@ -73,6 +73,7 @@
     <li>Commit46. Menu Principal implementado. Primera prueba en Avellaneda</li>
     <li>Commit47. Arreglos1 de Primera prueba. Encriptación PASS</li>
     <li>Commit48. Anteproyecto-UML, Casos de Uso, Diagrama de Clases y modelo E-R</li>
+    <li>Commit49. Hash-Contraseña</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -165,6 +166,9 @@ cambia la resolución de las mismas a 720x1280. Falta implementar el item "Ajust
 para encriptar correctamente la contraseña(RSA-1024bit) en .RegistroActivity, se guardan en la base
 de datos el par de keys y la pass enconded para desencriptar desde .LoginActivity, todo correcto</p>
 <p>Commit48. Pulidos defectos encontrados, anteproyectoUML</p>
+<p>Commit49. Se desecha por completo la clase RSA y se sustituye por la API Bcrypt que hace un hash
+de la contraseña en .Registro y la guarda en la Base de Datos. Posteriormente en .Login se compara, a través de la API,
+la contraseña introducida con el hash guardado en la Base de Datos</p>
 <h3>TASK</h3>
     <ul>
     <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO</li>

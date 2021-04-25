@@ -1,7 +1,5 @@
 package com.example.byeKiloh.activitys;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,12 +19,19 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.byeKiloh.datapersistence.BaseDatos;
+import com.example.byeKiloh.objects.Usuario;
 import com.example.byeKiloh.R;
-import com.example.byeKiloh.datapersistence.*;
-import com.example.byeKiloh.objects.*;
 import com.example.byeKiloh.utils.*;
 
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.*;
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.TABLE_NAME;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario._IDUSUARIO;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA;
 
 public class A_Login extends AppCompatActivity {
 
@@ -40,12 +45,6 @@ public class A_Login extends AppCompatActivity {
     String defaultValue;
     private String userSP;
 
-    //Strings para desEncriptar la pass
-    private static String publicKey;
-    private static String privateKey;
-    private static String encode_pass;
-    private static String decode_pass;
-
     BaseDatos basedatos;
     Mensaje mensaje;
     VaciarEditText vaciarEditText;
@@ -57,9 +56,12 @@ public class A_Login extends AppCompatActivity {
 
         btnCrearCuenta = findViewById(R.id.btnCrearCuenta);
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
+
         cbMantenerSesion = findViewById(R.id.cbMantenerSesion);
+
         etUsuario = findViewById(R.id.etUsuario);
         etPass = findViewById(R.id.etPass);
+
         imgPassL = findViewById(R.id.imgPassL);
 
         //SharedPreferences para Recordar nombre de usuario
@@ -75,28 +77,31 @@ public class A_Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            if(!selectPassL) {
-                selectPassL = true;
-                etPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                if(!selectPassL) {
+                    selectPassL = true;
+                    etPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 
-                if(etPass.getText().length() > 0) {
-                    etPass.setSelection(etPass.getText().length());
-                    imgPassL.setBackgroundResource(R.drawable.ic_visible);
+                    if(etPass.getText().length() > 0) {
+                        etPass.setSelection(etPass.getText().length());
+                        imgPassL.setBackgroundResource(R.drawable.ic_visible);
+                    }
+
                 }
+                else {
+                    selectPassL = false;
+                    etPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
-            } else {
-                selectPassL = false;
-                etPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
-                if(etPass.getText().length() > 0) {
-                    etPass.setSelection(etPass.getText().length());
-                    imgPassL.setBackgroundResource(R.drawable.ic_visible_no);
+                    if(etPass.getText().length() > 0) {
+                        etPass.setSelection(etPass.getText().length());
+                        imgPassL.setBackgroundResource(R.drawable.ic_visible_no);
+                    }
                 }
             }
-            }
+
         });
 
         btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
             //Creamos Intent para ir a .B_Registro
@@ -106,6 +111,7 @@ public class A_Login extends AppCompatActivity {
         });
 
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
@@ -125,8 +131,9 @@ public class A_Login extends AppCompatActivity {
                 //Se establece conexion con permisos de lectura
                 SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                 //Columnas que recogerá los datos de la consulta
-                String[] columnasL = {_IDUSUARIO, COLUMN_NAME_USUARIO, COLUMN_NAME_CLAVEPUBLICA,
-                    COLUMN_NAME_CLAVEPRIVADA, COLUMN_NAME_CONTRASEÑA};
+                String[] columnasL = {_IDUSUARIO, COLUMN_NAME_USUARIO, //COLUMN_NAME_CLAVEPUBLICA,
+                    //COLUMN_NAME_CLAVEPRIVADA,
+                        COLUMN_NAME_CONTRASEÑA};
                 //Cláusula WHERE para buscar por usuario
                 String usuarioL = COLUMN_NAME_USUARIO + " LIKE '" + usuario.getUsuario() + "'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
@@ -138,17 +145,16 @@ public class A_Login extends AppCompatActivity {
 
                 //Segundo if comprueba que el cursor no esté vacío
                 if(cursor.getCount() != 0) {
-                    cursor.moveToFirst();
-                    //Asignamos los valores del cursor a las variables
-                    publicKey = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CLAVEPUBLICA));
-                    privateKey = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CLAVEPRIVADA));
-                    encode_pass = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CONTRASEÑA));
 
-                    //DesEncriptamos la contraseña
-                    deCrypt(v);
+                    cursor.moveToFirst();
+
+                    //Recogemos contraseña que está logeando y la comparamos con el hash guardado
+                    String password = usuario.getContraseña();
+                    BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(),
+                        cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CONTRASEÑA)));
 
                     //Tercer if comprueba que las contraseñas coinciden
-                    if(usuario.getContraseña().equals(decode_pass)) {
+                    if(result.verified == true) {
 
                         //Login correcto
                         //Incluimos el valor del atributo id en el objeto usuario a logear
@@ -169,7 +175,8 @@ public class A_Login extends AppCompatActivity {
                             editor.commit();
                             vaciarEditText = new VaciarEditText(etPass);
 
-                        } else {
+                        }
+                        else {
 
                             //Le pasamos usuario="" al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos",
@@ -187,7 +194,8 @@ public class A_Login extends AppCompatActivity {
                         intent.putExtra("usuario", usuario);
                         startActivity(intent);
 
-                    } else {
+                    }
+                    else {
 
                         mensaje = new Mensaje(getApplicationContext(), "La contraseña no es " +
                             "correcta");
@@ -195,7 +203,8 @@ public class A_Login extends AppCompatActivity {
 
                     }
 
-                } else {
+                }
+                else {
 
                     mensaje = new Mensaje(getApplicationContext(), "El usuario: " +
                         usuario.getUsuario() + " no existe");
@@ -209,29 +218,8 @@ public class A_Login extends AppCompatActivity {
 
             }
         }
+
         });
-
-    }
-
-    //Método que DesEncripta la contraseña
-    public void deCrypt(View view) {
-
-        try {
-
-            //Creamos objeto de la clase RSA
-            RSA rsaD = new RSA();
-
-            //Le pasamos el contexto
-            rsaD.setContext(getBaseContext());
-
-            //Usamos los Strings guardados anteriormente para generar nuevas Claves
-            rsaD.setPublicKeyString(publicKey);
-            rsaD.setPrivateKeyString(privateKey);
-
-            //Desciframos
-            decode_pass = rsaD.Decrypt(encode_pass);
-
-        } catch (Exception e) {    }
 
     }
 
