@@ -10,10 +10,8 @@ public class Tablas {
 
         public static final String TABLE_NAME = "Usuarios";
         public static final String _IDUSUARIO = "idUsuario";
-        public static final String COLUMN_NAME_USUARIO = "usuario";
-        //public static final String COLUMN_NAME_CLAVEPUBLICA = "clavePublica";
-        //public static final String COLUMN_NAME_CLAVEPRIVADA = "clavePrivada";
-        public static final String COLUMN_NAME_CONTRASEÑA = "contraseña";
+        public static final String COLUMN_NAME_ALIASUSUARIO = "aliasUsuario";
+        public static final String COLUMN_NAME_CONTRASENIA = "contrasenia";
 
     }
 
@@ -21,11 +19,12 @@ public class Tablas {
 
         public static final String TABLE_NAME = "Cuentas";
         public static final String _IDCUENTA = "idCuenta";
+        public static final String COLUMN_NAME_NUMEROTELEFONO = "numeroTelefono";
         public static final String COLUMN_NAME_EMAIL = "email";
-        public static final String COLUMN_NAME_NOMBRE = "nombre";
-        public static final String COLUMN_NAME_DIRECCION = "direccion";
-        public static final String COLUMN_NAME_LOCALIDAD = "localidad";
-        public static final String COLUMN_NAME_FECHANAC = "fechaNac";
+        public static final String COLUMN_NAME_VALIDADO = "validado";
+        public static final String COLUMN_NAME_NOMBREUSUARIO = "nombreUsuario";
+        public static final String COLUMN_NAME_DIRECCIONUSUARIO = "direccionUsuario";
+        public static final String COLUMN_NAME_NUMEROESTRELLAS = "numeroEstrellas";
         public static final String _IDUSUARIO = "idUsuario";
 
     }

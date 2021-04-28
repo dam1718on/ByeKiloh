@@ -74,6 +74,7 @@
     <li>Commit47. Arreglos1 de Primera prueba. Encriptación PASS</li>
     <li>Commit48. Anteproyecto-UML, Casos de Uso, Diagrama de Clases y modelo E-R</li>
     <li>Commit49. Hash-Contraseña</li>
+    <li>Commit50. Objeto Usuario y Cuenta, reestructurado según UML</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -167,8 +168,10 @@ para encriptar correctamente la contraseña(RSA-1024bit) en .RegistroActivity, s
 de datos el par de keys y la pass enconded para desencriptar desde .LoginActivity, todo correcto</p>
 <p>Commit48. Pulidos defectos encontrados, anteproyectoUML</p>
 <p>Commit49. Se desecha por completo la clase RSA y se sustituye por la API Bcrypt que hace un hash
-de la contraseña en .Registro y la guarda en la Base de Datos. Posteriormente en .Login se compara, a través de la API,
-la contraseña introducida con el hash guardado en la Base de Datos</p>
+de la contraseña en .Registro y la guarda en la Base de Datos. Posteriormente en .Login se compara, 
+a través de la API, la contraseña introducida con el hash guardado en la Base de Datos</p>
+<p>Commit50. Se crea la clase Cuenta tal como se describe en el diagramaUML de Clases. Modificadas
+las Tablas y la BasedeDatos, tambien el perfil</p>
 <h3>TASK</h3>
     <ul>
     <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO</li>

@@ -1,7 +1,5 @@
 package com.example.byeKiloh.activitys;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
 
 import android.database.Cursor;
@@ -15,22 +13,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.byeKiloh.R;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.byeKiloh.datapersistence.BaseDatos;
-import com.example.byeKiloh.objects.Usuario;
+import com.example.byeKiloh.objects.*;
+import com.example.byeKiloh.R;
 import com.example.byeKiloh.utils.Mensaje;
 
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraCuenta.*;
 
 public class G_Perfil extends AppCompatActivity {
 
-    EditText etEmail, etNombreyApellidos, etDireccion, etLocalidad, etFechaNac;
+    EditText etNumeroTelefono, etEmail, etNombreUsuario, etDireccionUsuario;
 
     BaseDatos basedatos;
+    Cuenta cuenta;
     Mensaje mensaje;
-    Usuario usuario;
 
-    String idUserP;
+    String idUsuarioCuenta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +39,25 @@ public class G_Perfil extends AppCompatActivity {
 
         TextView tvPerfil = findViewById(R.id.tvPerfil);
 
-        etEmail = findViewById(R.id.etEmail);
-        etNombreyApellidos = findViewById(R.id.etNombreyApellidos);
-        etDireccion = findViewById(R.id.etDireccion);
-        etLocalidad = findViewById(R.id.etLocalidad);
-        etFechaNac = findViewById(R.id.etFechaNac);
-
         Button btnGuardarCambios = findViewById(R.id.btnGuardarCambios);
         Button btnVolverAlMain4 = findViewById(R.id.btnVolverAlMain4);
 
+        etNumeroTelefono = findViewById(R.id.etNumeroTelefono);
+        etEmail = findViewById(R.id.etEmail);
+        etNombreUsuario = findViewById(R.id.etNombreUsuario);
+        etDireccionUsuario = findViewById(R.id.etDireccionUsuario);
+
+        cuenta = new Cuenta();
+
         //Recibimos Usuario por intent desde .D_Main
         final Usuario usuarioMain = (Usuario) getIntent().getSerializableExtra("usuario");
-        //Creo Usuario_copia del Usuario recibido
-        usuario = new Usuario(usuarioMain);
+        //Se añade Usuario logeado a Cuenta
+        cuenta.setUsuario(usuarioMain);
 
-        idUserP = String.valueOf(usuario.getIdUsuario());
+        //Extraemos el id de Usuario
+        idUsuarioCuenta = String.valueOf(cuenta.getUsuario().getIdUsuario());
 
-        tvPerfil.setText(usuario.getUsuario());
+        tvPerfil.setText(cuenta.getUsuario().getAliasUsuario());
 
         basedatos = new BaseDatos(getApplicationContext());
 
@@ -67,8 +69,6 @@ public class G_Perfil extends AppCompatActivity {
             public void onClick(View v) {
 
                 actualizarRegistros();
-
-                //arrancarET();
 
             }
 
@@ -87,32 +87,32 @@ public class G_Perfil extends AppCompatActivity {
 
     }
 
-    //Método para visualizar los datos de la Cuenta
+    //Método para visualizar en los EditText los datos de Cuenta
     public void arrancarET() {
 
         //Se establece conexion con permisos de lectura
         SQLiteDatabase sqliteE = basedatos.getReadableDatabase();
-        //rawQuery que devuelve los datos del Usuario logeado
+        //rawQuery que devuelve los datos de la Cuenta del Usuario logeado
         Cursor cursor = sqliteE.rawQuery("SELECT * FROM Cuentas WHERE " +
-                "Cuentas.idUsuario LIKE '" + idUserP + "'", null);
+            "Cuentas.idUsuario LIKE '" + idUsuarioCuenta + "'", null);
 
         //Si hay registros los muestra en los EditText correspondientes
         if (cursor.getCount() != 0) {
 
-            cursor.moveToLast();
+            cursor.moveToFirst();
 
-            usuario.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_EMAIL)));;
-            usuario.setNombre(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_NOMBRE)));
-            usuario.setDireccion(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_DIRECCION)));
-            usuario.setLocalidad(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_LOCALIDAD)));
-            usuario.setFechaNac(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_FECHANAC)));
+            cuenta.setIdCuenta(cursor.getInt(cursor.getColumnIndex(_IDCUENTA)));
+            cuenta.setNumeroTelefono(cursor.getInt(cursor.getColumnIndex(COLUMN_NAME_NUMEROTELEFONO)));
+            cuenta.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_EMAIL)));
+            cuenta.setValidado(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_VALIDADO)));
+            cuenta.setNombreUsuario(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_NOMBREUSUARIO)));
+            cuenta.setDireccionUsuario(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_DIRECCIONUSUARIO)));
+            cuenta.setNumeroEstrellas(cursor.getInt(cursor.getColumnIndex(COLUMN_NAME_NUMEROESTRELLAS)));
 
-
-            etEmail.setText(usuario.getEmail());
-            etNombreyApellidos.setText(usuario.getNombre());
-            etDireccion.setText(usuario.getDireccion());
-            etLocalidad.setText(usuario.getLocalidad());
-            etFechaNac.setText(usuario.getFechaNac());
+            etNumeroTelefono.setText(String.valueOf(cuenta.getNumeroTelefono()));
+            etEmail.setText(cuenta.getEmail());
+            etNombreUsuario.setText(cuenta.getNombreUsuario());
+            etDireccionUsuario.setText(cuenta.getDireccionUsuario());
 
         }
 
@@ -123,36 +123,55 @@ public class G_Perfil extends AppCompatActivity {
 
     }
 
-    //Método para guardar los datos de la Cuenta
+    //Método para actualizar/insertar los datos de Cuenta
     public void actualizarRegistros() {
 
         //Se establece conexion con permisos de escritura
         SQLiteDatabase sqliteA = basedatos.getWritableDatabase();
+        //rawQuery que devuelve la cuenta del Usuario logeado
+        Cursor cursor = sqliteA.rawQuery("SELECT * FROM Cuentas WHERE " +
+                "Cuentas.idUsuario LIKE '" + idUsuarioCuenta + "'", null);
+
+        //Se actualiza el objeto cuenta
+        cuenta.setNumeroTelefono(Integer.parseInt(etNumeroTelefono.getText().toString()));
+        cuenta.setEmail(etEmail.getText().toString());
+        cuenta.setNombreUsuario(etNombreUsuario.getText().toString());
+        cuenta.setDireccionUsuario(etDireccionUsuario.getText().toString());
+
         //EstructuraCuenta de insercción de datos
         ContentValues content = new ContentValues();
-
-        usuario.setEmail(etEmail.getText().toString());
-        usuario.setNombre(etNombreyApellidos.getText().toString());
-        usuario.setDireccion(etDireccion.getText().toString());
-        usuario.setLocalidad(etLocalidad.getText().toString());
-        usuario.setFechaNac(etFechaNac.getText().toString());
-
         //Se añaden los valores introducidos de cada campo mediante
         // clave(columna)/valor(valor introducido en el campo de texto)
-        content.put(COLUMN_NAME_EMAIL, usuario.getEmail());
-        content.put(COLUMN_NAME_NOMBRE, usuario.getNombre());
-        content.put(COLUMN_NAME_DIRECCION, usuario.getDireccion());
-        content.put(COLUMN_NAME_LOCALIDAD, usuario.getLocalidad());
-        content.put(COLUMN_NAME_FECHANAC, usuario.getFechaNac());
-        content.put(_IDUSUARIO, idUserP);
-        sqliteA.insert(TABLE_NAME, null, content);
-        //Registro exitoso
-        mensaje = new Mensaje(getApplicationContext(), "Datos guardados correctamente");
+        content.put(COLUMN_NAME_NUMEROTELEFONO, cuenta.getNumeroTelefono());
+        content.put(COLUMN_NAME_EMAIL, cuenta.getEmail());
+        content.put(COLUMN_NAME_NOMBREUSUARIO, cuenta.getNombreUsuario());
+        content.put(COLUMN_NAME_DIRECCIONUSUARIO, cuenta.getDireccionUsuario());
+        content.put(_IDUSUARIO, idUsuarioCuenta);
 
+        //Cláusula where para actualizar Cuentas
+        String where = "Cuentas.idCuenta LIKE '" + cuenta.getIdCuenta() + "'";
+
+        //Si hay registros actualizamos Cuenta
+        if (cursor.getCount() != 0) {
+
+            sqliteA.update(TABLE_NAME, content, where, null);
+            //Registro exitoso
+            mensaje = new Mensaje(getApplicationContext(), "Datos actualizados correctamente");
+
+        }
+        //Si no los había los insertamos (primer uso del Usuario actual)
+        else {
+
+            sqliteA.insert(TABLE_NAME, null, content);
+            //Registro exitoso
+            mensaje = new Mensaje(getApplicationContext(), "Datos insertados correctamente");
+
+        }
+
+        //Cerramos el cursor
+        cursor.close();
         //Se cierra la conexión abierta a la Base de Datos
         sqliteA.close();
-
-        //content.clear();
 
     }
 

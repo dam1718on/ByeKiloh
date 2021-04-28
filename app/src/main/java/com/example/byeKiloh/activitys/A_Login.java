@@ -30,8 +30,8 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.TABLE_NAME;
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario._IDUSUARIO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_ALIASUSUARIO;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASENIA;
 
 public class A_Login extends AppCompatActivity {
 
@@ -126,18 +126,18 @@ public class A_Login extends AppCompatActivity {
                 //Se crea e inicializa el objeto usuario
                 Usuario usuario = new Usuario();
                 //Se recogen los datos de los EditText
-                usuario.setUsuario(etUsuario.getText().toString());
-                usuario.setContraseña(etPass.getText().toString());
+                usuario.setAliasUsuario(etUsuario.getText().toString());
+                usuario.setContrasenia(etPass.getText().toString());
                 //Se establece conexion con permisos de lectura
                 SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                 //Columnas que recogerá los datos de la consulta
-                String[] columnasL = {_IDUSUARIO, COLUMN_NAME_USUARIO, //COLUMN_NAME_CLAVEPUBLICA,
+                String[] columnasL = {_IDUSUARIO, COLUMN_NAME_ALIASUSUARIO, //COLUMN_NAME_CLAVEPUBLICA,
                     //COLUMN_NAME_CLAVEPRIVADA,
-                        COLUMN_NAME_CONTRASEÑA};
+                        COLUMN_NAME_CONTRASENIA};
                 //Cláusula WHERE para buscar por usuario
-                String usuarioL = COLUMN_NAME_USUARIO + " LIKE '" + usuario.getUsuario() + "'";
+                String usuarioL = COLUMN_NAME_ALIASUSUARIO + " LIKE '" + usuario.getAliasUsuario() + "'";
                 //Orden de los resultados devueltos por usuario, de forma Descendente alfabéticamente
-                String ordenSalidaNameL = COLUMN_NAME_USUARIO + " DESC";
+                String ordenSalidaNameL = COLUMN_NAME_ALIASUSUARIO + " DESC";
                 //Ejecuta la sentencia devolviendo los resultados de los parámetros pasados de tabla,
                 // columnas, usuario y orden de los resultados.
                 Cursor cursor = sqlite.query(TABLE_NAME, columnasL, usuarioL,null ,
@@ -149,19 +149,19 @@ public class A_Login extends AppCompatActivity {
                     cursor.moveToFirst();
 
                     //Recogemos contraseña que está logeando y la comparamos con el hash guardado
-                    String password = usuario.getContraseña();
+                    String password = usuario.getContrasenia();
                     BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(),
-                        cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CONTRASEÑA)));
+                        cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CONTRASENIA)));
 
                     //Tercer if comprueba que las contraseñas coinciden
-                    if(result.verified == true) {
+                    if(result.verified) {
 
                         //Login correcto
                         //Incluimos el valor del atributo id en el objeto usuario a logear
                         int identificadorL = cursor.getInt(cursor.getColumnIndex(_IDUSUARIO));
                         usuario.setIdUsuario(identificadorL);
                         mensaje = new Mensaje(getApplicationContext(), "Bienvenid@:  " +
-                                usuario.getUsuario());
+                                usuario.getAliasUsuario());
 
                         //Cuarto if comprueba si Recordar nombre de usuario está checked
                         if(cbMantenerSesion.isChecked()) {
@@ -169,10 +169,10 @@ public class A_Login extends AppCompatActivity {
                             //Le pasamos el nombre de usuario al SharedPreferences
                             SharedPreferences prefSesion = getSharedPreferences("datos",
                                     Context.MODE_PRIVATE);
-                            userSP = usuario.getUsuario();
+                            userSP = usuario.getAliasUsuario();
                             SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
-                            editor.commit();
+                            editor.apply();
                             vaciarEditText = new VaciarEditText(etPass);
 
                         }
@@ -184,7 +184,7 @@ public class A_Login extends AppCompatActivity {
                             userSP = "";
                             SharedPreferences.Editor editor = prefSesion.edit();
                             editor.putString("usuario", userSP);
-                            editor.commit();
+                            editor.apply();
                             vaciarEditText = new VaciarEditText(etUsuario, etPass);
 
                         }
@@ -207,7 +207,7 @@ public class A_Login extends AppCompatActivity {
                 else {
 
                     mensaje = new Mensaje(getApplicationContext(), "El usuario: " +
-                        usuario.getUsuario() + " no existe");
+                        usuario.getAliasUsuario() + " no existe");
                     vaciarEditText = new VaciarEditText(etUsuario, etPass);
 
                 }

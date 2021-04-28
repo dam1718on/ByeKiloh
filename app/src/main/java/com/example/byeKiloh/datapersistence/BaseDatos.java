@@ -17,19 +17,18 @@ public class BaseDatos extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES_USUARIO =
             "CREATE TABLE " + EstructuraUsuario.TABLE_NAME + " (" +
                     EstructuraUsuario._IDUSUARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    EstructuraUsuario.COLUMN_NAME_USUARIO + TEXT_TYPE + COMMA_SEP +
-                    //EstructuraUsuario.COLUMN_NAME_CLAVEPUBLICA + TEXT_TYPE + COMMA_SEP +
-                    //EstructuraUsuario.COLUMN_NAME_CLAVEPRIVADA + TEXT_TYPE + COMMA_SEP +
-                    EstructuraUsuario.COLUMN_NAME_CONTRASEÑA + TEXT_TYPE + " )";
+                    EstructuraUsuario.COLUMN_NAME_ALIASUSUARIO + TEXT_TYPE + COMMA_SEP +
+                    EstructuraUsuario.COLUMN_NAME_CONTRASENIA + TEXT_TYPE + " )";
 
     private static final String SQL_CREATE_ENTRIES_CUENTA =
             "CREATE TABLE " + EstructuraCuenta.TABLE_NAME + " (" +
                     EstructuraCuenta._IDCUENTA + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    EstructuraCuenta.COLUMN_NAME_NUMEROTELEFONO + " INTEGER " + COMMA_SEP +
                     EstructuraCuenta.COLUMN_NAME_EMAIL + TEXT_TYPE + COMMA_SEP +
-                    EstructuraCuenta.COLUMN_NAME_NOMBRE + TEXT_TYPE + COMMA_SEP +
-                    EstructuraCuenta.COLUMN_NAME_DIRECCION + TEXT_TYPE + COMMA_SEP +
-                    EstructuraCuenta.COLUMN_NAME_LOCALIDAD + TEXT_TYPE + COMMA_SEP +
-                    EstructuraCuenta.COLUMN_NAME_FECHANAC + TEXT_TYPE + COMMA_SEP +
+                    EstructuraCuenta.COLUMN_NAME_VALIDADO + " BOOLEAN " + COMMA_SEP +
+                    EstructuraCuenta.COLUMN_NAME_NOMBREUSUARIO + TEXT_TYPE + COMMA_SEP +
+                    EstructuraCuenta.COLUMN_NAME_DIRECCIONUSUARIO + TEXT_TYPE + COMMA_SEP +
+                    EstructuraCuenta.COLUMN_NAME_NUMEROESTRELLAS + " INTEGER " + COMMA_SEP +
                     EstructuraCuenta._IDUSUARIO + " INTEGER  )";
 
     private static final String SQL_CREATE_ENTRIES_EJERCICIO =
@@ -63,7 +62,7 @@ public class BaseDatos extends SQLiteOpenHelper {
     private static final String SQL_DELETE_ENTRIES_PESAJE = "DROP TABLE IF EXISTS " +
         EstructuraPesaje.TABLE_NAME;
 
-    //Se declaran e inicializan las variables encargadas de crear la Base d Datos 'byeKiloh.sqlite'
+    //Se declaran e inicializan las variables encargadas de crear la Base de Datos 'byeKiloh.sqlite'
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "byeKiloh.sqlite";
 

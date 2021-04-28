@@ -31,8 +31,8 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.TABLE_NAME;
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario._IDUSUARIO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_USUARIO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASEÑA;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_ALIASUSUARIO;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASENIA;
 
 public class B_Registro extends AppCompatActivity {
 
@@ -187,12 +187,12 @@ public class B_Registro extends AppCompatActivity {
                     //Se crea e inicializa el objeto usuario
                     usuario = new Usuario();
                     //Se recogen los datos de los EditText
-                    usuario.setUsuario(etUsuario.getText().toString());
-                    usuario.setContraseña(etContrasena.getText().toString());
+                    usuario.setAliasUsuario(etUsuario.getText().toString());
+                    usuario.setContrasenia(etContrasena.getText().toString());
                     String passRe = etContrasenaRe.getText().toString();
 
                     //Tercer if comprueba si no coinciden las contraseñas
-                    if (!usuario.getContraseña().equals(passRe)) {
+                    if (!usuario.getContrasenia().equals(passRe)) {
                         mensaje = new Mensaje(getApplicationContext(), "Las Contraseñas " +
                                 "introducidas\nno coinciden");
                     }
@@ -203,14 +203,14 @@ public class B_Registro extends AppCompatActivity {
                             //Se establece conexion con permisos de lectura
                             SQLiteDatabase sqlite = basedatos.getReadableDatabase();
                             //Columnas que recogerá los datos de la consulta
-                            String[] columnas = {_IDUSUARIO, COLUMN_NAME_USUARIO,
-                                COLUMN_NAME_CONTRASEÑA};
+                            String[] columnas = {_IDUSUARIO, COLUMN_NAME_ALIASUSUARIO,
+                                    COLUMN_NAME_CONTRASENIA};
                             //Cláusula WHERE para buscar por usuario
-                            String usuarioSQL = COLUMN_NAME_USUARIO + " LIKE '" +
-                                usuario.getUsuario() + "'";
+                            String usuarioSQL = COLUMN_NAME_ALIASUSUARIO + " LIKE '" +
+                                usuario.getAliasUsuario() + "'";
                             //Orden de los resultados devueltos por usuario, de forma
                             // Descendente alfabéticamente
-                            String ordenSalida = COLUMN_NAME_USUARIO + " DESC";
+                            String ordenSalida = COLUMN_NAME_ALIASUSUARIO + " DESC";
                             //Ejecuta la sentencia devolviendo los resultados de los parámetros
                             // pasados de tabla, columnas, usuario y orden de los resultados.
                             Cursor cursor = sqlite.query(TABLE_NAME, columnas, usuarioSQL,
@@ -221,7 +221,7 @@ public class B_Registro extends AppCompatActivity {
                                 cursor.moveToFirst();
 
                                 mensaje = new Mensaje(getApplicationContext(), "El nombre de" +
-                                    " usuario: " + usuario.getUsuario() + "\nno está disponible, " +
+                                    " usuario: " + usuario.getAliasUsuario() + "\nno está disponible, " +
                                     "pruebe con otro");
                                 vaciarEditText = new VaciarEditText(etUsuario);
 
@@ -233,22 +233,22 @@ public class B_Registro extends AppCompatActivity {
                                 sqlite = basedatos.getWritableDatabase();
 
                                 //Recogemos contraseña del EditText y le hacemos hash
-                                String password = usuario.getContraseña();
+                                String password = usuario.getContrasenia();
                                 String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
 
                                 //EstructuraUsuario de insercción de datos
                                 ContentValues content = new ContentValues();
                                 //Se añaden los valores introducidos de cada campo mediante
                                 // clave(columna)/valor(valor introducido en el campo de texto)
-                                content.put(COLUMN_NAME_USUARIO, usuario.getUsuario());
-                                content.put(COLUMN_NAME_CONTRASEÑA, bcryptHashString);
+                                content.put(COLUMN_NAME_ALIASUSUARIO, usuario.getAliasUsuario());
+                                content.put(COLUMN_NAME_CONTRASENIA, bcryptHashString);
 
                                 //Insertamos los datos en la Base de Datos - SQLite
                                 sqlite.insert(TABLE_NAME, null, content);
 
                                 //Registro exitoso
                                 mensaje = new Mensaje(getApplicationContext(), "El usuario " +
-                                        usuario.getUsuario() + "\nse registró con éxito");
+                                        usuario.getAliasUsuario() + "\nse registró con éxito");
 
                                 //Reseteo de los EditText
                                 vaciarEditText = new VaciarEditText(etUsuario, etContrasena,

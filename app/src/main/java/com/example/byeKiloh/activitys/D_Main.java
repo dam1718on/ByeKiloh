@@ -101,7 +101,7 @@ public class D_Main extends AppCompatActivity {
 
         getMenuInflater().inflate(R.menu.main_menu, menu);
         //Cambiamos el nombre del item al nombre de Usuario Logeado
-        menu.findItem(R.id.perfil).setTitle(usuario.getUsuario());
+        menu.findItem(R.id.perfil).setTitle(usuario.getAliasUsuario());
         //Creamos separación entre los grupos del menu
         MenuCompat.setGroupDividerEnabled(menu, true);
 
