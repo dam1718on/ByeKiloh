@@ -1,46 +1,49 @@
 package com.example.byeKiloh.activitys;
 
 import android.annotation.SuppressLint;
+
 import android.content.Intent;
 
 import android.os.Bundle;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.core.view.MenuCompat;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.example.byeKiloh.fragments.*;
-import com.example.byeKiloh.objects.*;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.byeKiloh.R;
+import com.example.byeKiloh.objects.Usuario;
+import com.example.byeKiloh.utils.PagerController;
+
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 public class D_Main extends AppCompatActivity {
 
-    //Fragments asociados a esta Activity
-    private A_Main_Promedios mainaPromedios;
-    private B_Main_Pesajes mainbPesajes;
-    private C_Main_Ejercicios maincEjercicios;
-    private D_Main_Backups maindBackups;
-
-    public int idUs;
+    //Atributos del TabLayout
+    private TabLayout tlMain;
+    private ViewPager vpMain;
+    private TabItem tiEstadisticas, tiMediciones, tiLogros, tiBackups;
+    PagerController pagerController;
 
     Usuario usuario;
+    public int idUs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_d_main);
 
-        Button btnPromedios = findViewById(R.id.btnPromedios);
-        Button btnPesajes = findViewById(R.id.btnPesajes);
-        Button btnEjercicios = findViewById(R.id.btnEjercicios);
-        Button btnBackups = findViewById(R.id.btnBackups);
+        tlMain = findViewById(R.id.tlMain);
+        vpMain = findViewById(R.id.vpMain);
+        tiEstadisticas = findViewById(R.id.tiEstadisticas);
+        tiMediciones = findViewById(R.id.tiMediciones);
+        tiLogros = findViewById(R.id.tiLogros);
+        tiBackups = findViewById(R.id.tiBackups);
 
         //Recibimos Usuario por intent desde .A_Login
         final Usuario usuarioLogin = (Usuario) getIntent().getSerializableExtra("usuario");
@@ -49,52 +52,46 @@ public class D_Main extends AppCompatActivity {
 
         idUs = usuario.getIdUsuario();
 
-        //Iniciamos los fragments
-        mainaPromedios = new A_Main_Promedios();
-        mainbPesajes = new B_Main_Pesajes();
-        maincEjercicios = new C_Main_Ejercicios();
-        maindBackups = new D_Main_Backups();
+        pagerController = new PagerController(getSupportFragmentManager(), tlMain.getTabCount());
+        vpMain.setAdapter(pagerController);
+        tlMain.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
 
-        //Fragment que se visualiza por defecto onCreate
-        getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragmentosMAIN,
-            mainaPromedios).commit();
+                vpMain.setCurrentItem(tab.getPosition());
 
-    }
+                if(tab.getPosition()==0) {
+                    pagerController.notifyDataSetChanged();
+                }
 
-    //Método onClick para cambiar entre fragments
-    @SuppressLint("NonConstantResourceId")
-    public void onClick(@org.jetbrains.annotations.NotNull View view) {
+                if(tab.getPosition()==1) {
+                    pagerController.notifyDataSetChanged();
+                }
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                if(tab.getPosition()==2) {
+                    pagerController.notifyDataSetChanged();
+                }
 
-        switch(view.getId()) {
+                if(tab.getPosition()==3) {
+                    pagerController.notifyDataSetChanged();
+                }
 
-            case R.id.btnPromedios :
+            }
 
-                transaction.replace(R.id.contenedorFragmentosMAIN, mainaPromedios);
-                break;
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
 
-            case R.id.btnPesajes :
+            }
 
-                transaction.replace(R.id.contenedorFragmentosMAIN, mainbPesajes);
-                break;
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
 
-            case R.id.btnEjercicios :
+            }
+        });
 
-                transaction.replace(R.id.contenedorFragmentosMAIN, maincEjercicios);
-                break;
-
-            case R.id.btnBackups :
-
-                transaction.replace(R.id.contenedorFragmentosMAIN, maindBackups);
-                break;
-
-        }
-
-        transaction.commit();
+        vpMain.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tlMain));
 
     }
-
     //Método para crear el menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -47,13 +47,13 @@
 
         <Button
             android:id="@+id/btnVolverAlMain"
-            style="@style/shadoweffect"
-            android:layout_width="120dp"
+            android:layout_width="130dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:background="@drawable/rounded_button_gradient_orange"
-            android:text="VOLVER\nAL MAIN"
-            android:textStyle="bold" />
+            android:text="VOLVER A\nREGISTROS"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
     </LinearLayout>
 

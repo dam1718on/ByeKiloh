@@ -1,88 +1,76 @@
 package com.example.byeKiloh.objects;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.DecimalFormat;
 
 public class Ejercicio {
 
-    private int idEjercicio, distancia, tiempo, idUsuario;
-    private String fecha, velocidad, inclinacion;
-    private float consumoE;
+    private int idEjercicio, distanciaRecorrida, tiempoEmpleado;
+    private float inclinacionTerreno;
 
-    public Ejercicio() {  }
+    //Constructores, en orden: vacío, con todos los parámetros y copia
+    public Ejercicio() {    }
 
-    public Ejercicio(String fecha, int distancia, int tiempo, String inclinacion, int idUsuario) {
+    public Ejercicio(int distanciaRecorrida, int tiempoEmpleado, float inclinacionTerreno) {
 
-        this.fecha = fecha;
-        this.distancia = distancia;
-        this.tiempo = tiempo;
-        setVelocidad();
-        this.inclinacion = inclinacion;
-        this.idUsuario = idUsuario;
-        //IMPLEMENTAR setConsumoE;
+        this.distanciaRecorrida = distanciaRecorrida;
+        this.tiempoEmpleado = tiempoEmpleado;
+        this.inclinacionTerreno = inclinacionTerreno;
+
     }
 
     public Ejercicio(Ejercicio ejercicio) {
 
         this.idEjercicio = ejercicio.getIdEjercicio();
-        this.fecha = ejercicio.getFecha();
-        this.distancia = ejercicio.getDistancia();
-        this.tiempo = ejercicio.getTiempo();
-        this.velocidad = ejercicio.getVelocidad();
-        this.consumoE = ejercicio.getConsumoE();
-        this.inclinacion = ejercicio.getInclinacion();
-        this.idUsuario = ejercicio.getIdUsuario();
+        this.distanciaRecorrida = ejercicio.getDistanciaRecorrida();
+        this.tiempoEmpleado = ejercicio.getTiempoEmpleado();
+        this.inclinacionTerreno = ejercicio.getInclinacionTerreno();
+
     }
 
-    //Getters y Setters de Consumo HAN DE IMPLEMENTARSE CORRECTAMENTE
-    public float getConsumoE() { return consumoE; }
+    //Getters and Setters
+    public int getIdEjercicio() {  return idEjercicio;  }
 
-    public void setConsumoE(float consumoE) { this.consumoE = consumoE; }
+    public void setIdEjercicio(int idEjercicio) {  this.idEjercicio = idEjercicio;  }
 
-    public int getIdEjercicio() { return idEjercicio; }
+    public int getDistanciaRecorrida() {  return distanciaRecorrida;  }
 
-    public void setIdEjercicio(int idEjercicio) { this.idEjercicio = idEjercicio; }
+    public void setDistanciaRecorrida(int distanciaRecorrida) {  this.distanciaRecorrida = distanciaRecorrida;  }
 
-    public String getFecha() { return fecha; }
+    public int getTiempoEmpleado() {  return tiempoEmpleado;  }
 
-    public void setFecha(String fecha) { this.fecha = fecha; }
+    public void setTiempoEmpleado(int tiempoEmpleado) {  this.tiempoEmpleado = tiempoEmpleado;  }
 
-    public int getDistancia() { return distancia; }
+    public float getInclinacionTerreno() {  return inclinacionTerreno;  }
 
-    public void setDistancia(int distancia) { this.distancia = distancia; }
+    public void setInclinacionTerreno(float inclinacionTerreno) {  this.inclinacionTerreno = inclinacionTerreno;  }
 
-    public int getTiempo() { return tiempo; }
+    //Método que calcula la velocidad media del Ejercicio
+    public String velocidadMedia() {
 
-    public void setTiempo(int tiempo) { this.tiempo = tiempo; }
-
-    public String getVelocidad() { return velocidad; }
-
-    public void setVelocidad() {
         //convertimos los int en float
-        float distanciaVel = new Float(distancia);
-        float tiempoVel = new Float(tiempo);
+        float distanciaVel = (float) distanciaRecorrida;
+        float tiempoVel = (float) tiempoEmpleado;
         //hacemos el cálculo con un pattern de retorno con 2 decimales
         DecimalFormat df = new DecimalFormat("0.00");
-        velocidad = df.format((float) (distanciaVel / 1000) / (tiempoVel / 60));
+        String format;
+        format = df.format((float) (distanciaVel / 1000) / (tiempoVel / 60));
+        return format;
+
     }
 
-    public String getInclinacion() { return inclinacion; }
-
-    public void setInclinacion(String inclinacion) { this.inclinacion = inclinacion; }
-
-    public int getIdUsuario() { return idUsuario; }
-
-    public void setIdUsuario(int idUsuario) { this.idUsuario = idUsuario; }
-
+    @NotNull
     @Override
     public String toString() {
 
-        return "- Ejercicio " + idEjercicio +
-                " del " + fecha +
-                " con " + distancia +
-                " m en " + tiempo +
-                " min\n    velocidad " + velocidad +
-               // " consumoE " + consumoE +
-                " km/h inclinación " + inclinacion;
+        return "Ejercicio{" +
+                "idEjercicio=" + idEjercicio +
+                ", distanciaRecorrida=" + distanciaRecorrida +
+                ", tiempoEmpleado=" + tiempoEmpleado +
+                ", inclinacionTerreno=" + inclinacionTerreno +
+                '}';
+
     }
 
 }

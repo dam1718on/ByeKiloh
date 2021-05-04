@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.L_Ejercicios_Delete">
+    tools:context=".fragments.F_Bascula_Borrar">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="EJERCICIOS DELETE"
+            android:text="BORRAR BASCULA"
             android:textColor="@color/naranja"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -36,13 +36,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="10dp"
-                android:text="SPINNER CON TODOS LOS EJERCICIOS GUARDADOS:"
+                android:text="SELECCIONE LA BASCULA A BORRAR:"
                 android:textColor="@color/azuloscuro"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinEjerciciosD"
+                android:id="@+id/spinBasculasB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -54,84 +54,69 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="10dp"
-                android:text="EJERCICIO SELECCIONADO:"
+                android:text="BASCULA SELECCIONADA:"
                 android:textColor="@color/azuloscuro"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etFechaD"
+                android:id="@+id/etPesoUsuarioB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:digits="0123456789"
-                android:hint="fecha  [YYMMDD]"
+                android:digits=".0123456789"
+                android:hint="Peso (ej. 999,99) [Kg]"
                 android:maxLength="6"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/naranjaflojo"
-                android:textColorHint="@color/azuloscuro"
-                android:textSize="15.5sp"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etDistanciaD"
+                android:id="@+id/etAlturaUsuarioB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:digits="0123456789"
-                android:hint="distancia  [metros]"
-                android:maxLength="5"
-                android:maxLines="1"
-                android:textAlignment="center"
-                android:textColor="@color/naranjaflojo"
-                android:textColorHint="@color/azuloscuro"
-                android:textSize="15.5sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etTiempoD"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:digits="0123456789"
-                android:hint="tiempo  [minutos]"
-                android:maxLength="3"
-                android:maxLines="1"
-                android:textAlignment="center"
-                android:textColor="@color/naranjaflojo"
-                android:textColorHint="@color/azuloscuro"
-                android:textSize="15.5sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etInclinacionD"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:digits=",0123456789"
-                android:hint="inclinación"
+                android:digits=".0123456789"
+                android:hint="Altura (ej. 9,99) [metros]"
                 android:maxLength="4"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/naranjaflojo"
-                android:textColorHint="@color/azuloscuro"
-                android:textSize="15.5sp"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etLugarBasculaB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                úÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:hint="Lugar báscula (ej. FARMACIA EUROPA)"
+                android:maxLength="23"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnBorrarEjercicioD"
+                android:id="@+id/btnBorrarBasculaB"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="12dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rounded_button_gradient_blue"
-                android:text="BORRAR\nEJERCICIO"
+                android:text="BORRAR\nBASCULA"
                 android:textStyle="bold"
                 style="@style/shadoweffect" />
 

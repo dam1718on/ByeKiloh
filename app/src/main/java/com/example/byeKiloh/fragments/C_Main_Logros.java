@@ -13,15 +13,15 @@ import androidx.fragment.app.Fragment;
 import com.example.byeKiloh.R;
 import com.example.byeKiloh.activitys.D_Main;
 import com.example.byeKiloh.datapersistence.*;
-import com.example.byeKiloh.objects.*;
+import com.example.byeKiloh.objects.Cuenta;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link D_Main_Backups#newInstance} factory method to
+ * Use the {@link C_Main_Logros#newInstance} factory method to
  * create an instance of this fragment.
  */
 
-public class D_Main_Backups extends Fragment {
+public class C_Main_Logros extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,11 +32,11 @@ public class D_Main_Backups extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    View vistaCOP;
+    View vistaE;
 
-    private TextView tvCopiasDeSeguridad;
+    private TextView tvLogros;
 
-    String idCOP;
+    String idC;
 
     BaseDatos basedatos;
     Cuenta cuenta;
@@ -44,7 +44,7 @@ public class D_Main_Backups extends Fragment {
     //Se carga la activity para poder extraer el idUsuario y propagarlo a los fragments
     public D_Main dmain;
 
-    public D_Main_Backups() {
+    public C_Main_Logros() {
         // Required empty public constructor
     }
 
@@ -54,13 +54,13 @@ public class D_Main_Backups extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment D_Main_Backups.
+     * @return A new instance of fragment C_Main_Logros.
      */
 
     // TODO: Rename and change types and number of parameters
-    public static D_Main_Backups newInstance(String param1, String param2) {
+    public static C_Main_Logros newInstance(String param1, String param2) {
 
-        D_Main_Backups fragment = new D_Main_Backups();
+        C_Main_Logros fragment = new C_Main_Logros();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -84,20 +84,20 @@ public class D_Main_Backups extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         final Bundle savedInstanceState) {
 
-        vistaCOP = inflater.inflate(R.layout.fragment_d_main_backups, container, false);
+        vistaE = inflater.inflate(R.layout.fragment_c_main_logros, container, false);
 
-        tvCopiasDeSeguridad = vistaCOP.findViewById(R.id.tvCopiasDeSeguridad);
+        tvLogros = vistaE.findViewById(R.id.tvLogros);
 
         //Instanciamos la activity que contiene la variable
         dmain = (D_Main) getActivity();
-        idCOP = String.valueOf(dmain.idUs);
+        idC = String.valueOf(dmain.idUs);
 
         basedatos = new BaseDatos(getActivity());
 
         //Recogemos todos los datos de la cuentaRegistros del Usuario Logeado
         SQLiteDatabase sqlite = basedatos.getReadableDatabase();
         Cursor cursor = sqlite.rawQuery("SELECT * FROM Cuentas WHERE " +
-                "Cuentas.idUsuario LIKE '" + idCOP + "'",null);
+                "Cuentas.idUsuario LIKE '" + idC + "'",null);
 
         //Si el usuario tiene cuenta/s
         if(cursor.getCount() != 0) {
@@ -108,23 +108,23 @@ public class D_Main_Backups extends Fragment {
             //Y tiene la cuenta validada
             if(cuenta.isValidado()) {
                 //Gana acceso a LOGROS
-                tvCopiasDeSeguridad.setText("Acceso concedido");
+                tvLogros.setText("Acceso concedido");
             }
             else {
                 //no validada
-                tvCopiasDeSeguridad.setText("Esta sección esta deshabilatada\nporque no tiene una cuenta validada");
+                tvLogros.setText("Esta sección esta deshabilatada\nporque no tiene una cuenta validada");
             }
         }
         //Si no la tiene
         else {
             //Sin cuenta
-            tvCopiasDeSeguridad.setText("Esta sección esta deshabilatada\nporque no tiene una cuenta");
+            tvLogros.setText("Esta sección esta deshabilatada\nporque no tiene una cuenta");
         }
         //Cerramos cursor y conexion
         cursor.close();
         sqlite.close();
 
-        return vistaCOP;
+        return vistaE;
 
     }
 

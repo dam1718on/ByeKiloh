@@ -28,14 +28,10 @@ import com.example.byeKiloh.utils.*;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.TABLE_NAME;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario._IDUSUARIO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_ALIASUSUARIO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASENIA;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.*;
 
 public class A_Login extends AppCompatActivity {
 
-    private Button btnCrearCuenta, btnIniciarSesion;
     private CheckBox cbMantenerSesion;
     private EditText etUsuario, etPass;
     private ImageView imgPassL;
@@ -54,8 +50,8 @@ public class A_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_login);
 
-        btnCrearCuenta = findViewById(R.id.btnCrearCuenta);
-        btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
+        Button btnCrearCuenta = findViewById(R.id.btnCrearCuenta);
+        Button btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
 
         cbMantenerSesion = findViewById(R.id.cbMantenerSesion);
 
@@ -104,9 +100,11 @@ public class A_Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-            //Creamos Intent para ir a .B_Registro
-            Intent intent = new Intent(getApplicationContext(), B_Registro.class);
-            startActivity(intent);
+
+                //Creamos Intent para ir a .B_Registro
+                Intent intent = new Intent(getApplicationContext(), B_Registro.class);
+                startActivity(intent);
+
             }
         });
 

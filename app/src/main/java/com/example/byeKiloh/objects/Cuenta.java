@@ -7,13 +7,17 @@ public class Cuenta {
     private int idCuenta, numeroTelefono, numeroEstrellas;
     private String email, nombreUsuario, direccionUsuario;
     private boolean validado;
-    private Usuario usuario;
+    private Usuario esDE;
 
     //Constructores, en orden: vacío, con todos los parámetros y copia
-    public Cuenta() {    }
+    public Cuenta() {
+
+        setValidado("False");
+
+    }
 
     public Cuenta(int idCuenta, int numeroTelefono, String email, boolean validado,
-        String nombreUsuario, String direccionUsuario, int numeroEstrellas, Usuario usuario) {
+        String nombreUsuario, String direccionUsuario, int numeroEstrellas, Usuario esDE) {
 
         this.idCuenta = idCuenta;
         this.numeroTelefono = numeroTelefono;
@@ -22,7 +26,7 @@ public class Cuenta {
         this.nombreUsuario = nombreUsuario;
         this.direccionUsuario = direccionUsuario;
         this.numeroEstrellas = numeroEstrellas;
-        this.usuario = usuario;
+        this.esDE = esDE;
 
     }
 
@@ -35,7 +39,7 @@ public class Cuenta {
         this.nombreUsuario = cuenta.getNombreUsuario();
         this.direccionUsuario = cuenta.getDireccionUsuario();
         this.numeroEstrellas = cuenta.getNumeroEstrellas();
-        this.usuario = cuenta.getUsuario();
+        this.esDE = cuenta.getEsDE();
 
     }
 
@@ -71,11 +75,10 @@ public class Cuenta {
 
     public void setNumeroEstrellas(int numeroEstrellas) {  this.numeroEstrellas = numeroEstrellas;  }
 
-    public Usuario getUsuario() {  return usuario;  }
+    public Usuario getEsDE() {  return esDE;  }
 
-    public void setUsuario(Usuario usuario) {  this.usuario = usuario;  }
+    public void setEsDE(Usuario esDE) {  this.esDE = esDE;  }
 
-    //Método toString()
     @NotNull
     @Override
     public String toString() {
@@ -88,7 +91,7 @@ public class Cuenta {
                 ", nombreUsuario='" + nombreUsuario + '\'' +
                 ", direccionUsuario='" + direccionUsuario + '\'' +
                 ", validado=" + validado +
-                ", usuario=" + usuario +
+                ", usuario=" + esDE +
                 '}';
 
     }

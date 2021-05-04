@@ -1,38 +1,25 @@
 package com.example.byeKiloh.fragments;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.byeKiloh.R;
 import com.example.byeKiloh.activitys.D_Main;
 import com.example.byeKiloh.datapersistence.BaseDatos;
-import com.example.byeKiloh.R;
-import com.example.byeKiloh.objects.Ejercicio;
-
-import java.util.ArrayList;
-
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio.COLUMN_NAME_DISTANCIA;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio.COLUMN_NAME_FECHA;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio.COLUMN_NAME_INCLINACION;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio.COLUMN_NAME_TIEMPO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio._IDEJERCICIO;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link A_Main_Promedios#newInstance} factory method to
+ * Use the {@link A_Main_Promedio#newInstance} factory method to
  * create an instance of this fragment.
  */
 
-public class A_Main_Promedios extends Fragment {
+public class A_Main_Promedio extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,7 +50,7 @@ public class A_Main_Promedios extends Fragment {
 
     BaseDatos basedatos;
 
-    public A_Main_Promedios() {
+    public A_Main_Promedio() {
         // Required empty public constructor
     }
 
@@ -73,13 +60,13 @@ public class A_Main_Promedios extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment A_Main_Promedios.
+     * @return A new instance of fragment A_Main_Promedio.
      */
 
     // TODO: Rename and change types and number of parameters
-    public static A_Main_Promedios newInstance(String param1, String param2) {
+    public static A_Main_Promedio newInstance(String param1, String param2) {
 
-        A_Main_Promedios fragment = new A_Main_Promedios();
+        A_Main_Promedio fragment = new A_Main_Promedio();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -106,7 +93,7 @@ public class A_Main_Promedios extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
 
-        vistaPro = inflater.inflate(R.layout.fragment_a_main_promedios, container, false);
+        vistaPro = inflater.inflate(R.layout.fragment_a_main_promedio, container, false);
 
         tvDistanciaMin = vistaPro.findViewById(R.id.tvDistanciaMin);
         tvDistanciaMax = vistaPro.findViewById(R.id.tvDistanciaMax);
@@ -148,22 +135,23 @@ public class A_Main_Promedios extends Fragment {
         //Se establece conexion con permisos de lectura
         SQLiteDatabase sqlite = basedatos.getReadableDatabase();
         //Query que devuelve todos los maincEjercicios del Usuario logeado
-        Cursor cursor = sqlite.rawQuery("SELECT " +
-                "MIN(distancia), MAX(distancia), ROUND(AVG(distancia),2), " +
+        /*Cursor cursor = sqlite.rawQuery("SELECT " +
+                "MIN(distanciaRecorrida), MAX(distanciaRecorrida), ROUND(AVG(distanciaRecorrida),2), " +
                 "MIN(tiempo), MAX(tiempo), ROUND(AVG(tiempo),2), " +
                 "MIN(velocidad), MAX(velocidad), ROUND(AVG(velocidad),2), " +
                 "MIN(inclinacion), MAX(inclinacion), ROUND(AVG(inclinacion),2), " +
                 "MIN(consumoE), MAX(consumoE), ROUND(AVG(consumoE),2), COUNT(distancia) " +
-                "FROM Ejercicios WHERE idUsuario LIKE '" + idPro + "'", null);
+                "FROM Ejercicios WHERE idUsuario LIKE '" + idPro + "'", null);*/
 
-        Cursor cursorPes = sqlite.rawQuery("SELECT " +
-                "MIN(peso), MAX(peso), ROUND(AVG(peso),2), " +
-                "MIN(imc), MAX(imc), ROUND(AVG(imc),2), COUNT(peso) " +
-                "FROM Pesajes WHERE idUsuario LIKE '" + idPro + "'", null);
+        /*Cursor cursorPes = sqlite.rawQuery("SELECT " +
+                "MIN(pesoUsuario), MAX(pesoUsuario), ROUND(AVG(pesoUsuario),2), " +
+                //"MIN(imc), MAX(imc), ROUND(AVG(imc),2), " +
+                "COUNT(pesoUsuario) " +
+                "FROM Basculas WHERE idUsuario LIKE '" + idPro + "'", null);*/
 
-        cursor.moveToFirst();
-        cursorPes.moveToFirst();
-
+        //cursor.moveToFirst();
+        //cursorPes.moveToFirst();
+/*
         //TextViews Ejercicios
         TextView olo[] = new TextView[16];
 
@@ -200,11 +188,11 @@ public class A_Main_Promedios extends Fragment {
         oloP[1] = tvPesoPMax;
         oloP[2] = tvPesoPMedia;
 
-        oloP[3] = tvImcPMin;
-        oloP[4] = tvImcPMax;
-        oloP[5] = tvImcPMedia;
+        //oloP[3] = tvImcPMin;
+        //oloP[4] = tvImcPMax;
+        //oloP[5] = tvImcPMedia;
 
-        oloP[6] = tvPesaCount;
+        oloP[3] = tvPesaCount;
 
         for (int i=0;i<olo.length;i++) {
 
@@ -214,9 +202,9 @@ public class A_Main_Promedios extends Fragment {
                 olo[i].setText("N/D");
             }
 
-        }
+        }*/
 
-        for (int i=0;i<oloP.length;i++) {
+        /*for (int i=0;i<oloP.length;i++) {
 
             if (cursorPes.getString(i) != null) {
                 oloP[i].setText(cursorPes.getString(i).replace(".", ","));
@@ -224,13 +212,13 @@ public class A_Main_Promedios extends Fragment {
                 oloP[i].setText("N/D");
             }
 
-        }
+        }*/
 
         //Cerramos cursores
-        cursor.close();
-        cursorPes.close();
+        //cursor.close();
+        //cursorPes.close();
         //Cerramos la conexión con la Base de Datos
-        sqlite.close();
+        //sqlite.close();
 
         return vistaPro;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.K_Ejercicios_Update">
+    tools:context=".fragments.G_Ejercicio_Crear">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="EJERCICIOS UPDATE"
+            android:text="AÑADIR EJERCICIO"
             android:textColor="@color/naranja"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -36,102 +36,68 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="10dp"
-                android:text="SPINNER CON TODOS LOS EJERCICIOS GUARDADOS:"
+                android:text="EJERCICIO QUE SE GUARDARA:"
                 android:textColor="@color/azuloscuro"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinEjerciciosU"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="5dp"
-                android:spinnerMode="dialog" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="10dp"
-                android:text="EJERCICIO SELECCIONADO:"
-                android:textColor="@color/azuloscuro"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etFechaU"
+                android:id="@+id/etDistanciaRecorridaC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:digits="0123456789"
-                android:hint="fecha  [YYMMDD]"
-                android:maxLength="6"
-                android:maxLines="1"
-                android:textAlignment="center"
-                android:textColor="@color/naranjaflojo"
-                android:textColorHint="@color/azuloscuro"
-                android:textSize="15.5sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etDistanciaU"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:digits="0123456789"
-                android:hint="distancia  [metros]"
+                android:hint="Distancia recorrida(ej. 3280) [metros]"
                 android:maxLength="5"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/naranjaflojo"
-                android:textColorHint="@color/azuloscuro"
-                android:textSize="15.5sp"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etTiempoU"
+                android:id="@+id/etTiempoEmpleadoC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:digits="0123456789"
-                android:hint="tiempo  [minutos]"
+                android:hint="Tiempo empleado (ej. 45) [minutos]"
                 android:maxLength="3"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/naranjaflojo"
-                android:textColorHint="@color/azuloscuro"
-                android:textSize="15.5sp"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etInclinacionU"
+                android:id="@+id/etInclinacionTerrenoC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:digits=",0123456789"
-                android:hint="inclinación"
+                android:digits=".0123456789"
+                android:hint="Inclinación terreno (ej. 1,5) [%]"
                 android:maxLength="4"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/naranjaflojo"
-                android:textColorHint="@color/azuloscuro"
-                android:textSize="15.5sp"
+                android:textColor="@color/azuloscuro"
+                android:textColorHint="@color/naranjaflojo"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnActualizarEjercicioU"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/btnAnadirEjercicioC"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="12dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rounded_button_gradient_blue"
-                android:text="ACTUALIZAR\nEJERCICIO"
+                android:text="AÑADIR\nEJERCICIO"
                 android:textStyle="bold"
                 style="@style/shadoweffect" />
 

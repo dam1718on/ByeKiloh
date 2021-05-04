@@ -29,31 +29,35 @@ public class Tablas {
 
     }
 
+    public static abstract class EstructuraRegistro implements BaseColumns {
+
+        public static final String TABLE_NAME = "Registros";
+        public static final String _IDREGISTRO = "idRegistro";
+        public static final String COLUMN_NAME_FECHAREGISTRO = "fechaRegistro";
+        public static final String COLUMN_NAME_CONSUMOENERGETICO = "consumoEnergetico";
+        public static final String _IDUSUARIO = "idUsuario";
+        public static final String _IDBASCULA = "idBascula";
+        public static final String _IDEJERCICIO = "idEjercicio";
+
+    }
+
+    public static abstract class EstructuraBascula implements BaseColumns {
+
+        public static final String TABLE_NAME = "Basculas";
+        public static final String _IDBASCULA = "idBascula";
+        public static final String COLUMN_NAME_PESOUSUARIO = "pesoUsuario";
+        public static final String COLUMN_NAME_ALTURAUSUARIO = "alturaUsuario";
+        public static final String COLUMN_NAME_LUGARBASCULA = "lugarBascula";
+
+    }
+
     public static abstract class EstructuraEjercicio implements BaseColumns {
 
         public static final String TABLE_NAME = "Ejercicios";
         public static final String _IDEJERCICIO = "idEjercicio";
-        public static final String COLUMN_NAME_FECHA = "fecha";
-        public static final String COLUMN_NAME_DISTANCIA = "distancia";
-        public static final String COLUMN_NAME_TIEMPO = "tiempo";
-        public static final String COLUMN_NAME_VELOCIDAD = "velocidad";
-        public static final String COLUMN_NAME_CONSUMOE = "consumoE";
-        public static final String COLUMN_NAME_INCLINACION = "inclinacion";
-        public static final String _IDUSUARIO = "idUsuario";
-
-    }
-
-    public static abstract class EstructuraPesaje implements BaseColumns {
-
-        public static final String TABLE_NAME = "Pesajes";
-        public static final String _IDPESAJE = "idPesaje";
-        public static final String COLUMN_NAME_FECHA = "fecha";
-        public static final String COLUMN_NAME_PESO = "peso";
-        public static final String COLUMN_NAME_ALTURA = "altura";
-        public static final String COLUMN_NAME_LUGAR = "lugar";
-        public static final String COLUMN_NAME_IMC = "imc";
-        public static final String COLUMN_NAME_CLASIFICACION = "clasificación";
-        public static final String _IDUSUARIO = "idUsuario";
+        public static final String COLUMN_NAME_DISTANCIARECORRIDA = "distanciaRecorrida";
+        public static final String COLUMN_NAME_TIEMPOEMPLEADO = "tiempoEmpleado";
+        public static final String COLUMN_NAME_INCLINACIONTERRENO = "inclinacionTerreno";
 
     }
 

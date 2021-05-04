@@ -1,87 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/platino"
     android:orientation="vertical"
     tools:context=".activitys.D_Main">
 
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tlMain"
         android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnPromedios"
-            android:layout_width="87dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="@drawable/rounded_button_gradient_blue"
-            android:text="PROMEDIOS"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:onClick="onClick"
-            tools:ignore="OnClick"
-            style="@style/shadoweffect" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tiEstadisticas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PROMEDIO" />
 
-        <Button
-            android:id="@+id/btnPesajes"
-            android:layout_width="88dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="@drawable/rounded_button_gradient_blue"
-            android:text="PESAJES"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:onClick="onClick"
-            tools:ignore="OnClick"
-            style="@style/shadoweffect" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tiMediciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REGISTROS" />
 
-        <Button
-            android:id="@+id/btnEjercicios"
-            android:layout_width="88dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="@drawable/rounded_button_gradient_blue"
-            android:text="EJERCICIOS"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:onClick="onClick"
-            tools:ignore="OnClick"
-            style="@style/shadoweffect" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tiLogros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGROS" />
 
-        <Button
-            android:id="@+id/btnBackups"
-            android:layout_width="87dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="1dp"
-            android:background="@drawable/rounded_button_gradient_blue"
-            android:text="BACKUPS"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:onClick="onClick"
-            tools:ignore="OnClick"
-            style="@style/shadoweffect" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tiBackups"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COPIAS DE\nSEGURIDAD" />
 
-    </LinearLayout>
+    </com.google.android.material.tabs.TabLayout>
 
-    <FrameLayout
-        android:id="@+id/contenedorFragmentosMAIN"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

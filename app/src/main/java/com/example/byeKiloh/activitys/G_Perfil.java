@@ -24,13 +24,13 @@ import static com.example.byeKiloh.datapersistence.Tablas.EstructuraCuenta.*;
 
 public class G_Perfil extends AppCompatActivity {
 
-    EditText etNumeroTelefono, etEmail, etNombreUsuario, etDireccionUsuario;
+    private EditText etNumeroTelefono, etEmail, etNombreUsuario, etDireccionUsuario;
 
     BaseDatos basedatos;
     Cuenta cuenta;
     Mensaje mensaje;
 
-    String idUsuarioCuenta;
+    private String idUsuarioCuenta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +52,12 @@ public class G_Perfil extends AppCompatActivity {
         //Recibimos Usuario por intent desde .D_Main
         final Usuario usuarioMain = (Usuario) getIntent().getSerializableExtra("usuario");
         //Se añade Usuario logeado a Cuenta
-        cuenta.setUsuario(usuarioMain);
+        cuenta.setEsDE(usuarioMain);
 
         //Extraemos el id de Usuario
-        idUsuarioCuenta = String.valueOf(cuenta.getUsuario().getIdUsuario());
+        idUsuarioCuenta = String.valueOf(cuenta.getEsDE().getIdUsuario());
 
-        tvPerfil.setText(cuenta.getUsuario().getAliasUsuario());
+        tvPerfil.setText(cuenta.getEsDE().getAliasUsuario());
 
         basedatos = new BaseDatos(getApplicationContext());
 

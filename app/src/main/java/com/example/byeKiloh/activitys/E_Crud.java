@@ -21,14 +21,10 @@ public class E_Crud extends AppCompatActivity {
     private Button btnVolverAlMain;
 
     //fragments
-    private E_Pesajes_Create pesaeCreate;
-    private F_Pesajes_Read pesafRead;
-    private G_Pesajes_Update pesagUpdate;
-    private H_Pesajes_Delete pesahDelete;
-    private I_Ejercicios_Create ejeriCreate;
-    private J_Ejercicios_Read ejerjRead;
-    private K_Ejercicios_Update ejerkUpload;
-    private L_Ejercicios_Delete ejerlDelete;
+    private E_Bascula_Crear basculaCrear;
+    private F_Bascula_Borrar basculaBorrar;
+    private G_Ejercicio_Crear ejercicioCrear;
+    private H_Ejercicio_Borrar ejercicioBorrar;
 
     public String fragEjerCRUD;
     public String fragEjerUsId;
@@ -42,17 +38,13 @@ public class E_Crud extends AppCompatActivity {
 
         btnVolverAlMain = findViewById(R.id.btnVolverAlMain);
 
-        //Iniciamos los fragments
-        pesaeCreate = new E_Pesajes_Create();
-        pesafRead = new F_Pesajes_Read();
-        pesagUpdate = new G_Pesajes_Update();
-        pesahDelete = new H_Pesajes_Delete();
-        ejeriCreate = new I_Ejercicios_Create();
-        ejerjRead = new J_Ejercicios_Read();
-        ejerkUpload = new K_Ejercicios_Update();
-        ejerlDelete = new L_Ejercicios_Delete();
+        //Iniciamos fragments
+        basculaCrear = new E_Bascula_Crear();
+        basculaBorrar = new F_Bascula_Borrar();
+        ejercicioCrear = new G_Ejercicio_Crear();
+        ejercicioBorrar = new H_Ejercicio_Borrar();
 
-        //Recibimos String por intent desde el fragment B_Main_Pesaje ó C_Main_Ejercicios 
+        //Recibimos String por intent desde el fragment B_Main_Registros
         final String fragEjer = (String) getIntent().getSerializableExtra("nfrag");
 
         String[] parts = fragEjer.split("-");
@@ -61,7 +53,7 @@ public class E_Crud extends AppCompatActivity {
 
         //Fragment de inicio en función del String enviado a través del intent de .D_Main
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
-            .add(R.id.contenedorFragEjer, ejeriCreate);
+            .add(R.id.contenedorFragEjer, ejercicioCrear);
 
         //según valor se carga uno u otro fondo
         switch (fragEjerCRUD) {
@@ -92,35 +84,19 @@ public class E_Crud extends AppCompatActivity {
         switch(fragEjerCRUD) {
 
             case "e1":
-                transaction.replace(R.id.contenedorFragEjer, ejeriCreate);                
-                break;
-
-            case "e2":
-                transaction.replace(R.id.contenedorFragEjer, ejerjRead);
-                break;
-
-            case "e3":
-                transaction.replace(R.id.contenedorFragEjer, ejerkUpload);
+                transaction.replace(R.id.contenedorFragEjer, ejercicioCrear);
                 break;
 
             case "e4":
-                transaction.replace(R.id.contenedorFragEjer, ejerlDelete);
+                transaction.replace(R.id.contenedorFragEjer, ejercicioBorrar);
                 break;
 
             case "p1":
-                transaction.replace(R.id.contenedorFragEjer, pesaeCreate);
-                break;
-
-            case "p2":
-                transaction.replace(R.id.contenedorFragEjer, pesafRead);
-                break;
-
-            case "p3":
-                transaction.replace(R.id.contenedorFragEjer, pesagUpdate);
+                transaction.replace(R.id.contenedorFragEjer, basculaCrear);
                 break;
 
             case "p4":
-                transaction.replace(R.id.contenedorFragEjer, pesahDelete);
+                transaction.replace(R.id.contenedorFragEjer, basculaBorrar);
                 break;
 
             default:

@@ -75,6 +75,7 @@
     <li>Commit48. Anteproyecto-UML, Casos de Uso, Diagrama de Clases y modelo E-R</li>
     <li>Commit49. Hash-Contraseña</li>
     <li>Commit50. Objeto Usuario y Cuenta, reestructurado según UML</li>
+    <li>Commit51. Objeto Ejercicio, Bascula y Registro</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -170,34 +171,26 @@ de datos el par de keys y la pass enconded para desencriptar desde .LoginActivit
 <p>Commit49. Se desecha por completo la clase RSA y se sustituye por la API Bcrypt que hace un hash
 de la contraseña en .Registro y la guarda en la Base de Datos. Posteriormente en .Login se compara, 
 a través de la API, la contraseña introducida con el hash guardado en la Base de Datos</p>
-<p>Commit50. Se crea la clase Cuenta tal como se describe en el diagramaUML de Clases. Modificadas
-las Tablas y la BasedeDatos, tambien el perfil</p>
+<p>Commit50. Se crea la clase Cuenta y se modifica la clase Usuario, ambas, como se describe en el
+diagramaUML de Clases. Se modifican: las Tablas, la BaseDatos y .G_Perfil.</p>
+<p>Commit51. Se crea la clase Registro y se modifican las clases Ejercicio y Pesajes(ahora Bascula).
+Se reestructura .D_Main añadiéndole un TabLayout inicial que se divide en los 4 fragments; PROMEDIO,
+REGISTROS, LOGROS y COPIAS DE SEGURIDAD. Revisar brevemente PROMEDIO</p>
 <h3>TASK</h3>
     <ul>
-    <li>-. SE CIERRA EL DESARROLLO HASTA MARZO/ABRIL 2021 PARA PRESENTAR PROYECTO</li>
-    <li>-. Cargar Datos viejos en BBDD para comprobar la persistencia y la homogeneidad</li>
-    <li>-. Homogenizar el stylo, Material Design y/o Adobe XD. Valorar</li>
-    <li>-. Intervalo de tiempo en Promedios, borrar en cascada</li>
-    <li>-. Back-ups para SQLite</li>
-    <li>4b. Hacer, dl, mod 4 iconos para .MainActivity(Promedios, Pesajes, Ejericicos, Backups)</li>
-    <li>4c. Quitando el toString de Usuario e imprimendo su valor en memoria en 3 TextView,
-    comprobar en las Activitys: .Login .Main y .Ejercicio, que se trata del mismo usuario</li>
-    <li>5. Desarrollar los iconos; faltan: ejercicio, pesaje, backup y medias (+ y -)</li>
-    <li>6. Valorar probabilidad de convertir .PrivacidadActivity en un Fragment</li>
-    <li>7. Crear UN UNICO proyecto UML que contenga todos los diagramas(4)</li>
-    <li>9. Atento a los Float.parseFloat, de inclinacion y velocidad</li>
-    <li>-. Implementar Ejercicio complejo/porTramos</li>
-    <li>-. aplicar cambio de styloInflate el menu con los datos de Usuario</li>
-    <li>-. Inflate el menu con los datos de Usuario</li>
-    <li>-. SharedPreferences empty para acceso directo a la .MainActivity al inicar app</li>
-    <li>-. Poder cerrar sesión desde el Menu de la .MainActivity, vaciando el shared y volviendo al
-    .Login</li>
-    <li>6. SharedPreferences !=empty, para poder dejar sesion iniciada con intent en oncreate</li>
-    <li>Implementar un menu para el Usuario/Cuenta</li>
-    <li>Posibilidad de implementar un diseño para día y otro para noche</li>
-    <li>Posibilidad de varios idiomas</li>
-    <li>Probar la BBDD e intentar administrarla en remoto</li>
-    <li>Implementar Kcal</li>
-    <li>Implementar pulsaciones ppm</li>
-    <li>Hacer la BBDD syncronizable.(JSON?)</li>
+    <li>Rehacer PROMEDIO. estadísticas obsoletas</li>
+    <li>Rehacer DiagramasUML</li>
+    <li>Modificar para poder usarla en XIAOMI</li>
+    <li>Visibilidad de las letras de la aplicacion. Quitar fondos, cambiarlos y/o el tipo, color y
+    stylo de las letras</li>
+    <li>Hay que poder cambiar la contraseña, a demanda del usuario</li>
+    <li>Cohesion de la aplicacion haciendola intuitiva y si fuese necesario guiando al usuario</li>
+    <li>Hacer iconos para los fragments del TabLayout(Promedio, Registros, Logros y Copias de
+    Seguridadli>
+    </ul>
+<h3>TEST</h3>
+    <ul>
+    <li>Probar todos los campos de PROMEDIOS</li>
+    <li>Cargar excel con los datos propios del año pasado para comprobar la persistencia y al
+    homogeneidad de la Base de Datos</li>
     </ul>

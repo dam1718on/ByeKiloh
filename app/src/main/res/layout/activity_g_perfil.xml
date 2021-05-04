@@ -33,6 +33,15 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="PERFIL DE:"
+            android:textColor="@color/naranja"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/tvPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

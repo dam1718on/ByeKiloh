@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/platino"
-    tools:context=".fragments.A_Main_Promedios">
+    tools:context=".fragments.A_Main_Promedio">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="PROMEDIOS"
+            android:text="PROMEDIO"
             android:textColor="@color/naranja"
             android:textSize="17sp"
             android:textStyle="bold" />
