@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimaryOld2">#6200EE</color>
     <color name="colorPrimary">#FF8222</color>
     <color name="colorPrimaryOld">#3700B3</color>
@@ -20,4 +21,5 @@
     <color name="negro">#000000</color>
     <color name="platino">#E5E4E2</color>
     <color name="gris">#99C6C4BF</color>
+
 </resources>

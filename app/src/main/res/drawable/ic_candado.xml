@@ -7,7 +7,7 @@
         </shape>
     </item>
     <item
-        android:drawable="@drawable/platino_candado"
+        android:drawable="@drawable/ic_candado_platino"
         android:width="32dp"
         android:height="32dp" />
 </layer-list >

@@ -63,7 +63,7 @@ public class E_Crud extends AppCompatActivity {
             case "e3" :
             case "e4" :
 
-                fondoCRUD.setBackgroundResource(R.drawable.cinta69y720x1280);
+                fondoCRUD.setBackgroundResource(R.drawable.fondo_ejercicios50y720x1280);
                 break;
 
             case "p1" :
@@ -71,7 +71,7 @@ public class E_Crud extends AppCompatActivity {
             case "p3" :
             case "p4" :
 
-                fondoCRUD.setBackgroundResource(R.drawable.bascula69y720x1280);
+                fondoCRUD.setBackgroundResource(R.drawable.fondo_bascula50y720x1280);
                 break;
 
             default:

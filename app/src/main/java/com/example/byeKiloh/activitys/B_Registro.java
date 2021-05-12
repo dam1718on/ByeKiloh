@@ -29,10 +29,7 @@ import com.example.byeKiloh.utils.*;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.TABLE_NAME;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario._IDUSUARIO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_ALIASUSUARIO;
-import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.COLUMN_NAME_CONTRASENIA;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraUsuario.*;
 
 public class B_Registro extends AppCompatActivity {
 
@@ -78,11 +75,11 @@ public class B_Registro extends AppCompatActivity {
         tvCondicionesServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Creamos Intent para visualizar .C_Privacidad
-            Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
-            startActivity(intent);
-            mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
-                "servicio y Política de privacidad");
+                //Creamos Intent para visualizar .C_Privacidad
+                Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
+                startActivity(intent);
+                mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
+                    "servicio y Política de privacidad");
             }
 
         });
@@ -90,11 +87,11 @@ public class B_Registro extends AppCompatActivity {
         tvPoliticaPrivacidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Creamos Intent para visualizar .C_Privacidad
-            Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
-            startActivity(intent);
-            mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
-                "servicio y Política de privacidad");
+                //Creamos Intent para visualizar .C_Privacidad
+                Intent intent = new Intent(getApplicationContext(), C_Privacidad.class);
+                startActivity(intent);
+                mensaje = new Mensaje(getApplicationContext(), "Términos y Condiciones del\n" +
+                    "servicio y Política de privacidad");
             }
 
         });
@@ -145,6 +142,7 @@ public class B_Registro extends AppCompatActivity {
                         etContrasena.setSelection(etContrasena.getText().length());
                         imgPass.setBackgroundResource(R.drawable.ic_visible);
                     }
+
                 }
                 else {
                     selectPass = false;
@@ -221,8 +219,8 @@ public class B_Registro extends AppCompatActivity {
                                 cursor.moveToFirst();
 
                                 mensaje = new Mensaje(getApplicationContext(), "El nombre de" +
-                                    " usuario: " + usuario.getAliasUsuario() + "\nno está disponible, " +
-                                    "pruebe con otro");
+                                    " usuario: " + usuario.getAliasUsuario() + "\nno está " +
+                                    "disponible, pruebe con otro");
                                 vaciarEditText = new VaciarEditText(etUsuario);
 
                             }
@@ -234,7 +232,8 @@ public class B_Registro extends AppCompatActivity {
 
                                 //Recogemos contraseña del EditText y le hacemos hash
                                 String password = usuario.getContrasenia();
-                                String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+                                String bcryptHashString = BCrypt.withDefaults().hashToString
+                                        (10, password.toCharArray());
 
                                 //EstructuraUsuario de insercción de datos
                                 ContentValues content = new ContentValues();

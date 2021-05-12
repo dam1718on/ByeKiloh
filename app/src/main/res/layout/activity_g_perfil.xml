@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/usuario_fondo"
+    android:background="@drawable/fondo_perfil50y720x1280"
     android:orientation="vertical"
     tools:context=".activitys.G_Perfil">
 
@@ -37,9 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="PERFIL DE:"
-            android:textColor="@color/naranja"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spNnoHint" />
 
         <TextView
             android:id="@+id/tvPerfil"
@@ -47,9 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="- Perfil -"
-            android:textColor="@color/azuloscuro"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spAnoHint" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,14 +64,11 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:digits="0123456789"
-                android:hint="Número de Teléfono (ej. 666 666 666)"
+                android:hint="Número teléfono (ej. 666 666 666)"
                 android:maxLength="9"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/shadow5ET20sp" />
 
             <EditText
                 android:id="@+id/etEmail"
@@ -85,14 +78,11 @@
                 android:layout_marginRight="10dp"
                 android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
                     úÁÉÍÓÚäëïöüÄËÏÖÜ@_."
-                android:hint="E-mail (ej. raulrunner88@gmail.com)"
+                android:hint="e-mail (ej. runner88@gmail.com)"
                 android:maxLength="30"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/shadow5ET20sp" />
 
             <EditText
                 android:id="@+id/etNombreUsuario"
@@ -102,14 +92,12 @@
                 android:layout_marginRight="10dp"
                 android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
                     úÁÉÍÓÚäëïöüÄËÏÖÜ,"
-                android:hint="Nombre y Apellidos (ej. Raul Godoy Gil)"
+                android:hint="Nombre y Apellidos (ej. Eva Bull Gil)"
                 android:maxLength="30"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="19sp"
+                style="@style/shadow5ET20sp" />
 
             <EditText
                 android:id="@+id/etDireccionUsuario"
@@ -119,14 +107,12 @@
                 android:layout_marginRight="10dp"
                 android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
                     úÁÉÍÓÚäëïöüÄËÏÖÜ/,-ºª\."
-                android:hint="Direccion (ej. C/ Laguna, 22 - ALCALA)"
+                android:hint="Dirección (ej. C/ Laguna, 22 - Alcala)"
                 android:maxLength="50"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="19sp"
+                style="@style/shadow5ET20sp" />
 
             <Button
                 android:id="@+id/btnGuardarCambios"
@@ -151,13 +137,13 @@
 
         <Button
             android:id="@+id/btnVolverAlMain4"
-            style="@style/shadoweffect"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:background="@drawable/rounded_button_gradient_orange"
             android:text="VOLVER\nAL MAIN"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
 
     </LinearLayout>
 

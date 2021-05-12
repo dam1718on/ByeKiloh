@@ -17,11 +17,11 @@ import com.example.byeKiloh.objects.*;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link D_Main_Backups#newInstance} factory method to
+ * Use the {@link D_Main_CopiasDeSeguridad#newInstance} factory method to
  * create an instance of this fragment.
  */
 
-public class D_Main_Backups extends Fragment {
+public class D_Main_CopiasDeSeguridad extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,7 +44,7 @@ public class D_Main_Backups extends Fragment {
     //Se carga la activity para poder extraer el idUsuario y propagarlo a los fragments
     public D_Main dmain;
 
-    public D_Main_Backups() {
+    public D_Main_CopiasDeSeguridad() {
         // Required empty public constructor
     }
 
@@ -54,13 +54,13 @@ public class D_Main_Backups extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment D_Main_Backups.
+     * @return A new instance of fragment D_Main_CopiasDeSeguridad.
      */
 
     // TODO: Rename and change types and number of parameters
-    public static D_Main_Backups newInstance(String param1, String param2) {
+    public static D_Main_CopiasDeSeguridad newInstance(String param1, String param2) {
 
-        D_Main_Backups fragment = new D_Main_Backups();
+        D_Main_CopiasDeSeguridad fragment = new D_Main_CopiasDeSeguridad();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -84,7 +84,7 @@ public class D_Main_Backups extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         final Bundle savedInstanceState) {
 
-        vistaCOP = inflater.inflate(R.layout.fragment_d_main_backups, container, false);
+        vistaCOP = inflater.inflate(R.layout.fragment_d_main_copiasdeseguridad, container, false);
 
         tvCopiasDeSeguridad = vistaCOP.findViewById(R.id.tvCopiasDeSeguridad);
 

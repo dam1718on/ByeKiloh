@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/estadisticasoriginal69y720x1280"
+        android:background="@drawable/fondo_promedio50y720x1280"
         android:orientation="vertical">
 
         <TextView
@@ -20,9 +20,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:text="PROMEDIO"
-            android:textColor="@color/naranja"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spNnoHint" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -38,36 +36,28 @@
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="min"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="max"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="media"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
             </TableRow>
 
@@ -78,9 +68,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="distancia"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvDistanciaMin"
@@ -88,9 +76,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvDistanciaMax"
@@ -98,9 +84,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvDistanciaMedia"
@@ -108,9 +92,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -121,9 +103,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="tiempo"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvTiempodMin"
@@ -131,9 +111,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvTiempodMax"
@@ -141,9 +119,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvTiempodMedia"
@@ -151,9 +127,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -164,9 +138,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="velocidad"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvVelocidadMin"
@@ -174,9 +146,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvVelocidadMax"
@@ -184,9 +154,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvVelocidadMedia"
@@ -194,9 +162,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -207,9 +173,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="inclinación"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvInclinacionMin"
@@ -217,9 +181,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvInclinacionMax"
@@ -227,9 +189,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvInclinacionMedia"
@@ -237,9 +197,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -250,9 +208,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="consumoE"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvConsumoEMin"
@@ -260,9 +216,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvConsumoEMax"
@@ -270,9 +224,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvConsumoEMedia"
@@ -280,9 +232,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -293,9 +243,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="peso"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvPesoPMin"
@@ -303,9 +251,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvPesoPMax"
@@ -313,9 +259,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvPesoPMedia"
@@ -323,9 +267,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -336,9 +278,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="imc"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvImcPMin"
@@ -346,9 +286,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvImcPMax"
@@ -356,9 +294,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
                 <TextView
                     android:id="@+id/tvImcPMedia"
@@ -366,9 +302,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranjaflojo"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -388,9 +322,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:text="nº de ejercicios totales:"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvEjerCount"
@@ -398,9 +330,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranja"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -411,9 +341,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:text="nº de pesajes totales:"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:id="@+id/tvPesaCount"
@@ -421,9 +349,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranja"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 
@@ -434,18 +360,14 @@
                     android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:text="intervalo de tiempo:"
-                    android:textColor="@color/azuloscuro"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spAnoHint" />
 
                 <TextView
                     android:layout_width="85dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:text="xXx"
-                    android:textColor="@color/naranja"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    style="@style/shadow5TV17spNnoHint" />
 
             </TableRow>
 

@@ -76,6 +76,7 @@
     <li>Commit49. Hash-Contraseña</li>
     <li>Commit50. Objeto Usuario y Cuenta, reestructurado según UML</li>
     <li>Commit51. Objeto Ejercicio, Bascula y Registro</li>
+    <li>Commit52. Mejoras en: rendimiento(hash) y visibilidad(style)</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -176,14 +177,25 @@ diagramaUML de Clases. Se modifican: las Tablas, la BaseDatos y .G_Perfil.</p>
 <p>Commit51. Se crea la clase Registro y se modifican las clases Ejercicio y Pesajes(ahora Bascula).
 Se reestructura .D_Main añadiéndole un TabLayout inicial que se divide en los 4 fragments; PROMEDIO,
 REGISTROS, LOGROS y COPIAS DE SEGURIDAD. Revisar brevemente PROMEDIO</p>
+<p>Commit52. Se cambian las vueltas que hace el hash de contrasenia de 12(recomendado por seguridad)
+a 10[mejora sensiblemente el rendimiento de la aplicacion al hacer: hash() y verify()]. Se aplican
+tres mejoras a la visibilidad de la aplicación:\n1. Se reduce la opacidad de las imágenes de fondo
+al 50%.\n2. Se crean varios "style" para las fuentes, que se extienden por toda la aplicación
+(reduciendo sensiblemente el tamaño de los xml y homogenizando los TextViews y EditText, permite 
+hacer pequeños cambios sin cambiar de style).\n3. Se unifican los criterios de "theme" de las 
+diferentes ventanas de la aplicación, dejando sólo dos: la estándar y una específica para la 
+activity que contiene el menu</p>
 <h3>TASK</h3>
     <ul>
-    <li>Rehacer PROMEDIO. estadísticas obsoletas</li>
-    <li>Rehacer DiagramasUML</li>
-    <li>Modificar para poder usarla en XIAOMI</li>
-    <li>Visibilidad de las letras de la aplicacion. Quitar fondos, cambiarlos y/o el tipo, color y
-    stylo de las letras</li>
-    <li>Hay que poder cambiar la contraseña, a demanda del usuario</li>
+    
+    <li>LOGROS, definir con exactitud como funcionan</li>
+    <li>implementar atributo "numeroEstrellas" en clase Cuenta</li>
+    <li>implementar consumoEnergetico como método y quitarlo como atributo de la clase Registro</li>
+    <li>Rehacer DiagramasUML</li>   
+     
+    <li>Rehacer PROMEDIO. estadísticas obsoletas</li>   
+    <li>añadir snackbar, proposicion de Manolo</li>
+    <li>Hay que poder cambiar la contraseña, a demanda del usuario y reponerla si se pierde</li>
     <li>Cohesion de la aplicacion haciendola intuitiva y si fuese necesario guiando al usuario</li>
     <li>Hacer iconos para los fragments del TabLayout(Promedio, Registros, Logros y Copias de
     Seguridadli>
@@ -191,6 +203,7 @@ REGISTROS, LOGROS y COPIAS DE SEGURIDAD. Revisar brevemente PROMEDIO</p>
 <h3>TEST</h3>
     <ul>
     <li>Probar todos los campos de PROMEDIOS</li>
-    <li>Cargar excel con los datos propios del año pasado para comprobar la persistencia y al
-    homogeneidad de la Base de Datos</li>
+    <li>Crear un script(insert into) que contenga el excel con todos los datos míos del año pasado 
+    para ir comprobando la persistencia y la homogeneidad de la Base de Datos en cada versión de la 
+    aplicación</li>
     </ul>

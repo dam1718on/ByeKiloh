@@ -8,7 +8,7 @@
         </shape>
     </item>
     <item
-        android:drawable="@drawable/platino_usuario"
+        android:drawable="@drawable/ic_usuario_platino"
         android:width="360dp"
         android:height="640dp" />
 </layer-list >

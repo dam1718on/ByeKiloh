@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/platino"
-    tools:context=".fragments.D_Main_Backups">
+    tools:context=".fragments.D_Main_CopiasDeSeguridad">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/backup69y720x1280"
+        android:background="@drawable/fondo_copiasdeseguridad50y720x1280"
         android:orientation="vertical">
 
         <TextView
@@ -21,9 +21,7 @@
             android:layout_gravity="center"
             android:text="COPIAS DE\nSEGURIDAD"
             android:textAlignment="center"
-            android:textColor="@color/naranja"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spNnoHint" />
 
         <TextView
             android:id="@+id/tvCopiasDeSeguridad"
@@ -33,9 +31,7 @@
             android:layout_gravity="center"
             android:text="EN CONSTRUCCION"
             android:textAlignment="center"
-            android:textColor="@color/azuloscuro"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spAnoHint" />
 
     </LinearLayout>
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lineas"
+    android:background="@drawable/fondo_condiciones"
     android:orientation="vertical"
     tools:context=".activitys.C_Privacidad">
 
@@ -35,11 +35,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="- Términos y Condiciones -"
-            android:textColor="@color/azuloscuro"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:text="ACUERDO DE CONDICIONES"
+            style="@style/shadow5TV17spAnoHint" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -54,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
                 android:text="@string/privacidad"
-                android:textColor="@color/azuloscuro"
+                android:textColor="@color/naranjaflojo"
                 android:textSize="11sp" />
 
         </ScrollView>

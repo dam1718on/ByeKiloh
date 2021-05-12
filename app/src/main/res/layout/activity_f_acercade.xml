@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/platino"
+    android:background="@drawable/fondo_acercade50y720x1280"
     android:orientation="vertical"
     tools:context=".activitys.F_Acercade">
 
@@ -36,10 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="- Acerca de -"
-            android:textColor="@color/azuloscuro"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:text="ACERCA DE"
+            style="@style/shadow5TV17spAnoHint" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,9 +47,7 @@
             android:layout_marginRight="2dp"
             android:layout_gravity="center"
             android:text="@string/acercade"
-            android:textColor="@color/naranja"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spNnoHint" />
 
         <ImageView
             android:layout_width="match_parent"

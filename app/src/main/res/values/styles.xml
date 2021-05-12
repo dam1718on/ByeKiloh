@@ -3,23 +3,21 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/azuloscuro</item>
     </style>
 
-    <!-- Desarrollar theme específica para aplicación -->
-    <style name="byekilohTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-
-        <item name="android:background">@drawable/byekilohlogo</item>
-
+    <!-- Theme estándar sin actionBar -->
+    <style name="AppThemeNegro" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/azuloscuro</item>
+        <item name="android:colorBackground">@color/platino</item>
     </style>
 
-    <!-- Theme vacía para quitar la ActionBar -->
-    <style name="MenuA" parent="Theme.AppCompat.Light.NoActionBar" />
-
-    <!-- Hacer pruebas con modo dia/noche -->
-    <style name="MenuB" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:textSize">29dp</item>
+    <!-- Theme específica para el splash -->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
     <!-- Theme con sombra para los botones -->
@@ -45,8 +43,38 @@
         <item name="android:shadowRadius">3</item>
     </style>
 
-    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_background</item>
+    <!-- Theme con sombra(5 en blanco) para los EditText(20sp)texto en Azul y hint en Naranja -->
+    <style name="shadow5ET20sp">
+        <item name="android:textColor">#006BDB</item>
+        <item name="android:textColorHint">#F15811</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#FFFFFF</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">5</item>
+    </style>
+
+    <!-- Theme con sombra(5 en blanco) para los TextView(20sp sin hint)texto en Azul -->
+    <style name="shadow5TV17spAnoHint">
+        <item name="android:textColor">#006BDB</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#FFFFFF</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">5</item>
+    </style>
+
+    <!-- Theme con sombra(5 en blanco) para los TextView(17sp sin hint)texto en Naranja -->
+    <style name="shadow5TV17spNnoHint">
+        <item name="android:textColor">#F15811</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#FFFFFF</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">5</item>
     </style>
 
 </resources>

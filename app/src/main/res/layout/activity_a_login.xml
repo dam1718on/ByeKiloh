@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login69y720x1280"
+    android:background="@drawable/fondo_login50y720x1280"
     android:orientation="vertical"
     tools:context=".activitys.A_Login">
 
@@ -35,17 +35,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="- Login -"
-            android:textColor="@color/azuloscuro"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:text="LOGIN"
+            style="@style/shadow5TV17spAnoHint" />
 
         <EditText
             android:id="@+id/etUsuario"
             android:layout_width="320dp"
             android:layout_height="50dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="55dp"
             android:layout_gravity="center"
             android:background="@drawable/rounded_edittext_solid_orange"
             android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
@@ -58,10 +57,7 @@
             android:maxLines="1"
             android:paddingLeft="10dp"
             android:textAlignment="center"
-            android:textColor="@color/azuloscuro"
-            android:textColorHint="@color/naranja"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            style="@style/shadow5ET20sp" />
 
         <RelativeLayout
             android:layout_width="320dp"
@@ -86,10 +82,7 @@
                 android:maxLines="1"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranja"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                style="@style/shadow5ET20sp" />
 
             <ImageView
                 android:id="@+id/imgPassL"
@@ -110,8 +103,8 @@
             android:layout_gravity="center"
             android:buttonTint="@color/naranjaflojo"
             android:text="Mantener sesión iniciada"
-            android:textColor="@color/naranja"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            style="@style/shadow5ET20sp" />
 
     </LinearLayout>
 

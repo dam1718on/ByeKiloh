@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/logros69y720x1280"
+        android:background="@drawable/fondo_logros50y720x1280"
         android:orientation="vertical">
 
         <TextView
@@ -20,9 +20,7 @@
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:text="LOGROS"
-            android:textColor="@color/naranja"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spNnoHint" />
 
         <TextView
             android:id="@+id/tvLogros"
@@ -32,9 +30,7 @@
             android:layout_gravity="center"
             android:text="EN CONSTRUCCION"
             android:textAlignment="center"
-            android:textColor="@color/azuloscuro"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spAnoHint" />
 
     </LinearLayout>
 

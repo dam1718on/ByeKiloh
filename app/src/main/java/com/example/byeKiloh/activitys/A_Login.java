@@ -36,7 +36,6 @@ public class A_Login extends AppCompatActivity {
     private EditText etUsuario, etPass;
     private ImageView imgPassL;
 
-    private boolean select = false;
     //Variables para SharedPreferences
     String defaultValue;
     private String userSP;
@@ -91,6 +90,7 @@ public class A_Login extends AppCompatActivity {
                         etPass.setSelection(etPass.getText().length());
                         imgPassL.setBackgroundResource(R.drawable.ic_visible_no);
                     }
+
                 }
             }
 

@@ -18,14 +18,12 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="AÑADIR EJERCICIO"
-            android:textColor="@color/naranja"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            style="@style/shadow5TV17spNnoHint" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/rounded_edittext_solid_orange"
@@ -37,9 +35,8 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="10dp"
                 android:text="EJERCICIO QUE SE GUARDARA:"
-                android:textColor="@color/azuloscuro"
                 android:textSize="11sp"
-                android:textStyle="bold" />
+                style="@style/shadow5TV17spAnoHint" />
 
             <EditText
                 android:id="@+id/etDistanciaRecorridaC"
@@ -48,14 +45,12 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:digits="0123456789"
-                android:hint="Distancia recorrida(ej. 3280) [metros]"
+                android:hint="Distancia recorrida(ej. 3280 metros)"
                 android:maxLength="5"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="19sp"
+                style="@style/shadow5ET20sp" />
 
             <EditText
                 android:id="@+id/etTiempoEmpleadoC"
@@ -64,14 +59,11 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:digits="0123456789"
-                android:hint="Tiempo empleado (ej. 45) [minutos]"
+                android:hint="Tiempo empleado (ej. 45 minutos)"
                 android:maxLength="3"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/shadow5ET20sp" />
 
             <EditText
                 android:id="@+id/etInclinacionTerrenoC"
@@ -84,10 +76,7 @@
                 android:maxLength="4"
                 android:maxLines="1"
                 android:textAlignment="center"
-                android:textColor="@color/azuloscuro"
-                android:textColorHint="@color/naranjaflojo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                style="@style/shadow5ET20sp" />
 
             <Button
                 android:id="@+id/btnAnadirEjercicioC"
