@@ -1,12 +1,16 @@
 package com.example.byeKiloh.fragments;
 
 import android.content.ContentValues;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -14,16 +18,15 @@ import androidx.fragment.app.Fragment;
 
 import com.example.byeKiloh.R;
 import com.example.byeKiloh.activitys.E_Crud;
-import com.example.byeKiloh.datapersistence.BaseDatos;
-import com.example.byeKiloh.datapersistence.Tablas;
+import com.example.byeKiloh.datapersistence.*;
 import com.example.byeKiloh.objects.Bascula;
 import com.example.byeKiloh.objects.Registro;
-import com.example.byeKiloh.utils.Mensaje;
-import com.example.byeKiloh.utils.VaciarEditText;
+import com.example.byeKiloh.utils.*;
 
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraBascula.COLUMN_NAME_ALTURAUSUARIO;
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraBascula.COLUMN_NAME_LUGARBASCULA;
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraBascula.COLUMN_NAME_PESOUSUARIO;
+
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraRegistro.COLUMN_NAME_FECHAREGISTRO;
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraRegistro._IDUSUARIO;
 
@@ -138,12 +141,13 @@ public class E_Bascula_Crear extends Fragment {
                 if(countError == 1) {
                     registro = new Registro();
                     //Se crea objeto Bascula con parámetros
-                    esDE = new Bascula(Float.parseFloat(etPesoUsuario.getText().toString()),
-                            Float.parseFloat(etAlturaUsuario.getText().toString()),
-                            etLugarBascula.getText().toString());
-                    registro.setEsDE(esDE);
+                    esDE = new Bascula();
+                    esDE.setPesoUsuario(Float.parseFloat(etPesoUsuario.getText().toString()));
+                    esDE.setAlturaUsuario(Float.parseFloat(etAlturaUsuario.getText().toString()));
+                    esDE.setLugarBascula(etLugarBascula.getText().toString());
+                    registro.setMide(esDE);
                     registro.setFechaRegistro();
-                    registro.getHechoPOR().setIdUsuario(Integer.parseInt(idE));
+                    registro.getEsInsertado().setIdUsuario(Integer.parseInt(idE));
                     //Se otorgan permisos de escritura
                     SQLiteDatabase sqlite = basedatos.getWritableDatabase();
                     //EstructuraEjercicio de insercción de datos
@@ -164,14 +168,14 @@ public class E_Bascula_Crear extends Fragment {
                     if (cursor.getCount() != 0) {
 
                         cursor.moveToLast();
-                        registro.getEsDE().setIdBascula(cursor.getInt(cursor.getColumnIndex
+                        registro.getMide().setIdBascula(cursor.getInt(cursor.getColumnIndex
                                 (Tablas.EstructuraBascula._IDBASCULA)));
 
                         ContentValues content2 = new ContentValues();
 
                         content2.put(COLUMN_NAME_FECHAREGISTRO, String.valueOf(registro.getFechaRegistro()));
-                        content2.put(_IDUSUARIO, registro.getHechoPOR().getIdUsuario());
-                        content2.put(Tablas.EstructuraRegistro._IDBASCULA, registro.getEsDE().getIdBascula());
+                        content2.put(_IDUSUARIO, registro.getEsInsertado().getIdUsuario());
+                        content2.put(Tablas.EstructuraRegistro._IDBASCULA, registro.getMide().getIdBascula());
 
                         sqlite.insert("Registros", null, content2);
 

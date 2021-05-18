@@ -3,37 +3,32 @@ package com.example.byeKiloh.objects;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Registro {
 
     private int idRegistro;
     private Timestamp fechaRegistro;
-    //consumoEnergetico pasarlo a método
-    private float consumoEnergetico;
-    private Usuario hechoPOR;
-    private ArrayList<Ejercicio> esHecho;
-    private Bascula esDE;
+    private Usuario esInsertado;
+    private Ejercicio hace;
+    private Bascula mide;
+
 
     //Constructores, en orden: vacío, con todos los parámetros y copia
     public Registro() {
 
-        hechoPOR = new Usuario();
-        esHecho = new ArrayList<Ejercicio>();
-        esDE = new Bascula();
+        esInsertado = new Usuario();
+        hace = new Ejercicio();
+        mide = new Bascula();
 
     }
 
-    public Registro(int idRegistro, Timestamp fechaRegistro, float consumoEnergetico,
-                    Usuario hechoPOR, Bascula esDE, ArrayList<Ejercicio> esHecho) {
+    public Registro(Timestamp fechaRegistro, Usuario esInsertado, Ejercicio hace, Bascula mide) {
 
-        this.idRegistro = idRegistro;
         this.fechaRegistro = fechaRegistro;
-        this.consumoEnergetico = consumoEnergetico;
-        this.hechoPOR = hechoPOR;
-        this.esDE = esDE;
-        this.esHecho = esHecho;
+        this.esInsertado = esInsertado;
+        this.hace = hace;
+        this.mide = mide;
 
     }
 
@@ -41,12 +36,12 @@ public class Registro {
 
         this.idRegistro = registro.getIdRegistro();
         this.fechaRegistro = registro.getFechaRegistro();
-        this.consumoEnergetico = registro.getConsumoEnergetico();
-        this.hechoPOR = registro.getHechoPOR();
-        this.esDE = registro.getEsDE();
-        this.esHecho = registro.getEsHecho();
+        this.esInsertado = registro.getEsInsertado();
+        this.hace = registro.getHace();
+        this.mide = registro.getMide();
 
     }
+
 
     //Getters and Setters
     public int getIdRegistro() {  return idRegistro;  }
@@ -62,25 +57,19 @@ public class Registro {
 
     }
 
-    public float getConsumoEnergetico() {  return consumoEnergetico;  }
+    public Usuario getEsInsertado() {  return esInsertado;  }
 
-    public void setConsumoEnergetico(float consumoEnergetico) {  this.consumoEnergetico = consumoEnergetico;  }
+    public void setEsInsertado(Usuario esInsertado) {  this.esInsertado = esInsertado;  }
 
-    public Usuario getHechoPOR() {  return hechoPOR;  }
+    public Ejercicio getHace() {  return hace;  }
 
-    public void setHechoPOR(Usuario hechoPOR) {  this.hechoPOR = hechoPOR;  }
+    public void setHace(Ejercicio hace) {  this.hace = hace;  }
 
-    public Bascula getEsDE() {  return esDE;  }
+    public Bascula getMide() {  return mide;  }
 
-    public void setEsDE(Bascula esDE) {  this.esDE = esDE;  }
+    public void setMide(Bascula mide) {  this.mide = mide;  }
 
-    public ArrayList<Ejercicio> getEsHecho() {  return esHecho;  }
-
-    public void setEsHecho(ArrayList<Ejercicio> esHecho) {  this.esHecho = esHecho;  }
-
-    //Método para añadir ejercicio al ArrayList
-    public void anadirEjercicio(Ejercicio ejercicio) {  esHecho.add(ejercicio);  }
-
+    //toString
     @NotNull
     @Override
     public String toString() {
@@ -88,11 +77,10 @@ public class Registro {
         return "Registro{" +
                 "idRegistro=" + idRegistro +
                 ", fechaRegistro=" + fechaRegistro +
-                ", consumoEnergetico=" + consumoEnergetico +
-                ", hechoPOR=" + hechoPOR +
-                ", esHecho=" + esHecho +
-                ", esDE=" + esDE +
-                '}';
+                ", inserta=" + esInsertado +
+                ", esHecho=" + hace +
+                ", esMedida=" + mide + "}";
+
     }
 
 }

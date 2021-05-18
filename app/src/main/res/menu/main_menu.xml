@@ -17,10 +17,6 @@
         android:id="@+id/grupoDos">
 
         <item
-            android:id="@+id/ajustes"
-            android:title="Ajustes" />
-
-        <item
             android:id="@+id/ayuda"
             android:title="Ayuda" />
 

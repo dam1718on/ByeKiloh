@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,13 +13,13 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/tiEstadisticas"
+            android:id="@+id/tiPromedio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PROMEDIO" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/tiMediciones"
+            android:id="@+id/tiRegistros"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="REGISTROS" />
@@ -30,7 +31,7 @@
             android:text="LOGROS" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/tiBackups"
+            android:id="@+id/tiCopiasdeSeguridad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="COPIAS DE\nSEGURIDAD" />

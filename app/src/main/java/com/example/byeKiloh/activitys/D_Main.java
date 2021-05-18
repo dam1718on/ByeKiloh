@@ -25,9 +25,7 @@ import com.google.android.material.tabs.TabLayout;
 public class D_Main extends AppCompatActivity {
 
     //Atributos del TabLayout
-    private TabLayout tlMain;
     private ViewPager vpMain;
-    private TabItem tiEstadisticas, tiMediciones, tiLogros, tiBackups;
     PagerController pagerController;
 
     Usuario usuario;
@@ -38,16 +36,18 @@ public class D_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_d_main);
 
-        tlMain = findViewById(R.id.tlMain);
+        TabLayout tlMain = findViewById(R.id.tlMain);
+
+        TabItem tiPromedio = findViewById(R.id.tiPromedio);
+        TabItem tiRegistros = findViewById(R.id.tiRegistros);
+        TabItem tiLogros = findViewById(R.id.tiLogros);
+        TabItem tiCopiasdeSeguridad = findViewById(R.id.tiCopiasdeSeguridad);
+
         vpMain = findViewById(R.id.vpMain);
-        tiEstadisticas = findViewById(R.id.tiEstadisticas);
-        tiMediciones = findViewById(R.id.tiMediciones);
-        tiLogros = findViewById(R.id.tiLogros);
-        tiBackups = findViewById(R.id.tiBackups);
 
         //Recibimos Usuario por intent desde .A_Login
         final Usuario usuarioLogin = (Usuario) getIntent().getSerializableExtra("usuario");
-        //Creo Usuario_copia del Usuario recibido
+
         usuario = new Usuario(usuarioLogin);
 
         idUs = usuario.getIdUsuario();
@@ -60,38 +60,28 @@ public class D_Main extends AppCompatActivity {
 
                 vpMain.setCurrentItem(tab.getPosition());
 
-                if(tab.getPosition()==0) {
-                    pagerController.notifyDataSetChanged();
-                }
+                if(tab.getPosition()==0) {  pagerController.notifyDataSetChanged();  }
 
-                if(tab.getPosition()==1) {
-                    pagerController.notifyDataSetChanged();
-                }
+                if(tab.getPosition()==1) {  pagerController.notifyDataSetChanged();  }
 
-                if(tab.getPosition()==2) {
-                    pagerController.notifyDataSetChanged();
-                }
+                if(tab.getPosition()==2) {  pagerController.notifyDataSetChanged();  }
 
-                if(tab.getPosition()==3) {
-                    pagerController.notifyDataSetChanged();
-                }
+                if(tab.getPosition()==3) {  pagerController.notifyDataSetChanged();  }
 
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {    }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+            public void onTabReselected(TabLayout.Tab tab) {    }
 
-            }
         });
 
         vpMain.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tlMain));
 
     }
+
     //Método para crear el menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -125,10 +115,6 @@ public class D_Main extends AppCompatActivity {
 
                 Intent intentA = new Intent(getApplicationContext(), F_Acercade.class);
                 startActivity(intentA);
-
-                return true;
-
-            case R.id.ajustes :
 
                 return true;
 

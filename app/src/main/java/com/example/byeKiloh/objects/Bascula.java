@@ -9,15 +9,17 @@ public class Bascula {
     private int idBascula;
     private float pesoUsuario, alturaUsuario;
     private String lugarBascula;
+    private Registro esMedida;
 
     //Constructores, en orden: vacío, con todos los parámetros y copia
     public Bascula() {    }
 
-    public Bascula(float pesoUsuario, float alturaUsuario, String lugarBascula) {
+    public Bascula(float pesoUsuario, float alturaUsuario, String lugarBascula, Registro esMedida) {
 
         this.pesoUsuario = pesoUsuario;
         this.alturaUsuario = alturaUsuario;
         this.lugarBascula = lugarBascula;
+        this.esMedida = esMedida;
 
     }
 
@@ -27,8 +29,23 @@ public class Bascula {
         this.pesoUsuario = bascula.getPesoUsuario();
         this.alturaUsuario = bascula.getAlturaUsuario();
         this.lugarBascula = bascula.getLugarBascula();
+        this.esMedida = bascula.getEsMedida();
 
     }
+
+    //Métodos propios
+
+    //Calcula el índice de masa corporal(IMC)
+    public String imc() {
+
+        String format;
+        //hacemos el cálculo con un pattern de retorno con 2 decimales
+        DecimalFormat df = new DecimalFormat("0.00");
+        format = df.format( pesoUsuario / (alturaUsuario * alturaUsuario));
+        return format;
+
+    }
+
 
     //Getters and Setters
     public int getIdBascula() {  return idBascula;  }
@@ -47,27 +64,19 @@ public class Bascula {
 
     public void setLugarBascula(String lugarBascula) {  this.lugarBascula = lugarBascula;  }
 
-    //Método que calcula el índice de masa corporal(IMC)
-    public String imc() {
+    public Registro getEsMedida() {  return esMedida;  }
 
-        String format;
-        //hacemos el cálculo con un pattern de retorno con 2 decimales
-        DecimalFormat df = new DecimalFormat("0.00");
-        format = df.format( pesoUsuario / (alturaUsuario * alturaUsuario));
-        return format;
+    public void setEsMedida(Registro esMedida) {  this.esMedida = esMedida;  }
 
-    }
-
+    //toString específico
     @NotNull
     @Override
     public String toString() {
 
-        return "Bascula{" +
-                "idBascula=" + idBascula +
-                ", pesoUsuario=" + pesoUsuario +
-                ", alturaUsuario=" + alturaUsuario +
-                ", lugarBascula='" + lugarBascula + '\'' +
-                '}';
+        return "Bascula{ " + idBascula +
+                ", pesoUsuario: " + pesoUsuario +
+                ", alturaUsuario: " + alturaUsuario +
+                ", lugarBascula: " + lugarBascula + "}";
 
     }
 

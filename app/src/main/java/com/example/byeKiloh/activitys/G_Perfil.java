@@ -40,7 +40,9 @@ public class G_Perfil extends AppCompatActivity {
         TextView tvPerfil = findViewById(R.id.tvPerfil);
 
         Button btnGuardarCambios = findViewById(R.id.btnGuardarCambios);
+        Button btnValidarCuenta = findViewById(R.id.btnValidarCuenta);
         Button btnVolverAlMain4 = findViewById(R.id.btnVolverAlMain4);
+
 
         etNumeroTelefono = findViewById(R.id.etNumeroTelefono);
         etEmail = findViewById(R.id.etEmail);
@@ -69,6 +71,33 @@ public class G_Perfil extends AppCompatActivity {
             public void onClick(View v) {
 
                 actualizarRegistros();
+
+            }
+
+        });
+
+        btnValidarCuenta.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //Validación Rápida para hacer test
+
+                SQLiteDatabase sqlite2 = basedatos.getWritableDatabase();
+
+                ContentValues content2 = new ContentValues();
+
+                content2.put(COLUMN_NAME_VALIDADO, "true");
+
+                //Cláusula where para actualizar Cuentas
+                String where = "Cuentas.idUsuario LIKE '" + cuenta.getEsDE().getIdUsuario() + "'";
+
+                sqlite2.update(TABLE_NAME, content2, where, null);
+
+                //Registro exitoso
+                mensaje = new Mensaje(getApplicationContext(), "Cuenta validada correctamente");
+
+                sqlite2.close();
 
             }
 
@@ -104,10 +133,9 @@ public class G_Perfil extends AppCompatActivity {
             cuenta.setIdCuenta(cursor.getInt(cursor.getColumnIndex(_IDCUENTA)));
             cuenta.setNumeroTelefono(cursor.getInt(cursor.getColumnIndex(COLUMN_NAME_NUMEROTELEFONO)));
             cuenta.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_EMAIL)));
-            cuenta.setValidado(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_VALIDADO)));
+            cuenta.setCuentaValidada(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_VALIDADO)));
             cuenta.setNombreUsuario(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_NOMBREUSUARIO)));
             cuenta.setDireccionUsuario(cursor.getString(cursor.getColumnIndex(COLUMN_NAME_DIRECCIONUSUARIO)));
-            cuenta.setNumeroEstrellas(cursor.getInt(cursor.getColumnIndex(COLUMN_NAME_NUMEROESTRELLAS)));
 
             etNumeroTelefono.setText(String.valueOf(cuenta.getNumeroTelefono()));
             etEmail.setText(cuenta.getEmail());

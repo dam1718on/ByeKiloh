@@ -9,6 +9,7 @@ public class Ejercicio {
     private int idEjercicio, distanciaRecorrida, tiempoEmpleado;
     private float inclinacionTerreno;
 
+
     //Constructores, en orden: vacío, con todos los parámetros y copia
     public Ejercicio() {    }
 
@@ -29,6 +30,23 @@ public class Ejercicio {
 
     }
 
+    //Métodos propios
+
+    //Calcula la velocidad media del Ejercicio
+    public String velocidadMedia() {
+
+        //convertimos los int en float
+        float distanciaVel = (float) distanciaRecorrida;
+        float tiempoVel = (float) tiempoEmpleado;
+        //hacemos el cálculo con un pattern de retorno con 2 decimales
+        DecimalFormat df = new DecimalFormat("0.00");
+        String format;
+        format = df.format((float) (distanciaVel / 1000) / (tiempoVel / 60));
+        return format;
+
+    }
+
+
     //Getters and Setters
     public int getIdEjercicio() {  return idEjercicio;  }
 
@@ -46,30 +64,15 @@ public class Ejercicio {
 
     public void setInclinacionTerreno(float inclinacionTerreno) {  this.inclinacionTerreno = inclinacionTerreno;  }
 
-    //Método que calcula la velocidad media del Ejercicio
-    public String velocidadMedia() {
-
-        //convertimos los int en float
-        float distanciaVel = (float) distanciaRecorrida;
-        float tiempoVel = (float) tiempoEmpleado;
-        //hacemos el cálculo con un pattern de retorno con 2 decimales
-        DecimalFormat df = new DecimalFormat("0.00");
-        String format;
-        format = df.format((float) (distanciaVel / 1000) / (tiempoVel / 60));
-        return format;
-
-    }
-
+    //toString
     @NotNull
     @Override
     public String toString() {
 
-        return "Ejercicio{" +
-                "idEjercicio=" + idEjercicio +
-                ", distanciaRecorrida=" + distanciaRecorrida +
-                ", tiempoEmpleado=" + tiempoEmpleado +
-                ", inclinacionTerreno=" + inclinacionTerreno +
-                '}';
+        return "Ejercicio{ " + idEjercicio +
+                ", distanciaRecorrida: " + distanciaRecorrida +
+                ", tiempoEmpleado: " + tiempoEmpleado +
+                ", inclinacionTerreno: " + inclinacionTerreno + "}";
 
     }
 

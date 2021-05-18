@@ -17,11 +17,11 @@ import com.example.byeKiloh.objects.Cuenta;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link C_Main_Logros#newInstance} factory method to
+ * Use the {@link C_Main_Logros_Disable#newInstance} factory method to
  * create an instance of this fragment.
  */
 
-public class C_Main_Logros extends Fragment {
+public class C_Main_Logros_Disable extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,7 +44,7 @@ public class C_Main_Logros extends Fragment {
     //Se carga la activity para poder extraer el idUsuario y propagarlo a los fragments
     public D_Main dmain;
 
-    public C_Main_Logros() {
+    public C_Main_Logros_Disable() {
         // Required empty public constructor
     }
 
@@ -54,13 +54,13 @@ public class C_Main_Logros extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment C_Main_Logros.
+     * @return A new instance of fragment C_Main_Logros_Disable.
      */
 
     // TODO: Rename and change types and number of parameters
-    public static C_Main_Logros newInstance(String param1, String param2) {
+    public static C_Main_Logros_Disable newInstance(String param1, String param2) {
 
-        C_Main_Logros fragment = new C_Main_Logros();
+        C_Main_Logros_Disable fragment = new C_Main_Logros_Disable();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -84,15 +84,11 @@ public class C_Main_Logros extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         final Bundle savedInstanceState) {
 
-        vistaE = inflater.inflate(R.layout.fragment_c_main_logros, container, false);
-
-        tvLogros = vistaE.findViewById(R.id.tvLogros);
+        basedatos = new BaseDatos(getActivity());
 
         //Instanciamos la activity que contiene la variable
         dmain = (D_Main) getActivity();
         idC = String.valueOf(dmain.idUs);
-
-        basedatos = new BaseDatos(getActivity());
 
         //Recogemos todos los datos de la cuentaRegistros del Usuario Logeado
         SQLiteDatabase sqlite = basedatos.getReadableDatabase();
@@ -103,22 +99,38 @@ public class C_Main_Logros extends Fragment {
         if(cursor.getCount() != 0) {
             cursor.moveToLast();
             cuenta = new Cuenta();
-            cuenta.setValidado(cursor.getString(cursor.getColumnIndex
+            cuenta.setCuentaValidada(cursor.getString(cursor.getColumnIndex
                     (Tablas.EstructuraCuenta.COLUMN_NAME_VALIDADO)));
+
             //Y tiene la cuenta validada
-            if(cuenta.isValidado()) {
+            if(cuenta.isCuentaValidada()) {
+
                 //Gana acceso a LOGROS
+
+                vistaE = inflater.inflate(R.layout.fragment_c_main_logros_enable, container, false);
+
+                tvLogros = vistaE.findViewById(R.id.tvLogros);
                 tvLogros.setText("Acceso concedido");
+
             }
             else {
                 //no validada
+                vistaE = inflater.inflate(R.layout.fragment_c_main_logros_disable, container, false);
+
+                tvLogros = vistaE.findViewById(R.id.tvLogros);
                 tvLogros.setText("Esta sección esta deshabilatada\nporque no tiene una cuenta validada");
+
             }
         }
+
         //Si no la tiene
         else {
             //Sin cuenta
+            vistaE = inflater.inflate(R.layout.fragment_c_main_logros_disable, container, false);
+
+            tvLogros = vistaE.findViewById(R.id.tvLogros);
             tvLogros.setText("Esta sección esta deshabilatada\nporque no tiene una cuenta");
+
         }
         //Cerramos cursor y conexion
         cursor.close();

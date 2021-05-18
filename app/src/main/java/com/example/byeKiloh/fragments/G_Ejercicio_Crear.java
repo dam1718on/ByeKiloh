@@ -145,8 +145,8 @@ public class G_Ejercicio_Crear extends Fragment {
                         //Se crea Registro
                         registro = new Registro();
                         registro.setFechaRegistro();
-                        registro.getHechoPOR().setIdUsuario(Integer.parseInt(idI));
-                        registro.getEsDE().setIdBascula(cursor.getInt(cursor.getColumnIndex(_IDBASCULA)));
+                        registro.getEsInsertado().setIdUsuario(Integer.parseInt(idI));
+                        registro.getMide().setIdBascula(cursor.getInt(cursor.getColumnIndex(_IDBASCULA)));
 
                         //Se crea Ejercicio con parámetros
                         esHecho = new Ejercicio();
@@ -171,9 +171,9 @@ public class G_Ejercicio_Crear extends Fragment {
                             ContentValues content2 = new ContentValues();
 
                             content2.put(COLUMN_NAME_FECHAREGISTRO, String.valueOf(registro.getFechaRegistro()));
-                            content2.put(_IDUSUARIO, registro.getHechoPOR().getIdUsuario());
+                            content2.put(_IDUSUARIO, registro.getEsInsertado().getIdUsuario());
                             content2.put(Tablas.EstructuraRegistro._IDEJERCICIO, esHecho.getIdEjercicio());
-                            content2.put(_IDBASCULA, registro.getEsDE().getIdBascula());
+                            content2.put(_IDBASCULA, registro.getMide().getIdBascula());
 
                             sqlite.insert("Registros", null, content2);
 
@@ -191,7 +191,7 @@ public class G_Ejercicio_Crear extends Fragment {
                             content.put(COLUMN_NAME_INCLINACIONTERRENO, String.valueOf(esHecho.getInclinacionTerreno()));
                             sqlite.insert("Ejercicios", null, content);
 
-                            registro.anadirEjercicio(esHecho);
+                            registro.setHace(esHecho);
 
                             //Recogemos todos los Ejercicios
                             String[] columnas = {Tablas.EstructuraEjercicio._IDEJERCICIO,
@@ -211,9 +211,9 @@ public class G_Ejercicio_Crear extends Fragment {
                                 ContentValues content3 = new ContentValues();
 
                                 content3.put(COLUMN_NAME_FECHAREGISTRO, String.valueOf(registro.getFechaRegistro()));
-                                content3.put(_IDUSUARIO, registro.getHechoPOR().getIdUsuario());
+                                content3.put(_IDUSUARIO, registro.getEsInsertado().getIdUsuario());
                                 content3.put(Tablas.EstructuraRegistro._IDEJERCICIO, esHecho.getIdEjercicio());
-                                content3.put(_IDBASCULA, registro.getEsDE().getIdBascula());
+                                content3.put(_IDBASCULA, registro.getMide().getIdBascula());
 
                                 sqlite.insert("Registros", null, content3);
 

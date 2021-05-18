@@ -9,7 +9,8 @@ public class Usuario implements Serializable {
     private int idUsuario;
     private String aliasUsuario, contrasenia;
 
-    //Constructores, en orden: vacío, con todos los parámetros y copia
+
+    //Constructores, en orden: vacío, con parámetros y copia
     public Usuario() {    }
 
     public Usuario(String aliasUsuario, String contrasenia) {
@@ -27,6 +28,7 @@ public class Usuario implements Serializable {
 
     }
 
+
     //Getters and Setters
     public int getIdUsuario() {  return idUsuario;  }
 
@@ -40,6 +42,8 @@ public class Usuario implements Serializable {
 
     public void setContrasenia(String contrasenia) {  this.contrasenia = contrasenia;  }
 
+
+    //toString
     @NotNull
     @Override
     public String toString() {

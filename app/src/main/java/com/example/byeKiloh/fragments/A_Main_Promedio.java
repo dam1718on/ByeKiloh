@@ -1,10 +1,14 @@
 package com.example.byeKiloh.fragments;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +16,17 @@ import androidx.fragment.app.Fragment;
 import com.example.byeKiloh.R;
 import com.example.byeKiloh.activitys.D_Main;
 import com.example.byeKiloh.datapersistence.BaseDatos;
+import com.example.byeKiloh.objects.Bascula;
+import com.example.byeKiloh.objects.Ejercicio;
+import com.example.byeKiloh.objects.Registro;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio.COLUMN_NAME_DISTANCIARECORRIDA;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio.COLUMN_NAME_INCLINACIONTERRENO;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio.COLUMN_NAME_TIEMPOEMPLEADO;
+import static com.example.byeKiloh.datapersistence.Tablas.EstructuraEjercicio._IDEJERCICIO;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,21 +47,13 @@ public class A_Main_Promedio extends Fragment {
 
     View vistaPro;
 
-    private TextView tvDistanciaMin, tvDistanciaMax, tvDistanciaMedia;
-    private TextView tvTiempodMin, tvTiempodMax, tvTiempodMedia;
-    private TextView tvVelocidadMin, tvVelocidadMax, tvVelocidadMedia;
-    private TextView tvInclinacionMin, tvInclinacionMax, tvInclinacionMedia;
-    private TextView tvConsumoEMin, tvConsumoEMax, tvConsumoEMedia;
-
-    private TextView tvPesoPMin, tvPesoPMax, tvPesoPMedia;
-    private TextView tvImcPMin, tvImcPMax, tvImcPMedia;
-
-    private TextView tvEjerCount, tvPesaCount;
-
-    String idPro;
+    Ejercicio ejercicio;
+    Bascula bascula;
 
     //Se carga la activity para poder extraer el idUsuario
     public D_Main dpmain;
+
+    String idPro;
 
     BaseDatos basedatos;
 
@@ -95,65 +102,55 @@ public class A_Main_Promedio extends Fragment {
 
         vistaPro = inflater.inflate(R.layout.fragment_a_main_promedio, container, false);
 
-        tvDistanciaMin = vistaPro.findViewById(R.id.tvDistanciaMin);
-        tvDistanciaMax = vistaPro.findViewById(R.id.tvDistanciaMax);
-        tvDistanciaMedia = vistaPro.findViewById(R.id.tvDistanciaMedia);
+        TextView tvDistanciaMin = vistaPro.findViewById(R.id.tvDistanciaMin);
+        TextView tvDistanciaMax = vistaPro.findViewById(R.id.tvDistanciaMax);
+        TextView tvDistanciaMedia = vistaPro.findViewById(R.id.tvDistanciaMedia);
 
-        tvTiempodMin = vistaPro.findViewById(R.id.tvTiempodMin);
-        tvTiempodMax = vistaPro.findViewById(R.id.tvTiempodMax);
-        tvTiempodMedia = vistaPro.findViewById(R.id.tvTiempodMedia);
+        TextView tvTiempodMin = vistaPro.findViewById(R.id.tvTiempodMin);
+        TextView tvTiempodMax = vistaPro.findViewById(R.id.tvTiempodMax);
+        TextView tvTiempodMedia = vistaPro.findViewById(R.id.tvTiempodMedia);
 
-        tvVelocidadMin = vistaPro.findViewById(R.id.tvVelocidadMin);
-        tvVelocidadMax = vistaPro.findViewById(R.id.tvVelocidadMax);
-        tvVelocidadMedia = vistaPro.findViewById(R.id.tvVelocidadMedia);
+        TextView tvInclinacionMin = vistaPro.findViewById(R.id.tvInclinacionMin);
+        TextView tvInclinacionMax = vistaPro.findViewById(R.id.tvInclinacionMax);
+        TextView tvInclinacionMedia = vistaPro.findViewById(R.id.tvInclinacionMedia);
 
-        tvInclinacionMin = vistaPro.findViewById(R.id.tvInclinacionMin);
-        tvInclinacionMax = vistaPro.findViewById(R.id.tvInclinacionMax);
-        tvInclinacionMedia = vistaPro.findViewById(R.id.tvInclinacionMedia);
+        TextView tvVelocidadMin = vistaPro.findViewById(R.id.tvVelocidadMin);
+        TextView tvVelocidadMax = vistaPro.findViewById(R.id.tvVelocidadMax);
+        TextView tvVelocidadMedia = vistaPro.findViewById(R.id.tvVelocidadMedia);
 
-        tvConsumoEMin = vistaPro.findViewById(R.id.tvConsumoEMin);
-        tvConsumoEMax = vistaPro.findViewById(R.id.tvConsumoEMax);
-        tvConsumoEMedia = vistaPro.findViewById(R.id.tvConsumoEMedia);
+        TextView tvPesoPMin = vistaPro.findViewById(R.id.tvPesoPMin);
+        TextView tvPesoPMax = vistaPro.findViewById(R.id.tvPesoPMax);
+        TextView tvPesoPMedia = vistaPro.findViewById(R.id.tvPesoPMedia);
 
-        tvPesoPMin = vistaPro.findViewById(R.id.tvPesoPMin);
-        tvPesoPMax = vistaPro.findViewById(R.id.tvPesoPMax);
-        tvPesoPMedia = vistaPro.findViewById(R.id.tvPesoPMedia);
+        TextView tvImcPMin = vistaPro.findViewById(R.id.tvImcPMin);
+        TextView tvImcPMax = vistaPro.findViewById(R.id.tvImcPMax);
+        TextView tvImcPMedia = vistaPro.findViewById(R.id.tvImcPMedia);
 
-        tvImcPMin = vistaPro.findViewById(R.id.tvImcPMin);
-        tvImcPMax = vistaPro.findViewById(R.id.tvImcPMax);
-        tvImcPMedia = vistaPro.findViewById(R.id.tvImcPMedia);
-
-        tvEjerCount = vistaPro.findViewById(R.id.tvEjerCount);
-        tvPesaCount = vistaPro.findViewById(R.id.tvPesaCount);
+        TextView tvEjerCount = vistaPro.findViewById(R.id.tvEjerCount);
+        TextView tvPesaCount = vistaPro.findViewById(R.id.tvPesaCount);
 
         //Instanciamos la activity que contiene la variable
         dpmain = (D_Main) getActivity();
         idPro = String.valueOf(dpmain.idUs);
 
         basedatos = new BaseDatos(getActivity());
-
         //Se establece conexion con permisos de lectura
         SQLiteDatabase sqlite = basedatos.getReadableDatabase();
-        //Query que devuelve todos los maincEjercicios del Usuario logeado
-        /*Cursor cursor = sqlite.rawQuery("SELECT " +
-                "MIN(distanciaRecorrida), MAX(distanciaRecorrida), ROUND(AVG(distanciaRecorrida),2), " +
-                "MIN(tiempo), MAX(tiempo), ROUND(AVG(tiempo),2), " +
-                "MIN(velocidad), MAX(velocidad), ROUND(AVG(velocidad),2), " +
-                "MIN(inclinacion), MAX(inclinacion), ROUND(AVG(inclinacion),2), " +
-                "MIN(consumoE), MAX(consumoE), ROUND(AVG(consumoE),2), COUNT(distancia) " +
-                "FROM Ejercicios WHERE idUsuario LIKE '" + idPro + "'", null);*/
 
-        /*Cursor cursorPes = sqlite.rawQuery("SELECT " +
-                "MIN(pesoUsuario), MAX(pesoUsuario), ROUND(AVG(pesoUsuario),2), " +
-                //"MIN(imc), MAX(imc), ROUND(AVG(imc),2), " +
-                "COUNT(pesoUsuario) " +
-                "FROM Basculas WHERE idUsuario LIKE '" + idPro + "'", null);*/
+        //Query que devuelve los resultados aritméticos de los Ejercicios del Usuario logeado
+        Cursor cursor = sqlite.rawQuery("SELECT " +
+                "MIN(Ejercicios.distanciaRecorrida), MAX(Ejercicios.distanciaRecorrida), " +
+                "ROUND(AVG(Ejercicios.distanciaRecorrida),2), MIN(Ejercicios.tiempoEmpleado), " +
+                "MAX(Ejercicios.tiempoEmpleado), ROUND(AVG(Ejercicios.tiempoEmpleado),2), " +
+                "MIN(Ejercicios.inclinacionTerreno), MAX(Ejercicios.inclinacionTerreno), " +
+                "ROUND(AVG(Ejercicios.inclinacionTerreno),2), COUNT(Ejercicios.distanciaRecorrida) " +
+                "FROM Ejercicios, Registros WHERE Registros.idEjercicio = Ejercicios.idEjercicio AND" +
+                " Registros.idUsuario LIKE '" + idPro + "'" , null);
 
-        //cursor.moveToFirst();
-        //cursorPes.moveToFirst();
-/*
+        cursor.moveToFirst();
+
         //TextViews Ejercicios
-        TextView olo[] = new TextView[16];
+        TextView olo[] = new TextView[10];
 
         olo[0] = tvDistanciaMin;
         olo[1] = tvDistanciaMax;
@@ -163,64 +160,241 @@ public class A_Main_Promedio extends Fragment {
         olo[4] = tvTiempodMax;
         olo[5] = tvTiempodMedia;
 
-        olo[6] = tvVelocidadMin;
-        olo[7] = tvVelocidadMax;
-        olo[8] = tvVelocidadMedia;
+        olo[6] = tvInclinacionMin;
+        olo[7] = tvInclinacionMax;
+        olo[8] = tvInclinacionMedia;
 
-        olo[9] = tvInclinacionMin;
-        olo[10] = tvInclinacionMax;
-        olo[11] = tvInclinacionMedia;
+        olo[9] = tvEjerCount;
 
-        olo[12] = tvConsumoEMin;
-        olo[13] = tvConsumoEMax;
-        olo[14] = tvConsumoEMedia;
 
-        olo[12] = tvConsumoEMin;
-        olo[13] = tvConsumoEMax;
-        olo[14] = tvConsumoEMedia;
+        for (int i=0;i<olo.length;i++) {
 
-        olo[15] = tvEjerCount;
+            if (cursor.getString(i) != null) {
 
-        //TextViews de Pesajes
-        TextView oloP[] = new TextView[7];
+                olo[i].setText(cursor.getString(i).replace(".", ","));
+
+            }
+            else {  olo[i].setText("N/D");  }
+
+        }
+
+
+        String velocidad=null, velocidadMin = null, velocidadMax = null, velocidadMedia = null;
+
+        //Cursor para conseguir la velocidad media de los Ejercicios
+        Cursor cursorEj = sqlite.rawQuery("SELECT Ejercicios.distanciaRecorrida, " +
+                "Ejercicios.tiempoEmpleado FROM Registros, Ejercicios WHERE Registros.idEjercicio " +
+                "= Ejercicios.idEjercicio AND Registros.idUsuario LIKE '" + idPro + "'" , null);
+
+        //Comprobamos si el cursor no es null
+        if(cursorEj.getCount() != 0) {
+
+            cursorEj.moveToFirst();
+
+            //Estructura do-while
+            do {
+                ejercicio = new Ejercicio();
+                ejercicio.setDistanciaRecorrida(cursorEj.getInt(0));
+                ejercicio.setTiempoEmpleado(cursorEj.getInt(1));
+
+                velocidad = ejercicio.velocidadMedia();
+
+                //Bucle if para velocidadMin
+                if(velocidadMin!=null) {
+                    if(Float.parseFloat(velocidadMin.replace(",","."))
+                            >Float.parseFloat(velocidad.replace(",","."))) {
+
+                        velocidadMin = velocidad;
+
+                    }
+                }//siempre que sea null adquiere la velocidad de esta iteración
+                else {  velocidadMin = velocidad;  }
+
+                //Bucle if para velocidadMax
+                if(velocidadMax!=null) {
+                    if(Float.parseFloat(velocidadMax.replace(",","."))
+                            <Float.parseFloat(velocidad.replace(",","."))) {
+
+                        velocidadMax = velocidad;
+
+                    }
+                }//siempre que sea null adquiere la velocidad de esta iteración
+                else {  velocidadMax = velocidad;  }
+
+                //Bucle if para velocidadMedia
+                if (velocidadMedia!= null) {
+
+                    //Se utiliza este método para poder controlar la salida del Float
+                    velocidadMedia = calculoVelMed(velocidadMedia, velocidad);
+
+                }//siempre que sea null adquiere la velocidad de esta iteración
+                else {  velocidadMedia = velocidad;  }
+
+            } while(cursorEj.moveToNext());
+
+        }
+
+        //Visualizamos el resultado de la velocidades medias en los EditText
+        if(velocidadMin!=null) {
+            tvVelocidadMin.setText(velocidadMin.replace(".",","));
+        }
+        else {  tvVelocidadMin.setText("N/D");  }
+
+        if(velocidadMax!=null) {
+            tvVelocidadMax.setText(velocidadMax.replace(".",","));
+        }
+        else {  tvVelocidadMax.setText("N/D");  }
+
+        if(velocidadMedia!=null) {
+            tvVelocidadMedia.setText(velocidadMedia.replace(".",","));
+        }
+        else {  tvVelocidadMedia.setText("N/D");  }
+
+
+        //Query que devuelve los resultados aritméticos de las Básculas del Usuario logeado
+        Cursor cursorPes = sqlite.rawQuery("SELECT MIN(Basculas.pesoUsuario), " +
+                "MAX(Basculas.pesoUsuario), ROUND(AVG(Basculas.pesoUsuario),2) FROM Basculas, " +
+                "Registros WHERE Registros.idBascula = Basculas.idBascula AND Registros.idUsuario " +
+                "LIKE '" + idPro + "'" , null);
+
+        cursorPes.moveToFirst();
+
+        //TextViews Basculas
+        TextView oloP[] = new TextView[3];
 
         oloP[0] = tvPesoPMin;
         oloP[1] = tvPesoPMax;
         oloP[2] = tvPesoPMedia;
 
-        //oloP[3] = tvImcPMin;
-        //oloP[4] = tvImcPMax;
-        //oloP[5] = tvImcPMedia;
-
-        oloP[3] = tvPesaCount;
-
-        for (int i=0;i<olo.length;i++) {
-
-            if (cursor.getString(i) != null) {
-                olo[i].setText(cursor.getString(i).replace(".", ","));
-            } else {
-                olo[i].setText("N/D");
-            }
-
-        }*/
-
-        /*for (int i=0;i<oloP.length;i++) {
+        for (int i=0;i<oloP.length;i++) {
 
             if (cursorPes.getString(i) != null) {
-                oloP[i].setText(cursorPes.getString(i).replace(".", ","));
-            } else {
-                oloP[i].setText("N/D");
-            }
 
-        }*/
+                oloP[i].setText(cursorPes.getString(i).replace(".", ","));
+
+            }
+            else {  oloP[i].setText("N/D");  }
+
+        }
+
+
+        //Query que devuelve el numero total de Básculas para el Usuario logeado
+        Cursor cursorBasNum = sqlite.rawQuery("SELECT DISTINCT Registros.idBascula, count(*) " +
+                "FROM Registros WHERE Registros.idUsuario LIKE '" + idPro + "'" , null);
+
+        cursorBasNum.moveToFirst();
+
+        tvPesaCount.setText(cursorBasNum.getString(1));
+
+
+        String imc=null, imcMin = null, imcMax = null, imcMedia = null;
+
+        //Cursor para conseguir el imc medio de las Basculas
+        Cursor cursorBas = sqlite.rawQuery("SELECT Basculas.pesoUsuario, Basculas.alturaUsuario " +
+                "FROM Registros, Basculas WHERE Registros.idBascula = Basculas.idBascula AND " +
+                "Registros.idUsuario LIKE '" + idPro + "'" , null);
+
+        //Comprobamos si el cursor no es null
+        if(cursorBas.getCount() != 0) {
+
+            cursorBas.moveToFirst();
+
+            //Estructura do-while
+            do {
+                bascula = new Bascula();
+                bascula.setPesoUsuario(cursorBas.getInt(0));
+                bascula.setAlturaUsuario(cursorBas.getInt(1));
+
+                imc = bascula.imc();
+
+                //Bucle if para imcMin
+                if(imcMin!=null) {
+                    if(Float.parseFloat(imcMin.replace(",","."))
+                            >Float.parseFloat(imc.replace(",","."))) {
+
+                        imcMin = imc;
+
+                    }
+                }//siempre que sea null adquiere el imc de esta iteración
+                else {  imcMin = imc;  }
+
+                //Bucle if para imcMax
+                if(imcMax!=null) {
+                    if(Float.parseFloat(imcMax.replace(",","."))
+                            <Float.parseFloat(imc.replace(",","."))) {
+
+                        imcMax = imc;
+
+                    }
+                }//siempre que sea null adquiere el imc de esta iteración
+                else {  imcMax = imc;  }
+
+                //Bucle if para imcMedia
+                if (imcMedia!= null) {
+
+                    //Se utiliza este método para poder controlar la salida del Float
+                    imcMedia = calculoImcMed(imcMedia, imc);
+
+                }//siempre que sea null adquiere el imc de esta iteración
+                else {  imcMedia = imc;  }
+
+            } while(cursorBas.moveToNext());
+
+        }
+
+        //Visualizamos el resultado de la velocidades medias en los EditText
+        if(imcMin!=null) {
+            tvImcPMin.setText(imcMin.replace(".",","));
+        }
+        else {  tvImcPMin.setText("N/D");  }
+
+        if(imcMax!=null) {
+            tvImcPMax.setText(imcMax.replace(".",","));
+        }
+        else {  tvImcPMax.setText("N/D");  }
+
+        if(imcMedia!=null) {
+            tvImcPMedia.setText(imcMedia.replace(".",","));
+        }
+        else {  tvImcPMedia.setText("N/D");  }
+
 
         //Cerramos cursores
-        //cursor.close();
-        //cursorPes.close();
+        cursor.close();
+        cursorEj.close();
+        cursorPes.close();
+        cursorBasNum.close();
+        cursorBas.close();
         //Cerramos la conexión con la Base de Datos
-        //sqlite.close();
+        sqlite.close();
 
         return vistaPro;
+
+    }
+
+    //Método que modifica el pattern de salida de la velocidadMedia
+    public String calculoVelMed(String velocidadMedia, String velocidad) {
+
+        float velMed = Float.parseFloat(velocidadMedia.replace(",","."));
+        float vel = Float.parseFloat(velocidad.replace(",","."));
+        //hacemos el cálculo con un pattern de retorno con 2 decimales
+        DecimalFormat df = new DecimalFormat("0.00");
+        String format;
+        format = df.format((float) (velMed + vel) / 2);
+        return format;
+
+    }
+
+    //Método que modifica el pattern de salida del imcMedio
+    public String calculoImcMed(String imcMedia, String imc) {
+
+        float imcMed = Float.parseFloat(imcMedia.replace(",","."));
+        float im = Float.parseFloat(imc.replace(",","."));
+        //hacemos el cálculo con un pattern de retorno con 2 decimales
+        DecimalFormat df = new DecimalFormat("0.00");
+        String format;
+        format = df.format((float) (imcMed + im) / 2);
+        return format;
 
     }
 

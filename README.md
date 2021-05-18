@@ -77,6 +77,7 @@
     <li>Commit50. Objeto Usuario y Cuenta, reestructurado según UML</li>
     <li>Commit51. Objeto Ejercicio, Bascula y Registro</li>
     <li>Commit52. Mejoras en: rendimiento(hash) y visibilidad(style)</li>
+    <li>Commit53. Rehechas la clases-objetosegun diagramasUML(final)</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -179,31 +180,38 @@ Se reestructura .D_Main añadiéndole un TabLayout inicial que se divide en los 
 REGISTROS, LOGROS y COPIAS DE SEGURIDAD. Revisar brevemente PROMEDIO</p>
 <p>Commit52. Se cambian las vueltas que hace el hash de contrasenia de 12(recomendado por seguridad)
 a 10[mejora sensiblemente el rendimiento de la aplicacion al hacer: hash() y verify()]. Se aplican
-tres mejoras a la visibilidad de la aplicación:\n1. Se reduce la opacidad de las imágenes de fondo
-al 50%.\n2. Se crean varios "style" para las fuentes, que se extienden por toda la aplicación
-(reduciendo sensiblemente el tamaño de los xml y homogenizando los TextViews y EditText, permite 
-hacer pequeños cambios sin cambiar de style).\n3. Se unifican los criterios de "theme" de las 
-diferentes ventanas de la aplicación, dejando sólo dos: la estándar y una específica para la 
-activity que contiene el menu</p>
+tres mejoras a la visibilidad de la aplicación: 1_Se reduce la opacidad de las imágenes de fondo al 
+50%. 2_Se crean varios "style" para las fuentes, que se extienden por toda la aplicación (reduciendo 
+sensiblemente el tamaño de los xml y homogenizando los TextViews y EditText, permite hacer pequeños 
+cambios sin cambiar de style). 3_Se unifican los criterios de "theme" de las diferentes ventanas de 
+la aplicación, dejando sólo dos: la estándar y una específica para la activity que contiene el 
+menu</p>
+<p>Commit53. Se rehacen las clases-objeto según diagramasUML y se finaliza. Se hacen videos de los
+Casos de Uso del Usuario_Básico y del Usuario_Registrado y el Usuario_Validado. Implementado el
+botón "Validar Cuenta" en .G_Perfil, se usa para testeo. Implementado el filtro de los fragments
+Logros y CopiadeSeguridad, el cual visualiza un fragment en función de si la Cuenta esta validada.
+Rehecho PROMEDIO, implementado con las nuevas clases-objeto</p>
 <h3>TASK</h3>
     <ul>
-    
-    <li>LOGROS, definir con exactitud como funcionan</li>
-    <li>implementar atributo "numeroEstrellas" en clase Cuenta</li>
-    <li>implementar consumoEnergetico como método y quitarlo como atributo de la clase Registro</li>
-    <li>Rehacer DiagramasUML</li>   
-     
-    <li>Rehacer PROMEDIO. estadísticas obsoletas</li>   
-    <li>añadir snackbar, proposicion de Manolo</li>
+    <li>Crear un script(insert into) que contenga el excel con todos los datos míos del año pasado
+    para ir comprobando la persistencia y la homogeneidad de la Base de Datos en cada versión de la
+    aplicación</li>
+
+    <li>Crear ListView para el fragment .Logros-Enable</li>
+
+    <li>Advertir de si borra Bascula borra también Ejercicios asociados a la misma</li>
+    <li>Detectados fallos en los crud de Registros, con la coma flotante</li>
+    <li>Detectados fallos en el perfil de usuario al guardar en vacío</li>
+
+    <li>Videos de Casos de Uso del Usuario_Validado
+
+    <li>Validar Cuenta MySQL?¿</li>
+    <li>Implementar LOGROS</li>
+    <li>Implementar COPIAS DE SEGURIDAD</li>
+
     <li>Hay que poder cambiar la contraseña, a demanda del usuario y reponerla si se pierde</li>
     <li>Cohesion de la aplicacion haciendola intuitiva y si fuese necesario guiando al usuario</li>
     <li>Hacer iconos para los fragments del TabLayout(Promedio, Registros, Logros y Copias de
-    Seguridadli>
-    </ul>
-<h3>TEST</h3>
-    <ul>
-    <li>Probar todos los campos de PROMEDIOS</li>
-    <li>Crear un script(insert into) que contenga el excel con todos los datos míos del año pasado 
-    para ir comprobando la persistencia y la homogeneidad de la Base de Datos en cada versión de la 
-    aplicación</li>
+    Seguridad</li>
+    <li>añadir snackbar, proposicion de Manolo</li>
     </ul>

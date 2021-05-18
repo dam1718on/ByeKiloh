@@ -103,10 +103,10 @@ public class D_Main_CopiasDeSeguridad extends Fragment {
         if(cursor.getCount() != 0) {
             cursor.moveToLast();
             cuenta = new Cuenta();
-            cuenta.setValidado(cursor.getString(cursor.getColumnIndex
+            cuenta.setCuentaValidada(cursor.getString(cursor.getColumnIndex
                     (Tablas.EstructuraCuenta.COLUMN_NAME_VALIDADO)));
             //Y tiene la cuenta validada
-            if(cuenta.isValidado()) {
+            if(cuenta.isCuentaValidada()) {
                 //Gana acceso a LOGROS
                 tvCopiasDeSeguridad.setText("Acceso concedido");
             }
