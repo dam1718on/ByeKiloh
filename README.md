@@ -78,6 +78,7 @@
     <li>Commit51. Objeto Ejercicio, Bascula y Registro</li>
     <li>Commit52. Mejoras en: rendimiento(hash) y visibilidad(style)</li>
     <li>Commit53. Rehechas la clases-objetosegun diagramasUML(final)</li>
+    <li>Commit54. Fragment LOGROS acabado, lógica y diseño</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -191,24 +192,25 @@ Casos de Uso del Usuario_Básico y del Usuario_Registrado y el Usuario_Validado.
 botón "Validar Cuenta" en .G_Perfil, se usa para testeo. Implementado el filtro de los fragments
 Logros y CopiadeSeguridad, el cual visualiza un fragment en función de si la Cuenta esta validada.
 Rehecho PROMEDIO, implementado con las nuevas clases-objeto</p>
+<p>Commit54. Se implementa: Logros-Enable.xml(TableLayout), el filtro de primer uso de Logros
+(insertando los logros en la base de datos, al haber validado la cuenta), se convierten los
+TextViews(6*2) en clickeables, cuando se clickeen comprueban si se ha conseguido ese logro y
+de haberlo hecho cambian el color del TableRow y la imagen del ImageView(tambien se implementa el
+setOnClickListener en los ImageView). Implementada toda la lógica de LOGROS, fragment finalizado,
+comprueba los logros conseguidos con anterioridad</p>
 <h3>TASK</h3>
     <ul>
+    <li>Implementar COPIAS DE SEGURIDAD</li>
+    <li>Comprobar profundidad de on delete cascade, borrando el unico usuario y viendo si se borran 
+    todos sus registros</li>
+    <li>Advertir de si borra Bascula borra también Ejercicios asociados a la misma</li>
     <li>Crear un script(insert into) que contenga el excel con todos los datos míos del año pasado
     para ir comprobando la persistencia y la homogeneidad de la Base de Datos en cada versión de la
     aplicación</li>
-
-    <li>Crear ListView para el fragment .Logros-Enable</li>
-
-    <li>Advertir de si borra Bascula borra también Ejercicios asociados a la misma</li>
     <li>Detectados fallos en los crud de Registros, con la coma flotante</li>
     <li>Detectados fallos en el perfil de usuario al guardar en vacío</li>
-
     <li>Videos de Casos de Uso del Usuario_Validado
-
     <li>Validar Cuenta MySQL?¿</li>
-    <li>Implementar LOGROS</li>
-    <li>Implementar COPIAS DE SEGURIDAD</li>
-
     <li>Hay que poder cambiar la contraseña, a demanda del usuario y reponerla si se pierde</li>
     <li>Cohesion de la aplicacion haciendola intuitiva y si fuese necesario guiando al usuario</li>
     <li>Hacer iconos para los fragments del TabLayout(Promedio, Registros, Logros y Copias de

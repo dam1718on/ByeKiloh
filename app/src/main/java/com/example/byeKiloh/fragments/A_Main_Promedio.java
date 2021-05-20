@@ -279,12 +279,23 @@ public class A_Main_Promedio extends Fragment {
 
 
         //Query que devuelve el numero total de Básculas para el Usuario logeado
-        Cursor cursorBasNum = sqlite.rawQuery("SELECT DISTINCT Registros.idBascula, count(*) " +
-                "FROM Registros WHERE Registros.idUsuario LIKE '" + idPro + "'" , null);
+        Cursor cursorBasNum = sqlite.rawQuery("SELECT Basculas.idbascula FROM Basculas, " +
+                "Registros WHERE Registros.idBascula=Basculas.idbascula AND Registros.idUsuario " +
+                "LIKE '" + idPro + "' GROUP BY Basculas.idbascula", null);
 
-        cursorBasNum.moveToFirst();
+        int i = 0;
+        if(cursorBasNum.getCount() != 0) {
 
-        tvPesaCount.setText(cursorBasNum.getString(1));
+            cursorBasNum.moveToFirst();
+
+            //Contabilizamos el número de basculas que hay para el Usuario logeado
+            do {
+                i++;
+            }
+            while (cursorBasNum.moveToNext());
+        }
+
+        tvPesaCount.setText(String.valueOf(i));
 
 
         String imc=null, imcMin = null, imcMax = null, imcMedia = null;
@@ -338,7 +349,8 @@ public class A_Main_Promedio extends Fragment {
                 }//siempre que sea null adquiere el imc de esta iteración
                 else {  imcMedia = imc;  }
 
-            } while(cursorBas.moveToNext());
+            }
+            while(cursorBas.moveToNext());
 
         }
 
