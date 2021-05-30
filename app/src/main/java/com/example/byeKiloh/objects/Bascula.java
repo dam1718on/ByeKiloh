@@ -41,7 +41,7 @@ public class Bascula {
         String format;
         //hacemos el cálculo con un pattern de retorno con 2 decimales
         DecimalFormat df = new DecimalFormat("0.00");
-        format = df.format( pesoUsuario / (alturaUsuario * alturaUsuario));
+        format = df.format( (float) pesoUsuario / (alturaUsuario * alturaUsuario));
         return format;
 
     }

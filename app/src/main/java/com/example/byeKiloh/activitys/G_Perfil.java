@@ -32,6 +32,9 @@ public class G_Perfil extends AppCompatActivity {
 
     private String idUsuarioCuenta;
 
+    //Esta variable permite comprobar los digitos de varios EditText a la vez
+    private int countError = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +73,17 @@ public class G_Perfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                actualizarRegistros();
+                //Comprobamos número mínimo de carácteres en cada EditText
+                numMinL(etNumeroTelefono, 9, "Número teléfono");
+                numMinL(etEmail, 6, "e-mail");
+                numMinL(etNombreUsuario, 4, "Nombre Y Apellidos");
+                numMinL(etDireccionUsuario, 6, "Direccion");
+
+                if(countError==1) {
+
+                    actualizarRegistros();
+
+                }
 
             }
 
@@ -81,23 +94,35 @@ public class G_Perfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Validación Rápida para hacer test
+                if(etNumeroTelefono.length()<=0 && etEmail.length()<=0 &&
+                        etNombreUsuario.length()<=0 && etDireccionUsuario.length()<=0) {
 
-                SQLiteDatabase sqlite2 = basedatos.getWritableDatabase();
+                    //EditText vacíos
+                    mensaje = new Mensaje(getApplicationContext(), "Debe primero " +
+                            "rellenar los campos");
 
-                ContentValues content2 = new ContentValues();
+                }
+                else {
 
-                content2.put(COLUMN_NAME_VALIDADO, "true");
+                    //Validación Rápida para hacer test
 
-                //Cláusula where para actualizar Cuentas
-                String where = "Cuentas.idUsuario LIKE '" + cuenta.getEsDE().getIdUsuario() + "'";
+                    SQLiteDatabase sqlite2 = basedatos.getWritableDatabase();
 
-                sqlite2.update(TABLE_NAME, content2, where, null);
+                    ContentValues content2 = new ContentValues();
 
-                //Registro exitoso
-                mensaje = new Mensaje(getApplicationContext(), "Cuenta validada correctamente");
+                    content2.put(COLUMN_NAME_VALIDADO, "true");
 
-                sqlite2.close();
+                    //Cláusula where para actualizar Cuentas
+                    String where = "Cuentas.idUsuario LIKE '" + cuenta.getEsDE().getIdUsuario() + "'";
+
+                    sqlite2.update(TABLE_NAME, content2, where, null);
+
+                    //Registro exitoso
+                    mensaje = new Mensaje(getApplicationContext(), "Cuenta validada correctamente");
+
+                    sqlite2.close();
+
+                }
 
             }
 
@@ -177,7 +202,7 @@ public class G_Perfil extends AppCompatActivity {
         content.put(_IDUSUARIO, idUsuarioCuenta);
 
         //Cláusula where para actualizar Cuentas
-        String where = "Cuentas.idCuenta LIKE '" + cuenta.getIdCuenta() + "'";
+        String where = "Cuentas.idUsuario LIKE '" + idUsuarioCuenta + "'";
 
         //Si hay registros actualizamos Cuenta
         if (cursor.getCount() != 0) {
@@ -196,10 +221,27 @@ public class G_Perfil extends AppCompatActivity {
 
         }
 
+        //Limpiamos el content
+        content.clear();
         //Cerramos el cursor
         cursor.close();
         //Se cierra la conexión abierta a la Base de Datos
         sqliteA.close();
+
+    }
+
+    //Método que cuenta el número de caracteres introducidos
+    public void numMinL(EditText et, int minDig, String campo) {
+        //Contamos el tamaño del EditText introducido
+        int num = et.length();
+        //Comprobamos si el tamaño del EditText es inferior al minimo exigido
+        if(num<minDig) {
+            //Retorno de mensaje de error detallado
+            mensaje = new Mensaje(getApplicationContext(), "'" + campo + "' tiene " + num +
+                    " carácteres\ny el mínimo para ese campo son " + minDig);
+            countError += 1;
+
+        }
 
     }
 

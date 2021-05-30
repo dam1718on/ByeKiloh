@@ -79,6 +79,7 @@
     <li>Commit52. Mejoras en: rendimiento(hash) y visibilidad(style)</li>
     <li>Commit53. Rehechas la clases-objetosegun diagramasUML(final)</li>
     <li>Commit54. Fragment LOGROS acabado, lógica y diseño</li>
+    <li>Commit55. Fragment COPIADESEGURIDAD acabado, lógica y diseño</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -198,22 +199,21 @@ TextViews(6*2) en clickeables, cuando se clickeen comprueban si se ha conseguido
 de haberlo hecho cambian el color del TableRow y la imagen del ImageView(tambien se implementa el
 setOnClickListener en los ImageView). Implementada toda la lógica de LOGROS, fragment finalizado,
 comprueba los logros conseguidos con anterioridad</p>
+<p>Commit55. Arreglado problema con el borrado de Registros a través de basculas(on delete cascade).
+Arreglado fallos en el perfil de usuario al guardar en vacío(se crea un filtro para el número mínimo
+de digitos de cada EditText. Se implementa crear copia de seguridad(permisos de escritura en sd. Se 
+implementa ListView que visualiza todas las CopiasdeSeguridad existentes para esa cuenta. Se 
+implementa el cambio de color OnItemSelected. Implementado Borrar Copia de Seguridad(borra Registro
+y Archivo). Implementado Restaurar la aplicacion a la Copia de Seguridad seleccionada. Implementado
+IntegridadRegistroCopias(), que se ocupa de chekear que el archivo asociado al Registro, existe</p>
 <h3>TASK</h3>
     <ul>
-    <li>Implementar COPIAS DE SEGURIDAD</li>
-    <li>Comprobar profundidad de on delete cascade, borrando el unico usuario y viendo si se borran 
-    todos sus registros</li>
-    <li>Advertir de si borra Bascula borra también Ejercicios asociados a la misma</li>
-    <li>Crear un script(insert into) que contenga el excel con todos los datos míos del año pasado
-    para ir comprobando la persistencia y la homogeneidad de la Base de Datos en cada versión de la
-    aplicación</li>
-    <li>Detectados fallos en los crud de Registros, con la coma flotante</li>
-    <li>Detectados fallos en el perfil de usuario al guardar en vacío</li>
-    <li>Videos de Casos de Uso del Usuario_Validado
-    <li>Validar Cuenta MySQL?¿</li>
+    <li>Validar Cuenta Firebaseli>
+    <li>Videos de Casos de Uso del Usuario_Validado</li>
+    <li>Al Documentar la aplicación, rehacer diagramasUML(CopiadeSeguridad)</li>
     <li>Hay que poder cambiar la contraseña, a demanda del usuario y reponerla si se pierde</li>
-    <li>Cohesion de la aplicacion haciendola intuitiva y si fuese necesario guiando al usuario</li>
-    <li>Hacer iconos para los fragments del TabLayout(Promedio, Registros, Logros y Copias de
-    Seguridad</li>
+    <li>Revisar PERFIL, la aplicacion deja de responder si intentamos guardar muchas veces</li>
     <li>añadir snackbar, proposicion de Manolo</li>
+    <li>Revisar el cierre y el clear de: conectores(SQLiteDatabase), cursores(Cursor) y
+    contenedores(ContentValues)</li>
     </ul>

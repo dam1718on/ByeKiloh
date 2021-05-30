@@ -51,20 +51,18 @@ public class C_Main_Logros_Disable extends Fragment {
 
     private TextView tvLogros;
 
-    private TextView tvNombre1, tvNombre2, tvNombre3, tvNombre4, tvNombre5, tvNombre6;
-    private TextView tvDesc1, tvDesc2, tvDesc3, tvDesc4, tvDesc5, tvDesc6;
     private ImageView ivLogro1, ivLogro2, ivLogro3, ivLogro4, ivLogro5, ivLogro6;
 
     private TableRow tr1, tr2, tr3, tr4, tr5, tr6;
 
-    private String nombreLogros[] = {
+    private final String[] nombreLogros = {
 
         "Distancia Recorrida I","Distancia Recorrida II","Tiempo Empleado I", "Tiempo Empleado II",
         "Inclinación Terreno I", "Inclinación Terreno II"
 
     };
 
-    private String descripcionLogros[] = {
+    private final String[] descripcionLogros = {
 
         "Este Logro se consigue al recorrer una distancia un 50% superior a la media",
         "Este Logro se consigue al recorrer una distancia un 100% superior a la media",
@@ -82,7 +80,6 @@ public class C_Main_Logros_Disable extends Fragment {
     LogrosdeCuenta logrosdeCuenta;
     Logro logro;
     Mensaje mensaje;
-
 
     //Se carga la activity para poder extraer el idUsuario y propagarlo a los fragments
     public D_Main dmain;
@@ -152,19 +149,19 @@ public class C_Main_Logros_Disable extends Fragment {
                 //Gana acceso a LOGROS
                 vistaE = inflater.inflate(R.layout.fragment_c_main_logros_enable, container, false);
 
-                tvNombre1 = vistaE.findViewById(R.id.tvNombre1);
-                tvNombre2 = vistaE.findViewById(R.id.tvNombre2);
-                tvNombre3 = vistaE.findViewById(R.id.tvNombre3);
-                tvNombre4 = vistaE.findViewById(R.id.tvNombre4);
-                tvNombre5 = vistaE.findViewById(R.id.tvNombre5);
-                tvNombre6 = vistaE.findViewById(R.id.tvNombre6);
+                TextView tvNombre1 = vistaE.findViewById(R.id.tvNombre1);
+                TextView tvNombre2 = vistaE.findViewById(R.id.tvNombre2);
+                TextView tvNombre3 = vistaE.findViewById(R.id.tvNombre3);
+                TextView tvNombre4 = vistaE.findViewById(R.id.tvNombre4);
+                TextView tvNombre5 = vistaE.findViewById(R.id.tvNombre5);
+                TextView tvNombre6 = vistaE.findViewById(R.id.tvNombre6);
 
-                tvDesc1 = vistaE.findViewById(R.id.tvDesc1);
-                tvDesc2 = vistaE.findViewById(R.id.tvDesc2);
-                tvDesc3 = vistaE.findViewById(R.id.tvDesc3);
-                tvDesc4 = vistaE.findViewById(R.id.tvDesc4);
-                tvDesc5 = vistaE.findViewById(R.id.tvDesc5);
-                tvDesc6 = vistaE.findViewById(R.id.tvDesc6);
+                TextView tvDesc1 = vistaE.findViewById(R.id.tvDesc1);
+                TextView tvDesc2 = vistaE.findViewById(R.id.tvDesc2);
+                TextView tvDesc3 = vistaE.findViewById(R.id.tvDesc3);
+                TextView tvDesc4 = vistaE.findViewById(R.id.tvDesc4);
+                TextView tvDesc5 = vistaE.findViewById(R.id.tvDesc5);
+                TextView tvDesc6 = vistaE.findViewById(R.id.tvDesc6);
 
                 ivLogro1 = vistaE.findViewById(R.id.ivLogro1);
                 ivLogro2 = vistaE.findViewById(R.id.ivLogro2);
@@ -212,7 +209,7 @@ public class C_Main_Logros_Disable extends Fragment {
                 //Array de Logros
                 ArrayList<Logro> logrosAD = new ArrayList<>();
 
-                String columns [] = {"nombreLogro","descripcionLogro"};
+                String[] columns = {"nombreLogro","descripcionLogro"};
                 //Query que devuelve todas las basculas del Usuario logeado
                 Cursor cursor2 = sqlite.query("Logros", columns,null,null,
                         null,null,null,null);
@@ -329,363 +326,291 @@ public class C_Main_Logros_Disable extends Fragment {
                 tvDesc5.setText(logrosAD.get(4).getDescripcionLogro());
                 tvDesc6.setText(logrosAD.get(5).getDescripcionLogro());
 
-                tvNombre1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvNombre1.setOnClickListener(v -> {
 
-                        if(logrosAD.get(0).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(0).conseguirLogro(v, idC)) {
 
-                            tr1.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro1.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(0));
+                        tr1.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro1.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(0));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvNombre2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvNombre2.setOnClickListener(v -> {
 
-                        if(logrosAD.get(1).conseguirLogro(v, idC)){
+                    if(logrosAD.get(1).conseguirLogro(v, idC)){
 
-                            tr2.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro2.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(1));
+                        tr2.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro2.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(1));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvNombre3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvNombre3.setOnClickListener(v -> {
 
-                        if(logrosAD.get(2).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(2).conseguirLogro(v, idC)) {
 
-                            tr3.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro3.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(2));
+                        tr3.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro3.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(2));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvNombre4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvNombre4.setOnClickListener(v -> {
 
-                        if(logrosAD.get(3).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(3).conseguirLogro(v, idC)) {
 
-                            tr4.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro4.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(3));
+                        tr4.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro4.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(3));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvNombre5.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvNombre5.setOnClickListener(v -> {
 
-                        if(logrosAD.get(4).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(4).conseguirLogro(v, idC)) {
 
-                            tr5.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro5.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(4));
+                        tr5.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro5.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(4));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvNombre6.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvNombre6.setOnClickListener(v -> {
 
-                        if(logrosAD.get(5).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(5).conseguirLogro(v, idC)) {
 
-                            tr6.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro6.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(5));
+                        tr6.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro6.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(5));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvDesc1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvDesc1.setOnClickListener(v -> {
 
-                        if(logrosAD.get(0).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(0).conseguirLogro(v, idC)) {
 
 
-                            tr1.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro1.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(0));
+                        tr1.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro1.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(0));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvDesc2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvDesc2.setOnClickListener(v -> {
 
-                        if(logrosAD.get(1).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(1).conseguirLogro(v, idC)) {
 
-                            tr2.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro2.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(1));
+                        tr2.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro2.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(1));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvDesc3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvDesc3.setOnClickListener(v -> {
 
-                        if(logrosAD.get(2).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(2).conseguirLogro(v, idC)) {
 
-                            tr3.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro3.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(2));
+                        tr3.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro3.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(2));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvDesc4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvDesc4.setOnClickListener(v -> {
 
-                        if(logrosAD.get(3).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(3).conseguirLogro(v, idC)) {
 
-                            tr4.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro4.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(3));
+                        tr4.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro4.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(3));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvDesc5.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvDesc5.setOnClickListener(v -> {
 
-                        if(logrosAD.get(4).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(4).conseguirLogro(v, idC)) {
 
-                            tr5.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro5.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(4));
+                        tr5.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro5.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(4));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                tvDesc6.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                tvDesc6.setOnClickListener(v -> {
 
-                        if(logrosAD.get(5).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(5).conseguirLogro(v, idC)) {
 
-                            tr6.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro6.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(5));
+                        tr6.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro6.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(5));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                ivLogro1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                ivLogro1.setOnClickListener(v -> {
 
-                        if(logrosAD.get(0).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(0).conseguirLogro(v, idC)) {
 
-                            tr1.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro1.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(0));
+                        tr1.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro1.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(0));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                ivLogro2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                ivLogro2.setOnClickListener(v -> {
 
-                        if(logrosAD.get(1).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(1).conseguirLogro(v, idC)) {
 
-                            tr2.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro2.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(1));
+                        tr2.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro2.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(1));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                ivLogro3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                ivLogro3.setOnClickListener(v -> {
 
-                        if(logrosAD.get(2).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(2).conseguirLogro(v, idC)) {
 
-                            tr3.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro3.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(2));
+                        tr3.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro3.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(2));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                ivLogro4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                ivLogro4.setOnClickListener(v -> {
 
-                        if(logrosAD.get(3).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(3).conseguirLogro(v, idC)) {
 
-                            tr4.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro4.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(3));
+                        tr4.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro4.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(3));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                ivLogro5.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                ivLogro5.setOnClickListener(v -> {
 
-                        if(logrosAD.get(4).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(4).conseguirLogro(v, idC)) {
 
-                            tr5.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro5.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(4));
+                        tr5.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro5.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(4));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
 
-                ivLogro6.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                ivLogro6.setOnClickListener(v -> {
 
-                        if(logrosAD.get(5).conseguirLogro(v, idC)) {
+                    if(logrosAD.get(5).conseguirLogro(v, idC)) {
 
-                            tr6.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
-                            ivLogro6.setBackgroundResource(R.drawable.ic_usuario_platino);
-                            insertarLogro(logrosAD.get(5));
+                        tr6.setBackgroundResource(R.drawable.rounded_button_gradient_orange);
+                        ivLogro6.setBackgroundResource(R.drawable.ic_usuario_platino);
+                        insertarLogro(logrosAD.get(5));
 
-                        }
-                        else {
-                            mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
-                                    "requisitos\npara conseguir este logro");
-                        }
-
+                    }
+                    else {
+                        mensaje = new Mensaje(getActivity(), "Aun no cumples los " +
+                                "requisitos\npara conseguir este logro");
                     }
 
                 });
@@ -697,8 +622,8 @@ public class C_Main_Logros_Disable extends Fragment {
                         false);
 
                 tvLogros = vistaE.findViewById(R.id.tvLogros);
-                tvLogros.setText("Esta sección esta deshabilatada\nporque no tiene una cuenta " +
-                        "validada");
+                String tvlogro1 = "Esta sección esta deshabilatada\nporque no tiene una cuenta validada";
+                tvLogros.setText(tvlogro1);
 
             }
         }
@@ -724,7 +649,7 @@ public class C_Main_Logros_Disable extends Fragment {
     public void insertarLogro(Logro logro) {
 
         logrosdeCuenta = new LogrosdeCuenta();
-        logrosdeCuenta.setFechaLogro();
+        logrosdeCuenta.initFechaLogro();
 
         //Recogemos todos los datos de la cuentaRegistros del Usuario Logeado
         SQLiteDatabase sqliteIN = basedatos.getWritableDatabase();

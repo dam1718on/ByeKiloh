@@ -313,8 +313,8 @@ public class A_Main_Promedio extends Fragment {
             //Estructura do-while
             do {
                 bascula = new Bascula();
-                bascula.setPesoUsuario(cursorBas.getInt(0));
-                bascula.setAlturaUsuario(cursorBas.getInt(1));
+                bascula.setPesoUsuario(cursorBas.getFloat(0));
+                bascula.setAlturaUsuario(cursorBas.getFloat(1));
 
                 imc = bascula.imc();
 

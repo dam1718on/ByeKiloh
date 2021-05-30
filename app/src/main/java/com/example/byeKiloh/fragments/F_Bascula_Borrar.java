@@ -162,9 +162,12 @@ public class F_Bascula_Borrar extends Fragment {
         esDE = new Bascula((Bascula) spinBasculasB.getSelectedItem());
         //Se establece conexion con permisos de escritura
         SQLiteDatabase sqlite = basedatos.getWritableDatabase();
-        //Sentencia que borra la bascula indicada
+        //Sentencias sql que borran la bascula indicada y sus registros
         sqlite.delete("Basculas", "Basculas.idBascula = '" +
             esDE.getIdBascula() + "'", null);
+        sqlite.delete("Registros", "Registros.idBascula = '" +
+                esDE.getIdBascula() + "'", null);
+
         //Mensaje de éxito al borrar
         mensaje = new Mensaje(getActivity(), "La Bascula ha sido borrada");
         //Cerramos la conexión con la Base de Datos

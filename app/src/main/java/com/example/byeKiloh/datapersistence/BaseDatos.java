@@ -5,7 +5,14 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import android.util.Log;
+
 import com.example.byeKiloh.datapersistence.Tablas.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 public class BaseDatos extends SQLiteOpenHelper {
 
@@ -35,7 +42,7 @@ public class BaseDatos extends SQLiteOpenHelper {
             "CREATE TABLE " + EstructuraCopiadeSeguridad.TABLE_NAME + " (" +
                     EstructuraCopiadeSeguridad._IDCOPIADESEGURIDAD + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     EstructuraCopiadeSeguridad.COLUMN_NAME_FECHASUBIDA + " TIMESTAMP" + COMMA_SEP +
-                    EstructuraCopiadeSeguridad.COLUMN_NAME_ARCHIVOSQLITE + " FILE" + COMMA_SEP +
+                    EstructuraCopiadeSeguridad.COLUMN_NAME_PATHCOPIA + TEXT_TYPE + COMMA_SEP +
                     EstructuraCopiadeSeguridad._IDCUENTA + " INTEGER," +
                     " FOREIGN KEY (idCuenta) REFERENCES Cuentas(idCuenta) ON DELETE CASCADE)";
 
@@ -138,6 +145,48 @@ public class BaseDatos extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_ENTRIES_BASCULA);
         db.execSQL(SQL_DELETE_ENTRIES_EJERCICIO);
         onCreate(db);
+
+    }
+
+    //Método para crear CopiadeSeguridad
+    public static boolean copiaBD(String from, String to) {
+
+        boolean result = false;
+
+        try{
+
+            File dir = new File(to.substring(0, to.lastIndexOf('/')));
+            dir.mkdirs();
+            File tof = new File(dir, to.substring(to.lastIndexOf('/') + 1));
+            int byteread;
+            File oldfile = new File(from);
+
+            if(oldfile.exists()) {
+
+                InputStream inStream = new FileInputStream(from);
+                FileOutputStream fs = new FileOutputStream(tof);
+                byte[] buffer = new byte[1024];
+
+                while((byteread = inStream.read(buffer)) != -1) {
+                    fs.write(buffer, 0, byteread);
+
+                }
+
+                inStream.close();
+                fs.close();
+
+            }
+
+            result = true;
+
+        }
+        catch(Exception e) {
+
+            Log.e("copyFile", "Error copiando archivo: " + e.getMessage());
+
+        }
+
+        return result;
 
     }
 

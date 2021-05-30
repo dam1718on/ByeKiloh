@@ -144,7 +144,7 @@ public class G_Ejercicio_Crear extends Fragment {
                         cursor.moveToLast();
                         //Se crea Registro
                         registro = new Registro();
-                        registro.setFechaRegistro();
+                        registro.initFechaRegistro();
                         registro.getEsInsertado().setIdUsuario(Integer.parseInt(idI));
                         registro.getMide().setIdBascula(cursor.getInt(cursor.getColumnIndex(_IDBASCULA)));
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="idCopia:"
+            android:textSize="16sp"
+            style="@style/shadow5TV17spNnoHint" />
+
+        <TextView
+            android:id="@+id/tvNombreArchivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/my_selecter"
+            android:text="  byeKiloh.sqlite  "
+            android:textAlignment="center"
+            style="@style/shadow5TV17spNnoHint" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="fechaCopia:"
+            android:textSize="16sp"
+            style="@style/shadow5TV17spNnoHint" />
+
+        <TextView
+            android:id="@+id/tvFechaCopia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/my_selecter"
+            android:text="  24/05/2021  "
+            android:textAlignment="center"
+            style="@style/shadow5TV17spNnoHint" />
+
+    </LinearLayout>
+
+</LinearLayout>

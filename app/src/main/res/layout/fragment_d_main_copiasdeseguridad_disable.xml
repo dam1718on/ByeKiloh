@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/platino"
-    tools:context=".fragments.D_Main_CopiasDeSeguridad">
+    tools:context=".fragments.D_Main_CopiasdeSeguridad_Disable">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout

@@ -42,6 +42,16 @@ public class Registro {
 
     }
 
+    //Métodos propios
+
+    //Inicializa la fechaRegistro con el CURRENT_TIMESTAMP
+    public void initFechaRegistro() {
+
+        Date date = new Date();
+        fechaRegistro = new Timestamp(date.getTime());
+
+    }
+
 
     //Getters and Setters
     public int getIdRegistro() {  return idRegistro;  }
@@ -50,12 +60,7 @@ public class Registro {
 
     public Timestamp getFechaRegistro() {  return fechaRegistro;  }
 
-    public void setFechaRegistro() {
-
-        Date date = new Date();
-        fechaRegistro = new Timestamp(date.getTime());
-
-    }
+    public void setFechaRegistro(Timestamp fechaRegistro) {  this.fechaRegistro = fechaRegistro;  }
 
     public Usuario getEsInsertado() {  return esInsertado;  }
 

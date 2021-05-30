@@ -33,7 +33,7 @@ public class Tablas {
         public static final String TABLE_NAME = "CopiasdeSeguridad";
         public static final String _IDCOPIADESEGURIDAD = "idCopiadeSeguridad";
         public static final String COLUMN_NAME_FECHASUBIDA = "fechaSubida";
-        public static final String COLUMN_NAME_ARCHIVOSQLITE = "archivoSQLite";
+        public static final String COLUMN_NAME_PATHCOPIA = "pathCopia";
         public static final String _IDCUENTA = "idCuenta";
 
     }

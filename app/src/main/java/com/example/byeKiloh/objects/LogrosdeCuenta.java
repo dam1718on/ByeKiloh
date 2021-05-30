@@ -21,8 +21,10 @@ public class LogrosdeCuenta {
 
     }
 
-    public LogrosdeCuenta(Timestamp fechaLogro, Logro cuenta, Cuenta esConseguido) {
+    public LogrosdeCuenta(int idLogrosdeCuenta, Timestamp fechaLogro, Logro cuenta,
+                          Cuenta esConseguido) {
 
+        this.idLogrosdeCuenta = idLogrosdeCuenta;
         this.fechaLogro = fechaLogro;
         this.cuenta = cuenta;
         this.esConseguido = esConseguido;
@@ -38,6 +40,16 @@ public class LogrosdeCuenta {
 
     }
 
+    //Métodos propios
+
+    //Inicializa la fechaLogro con el CURRENT_TIMESTAMP
+    public void initFechaLogro() {
+
+        Date date = new Date();
+        fechaLogro = new Timestamp(date.getTime());
+
+    }
+
 
     //Getters and Setters
     public int getIdLogrosdeCuenta() {  return idLogrosdeCuenta;  }
@@ -48,12 +60,7 @@ public class LogrosdeCuenta {
 
     public Timestamp getFechaLogro() {  return fechaLogro;  }
 
-    public void setFechaLogro() {
-
-        Date date = new Date();
-        fechaLogro = new Timestamp(date.getTime());
-
-    }
+    public void setFechaLogro(Timestamp fechaLogro) {  this.fechaLogro = fechaLogro;  }
 
     public Logro getCuenta() {  return cuenta;  }
 

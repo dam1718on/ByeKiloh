@@ -146,7 +146,7 @@ public class E_Bascula_Crear extends Fragment {
                     esDE.setAlturaUsuario(Float.parseFloat(etAlturaUsuario.getText().toString()));
                     esDE.setLugarBascula(etLugarBascula.getText().toString());
                     registro.setMide(esDE);
-                    registro.setFechaRegistro();
+                    registro.initFechaRegistro();
                     registro.getEsInsertado().setIdUsuario(Integer.parseInt(idE));
                     //Se otorgan permisos de escritura
                     SQLiteDatabase sqlite = basedatos.getWritableDatabase();
@@ -165,21 +165,37 @@ public class E_Bascula_Crear extends Fragment {
                     Cursor cursor = sqlite.query("Basculas", columnas,null,
                             null, null, null, null);
 
-                    if (cursor.getCount() != 0) {
+                    //Extraemos el idBascula del ultimo row del cursor
+                    cursor.moveToLast();
+                    registro.getMide().setIdBascula(cursor.getInt(cursor.getColumnIndex
+                            (Tablas.EstructuraBascula._IDBASCULA)));
 
-                        cursor.moveToLast();
-                        registro.getMide().setIdBascula(cursor.getInt(cursor.getColumnIndex
-                                (Tablas.EstructuraBascula._IDBASCULA)));
+                    ContentValues content2 = new ContentValues();
 
-                        ContentValues content2 = new ContentValues();
+                    content2.put(COLUMN_NAME_FECHAREGISTRO, String.valueOf(registro.getFechaRegistro()));
+                    content2.put(_IDUSUARIO, registro.getEsInsertado().getIdUsuario());
+                    content2.put(Tablas.EstructuraRegistro._IDBASCULA, registro.getMide().getIdBascula());
 
-                        content2.put(COLUMN_NAME_FECHAREGISTRO, String.valueOf(registro.getFechaRegistro()));
-                        content2.put(_IDUSUARIO, registro.getEsInsertado().getIdUsuario());
-                        content2.put(Tablas.EstructuraRegistro._IDBASCULA, registro.getMide().getIdBascula());
+                    sqlite.insert("Registros", null, content2);
 
-                        sqlite.insert("Registros", null, content2);
+                    //Columnas que recogerá los datos de la consulta
+                    String[] columnaRE = {Tablas.EstructuraRegistro._IDREGISTRO};
+                    Cursor cursorRE = sqlite.query("Registros", columnaRE,null,
+                            null, null, null, null);
 
-                    }
+                    //Extraemos el idRegistro del ultimo row del cursor
+                    cursorRE.moveToLast();
+
+                    registro.setIdRegistro(cursorRE.getInt(0));
+
+                    ContentValues contentRE = new ContentValues();
+
+                    contentRE.put(Tablas.EstructuraBascula._IDREGISTRO, registro.getIdRegistro());
+
+                    //Actualizamos la Bascula con el idRegistro asociado
+                    sqlite.update("Basculas",contentRE,"Basculas.idBascula LIKE '"+
+                            registro.getMide().getIdBascula() +"'", null);
+
 
                     //Mensaje de éxito al añadir
                     mensaje = new Mensaje(getActivity(), "La Báscula ha sido almacenada");

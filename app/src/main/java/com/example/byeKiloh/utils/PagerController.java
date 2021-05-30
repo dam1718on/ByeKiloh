@@ -30,7 +30,7 @@ public class PagerController extends FragmentPagerAdapter {
             case 2:
                 return new C_Main_Logros_Disable();
             case 3:
-                return new D_Main_CopiasDeSeguridad();
+                return new D_Main_CopiasdeSeguridad_Disable();
             default:
                 return new A_Main_Promedio();
 

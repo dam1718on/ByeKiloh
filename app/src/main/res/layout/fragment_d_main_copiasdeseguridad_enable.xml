@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/platino"
+    tools:context=".fragments.D_Main_CopiasdeSeguridad_Enable">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_copiasdeseguridad50y720x1280"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="COPIAS DE\nSEGURIDAD"
+            android:textAlignment="center"
+            style="@style/shadow5TV17spNnoHint" />
+
+        <Button
+            android:id="@+id/btnCrearCopia"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"
+            android:text="CREAR NUEVA\nCOPIA DE SEGURIDAD"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect17" />
+
+        <!-- ListView AQUI -->
+        <ListView
+            android:id="@+id/lvCopias"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/platino" />
+
+        <Button
+            android:id="@+id/btnBorrarCopia"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"
+            android:text="BORRAR COPIA DE\nSEGURIDAD SELECCIONADA"
+            android:background="@drawable/rounded_button_gradient_blue"
+            android:textStyle="bold"
+            style="@style/shadoweffect17" />
+
+        <Button
+            android:id="@+id/btnRestaurarCopia"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"
+            android:text="RESTAURAR DESDE\nCOPIA DE SEGURIDAD"
+            android:background="@drawable/rounded_button_gradient_orange"
+            android:textStyle="bold"
+            style="@style/shadoweffect17" />
+
+    </LinearLayout>
+
+</FrameLayout>
