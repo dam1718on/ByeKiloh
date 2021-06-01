@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import android.os.Bundle;
 
-import android.view.View;
+import android.util.Log;
 
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +15,21 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import com.example.byeKiloh.datapersistence.BaseDatos;
 import com.example.byeKiloh.objects.*;
 import com.example.byeKiloh.R;
 import com.example.byeKiloh.utils.Mensaje;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraCuenta.*;
 
@@ -32,6 +43,9 @@ public class G_Perfil extends AppCompatActivity {
 
     private String idUsuarioCuenta;
 
+    SQLiteDatabase sqlite0;
+    Cursor cursor;
+
     //Esta variable permite comprobar los digitos de varios EditText a la vez
     private int countError = 1;
 
@@ -42,7 +56,7 @@ public class G_Perfil extends AppCompatActivity {
 
         TextView tvPerfil = findViewById(R.id.tvPerfil);
 
-        Button btnGuardarCambios = findViewById(R.id.btnGuardarCambios);
+        Button btnGuardarCuenta = findViewById(R.id.btnGuardarCuenta);
         Button btnValidarCuenta = findViewById(R.id.btnValidarCuenta);
         Button btnVolverAlMain4 = findViewById(R.id.btnVolverAlMain4);
 
@@ -68,45 +82,35 @@ public class G_Perfil extends AppCompatActivity {
 
         arrancarET();
 
-        btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
+        btnGuardarCuenta.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(View v) {
+            //Comprobamos número mínimo de carácteres en cada EditText
+            numMinL(etNumeroTelefono, 9, "Número teléfono");
+            numMinL(etEmail, 6, "e-mail");
+            numMinL(etNombreUsuario, 4, "Nombre Y Apellidos");
+            numMinL(etDireccionUsuario, 6, "Direccion");
 
-                //Comprobamos número mínimo de carácteres en cada EditText
-                numMinL(etNumeroTelefono, 9, "Número teléfono");
-                numMinL(etEmail, 6, "e-mail");
-                numMinL(etNombreUsuario, 4, "Nombre Y Apellidos");
-                numMinL(etDireccionUsuario, 6, "Direccion");
+            if(countError==1) {
 
-                if(countError==1) {
-
-                    actualizarRegistros();
-
-                }
+                actualizarRegistros();
 
             }
 
         });
 
-        btnValidarCuenta.setOnClickListener(new View.OnClickListener() {
+        btnValidarCuenta.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(View v) {
+            //Comprobamos que tiene cuenta
+            if(cuenta.getIdCuenta()!=0) {
 
-                if(etNumeroTelefono.length()<=0 && etEmail.length()<=0 &&
-                        etNombreUsuario.length()<=0 && etDireccionUsuario.length()<=0) {
+                //Comprobamos que la cuenta no esta validada
+                if(!cuenta.isCuentaValidada()) {
 
-                    //EditText vacíos
-                    mensaje = new Mensaje(getApplicationContext(), "Debe primero " +
-                            "rellenar los campos");
+                    try {
+                    //guardamos los datos del Usuario en Remoto y validamos su cuenta
+                    ejecutarServicio("http://192.168.1.39:80/byekiloh/insertar_cuenta.php");
 
-                }
-                else {
-
-                    //Validación Rápida para hacer test
-
-                    SQLiteDatabase sqlite2 = basedatos.getWritableDatabase();
+                    sqlite0 = basedatos.getWritableDatabase();
 
                     ContentValues content2 = new ContentValues();
 
@@ -115,29 +119,37 @@ public class G_Perfil extends AppCompatActivity {
                     //Cláusula where para actualizar Cuentas
                     String where = "Cuentas.idUsuario LIKE '" + cuenta.getEsDE().getIdUsuario() + "'";
 
-                    sqlite2.update(TABLE_NAME, content2, where, null);
+                    sqlite0.update(TABLE_NAME, content2, where, null);
 
                     //Registro exitoso
                     mensaje = new Mensaje(getApplicationContext(), "Cuenta validada correctamente");
 
-                    sqlite2.close();
+                    sqlite0.close();
+                    }
+                    catch (Exception e) {
+
+                        Log.i("Mensaje", "No se ha validado la cuenta");
+                    }
+
+                }
+                else {
+
+                    mensaje = new Mensaje(getApplicationContext(), "La cuenta ya esta " +
+                            "validada.\nPara hacer cambios contacte con el admyn");
 
                 }
 
             }
+            else {
 
-        });
-
-        btnVolverAlMain4.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                finish();
+                mensaje = new Mensaje(getApplicationContext(), "Debe registrar una " +
+                        "cuenta primero");
 
             }
 
         });
+
+        btnVolverAlMain4.setOnClickListener(v -> finish());
 
     }
 
@@ -145,9 +157,9 @@ public class G_Perfil extends AppCompatActivity {
     public void arrancarET() {
 
         //Se establece conexion con permisos de lectura
-        SQLiteDatabase sqliteE = basedatos.getReadableDatabase();
+        sqlite0 = basedatos.getReadableDatabase();
         //rawQuery que devuelve los datos de la Cuenta del Usuario logeado
-        Cursor cursor = sqliteE.rawQuery("SELECT * FROM Cuentas WHERE " +
+        cursor = sqlite0.rawQuery("SELECT * FROM Cuentas WHERE " +
             "Cuentas.idUsuario LIKE '" + idUsuarioCuenta + "'", null);
 
         //Si hay registros los muestra en los EditText correspondientes
@@ -172,7 +184,7 @@ public class G_Perfil extends AppCompatActivity {
         //Cerramos el cursor
         cursor.close();
         //Cerramos la conexión con la Base de Datos
-        sqliteE.close();
+        sqlite0.close();
 
     }
 
@@ -180,9 +192,9 @@ public class G_Perfil extends AppCompatActivity {
     public void actualizarRegistros() {
 
         //Se establece conexion con permisos de escritura
-        SQLiteDatabase sqliteA = basedatos.getWritableDatabase();
+        sqlite0 = basedatos.getWritableDatabase();
         //rawQuery que devuelve la cuenta del Usuario logeado
-        Cursor cursor = sqliteA.rawQuery("SELECT * FROM Cuentas WHERE " +
+        cursor = sqlite0.rawQuery("SELECT * FROM Cuentas WHERE " +
                 "Cuentas.idUsuario LIKE '" + idUsuarioCuenta + "'", null);
 
         //Se actualiza el objeto cuenta
@@ -207,7 +219,7 @@ public class G_Perfil extends AppCompatActivity {
         //Si hay registros actualizamos Cuenta
         if (cursor.getCount() != 0) {
 
-            sqliteA.update(TABLE_NAME, content, where, null);
+            sqlite0.update(TABLE_NAME, content, where, null);
             //Registro exitoso
             mensaje = new Mensaje(getApplicationContext(), "Datos actualizados correctamente");
 
@@ -215,7 +227,7 @@ public class G_Perfil extends AppCompatActivity {
         //Si no los había los insertamos (primer uso del Usuario actual)
         else {
 
-            sqliteA.insert(TABLE_NAME, null, content);
+            sqlite0.insert(TABLE_NAME, null, content);
             //Registro exitoso
             mensaje = new Mensaje(getApplicationContext(), "Datos insertados correctamente");
 
@@ -226,7 +238,7 @@ public class G_Perfil extends AppCompatActivity {
         //Cerramos el cursor
         cursor.close();
         //Se cierra la conexión abierta a la Base de Datos
-        sqliteA.close();
+        sqlite0.close();
 
     }
 
@@ -242,6 +254,49 @@ public class G_Perfil extends AppCompatActivity {
             countError += 1;
 
         }
+        else {
+            countError=1;
+        }
+
+    }
+
+    //Método que conecta con MySQL para guardar los datos del Usuario
+    private void ejecutarServicio(String URL) {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                Log.i("Mensaje", "Conexión establecida");
+                //mensaje = new Mensaje(getApplicationContext(), "Conexión establecida");
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.i("Mensaje", "Error conexión");
+                //mensaje = new Mensaje(getApplicationContext(), "Error conexión");
+
+            }
+        }) {
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("idCuenta", String.valueOf(0));
+                parametros.put("email", cuenta.getEmail());
+                parametros.put("numeroTelefono", String.valueOf(cuenta.getNumeroTelefono()));
+                parametros.put("nombreUsuario", cuenta.getNombreUsuario());
+                parametros.put("direccionUsuario", cuenta.getDireccionUsuario());
+                return parametros;
+
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
 
     }
 

@@ -80,6 +80,7 @@
     <li>Commit53. Rehechas la clases-objetosegun diagramasUML(final)</li>
     <li>Commit54. Fragment LOGROS acabado, lógica y diseño</li>
     <li>Commit55. Fragment COPIADESEGURIDAD acabado, lógica y diseño</li>
+    <li>Commit56. Implementada BBDD en remoto(MySQL) y conexión(php)</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -206,13 +207,16 @@ implementa ListView que visualiza todas las CopiasdeSeguridad existentes para es
 implementa el cambio de color OnItemSelected. Implementado Borrar Copia de Seguridad(borra Registro
 y Archivo). Implementado Restaurar la aplicacion a la Copia de Seguridad seleccionada. Implementado
 IntegridadRegistroCopias(), que se ocupa de chekear que el archivo asociado al Registro, existe</p>
+<p>Commit56. Implementada la validación de cuenta, se usa XAMPP(Apache y MySQL) y dos archivos php,
+la conexión y la insercción de datos. Se guarda los datos de la cuenta del Usuario en remoto y se le
+promueve a Usuario_Validado. Solucionado error en Perfil, la aplicacion deja de responder si
+intentamos guardar/actualizar la cuenta dos veces(era un error en un atributo que no se reseteaba
+adecuadamente</p>
 <h3>TASK</h3>
     <ul>
-    <li>Validar Cuenta Firebaseli>
     <li>Videos de Casos de Uso del Usuario_Validado</li>
     <li>Al Documentar la aplicación, rehacer diagramasUML(CopiadeSeguridad)</li>
     <li>Hay que poder cambiar la contraseña, a demanda del usuario y reponerla si se pierde</li>
-    <li>Revisar PERFIL, la aplicacion deja de responder si intentamos guardar muchas veces</li>
     <li>añadir snackbar, proposicion de Manolo</li>
     <li>Revisar el cierre y el clear de: conectores(SQLiteDatabase), cursores(Cursor) y
     contenedores(ContentValues)</li>
