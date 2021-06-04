@@ -79,7 +79,7 @@
                 android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
                     úÁÉÍÓÚäëïöüÄËÏÖÜ@_."
                 android:hint="e-mail (ej. runner88@gmail.com)"
-                android:maxLength="30"
+                android:maxLength="60"
                 android:maxLines="1"
                 android:textAlignment="center"
                 style="@style/shadow5ET20sp" />
@@ -108,7 +108,7 @@
                 android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
                     úÁÉÍÓÚäëïöüÄËÏÖÜ/,-ºª\."
                 android:hint="Dirección (ej. C/ Laguna, 22 - Alcala)"
-                android:maxLength="50"
+                android:maxLength="60"
                 android:maxLines="1"
                 android:textAlignment="center"
                 android:textSize="19sp"

@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNegro">
-
+        <activity android:name=".activitys.I_Contrasenia"></activity>
         <activity
             android:name=".activitys.A_Login"
             android:theme="@style/SplashTheme"> <!-- Aquí llamamos nuestro tema con el splash -->
@@ -24,24 +24,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activitys.B_Registro" />
-
         <activity android:name=".activitys.C_Privacidad" />
-
         <activity
             android:name=".activitys.D_Main"
             android:parentActivityName=".activitys.A_Login"
             android:theme="@style/AppTheme" />
-
         <activity android:name=".activitys.G_Perfil" />
-
         <activity android:name=".activitys.H_Ayuda" />
-
         <activity android:name=".activitys.F_Acercade" />
-
         <activity android:name=".activitys.E_Crud" />
-
     </application>
 
 </manifest>

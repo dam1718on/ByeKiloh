@@ -30,6 +30,8 @@ import com.example.byeKiloh.utils.Mensaje;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.example.byeKiloh.datapersistence.Tablas.EstructuraCuenta.*;
 
@@ -92,7 +94,16 @@ public class G_Perfil extends AppCompatActivity {
 
             if(countError==1) {
 
-                actualizarRegistros();
+                if(!isEmailValid(etEmail.getText().toString())) {
+
+                    mensaje = new Mensaje(getApplicationContext(), "El e-mail no es válido");
+
+                }
+                else {
+
+                    actualizarRegistros();
+
+                }
 
             }
 
@@ -106,30 +117,7 @@ public class G_Perfil extends AppCompatActivity {
                 //Comprobamos que la cuenta no esta validada
                 if(!cuenta.isCuentaValidada()) {
 
-                    try {
-                    //guardamos los datos del Usuario en Remoto y validamos su cuenta
-                    ejecutarServicio("http://192.168.1.39:80/byekiloh/insertar_cuenta.php");
-
-                    sqlite0 = basedatos.getWritableDatabase();
-
-                    ContentValues content2 = new ContentValues();
-
-                    content2.put(COLUMN_NAME_VALIDADO, "true");
-
-                    //Cláusula where para actualizar Cuentas
-                    String where = "Cuentas.idUsuario LIKE '" + cuenta.getEsDE().getIdUsuario() + "'";
-
-                    sqlite0.update(TABLE_NAME, content2, where, null);
-
-                    //Registro exitoso
-                    mensaje = new Mensaje(getApplicationContext(), "Cuenta validada correctamente");
-
-                    sqlite0.close();
-                    }
-                    catch (Exception e) {
-
-                        Log.i("Mensaje", "No se ha validado la cuenta");
-                    }
+                    comprobarEmail("http://192.168.1.39:80/byekiloh/comprobar_email.php");
 
                 }
                 else {
@@ -269,7 +257,6 @@ public class G_Perfil extends AppCompatActivity {
             public void onResponse(String response) {
 
                 Log.i("Mensaje", "Conexión establecida");
-                //mensaje = new Mensaje(getApplicationContext(), "Conexión establecida");
 
             }
 
@@ -277,8 +264,7 @@ public class G_Perfil extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Log.i("Mensaje", "Error conexión");
-                //mensaje = new Mensaje(getApplicationContext(), "Error conexión");
+                Log.i("Mensaje", "Error conexión: " + error);
 
             }
         }) {
@@ -297,6 +283,87 @@ public class G_Perfil extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+
+    }
+
+    //Método que conecta con MySQL para comprobar si el email ya estaba guardado
+    private void comprobarEmail(String URL) {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                if(!response.isEmpty()) {
+
+                    mensaje = new Mensaje(getApplicationContext(), "Este email ya está " +
+                            "registrado");
+                    Log.i("Mensaje", "Este email ya está registrado");
+
+                }
+                else {
+
+                    try {
+                        //guardamos los datos del Usuario en Remoto y validamos su cuenta
+                        ejecutarServicio("http://192.168.1.39:80/byekiloh/insertar_cuenta.php");
+
+                        sqlite0 = basedatos.getWritableDatabase();
+
+                        ContentValues content2 = new ContentValues();
+
+                        content2.put(COLUMN_NAME_VALIDADO, "true");
+
+                        //Cláusula where para actualizar Cuentas
+                        String where = "Cuentas.idUsuario LIKE '" + cuenta.getEsDE().getIdUsuario() +
+                                "'";
+
+                        sqlite0.update(TABLE_NAME, content2, where, null);
+
+                        //Registro exitoso
+                        mensaje = new Mensaje(getApplicationContext(), "Cuenta validada " +
+                                "correctamente");
+
+                        sqlite0.close();
+
+                    }
+                    catch (Exception e) {
+
+                        Log.i("Mensaje", "No se ha validado la cuenta");
+
+                    }
+
+                }
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.i("Mensaje", "Error conexión: " + error);
+
+            }
+        }) {
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("email", cuenta.getEmail());
+                return parametros;
+
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
+    public static boolean isEmailValid(String email) {
+
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
 
     }
 

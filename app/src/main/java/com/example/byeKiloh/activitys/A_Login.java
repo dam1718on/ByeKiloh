@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import android.os.Bundle;
 
+import android.text.SpannableString;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,6 +54,8 @@ public class A_Login extends AppCompatActivity {
         Button btnCrearCuenta = findViewById(R.id.btnCrearCuenta);
         Button btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
 
+        TextView tvRehacerPass = findViewById(R.id.tvRehacerPass);
+
         cbMantenerSesion = findViewById(R.id.cbMantenerSesion);
 
         etUsuario = findViewById(R.id.etUsuario);
@@ -63,6 +67,22 @@ public class A_Login extends AppCompatActivity {
         SharedPreferences prefSesion = getSharedPreferences("datos", Context.MODE_PRIVATE);
         userSP = prefSesion.getString("usuario", defaultValue);
         etUsuario.setText(userSP);
+
+        //Convertimos en enlace el TextViews tvRehacerPass
+        SpannableString contentC = new SpannableString(tvRehacerPass.getText());
+        tvRehacerPass.setText(contentC);
+
+        tvRehacerPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Creamos Intent para ir a .I_Contrasenia
+                Intent intent = new Intent(getApplicationContext(), I_Contrasenia.class);
+                startActivity(intent);
+
+            }
+
+        });
 
         basedatos = new BaseDatos(getApplicationContext());
 

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_login50y720x1280"
+    android:background="@color/platino"
     android:orientation="vertical"
-    tools:context=".activitys.A_Login">
+    tools:context=".activitys.I_Contrasenia">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,21 +37,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="LOGIN"
+            android:text="RECUPERACIÓN DE CONTRASEÑA"
             style="@style/shadow5TV17spAnoHint" />
 
         <EditText
-            android:id="@+id/etUsuario"
+            android:id="@+id/etUsuarioRC"
             android:layout_width="320dp"
             android:layout_height="50dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="24dp"
             android:layout_gravity="center"
             android:background="@drawable/rounded_edittext_solid_orange"
-            android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
-            úÁÉÍÓÚäëïöüÄËÏÖÜ"
-            android:drawableLeft="@drawable/ic_usuario"
+            android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                úÁÉÍÓÚäëïöüÄËÏÖÜ"
             android:drawablePadding="-44dp"
-            android:hint="Usuario"
+            android:hint="Introduzca su Usuario"
             android:inputType=""
             android:maxLength="15"
             android:maxLines="1"
@@ -59,63 +58,58 @@
             android:textAlignment="center"
             style="@style/shadow5ET20sp" />
 
-        <RelativeLayout
+        <EditText
+            android:id="@+id/etEmailRC"
             android:layout_width="320dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="27dp"
             android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:background="@drawable/rounded_edittext_solid_orange"
+            android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                úÁÉÍÓÚäëïöüÄËÏÖÜ"
+            android:drawablePadding="-44dp"
+            android:hint="Introduzca su e-mail"
+            android:inputType="textEmailAddress"
+            android:maxLength="60"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            style="@style/shadow5ET20sp" />
 
-            <EditText
-                android:id="@+id/etPass"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@drawable/rounded_edittext_solid_orange"
-                android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
+        <EditText
+            android:id="@+id/etPassRC"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="27dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_edittext_solid_orange"
+            android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
                 XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
-                android:drawableLeft="@drawable/ic_candado"
-                android:drawablePadding="-44dp"
-                android:hint="Contraseña"
-                android:inputType="textPassword"
-                android:maxLength="20"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                style="@style/shadow5ET20sp" />
+            android:drawablePadding="-44dp"
+            android:hint="Introduzca la nueva Contraseña"
+            android:inputType="textPassword"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            style="@style/shadow5ET20sp" />
 
-            <ImageView
-                android:id="@+id/imgPassL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/ic_visible_no" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/tvRehacerPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="22dp"
-            android:text="Ha olvidado la contraseña?"
-            android:textAlignment="textEnd"
-            android:textSize="13sp"
-            style="@style/shadow5TV17spNnoHint" />
-
-
-        <CheckBox
-            android:id="@+id/cbMantenerSesion"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
+        <EditText
+            android:id="@+id/etPassRERC"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="27dp"
             android:layout_gravity="center"
-            android:buttonTint="@color/naranjaflojo"
-            android:text="Mantener sesión iniciada"
-            android:textSize="18sp"
+            android:background="@drawable/rounded_edittext_solid_orange"
+            android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
+                XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+            android:drawablePadding="-44dp"
+            android:hint="Confirme la nueva Contraseña"
+            android:inputType="textPassword"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
             style="@style/shadow5ET20sp" />
 
     </LinearLayout>
@@ -126,22 +120,22 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnCrearCuenta"
+            android:id="@+id/btnVolverALoginRC"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:background="@drawable/rounded_button_gradient_orange"
-            android:text="CREAR\nCUENTA"
+            android:text="VOLVER\nAL LOGIN"
             android:textStyle="bold"
             style="@style/shadoweffect" />
 
         <Button
-            android:id="@+id/btnIniciarSesion"
+            android:id="@+id/btnGuardarCambios"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_marginLeft="80dp"
             android:background="@drawable/rounded_button_gradient_orange"
-            android:text="INICIAR\nSESION"
+            android:text="GUARDAR\nCAMBIOS"
             android:textStyle="bold"
             style="@style/shadoweffect" />
 

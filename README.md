@@ -81,6 +81,7 @@
     <li>Commit54. Fragment LOGROS acabado, lógica y diseño</li>
     <li>Commit55. Fragment COPIADESEGURIDAD acabado, lógica y diseño</li>
     <li>Commit56. Implementada BBDD en remoto(MySQL) y conexión(php)</li>
+    <li>Commit57. Últimos detalles antes de la tutoria, pre-Tribunal</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -212,12 +213,13 @@ la conexión y la insercción de datos. Se guarda los datos de la cuenta del Usu
 promueve a Usuario_Validado. Solucionado error en Perfil, la aplicacion deja de responder si
 intentamos guardar/actualizar la cuenta dos veces(era un error en un atributo que no se reseteaba
 adecuadamente</p>
-<h3>TASK</h3>
+<p>Commit57. Mejoras: a)Se añade un método con un pattern para verificar que "email del Perfil" es 
+válido. b)Se genera un script nuevo en .php que comprueba si el "email de Perfil" ya estaba 
+registrado. c)Se rehacen los diagramasUML, incluyendo los cambios de CopiasdeSeguridad. d)Se
+implementa la Activity I_Contrasenia que se encarga de cambiar la contraseña del Usuario, a demanda,
+si se pierde</p>
+<h3>MEJORAS</h3>
     <ul>
-    <li>Videos de Casos de Uso del Usuario_Validado</li>
-    <li>Al Documentar la aplicación, rehacer diagramasUML(CopiadeSeguridad)</li>
-    <li>Hay que poder cambiar la contraseña, a demanda del usuario y reponerla si se pierde</li>
-    <li>añadir snackbar, proposicion de Manolo</li>
-    <li>Revisar el cierre y el clear de: conectores(SQLiteDatabase), cursores(Cursor) y
-    contenedores(ContentValues)</li>
+    <li>añadir snackbar, proposicion de Manolo, se necesita especificar el layout donde se mostrara,
+    no es compatible sin poner toda la aplicación patas arriba</li>    
     </ul>
