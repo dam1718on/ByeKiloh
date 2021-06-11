@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.F_Bascula_Borrar">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="BORRAR BASCULA"
+            style="@style/shadow5TV17spNnoHint" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_edittext_solid_orange"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="10dp"
+                    android:text="SELECCIONE LA BASCULA A BORRAR:"
+                    android:textSize="11sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <Spinner
+                    android:id="@+id/spinBasculasB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:spinnerMode="dialog" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="BASCULA SELECCIONADA:"
+                    android:textSize="11sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <EditText
+                    android:id="@+id/etPesoUsuarioB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:digits=".0123456789"
+                    android:hint="Peso (ej. 999,99) [Kg]"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    style="@style/shadow5ET20sp" />
+
+                <EditText
+                    android:id="@+id/etAlturaUsuarioB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:digits=".0123456789"
+                    android:hint="Altura (ej. 9,99) [metros]"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    style="@style/shadow5ET20sp" />
+
+                <EditText
+                    android:id="@+id/etLugarBasculaB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                    úÁÉÍÓÚäëïöüÄËÏÖÜ"
+                    android:hint="Lugar báscula (ej. FARMACIA II)"
+                    android:maxLength="23"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    style="@style/shadow5ET20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="TAMBIÉN BORRARÁ LOS REGISTROS ASOCIADOS"
+                    android:textSize="10sp"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <Button
+                    android:id="@+id/btnBorrarBasculaB"
+                    android:layout_width="120dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_button_gradient_blue"
+                    android:text="BORRAR\nBASCULA"
+                    android:textStyle="bold"
+                    style="@style/shadoweffect" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

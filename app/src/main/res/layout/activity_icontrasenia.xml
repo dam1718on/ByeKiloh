@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/platino"
+    android:background="@drawable/fondo_contrasenia50y720x1280"
     android:orientation="vertical"
     tools:context=".activitys.I_Contrasenia">
 

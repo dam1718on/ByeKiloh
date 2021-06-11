@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_perfil50y720x1280"
+    android:orientation="vertical"
+    tools:context=".activitys.G_Perfil">
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="PERFIL DE:"
+    style="@style/shadow5TV17spNnoHint" />
+
+    <TextView
+        android:id="@+id/tvPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="- Perfil -"
+        style="@style/shadow5TV17spAnoHint" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_edittext_solid_orange"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/etNumeroTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:digits="0123456789"
+                    android:hint="Número teléfono (ej. 666 666 666)"
+                    android:maxLength="9"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    style="@style/shadow5ET20sp" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                        úÁÉÍÓÚäëïöüÄËÏÖÜ@_."
+                    android:hint="e-mail (ej. runner88@gmail.com)"
+                    android:maxLength="60"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    style="@style/shadow5ET20sp" />
+
+                <EditText
+                    android:id="@+id/etNombreUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                        úÁÉÍÓÚäëïöüÄËÏÖÜ,"
+                    android:hint="Nombre y Apellidos (ej. Eva Bull Gil)"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textSize="19sp"
+                    style="@style/shadow5ET20sp" />
+
+                <EditText
+                    android:id="@+id/etDireccionUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                        úÁÉÍÓÚäëïöüÄËÏÖÜ/,-ºª\."
+                    android:hint="Dirección (ej. C/ Laguna, 22 - Alcala)"
+                    android:maxLength="60"
+                    android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textSize="19sp"
+                    style="@style/shadow5ET20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Button
+                        android:id="@+id/btnGuardarCuenta"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rounded_button_gradient_blue"
+                        android:text="GUARDAR\nCUENTA"
+                        android:textStyle="bold"
+                        style="@style/shadoweffect" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btnValidarCuenta"
+                            android:layout_width="120dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rounded_button_gradient_orange"
+                            android:text="VALIDAR\nCUENTA"
+                            android:textStyle="bold"
+                            style="@style/shadoweffect" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnVolverAlMain4"
+                    android:layout_width="120dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_button_gradient_orange"
+                    android:text="VOLVER\nAL MAIN"
+                    android:textStyle="bold"
+                    style="@style/shadoweffect" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

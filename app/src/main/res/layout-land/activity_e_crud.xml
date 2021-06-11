@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/fondoCRUD"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_bascula50y720x1280"
+    android:orientation="vertical"
+    tools:context=".activitys.E_Crud">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/contenedorFragEjer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnVolverAlMain"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button_gradient_orange"
+            android:text="VOLVER A\nREGISTROS"
+            android:textStyle="bold"
+            style="@style/shadoweffect" />
+
+    </LinearLayout>
+
+</LinearLayout>

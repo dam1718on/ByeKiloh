@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_contrasenia50y720x1280"
+    android:orientation="vertical"
+    tools:context=".activitys.I_Contrasenia">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="RECUPERACIÓN DE CONTRASEÑA"
+        style="@style/shadow5TV17spAnoHint" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etUsuarioRC"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_edittext_solid_orange"
+                android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                    úÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawablePadding="-44dp"
+                android:hint="Introduzca su Usuario"
+                android:inputType=""
+                android:maxLength="15"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                style="@style/shadow5ET20sp" />
+
+            <EditText
+                android:id="@+id/etEmailRC"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="27dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_edittext_solid_orange"
+                android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
+                    úÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawablePadding="-44dp"
+                android:hint="Introduzca su e-mail"
+                android:inputType="textEmailAddress"
+                android:maxLength="60"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                style="@style/shadow5ET20sp" />
+
+            <EditText
+                android:id="@+id/etPassRC"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="27dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_edittext_solid_orange"
+                android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
+                    XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawablePadding="-44dp"
+                android:hint="Introduzca la nueva Contraseña"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                style="@style/shadow5ET20sp" />
+
+            <EditText
+                android:id="@+id/etPassRERC"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="27dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_edittext_solid_orange"
+                android:digits="-_.:;,@0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVW
+                    XYZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ"
+                android:drawablePadding="-44dp"
+                android:hint="Confirme la nueva Contraseña"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                style="@style/shadow5ET20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btnVolverALoginRC"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rounded_button_gradient_orange"
+                        android:text="VOLVER\nAL LOGIN"
+                        android:textStyle="bold"
+                        style="@style/shadoweffect" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btnGuardarCambios"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rounded_button_gradient_orange"
+                        android:text="GUARDAR\nCAMBIOS"
+                        android:textStyle="bold"
+                        style="@style/shadoweffect" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

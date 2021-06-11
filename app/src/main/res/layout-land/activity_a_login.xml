@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,43 +10,23 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="122dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button_gradient_orange">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/byekilohlogobyn" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="355dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            style="@style/shadow5TV17spAnoHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="LOGIN" />
+            android:layout_gravity="center"
+            android:text="LOGIN"
+            style="@style/shadow5TV17spAnoHint" />
 
         <EditText
             android:id="@+id/etUsuario"
-            style="@style/shadow5ET20sp"
             android:layout_width="320dp"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:layout_marginTop="55dp"
             android:background="@drawable/rounded_edittext_solid_orange"
             android:digits="0123456789abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíó
             úÁÉÍÓÚäëïöüÄËÏÖÜ"
@@ -56,18 +37,18 @@
             android:maxLength="15"
             android:maxLines="1"
             android:paddingLeft="10dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="@style/shadow5ET20sp" />
 
         <RelativeLayout
             android:layout_width="320dp"
             android:layout_height="55dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/etPass"
-                style="@style/shadow5ET20sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -81,68 +62,86 @@
                 android:maxLength="20"
                 android:maxLines="1"
                 android:paddingLeft="10dp"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                style="@style/shadow5ET20sp" />
 
             <ImageView
                 android:id="@+id/imgPassL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
                 android:background="@drawable/ic_visible_no" />
 
         </RelativeLayout>
 
         <TextView
             android:id="@+id/tvRehacerPass"
-            style="@style/shadow5TV17spNnoHint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="22dp"
             android:text="Ha olvidado la contraseña?"
-            android:textAlignment="textEnd"
-            android:textSize="13sp" />
+            android:textAlignment="center"
+            android:textSize="13sp"
+            style="@style/shadow5TV17spNnoHint" />
 
 
         <CheckBox
             android:id="@+id/cbMantenerSesion"
-            style="@style/shadow5ET20sp"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_marginTop="15dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
             android:buttonTint="@color/naranjaflojo"
             android:text="Mantener sesión iniciada"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            style="@style/shadow5ET20sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnCrearCuenta"
-            style="@style/shadoweffect"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/rounded_button_gradient_orange"
-            android:text="CREAR\nCUENTA"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnIniciarSesion"
-            style="@style/shadoweffect"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="80dp"
-            android:background="@drawable/rounded_button_gradient_orange"
-            android:text="INICIAR\nSESION"
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnCrearCuenta"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button_gradient_orange"
+                android:text="CREAR\nCUENTA"
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnIniciarSesion"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button_gradient_orange"
+                android:text="INICIAR\nSESION"
+                android:textStyle="bold"
+                style="@style/shadoweffect" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

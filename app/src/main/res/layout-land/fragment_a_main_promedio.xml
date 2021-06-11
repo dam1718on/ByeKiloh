@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/platino"
+    tools:context=".fragments.A_Main_Promedio">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_promedio50y720x1280"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center"
+            android:text="PROMEDIO"
+            style="@style/shadow5TV17spNnoHint" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:text="distancia\nrecorrida"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:text="tiempo\nempleado"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:text="inclinación\nterreno"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:text="velocidad\nmedia"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:text="peso\nusuario"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:text="imc"
+                    android:textSize="15sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="min"
+                    android:textSize="16sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:id="@+id/tvDistanciaMin"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+
+                <TextView
+                    android:id="@+id/tvTiempodMin"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvInclinacionMin"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvVelocidadMin"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvPesoPMin"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvImcPMin"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="max"
+                    android:textSize="16sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:id="@+id/tvDistanciaMax"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvTiempodMax"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvInclinacionMax"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvVelocidadMax"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvPesoPMax"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvImcPMax"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="media"
+                    android:textSize="16sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:id="@+id/tvDistanciaMedia"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvTiempodMedia"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvInclinacionMedia"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvVelocidadMedia"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvPesoPMedia"
+                    android:layout_width="85dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+                <TextView
+                    android:id="@+id/tvImcPMedia"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="255dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_gravity="end"
+                    android:text="nº total de Ejercicios:"
+                    android:textSize="16sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:id="@+id/tvEjerCount"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="255dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="125dp"
+                    android:layout_gravity="end"
+                    android:text="nº total de Básculas:"
+                    android:textSize="16sp"
+                    style="@style/shadow5TV17spAnoHint" />
+
+                <TextView
+                    android:id="@+id/tvPesaCount"
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:text="xXx"
+                    style="@style/shadow5TV17spNnoHint" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

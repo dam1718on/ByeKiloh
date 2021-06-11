@@ -82,6 +82,7 @@
     <li>Commit55. Fragment COPIADESEGURIDAD acabado, lógica y diseño</li>
     <li>Commit56. Implementada BBDD en remoto(MySQL) y conexión(php)</li>
     <li>Commit57. Últimos detalles antes de la tutoria, pre-Tribunal</li>
+    <li>Commit58. Últimos detalles antes de Presentación-Tribunal</li>
     </ul>
 <h3>DONE</h3>
 <p>Commit16. Restricciones a los digitos EditText patterns insertar, consultar datos implementado
@@ -218,8 +219,13 @@ válido. b)Se genera un script nuevo en .php que comprueba si el "email de Perfi
 registrado. c)Se rehacen los diagramasUML, incluyendo los cambios de CopiasdeSeguridad. d)Se
 implementa la Activity I_Contrasenia que se encarga de cambiar la contraseña del Usuario, a demanda,
 si se pierde</p>
+<p>Commit58. Añadido fondo para la Activity I.Contrasenia, añadidas algunas cuestiones a las FAQ's 
+de la aplicación y terminada la vista apaisada(Landscape) de los layouts</p>
 <h3>MEJORAS</h3>
     <ul>
-    <li>añadir snackbar, proposicion de Manolo, se necesita especificar el layout donde se mostrara,
-    no es compatible sin poner toda la aplicación patas arriba</li>    
+    <li>Añadir SnackBar, proposición de Manolo. Evaluo el SnackBar y me gusta la idea, la deshecho
+    debido a que tengo que introducirle el layout donde se visualizara, al contructor. Parece
+    interesante de cara a nuevos proyetos (también permite usarse como evento "alertDialog"). Para
+    byeKiloh he usado la clase Mensaje, hecha por mi, con un Toast personalizado que puedo
+    instanciar desde cualquier lugar y situación</li>
     </ul>
